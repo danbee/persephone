@@ -1,0 +1,3 @@
+[submodule "libmpdclient"]
+	path = libmpdclient
+	url = https://github.com/MusicPlayerDaemon/libmpdclient
