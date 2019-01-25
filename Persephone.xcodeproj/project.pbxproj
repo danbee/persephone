@@ -64,7 +64,7 @@
 		E40786392110CE70006887B1 /* PersephoneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersephoneUITests.swift; sourceTree = "<group>"; };
 		E407863B2110CE70006887B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E41B22BF21FB6BBA00D544F6 /* libmpdclient.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libmpdclient.2.dylib; path = libmpdclient/output/libmpdclient.2.dylib; sourceTree = "<group>"; };
-		E41B22C321FB6EFA00D544F6 /* Persephone-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Persephone-Bridging-Header.h"; sourceTree = "<group>"; };
+		E41B22C421FB715A00D544F6 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		E465049921E94DF500A70F4C /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,9 +123,9 @@
 				E407861F2110CE70006887B1 /* Assets.xcassets */,
 				E40786212110CE70006887B1 /* Main.storyboard */,
 				E465049921E94DF500A70F4C /* WindowController.swift */,
-				E41B22C321FB6EFA00D544F6 /* Persephone-Bridging-Header.h */,
 				E40786242110CE70006887B1 /* Info.plist */,
 				E40786252110CE70006887B1 /* Persephone.entitlements */,
+				E41B22C421FB715A00D544F6 /* module.modulemap */,
 			);
 			path = Persephone;
 			sourceTree = "<group>";
@@ -457,7 +457,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = BDEE7ZBFZ3;
-				HEADER_SEARCH_PATHS = libmpdclient/include;
 				INFOPLIST_FILE = Persephone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -469,8 +468,11 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.danbarber.Persephone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Persephone/Persephone-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					libmpdclient/include,
+					Persephone,
+				);
 				USER_HEADER_SEARCH_PATHS = libmpdclient/output;
 			};
 			name = Debug;
@@ -483,7 +485,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = BDEE7ZBFZ3;
-				HEADER_SEARCH_PATHS = libmpdclient/include;
 				INFOPLIST_FILE = Persephone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -495,8 +496,11 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.danbarber.Persephone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Persephone/Persephone-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					libmpdclient/include,
+					Persephone,
+				);
 				USER_HEADER_SEARCH_PATHS = libmpdclient/output;
 			};
 			name = Release;

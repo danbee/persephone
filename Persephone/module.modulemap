@@ -1,0 +1,4 @@
+module mpdclient [system] {
+  umbrella "mpd"
+  export *
+}
