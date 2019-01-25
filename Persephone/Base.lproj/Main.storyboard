@@ -693,7 +693,6 @@
                         <toolbar key="toolbar" implicitIdentifier="33DCB92B-74AF-496A-99FE-1F88002CB88A" autosavesConfiguration="NO" displayMode="iconOnly" sizeMode="regular" id="eNB-TI-KUS">
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="mhg-16-CNM"/>
-                                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="NWn-Bn-Qn8"/>
                                 <toolbarItem implicitItemIdentifier="2D01DD0F-DDD1-411E-9270-20E2B5B07FC2" label="Controls" paletteLabel="Controls" sizingBehavior="auto" id="p3r-ty-Pxf">
                                     <nil key="toolTip"/>
                                     <segmentedControl key="view" verticalHuggingPriority="750" id="Bbf-C6-1Gu">
@@ -705,13 +704,15 @@
                                                 <segment image="prevTrackButton" width="32"/>
                                                 <segment image="playButton" width="48" tag="1"/>
                                                 <segment image="stopButton" width="32"/>
-                                                <segment image="nextTrackButton" width="32">
-                                                    <nil key="label"/>
-                                                </segment>
+                                                <segment image="nextTrackButton" width="32"/>
                                             </segments>
+                                            <connections>
+                                                <action selector="handleTransportControl:" target="B8D-0N-5wS" id="HTN-5E-y75"/>
+                                            </connections>
                                         </segmentedCell>
                                     </segmentedControl>
                                 </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="9ol-aR-mzv"/>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
                                 <toolbarItem reference="p3r-ty-Pxf"/>
@@ -762,13 +763,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="26" horizontalPageScroll="10" verticalLineScroll="26" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3o-nF-NN7">
+                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3o-nF-NN7">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                 <clipView key="contentView" drawsBackground="NO" id="WI8-Pw-03L">
                                     <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="16" outlineTableColumn="0Co-uF-CCB" id="jEJ-jg-fll">
+                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="16" outlineTableColumn="0Co-uF-CCB" id="jEJ-jg-fll">
                                             <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>

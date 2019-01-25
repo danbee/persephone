@@ -7,7 +7,6 @@
 //
 
 import Cocoa
-import mpdclient
 
 class ViewController: NSViewController {
   override func viewDidLoad() {

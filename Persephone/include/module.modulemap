@@ -1,0 +1,5 @@
+module mpdclient {
+  umbrella header "mpd/client.h"
+  export *
+  module * { export * }
+}
