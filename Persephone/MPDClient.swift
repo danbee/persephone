@@ -12,40 +12,93 @@ import mpdclient
 class MPDClient {
   let HOST = "localhost"
   let PORT: UInt32 = 6600
+
   private let connection: OpaquePointer
   private var status: OpaquePointer?
+
+  private let commandQueue = DispatchQueue(label: "commandQueue")
+  private var commandQueued = false
+
+  enum TransportCommand {
+    case prevTrack, nextTrack, playPause, stop
+  }
 
   init?() {
     guard let connection = mpd_connection_new(HOST, PORT, 0)
       else { return nil }
 
-    mpd_connection_set_keepalive(connection, true)
+    guard let status = mpd_run_status(connection)
+      else { return nil }
 
     self.connection = connection
+    self.status = status
   }
 
   deinit {
+    mpd_status_free(status)
     mpd_connection_free(connection)
   }
 
-  func getStatus() {
-    status = mpd_status_begin()
+  func fetchStatus() {
+    status = mpd_run_status(connection)
+    idle()
+  }
+
+  func getState() {
+    print(mpd_status_get_state(status))
+    idle()
   }
 
   func playPause() {
-    mpd_run_toggle_pause(connection)
+    queueCommand(command: .playPause)
   }
 
   func stop() {
-    mpd_run_stop(connection)
+    queueCommand(command: .stop)
   }
 
   func prevTrack() {
-    mpd_run_previous(connection)
+    queueCommand(command: .prevTrack)
   }
 
   func nextTrack() {
-    mpd_run_next(connection)
+    queueCommand(command: .nextTrack)
+  }
+
+  func queueCommand(command: TransportCommand) {
+    commandQueued = true
+    noIdle()
+    commandQueue.async { [unowned self] in
+      self.sendCommand(command: command)
+      self.commandQueued = false
+    }
+    idle()
+  }
+
+  func sendCommand(command: TransportCommand) {
+    switch command {
+    case .prevTrack:
+      mpd_run_previous(connection)
+    case .nextTrack:
+      mpd_run_next(connection)
+    case .stop:
+      mpd_run_stop(connection)
+    case .playPause:
+      mpd_run_toggle_pause(connection)
+    }
+  }
+
+  func noIdle() {
+    mpd_send_noidle(connection)
+  }
+
+  func idle() {
+    commandQueue.async { [unowned self] in
+      mpd_send_idle(self.connection)
+      mpd_recv_idle(self.connection, true)
+
+      if !self.commandQueued { self.idle() }
+    }
   }
 
   func getLastErrorMessage() -> String! {

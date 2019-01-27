@@ -20,8 +20,14 @@ class WindowController: NSWindowController {
   override func windowDidLoad() {
     super.windowDidLoad()
     window?.titleVisibility = .hidden
+
+    mpdInit()
+  }
+
+  func mpdInit() {
     mpdClient = MPDClient()
-    mpdClient?.getStatus()
+    mpdClient?.idle()
+    // let state = mpdClient?.getState()
   }
 
   @IBAction func handleTransportControl(_ sender: NSSegmentedControl) {
@@ -37,8 +43,6 @@ class WindowController: NSWindowController {
       mpdClient?.stop()
     case .nextTrack:
       mpdClient?.nextTrack()
-    default:
-      break
     }
   }
 }
