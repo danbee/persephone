@@ -26,8 +26,7 @@ class WindowController: NSWindowController {
 
   func mpdInit() {
     mpdClient = MPDClient()
-    mpdClient?.idle()
-    // let state = mpdClient?.getState()
+    mpdClient?.connect()
   }
 
   @IBAction func handleTransportControl(_ sender: NSSegmentedControl) {

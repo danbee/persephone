@@ -13,40 +13,47 @@ class MPDClient {
   let HOST = "localhost"
   let PORT: UInt32 = 6600
 
-  private let connection: OpaquePointer
+  private var connection: OpaquePointer?
   private var status: OpaquePointer?
 
   private let commandQueue = DispatchQueue(label: "commandQueue")
   private var commandQueued = false
 
-  enum TransportCommand {
-    case prevTrack, nextTrack, playPause, stop
+  enum Command {
+    case prevTrack, nextTrack, playPause, stop, fetchStatus
   }
 
-  init?() {
+  enum State: UInt32 {
+    case unknown = 0
+    case stopped = 1
+    case playing = 2
+    case paused = 3
+  }
+
+  func connect() {
     guard let connection = mpd_connection_new(HOST, PORT, 0)
-      else { return nil }
+      else { return }
 
     guard let status = mpd_run_status(connection)
-      else { return nil }
+      else { return }
 
     self.connection = connection
     self.status = status
+    idle()
   }
 
-  deinit {
+  func disconnect() {
     mpd_status_free(status)
     mpd_connection_free(connection)
   }
 
   func fetchStatus() {
-    status = mpd_run_status(connection)
-    idle()
+    sendCommand(command: .fetchStatus)
   }
 
-  func getState() {
-    print(mpd_status_get_state(status))
-    idle()
+  func getState() -> State {
+    let state = mpd_status_get_state(status)
+    return State(rawValue: state.rawValue)!
   }
 
   func playPause() {
@@ -65,7 +72,7 @@ class MPDClient {
     queueCommand(command: .nextTrack)
   }
 
-  func queueCommand(command: TransportCommand) {
+  func queueCommand(command: Command) {
     commandQueued = true
     noIdle()
     commandQueue.async { [unowned self] in
@@ -75,8 +82,10 @@ class MPDClient {
     idle()
   }
 
-  func sendCommand(command: TransportCommand) {
+  func sendCommand(command: Command) {
     switch command {
+
+    // Transport commands
     case .prevTrack:
       mpd_run_previous(connection)
     case .nextTrack:
@@ -84,6 +93,20 @@ class MPDClient {
     case .stop:
       mpd_run_stop(connection)
     case .playPause:
+      sendPlay()
+
+    case .fetchStatus:
+      guard let status = mpd_run_status(connection) else { break }
+      self.status = status
+    }
+
+    print(getLastErrorMessage()!)
+  }
+
+  func sendPlay() {
+    if getState() == .stopped {
+      mpd_run_play(connection)
+    } else {
       mpd_run_toggle_pause(connection)
     }
   }
@@ -97,7 +120,12 @@ class MPDClient {
       mpd_send_idle(self.connection)
       mpd_recv_idle(self.connection, true)
 
-      if !self.commandQueued { self.idle() }
+      if !self.commandQueued {
+        print("Fetching status")
+        self.fetchStatus()
+        print(self.getState())
+        self.idle()
+      }
     }
   }
 
@@ -110,6 +138,6 @@ class MPDClient {
       return String(cString: errorMessage)
     }
 
-    return "no error message"
+    return "no error"
   }
 }
