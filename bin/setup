@@ -1,0 +1,6 @@
+#!/bin/sh
+
+cd libmpdclient && \
+  meson . output && \
+  ninja -C output
+cd ..
