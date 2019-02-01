@@ -1,5 +1,7 @@
 #!/bin/sh
 
+git submodule update --init
+
 cd libmpdclient && \
   meson . output && \
   ninja -C output
