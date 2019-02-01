@@ -87,11 +87,11 @@ class MPDClient {
 
     // Transport commands
     case .prevTrack:
-      mpd_run_previous(connection)
+      sendPreviousTrack()
     case .nextTrack:
-      mpd_run_next(connection)
+      sendNextTrack()
     case .stop:
-      mpd_run_stop(connection)
+      sendStop()
     case .playPause:
       sendPlay()
 
@@ -101,6 +101,22 @@ class MPDClient {
     }
 
     print(getLastErrorMessage()!)
+  }
+
+  func sendNextTrack() {
+    if getState() == .playing {
+      mpd_run_next(connection)
+    }
+  }
+
+  func sendPreviousTrack() {
+    if getState() == .playing {
+      mpd_run_previous(connection)
+    }
+  }
+
+  func sendStop() {
+    mpd_run_stop(connection)
   }
 
   func sendPlay() {
