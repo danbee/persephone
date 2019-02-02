@@ -37,7 +37,6 @@ class MPDClient {
   }
 
   init(withDelegate delegate: MPDClientDelegate?) {
-    print(delegate)
     self.delegate = delegate
   }
 
