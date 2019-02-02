@@ -713,9 +713,25 @@
                                     </segmentedControl>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="9ol-aR-mzv"/>
+                                <toolbarItem implicitItemIdentifier="6D294101-04FF-4E2A-98A7-77A48E2296CD" label="" paletteLabel="" sizingBehavior="auto" id="FoD-o2-4f2">
+                                    <nil key="toolTip"/>
+                                    <textField key="view" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="KVt-e7-7I5">
+                                        <rect key="frame" x="0.0" y="14" width="37" height="17"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="bCv-8Z-qfx">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <connections>
+                                            <action selector="stateLabel:" target="B8D-0N-5wS" id="YXt-Ni-yie"/>
+                                        </connections>
+                                    </textField>
+                                </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
                                 <toolbarItem reference="p3r-ty-Pxf"/>
+                                <toolbarItem reference="FoD-o2-4f2"/>
                             </defaultToolbarItems>
                         </toolbar>
                         <connections>
@@ -723,6 +739,7 @@
                         </connections>
                     </window>
                     <connections>
+                        <outlet property="stateLabel" destination="KVt-e7-7I5" id="xMD-Iq-CSh"/>
                         <segue destination="fnD-7K-pHK" kind="relationship" relationship="window.shadowedContentViewController" id="fQQ-kB-KVc"/>
                     </connections>
                 </windowController>
@@ -755,10 +772,10 @@
             </objects>
             <point key="canvasLocation" x="74" y="677"/>
         </scene>
-        <!--View Controller-->
+        <!--Queue Controller-->
         <scene sceneID="QcX-dC-cTZ">
             <objects>
-                <viewController id="KIP-rq-4dM" sceneMemberID="viewController">
+                <viewController id="KIP-rq-4dM" customClass="QueueController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="2su-YT-hba">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>

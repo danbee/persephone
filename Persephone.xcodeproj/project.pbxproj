@@ -17,6 +17,8 @@
 		E41B22C121FB6C3300D544F6 /* libmpdclient.2.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = E41B22BF21FB6BBA00D544F6 /* libmpdclient.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		E41B22C621FB932700D544F6 /* MPDClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41B22C521FB932700D544F6 /* MPDClient.swift */; };
 		E465049A21E94DF500A70F4C /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E465049921E94DF500A70F4C /* WindowController.swift */; };
+		E4E8CC902204EC7F0024217A /* MPDClientDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC8F2204EC7F0024217A /* MPDClientDelegate.swift */; };
+		E4E8CC922204F4B80024217A /* QueueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC912204F4B80024217A /* QueueController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +105,8 @@
 		E41B22EA21FB966C00D544F6 /* queue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = queue.h; sourceTree = "<group>"; };
 		E41B22EB21FB966C00D544F6 /* playlist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = playlist.h; sourceTree = "<group>"; };
 		E465049921E94DF500A70F4C /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		E4E8CC8F2204EC7F0024217A /* MPDClientDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDClientDelegate.swift; sourceTree = "<group>"; };
+		E4E8CC912204F4B80024217A /* QueueController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,9 +164,11 @@
 				E407861D2110CE6E006887B1 /* ViewController.swift */,
 				E407861F2110CE70006887B1 /* Assets.xcassets */,
 				E40786212110CE70006887B1 /* Main.storyboard */,
+				E4E8CC912204F4B80024217A /* QueueController.swift */,
 				E465049921E94DF500A70F4C /* WindowController.swift */,
 				E40786242110CE70006887B1 /* Info.plist */,
 				E40786252110CE70006887B1 /* Persephone.entitlements */,
+				E4E8CC8F2204EC7F0024217A /* MPDClientDelegate.swift */,
 				E41B22C521FB932700D544F6 /* MPDClient.swift */,
 			);
 			path = Persephone;
@@ -385,6 +391,8 @@
 				E465049A21E94DF500A70F4C /* WindowController.swift in Sources */,
 				E41B22C621FB932700D544F6 /* MPDClient.swift in Sources */,
 				E407861C2110CE6E006887B1 /* AppDelegate.swift in Sources */,
+				E4E8CC902204EC7F0024217A /* MPDClientDelegate.swift in Sources */,
+				E4E8CC922204F4B80024217A /* QueueController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

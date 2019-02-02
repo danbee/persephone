@@ -8,19 +8,17 @@
 
 import Cocoa
 
+extension MPDClient {
+  static let shared = MPDClient(notificationQueue: .main)
+}
+
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
-
-
   func applicationDidFinishLaunching(_ aNotification: Notification) {
-    // Insert code here to initialize your application
+    MPDClient.shared.connect()
   }
 
   func applicationWillTerminate(_ aNotification: Notification) {
-    // Insert code here to tear down your application
+    MPDClient.shared.disconnect()
   }
-
-
 }
-

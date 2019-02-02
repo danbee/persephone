@@ -9,24 +9,32 @@
 import Cocoa
 
 class WindowController: NSWindowController {
+  let mpdClient = MPDClient.shared
+
   enum TransportAction: Int {
     case prevTrack = 0
     case playPause = 1
     case stop = 2
     case nextTrack = 3
   }
-  var mpdClient: MPDClient?
 
   override func windowDidLoad() {
     super.windowDidLoad()
     window?.titleVisibility = .hidden
 
-    mpdInit()
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(stateChanged(_:)),
+      name: MPDClient.stateChanged,
+      object: mpdClient
+    )
   }
 
-  func mpdInit() {
-    mpdClient = MPDClient()
-    mpdClient?.connect()
+  @objc func stateChanged(_ notification: Notification) {
+    guard let state = notification.userInfo?[MPDClient.stateKey] as? MPDClient.State
+      else { return }
+
+    stateLabel.stringValue = "\(state)".localizedCapitalized
   }
 
   @IBAction func handleTransportControl(_ sender: NSSegmentedControl) {
@@ -35,13 +43,15 @@ class WindowController: NSWindowController {
 
     switch transportAction {
     case .prevTrack:
-      mpdClient?.prevTrack()
+      mpdClient.prevTrack()
     case .playPause:
-      mpdClient?.playPause()
+      mpdClient.playPause()
     case .stop:
-      mpdClient?.stop()
+      mpdClient.stop()
     case .nextTrack:
-      mpdClient?.nextTrack()
+      mpdClient.nextTrack()
     }
   }
+
+  @IBOutlet var stateLabel: NSTextField!
 }

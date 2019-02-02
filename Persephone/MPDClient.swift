@@ -10,8 +10,14 @@ import Foundation
 import mpdclient
 
 class MPDClient {
+  static let stateChanged = Notification.Name("MPDClientStateChanged")
+  static let queueChanged = Notification.Name("MPDClientQueueChanged")
+
+  static let stateKey = "state"
+
   let HOST = "localhost"
   let PORT: UInt32 = 6600
+  let notificationQueue: DispatchQueue
 
   private var connection: OpaquePointer?
   private var status: OpaquePointer?
@@ -28,6 +34,10 @@ class MPDClient {
     case stopped = 1
     case playing = 2
     case paused = 3
+  }
+
+  init(notificationQueue: DispatchQueue) {
+    self.notificationQueue = notificationQueue
   }
 
   func connect() {
@@ -99,8 +109,6 @@ class MPDClient {
       guard let status = mpd_run_status(connection) else { break }
       self.status = status
     }
-
-    print(getLastErrorMessage()!)
   }
 
   func sendNextTrack() {
@@ -137,9 +145,15 @@ class MPDClient {
       mpd_recv_idle(self.connection, true)
 
       if !self.commandQueued {
-        print("Fetching status")
         self.fetchStatus()
-        print(self.getState())
+        let state = self.getState()
+        self.notificationQueue.async {
+          NotificationCenter.default.post(
+            name: MPDClient.stateChanged,
+            object: self,
+            userInfo: [MPDClient.stateKey: state]
+          )
+        }
         self.idle()
       }
     }
