@@ -33,6 +33,20 @@ class WindowController: NSWindowController {
       else { return }
 
     stateLabel.stringValue = "\(state)".localizedCapitalized
+    setTransportControlState(state)
+  }
+
+  func setTransportControlState(_ state: MPDClient.State) {
+    transportControls.setEnabled([.playing, .paused].contains(state), forSegment: 0)
+    transportControls.setEnabled([.playing, .paused, .stopped].contains(state), forSegment: 1)
+    transportControls.setEnabled([.playing, .paused].contains(state), forSegment: 2)
+    transportControls.setEnabled([.playing, .paused].contains(state), forSegment: 3)
+
+    if [.paused, .stopped, .unknown].contains(state) {
+      transportControls.setImage(NSImage(named: NSImage.Name(rawValue: "playButton")), forSegment: 1)
+    } else {
+      transportControls.setImage(NSImage(named: NSImage.Name(rawValue: "pauseButton")), forSegment: 1)
+    }
   }
 
   @IBAction func handleTransportControl(_ sender: NSSegmentedControl) {
@@ -52,4 +66,5 @@ class WindowController: NSWindowController {
   }
 
   @IBOutlet var stateLabel: NSTextField!
+  @IBOutlet var transportControls: NSSegmentedCell!
 }

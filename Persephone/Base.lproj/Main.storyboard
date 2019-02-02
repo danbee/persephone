@@ -696,7 +696,7 @@
                                 <toolbarItem implicitItemIdentifier="2D01DD0F-DDD1-411E-9270-20E2B5B07FC2" label="Controls" paletteLabel="Controls" sizingBehavior="auto" id="p3r-ty-Pxf">
                                     <nil key="toolTip"/>
                                     <segmentedControl key="view" verticalHuggingPriority="750" id="Bbf-C6-1Gu">
-                                        <rect key="frame" x="0.0" y="14" width="153" height="23"/>
+                                        <rect key="frame" x="0.0" y="14" width="153" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedRounded" trackingMode="momentary" id="EBk-sD-nG7">
                                             <font key="font" metaFont="system"/>
@@ -740,6 +740,7 @@
                     </window>
                     <connections>
                         <outlet property="stateLabel" destination="KVt-e7-7I5" id="xMD-Iq-CSh"/>
+                        <outlet property="transportControls" destination="EBk-sD-nG7" id="yOo-58-Fby"/>
                         <segue destination="fnD-7K-pHK" kind="relationship" relationship="window.shadowedContentViewController" id="fQQ-kB-KVc"/>
                     </connections>
                 </windowController>
