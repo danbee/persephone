@@ -9,8 +9,6 @@
 import Cocoa
 
 class WindowController: NSWindowController {
-  let mpdClient = MPDClient.shared
-
   enum TransportAction: Int {
     case prevTrack = 0
     case playPause = 1
@@ -26,7 +24,7 @@ class WindowController: NSWindowController {
       self,
       selector: #selector(stateChanged(_:)),
       name: MPDClient.stateChanged,
-      object: mpdClient
+      object: AppDelegate.mpdClient
     )
   }
 
@@ -43,13 +41,13 @@ class WindowController: NSWindowController {
 
     switch transportAction {
     case .prevTrack:
-      mpdClient.prevTrack()
+      AppDelegate.mpdClient.prevTrack()
     case .playPause:
-      mpdClient.playPause()
+      AppDelegate.mpdClient.playPause()
     case .stop:
-      mpdClient.stop()
+      AppDelegate.mpdClient.stop()
     case .nextTrack:
-      mpdClient.nextTrack()
+      AppDelegate.mpdClient.nextTrack()
     }
   }
 

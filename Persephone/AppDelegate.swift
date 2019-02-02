@@ -8,17 +8,17 @@
 
 import Cocoa
 
-extension MPDClient {
-  static let shared = MPDClient(notificationQueue: .main)
-}
-
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+  static let mpdClient = MPDClient(
+    withDelegate: MPDClientNotificationHandler() as MPDClientDelegate
+  )
+ 
   func applicationDidFinishLaunching(_ aNotification: Notification) {
-    MPDClient.shared.connect()
+    AppDelegate.mpdClient.connect()
   }
 
   func applicationWillTerminate(_ aNotification: Notification) {
-    MPDClient.shared.disconnect()
+    AppDelegate.mpdClient.disconnect()
   }
 }

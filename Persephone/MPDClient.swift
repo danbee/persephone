@@ -10,6 +10,7 @@ import Foundation
 import mpdclient
 
 class MPDClient {
+  var delegate: MPDClientDelegate?
   static let stateChanged = Notification.Name("MPDClientStateChanged")
   static let queueChanged = Notification.Name("MPDClientQueueChanged")
 
@@ -17,7 +18,6 @@ class MPDClient {
 
   let HOST = "localhost"
   let PORT: UInt32 = 6600
-  let notificationQueue: DispatchQueue
 
   private var connection: OpaquePointer?
   private var status: OpaquePointer?
@@ -36,8 +36,9 @@ class MPDClient {
     case paused = 3
   }
 
-  init(notificationQueue: DispatchQueue) {
-    self.notificationQueue = notificationQueue
+  init(withDelegate delegate: MPDClientDelegate?) {
+    print(delegate)
+    self.delegate = delegate
   }
 
   func connect() {
@@ -146,14 +147,7 @@ class MPDClient {
 
       if !self.commandQueued {
         self.fetchStatus()
-        let state = self.getState()
-        self.notificationQueue.async {
-          NotificationCenter.default.post(
-            name: MPDClient.stateChanged,
-            object: self,
-            userInfo: [MPDClient.stateKey: state]
-          )
-        }
+        self.delegate?.didUpdateState(mpdClient: self, state: self.getState())
         self.idle()
       }
     }
