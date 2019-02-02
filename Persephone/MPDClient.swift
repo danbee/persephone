@@ -50,16 +50,24 @@ class MPDClient {
 
     self.connection = connection
     self.status = status
+    self.initializeStatus()
     idle()
   }
 
   func disconnect() {
-    mpd_status_free(status)
-    mpd_connection_free(connection)
+    noIdle()
+    commandQueue.async { [unowned self] in
+      mpd_status_free(self.status)
+      mpd_connection_free(self.connection)
+    }
   }
 
   func fetchStatus() {
     sendCommand(command: .fetchStatus)
+  }
+
+  func initializeStatus() {
+    self.delegate?.didUpdateState(mpdClient: self, state: self.getState())
   }
 
   func getState() -> State {

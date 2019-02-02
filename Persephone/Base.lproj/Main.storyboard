@@ -716,9 +716,9 @@
                                 <toolbarItem implicitItemIdentifier="6D294101-04FF-4E2A-98A7-77A48E2296CD" label="" paletteLabel="" sizingBehavior="auto" id="FoD-o2-4f2">
                                     <nil key="toolTip"/>
                                     <textField key="view" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="KVt-e7-7I5">
-                                        <rect key="frame" x="0.0" y="14" width="37" height="17"/>
+                                        <rect key="frame" x="0.0" y="14" width="72" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="bCv-8Z-qfx">
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="stateLabel" id="bCv-8Z-qfx">
                                             <font key="font" usesAppearanceFont="YES"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
