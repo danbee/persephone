@@ -104,13 +104,13 @@ class MPDClient {
   }
 
   func sendNextTrack() {
-    if getState() == .playing {
+    if [.playing, .paused].contains(getState()) {
       mpd_run_next(connection)
     }
   }
 
   func sendPreviousTrack() {
-    if getState() == .playing {
+    if [.playing, .paused].contains(getState()) {
       mpd_run_previous(connection)
     }
   }
