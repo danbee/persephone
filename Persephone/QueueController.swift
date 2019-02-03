@@ -15,6 +15,8 @@ class QueueController: NSViewController, NSOutlineViewDataSource, NSOutlineViewD
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    queueView.columnAutoresizingStyle = .uniformColumnAutoresizingStyle
+
     NotificationCenter.default.addObserver(
       self,
       selector: #selector(queueChanged(_:)),
@@ -47,14 +49,28 @@ class QueueController: NSViewController, NSOutlineViewDataSource, NSOutlineViewD
   func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
     guard let song = item as? MPDClient.Song else { return nil }
 
-    let tableView = outlineView.makeView(
-      withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "songItemCell"),
-      owner: self
-    ) as! NSTableCellView
+    switch tableColumn?.identifier.rawValue {
+    case "songTitleColumn":
+      let cellView = outlineView.makeView(
+        withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "songTitleCell"),
+        owner: self
+      ) as! NSTableCellView
 
-    tableView.textField?.stringValue = "\(song.getTag(MPD_TAG_TITLE)) - \(song.getTag(MPD_TAG_ARTIST))"
+      cellView.textField?.stringValue = song.getTag(MPD_TAG_TITLE)
 
-    return tableView
+      return cellView
+    case "songArtistColumn":
+      let cellView = outlineView.makeView(
+        withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "songArtistCell"),
+        owner: self
+      ) as! NSTableCellView
+      
+      cellView.textField?.stringValue = song.getTag(MPD_TAG_ARTIST)
+
+      return cellView
+    default:
+      return nil
+    }
   }
 
   @IBOutlet var queueView: NSOutlineView!
