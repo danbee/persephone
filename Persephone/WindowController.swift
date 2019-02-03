@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import mpdclient
 
 class WindowController: NSWindowController {
   enum TransportAction: Int {
@@ -29,20 +30,19 @@ class WindowController: NSWindowController {
   }
 
   @objc func stateChanged(_ notification: Notification) {
-    guard let state = notification.userInfo?[MPDClient.stateKey] as? MPDClient.State
+    guard let state = notification.userInfo?[MPDClient.stateKey] as? mpd_state
       else { return }
 
-    stateLabel.stringValue = "\(state)".localizedCapitalized
     setTransportControlState(state)
   }
 
-  func setTransportControlState(_ state: MPDClient.State) {
-    transportControls.setEnabled([.playing, .paused].contains(state), forSegment: 0)
-    transportControls.setEnabled([.playing, .paused, .stopped].contains(state), forSegment: 1)
-    transportControls.setEnabled([.playing, .paused].contains(state), forSegment: 2)
-    transportControls.setEnabled([.playing, .paused].contains(state), forSegment: 3)
+  func setTransportControlState(_ state: mpd_state) {
+    transportControls.setEnabled([MPD_STATE_PLAY, MPD_STATE_PAUSE].contains(state), forSegment: 0)
+    transportControls.setEnabled([MPD_STATE_PLAY, MPD_STATE_PAUSE, MPD_STATE_STOP].contains(state), forSegment: 1)
+    transportControls.setEnabled([MPD_STATE_PLAY, MPD_STATE_PAUSE].contains(state), forSegment: 2)
+    transportControls.setEnabled([MPD_STATE_PLAY, MPD_STATE_PAUSE].contains(state), forSegment: 3)
 
-    if [.paused, .stopped, .unknown].contains(state) {
+    if [MPD_STATE_PAUSE, MPD_STATE_STOP, MPD_STATE_UNKNOWN].contains(state) {
       transportControls.setImage(NSImage(named: NSImage.Name(rawValue: "playButton")), forSegment: 1)
     } else {
       transportControls.setImage(NSImage(named: NSImage.Name(rawValue: "pauseButton")), forSegment: 1)
@@ -65,6 +65,5 @@ class WindowController: NSWindowController {
     }
   }
 
-  @IBOutlet var stateLabel: NSTextField!
   @IBOutlet var transportControls: NSSegmentedCell!
 }

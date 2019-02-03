@@ -15,18 +15,19 @@ class MPDClient {
   static let queueChanged = Notification.Name("MPDClientQueueChanged")
 
   static let stateKey = "state"
+  static let queueKey = "queue"
 
   let HOST = "localhost"
   let PORT: UInt32 = 6600
 
   private var connection: OpaquePointer?
   private var status: OpaquePointer?
+  private var queue: [Song] = []
 
   private let commandQueue = DispatchQueue(label: "commandQueue")
-  private var commandQueued = false
 
   enum Command {
-    case prevTrack, nextTrack, playPause, stop, fetchStatus
+    case prevTrack, nextTrack, playPause, stop, fetchStatus, fetchQueue
   }
 
   enum State: UInt32 {
@@ -34,6 +35,22 @@ class MPDClient {
     case stopped = 1
     case playing = 2
     case paused = 3
+  }
+
+  struct Idle: OptionSet {
+    let rawValue: UInt32
+
+    static let database = Idle(rawValue: 0x1)
+    static let storedPlaylist = Idle(rawValue: 0x2)
+    static let queue = Idle(rawValue: 0x4)
+    static let player = Idle(rawValue: 0x8)
+    static let mixer = Idle(rawValue: 0x10)
+    static let output = Idle(rawValue: 0x20)
+    static let options = Idle(rawValue: 0x40)
+    static let update = Idle(rawValue: 0x80)
+    static let sticker = Idle(rawValue: 0x100)
+    static let subscription = Idle(rawValue: 0x200)
+    static let message = Idle(rawValue: 0x400)
   }
 
   init(withDelegate delegate: MPDClientDelegate?) {
@@ -49,13 +66,20 @@ class MPDClient {
 
     self.connection = connection
     self.status = status
-    self.initializeStatus()
+
+    fetchQueue()
+
+    self.delegate?.didUpdateState(mpdClient: self, state: self.getState())
+    self.delegate?.didUpdateQueue(mpdClient: self, queue: self.queue)
     idle()
   }
 
   func disconnect() {
     noIdle()
     commandQueue.async { [unowned self] in
+      for song in self.queue {
+        song.free()
+      }
       mpd_status_free(self.status)
       mpd_connection_free(self.connection)
     }
@@ -65,13 +89,12 @@ class MPDClient {
     sendCommand(command: .fetchStatus)
   }
 
-  func initializeStatus() {
-    self.delegate?.didUpdateState(mpdClient: self, state: self.getState())
+  func fetchQueue() {
+    sendCommand(command: .fetchQueue)
   }
 
-  func getState() -> State {
-    let state = mpd_status_get_state(status)
-    return State(rawValue: state.rawValue)!
+  func getState() -> mpd_state {
+    return mpd_status_get_state(status)
   }
 
   func playPause() {
@@ -91,11 +114,9 @@ class MPDClient {
   }
 
   func queueCommand(command: Command) {
-    commandQueued = true
     noIdle()
     commandQueue.async { [unowned self] in
       self.sendCommand(command: command)
-      self.commandQueued = false
     }
     idle()
   }
@@ -116,17 +137,26 @@ class MPDClient {
     case .fetchStatus:
       guard let status = mpd_run_status(connection) else { break }
       self.status = status
+
+    case .fetchQueue:
+      self.queue = []
+      mpd_send_list_queue_meta(connection)
+
+      while let mpdSong = mpd_recv_song(connection) {
+        let song = Song(mpdSong)
+        self.queue.append(song)
+      }
     }
   }
 
   func sendNextTrack() {
-    if [.playing, .paused].contains(getState()) {
+    if [MPD_STATE_PLAY, MPD_STATE_PAUSE].contains(getState()) {
       mpd_run_next(connection)
     }
   }
 
   func sendPreviousTrack() {
-    if [.playing, .paused].contains(getState()) {
+    if [MPD_STATE_PLAY, MPD_STATE_PAUSE].contains(getState()) {
       mpd_run_previous(connection)
     }
   }
@@ -136,7 +166,7 @@ class MPDClient {
   }
 
   func sendPlay() {
-    if getState() == .stopped {
+    if getState() == MPD_STATE_STOP {
       mpd_run_play(connection)
     } else {
       mpd_run_toggle_pause(connection)
@@ -150,13 +180,25 @@ class MPDClient {
   func idle() {
     commandQueue.async { [unowned self] in
       mpd_send_idle(self.connection)
-      mpd_recv_idle(self.connection, true)
+      let result = mpd_recv_idle(self.connection, true)
 
-      if !self.commandQueued {
-        self.fetchStatus()
-        self.delegate?.didUpdateState(mpdClient: self, state: self.getState())
-        self.idle()
-      }
+      self.handleIdleResult(result)
+    }
+  }
+
+  func handleIdleResult(_ result: mpd_idle) {
+    let mpdIdle = Idle(rawValue: result.rawValue)
+
+    if mpdIdle.contains(.queue) {
+      self.fetchQueue()
+      self.delegate?.didUpdateQueue(mpdClient: self, queue: self.queue)
+    }
+    if mpdIdle.contains(.player) {
+      self.fetchStatus()
+      self.delegate?.didUpdateState(mpdClient: self, state: self.getState())
+    }
+    if !mpdIdle.isEmpty {
+      self.idle()
     }
   }
 

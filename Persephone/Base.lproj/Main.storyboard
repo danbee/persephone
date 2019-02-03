@@ -713,25 +713,9 @@
                                     </segmentedControl>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="9ol-aR-mzv"/>
-                                <toolbarItem implicitItemIdentifier="6D294101-04FF-4E2A-98A7-77A48E2296CD" label="" paletteLabel="" sizingBehavior="auto" id="FoD-o2-4f2">
-                                    <nil key="toolTip"/>
-                                    <textField key="view" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="KVt-e7-7I5">
-                                        <rect key="frame" x="0.0" y="14" width="72" height="17"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" title="stateLabel" id="bCv-8Z-qfx">
-                                            <font key="font" usesAppearanceFont="YES"/>
-                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                        <connections>
-                                            <action selector="stateLabel:" target="B8D-0N-5wS" id="YXt-Ni-yie"/>
-                                        </connections>
-                                    </textField>
-                                </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
                                 <toolbarItem reference="p3r-ty-Pxf"/>
-                                <toolbarItem reference="FoD-o2-4f2"/>
                             </defaultToolbarItems>
                         </toolbar>
                         <connections>
@@ -739,7 +723,6 @@
                         </connections>
                     </window>
                     <connections>
-                        <outlet property="stateLabel" destination="KVt-e7-7I5" id="xMD-Iq-CSh"/>
                         <outlet property="transportControls" destination="EBk-sD-nG7" id="yOo-58-Fby"/>
                         <segue destination="fnD-7K-pHK" kind="relationship" relationship="window.shadowedContentViewController" id="fQQ-kB-KVc"/>
                     </connections>
@@ -807,7 +790,7 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView identifier="HeaderCell" id="GOd-cg-juD">
+                                                        <tableCellView identifier="queueHeaderCell" id="GOd-cg-juD">
                                                             <rect key="frame" x="1" y="1" width="447" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -829,7 +812,7 @@
                                                                 <outlet property="textField" destination="xgd-Cz-np3" id="5jx-ag-Xoc"/>
                                                             </connections>
                                                         </tableCellView>
-                                                        <tableCellView identifier="DataCell" id="5rR-Gz-AcP">
+                                                        <tableCellView identifier="songItemCell" id="5rR-Gz-AcP">
                                                             <rect key="frame" x="1" y="20" width="447" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -865,12 +848,16 @@
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                             </tableColumns>
+                                            <connections>
+                                                <outlet property="dataSource" destination="KIP-rq-4dM" id="pQO-Qh-B3D"/>
+                                                <outlet property="delegate" destination="KIP-rq-4dM" id="iI3-RL-4Hd"/>
+                                            </connections>
                                         </outlineView>
                                     </subviews>
                                     <nil key="backgroundColor"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="7mx-v9-DSr">
-                                    <rect key="frame" x="1" y="119" width="238" height="15"/>
+                                    <rect key="frame" x="0.0" y="284" width="450" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="p5z-C0-FUJ">
@@ -886,6 +873,9 @@
                             <constraint firstAttribute="bottom" secondItem="S3o-nF-NN7" secondAttribute="bottom" id="hJz-ZT-b1Q"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="queueView" destination="jEJ-jg-fll" id="VSN-Xu-fvv"/>
+                    </connections>
                 </viewController>
                 <customObject id="du4-e9-TfX" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
