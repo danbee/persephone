@@ -736,7 +736,7 @@
             <objects>
                 <splitViewController id="fnD-7K-pHK" sceneMemberID="viewController">
                     <splitViewItems>
-                        <splitViewItem holdingPriority="260" behavior="sidebar" id="CWo-v7-gd2"/>
+                        <splitViewItem canCollapse="YES" holdingPriority="260" behavior="sidebar" id="CWo-v7-gd2"/>
                         <splitViewItem id="y8g-4F-czS"/>
                     </splitViewItems>
                     <splitView key="splitView" dividerStyle="thin" vertical="YES" id="g34-ef-XN0">
@@ -790,8 +790,23 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView identifier="songTitleCell" id="5rR-Gz-AcP">
+                                                        <tableCellView identifier="queueHeadingCell" id="GOd-cg-juD">
                                                             <rect key="frame" x="1" y="1" width="222" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xgd-Cz-np3">
+                                                                    <rect key="frame" x="0.0" y="1" width="447" height="14"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="QUEUE" id="Mqf-uh-ibl">
+                                                                        <font key="font" metaFont="smallSystemBold"/>
+                                                                        <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                        </tableCellView>
+                                                        <tableCellView identifier="songTitleCell" id="5rR-Gz-AcP">
+                                                            <rect key="frame" x="1" y="20" width="222" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <imageView translatesAutoresizingMaskIntoConstraints="NO" id="o8i-cz-hIP">
@@ -842,8 +857,9 @@
                                                             <rect key="frame" x="226" y="1" width="222" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="tBe-Q9-3Rw">
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tBe-Q9-3Rw">
                                                                     <rect key="frame" x="0.0" y="0.0" width="222" height="17"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="Ceb-ec-ydU">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -851,11 +867,6 @@
                                                                     </textFieldCell>
                                                                 </textField>
                                                             </subviews>
-                                                            <constraints>
-                                                                <constraint firstItem="tBe-Q9-3Rw" firstAttribute="leading" secondItem="JSk-Vc-Y7e" secondAttribute="leading" constant="2" id="BOs-0C-qCf"/>
-                                                                <constraint firstItem="tBe-Q9-3Rw" firstAttribute="centerX" secondItem="JSk-Vc-Y7e" secondAttribute="centerX" id="MUL-DZ-5vL"/>
-                                                                <constraint firstItem="tBe-Q9-3Rw" firstAttribute="centerY" secondItem="JSk-Vc-Y7e" secondAttribute="centerY" id="V5l-bF-vkW"/>
-                                                            </constraints>
                                                             <connections>
                                                                 <outlet property="textField" destination="tBe-Q9-3Rw" id="2e6-zi-tKj"/>
                                                             </connections>

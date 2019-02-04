@@ -35,7 +35,7 @@ class QueueController: NSViewController, NSOutlineViewDataSource, NSOutlineViewD
   }
 
   func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
-    return queue.count
+    return queue.count + 1
   }
 
   func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
@@ -43,33 +43,50 @@ class QueueController: NSViewController, NSOutlineViewDataSource, NSOutlineViewD
   }
 
   func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
-    return queue[index]
+    if index > 0 {
+      return queue[index - 1]
+    } else {
+      return ""
+    }
   }
 
   func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
-    guard let song = item as? MPDClient.Song else { return nil }
+    if let song = item as? MPDClient.Song {
+      switch tableColumn?.identifier.rawValue {
+      case "songTitleColumn":
+        let cellView = outlineView.makeView(
+          withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "songTitleCell"),
+          owner: self
+        ) as! NSTableCellView
 
-    switch tableColumn?.identifier.rawValue {
-    case "songTitleColumn":
-      let cellView = outlineView.makeView(
-        withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "songTitleCell"),
-        owner: self
-      ) as! NSTableCellView
+        cellView.textField?.stringValue = song.getTag(MPD_TAG_TITLE)
 
-      cellView.textField?.stringValue = song.getTag(MPD_TAG_TITLE)
+        return cellView
+      case "songArtistColumn":
+        let cellView = outlineView.makeView(
+          withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "songArtistCell"),
+          owner: self
+        ) as! NSTableCellView
 
-      return cellView
-    case "songArtistColumn":
-      let cellView = outlineView.makeView(
-        withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "songArtistCell"),
-        owner: self
-      ) as! NSTableCellView
-      
-      cellView.textField?.stringValue = song.getTag(MPD_TAG_ARTIST)
+        cellView.textField?.stringValue = song.getTag(MPD_TAG_ARTIST)
 
-      return cellView
-    default:
-      return nil
+        return cellView
+      default:
+        return nil
+      }
+    } else {
+      if tableColumn?.identifier.rawValue == "songTitleColumn" {
+        let cellView = outlineView.makeView(
+          withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "queueHeadingCell"),
+          owner: self
+        ) as! NSTableCellView
+
+        cellView.textField?.stringValue = "QUEUE"
+
+        return cellView
+      } else {
+        return nil
+      }
     }
   }
 
