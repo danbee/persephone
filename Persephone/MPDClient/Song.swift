@@ -17,7 +17,7 @@ extension MPDClient {
       self.mpdSong = mpdSong
     }
 
-    func free() {
+    deinit {
       mpd_song_free(mpdSong)
     }
 

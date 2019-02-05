@@ -13,15 +13,17 @@ class MPDClient {
   var delegate: MPDClientDelegate?
   static let stateChanged = Notification.Name("MPDClientStateChanged")
   static let queueChanged = Notification.Name("MPDClientQueueChanged")
+  static let queuePosChanged = Notification.Name("MPDClientQueuePosChanged")
 
   static let stateKey = "state"
   static let queueKey = "queue"
+  static let queuePosKey = "song"
 
   let HOST = "localhost"
   let PORT: UInt32 = 6600
 
   private var connection: OpaquePointer?
-  private var status: OpaquePointer?
+  var status: Status?
   private var queue: [Song] = []
 
   private let commandQueue = DispatchQueue(label: "commandQueue")
@@ -65,11 +67,11 @@ class MPDClient {
       else { return }
 
     self.connection = connection
-    self.status = status
+    self.status = Status(status)
 
     fetchQueue()
 
-    self.delegate?.didUpdateState(mpdClient: self, state: self.getState())
+    self.delegate?.didUpdateState(mpdClient: self, state: self.status!.state())
     self.delegate?.didUpdateQueue(mpdClient: self, queue: self.queue)
     idle()
   }
@@ -77,10 +79,6 @@ class MPDClient {
   func disconnect() {
     noIdle()
     commandQueue.async { [unowned self] in
-      for song in self.queue {
-        song.free()
-      }
-      mpd_status_free(self.status)
       mpd_connection_free(self.connection)
     }
   }
@@ -91,10 +89,6 @@ class MPDClient {
 
   func fetchQueue() {
     sendCommand(command: .fetchQueue)
-  }
-
-  func getState() -> mpd_state {
-    return mpd_status_get_state(status)
   }
 
   func playPause() {
@@ -136,7 +130,7 @@ class MPDClient {
 
     case .fetchStatus:
       guard let status = mpd_run_status(connection) else { break }
-      self.status = status
+      self.status = Status(status)
 
     case .fetchQueue:
       self.queue = []
@@ -150,13 +144,13 @@ class MPDClient {
   }
 
   func sendNextTrack() {
-    if [MPD_STATE_PLAY, MPD_STATE_PAUSE].contains(getState()) {
+    if [MPD_STATE_PLAY, MPD_STATE_PAUSE].contains(status?.state()) {
       mpd_run_next(connection)
     }
   }
 
   func sendPreviousTrack() {
-    if [MPD_STATE_PLAY, MPD_STATE_PAUSE].contains(getState()) {
+    if [MPD_STATE_PLAY, MPD_STATE_PAUSE].contains(status?.state()) {
       mpd_run_previous(connection)
     }
   }
@@ -166,7 +160,7 @@ class MPDClient {
   }
 
   func sendPlay() {
-    if getState() == MPD_STATE_STOP {
+    if status?.state() == MPD_STATE_STOP {
       mpd_run_play(connection)
     } else {
       mpd_run_toggle_pause(connection)
@@ -195,7 +189,7 @@ class MPDClient {
     }
     if mpdIdle.contains(.player) {
       self.fetchStatus()
-      self.delegate?.didUpdateState(mpdClient: self, state: self.getState())
+      self.delegate?.didUpdateState(mpdClient: self, state: self.status!.state())
     }
     if !mpdIdle.isEmpty {
       self.idle()

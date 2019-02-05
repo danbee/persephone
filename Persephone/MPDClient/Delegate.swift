@@ -12,4 +12,5 @@ import mpdclient
 protocol MPDClientDelegate {
   func didUpdateState(mpdClient: MPDClient, state: mpd_state)
   func didUpdateQueue(mpdClient: MPDClient, queue: [MPDClient.Song])
+  func didUpdateQueuePos(mpdClient: MPDClient, song: Int32)
 }

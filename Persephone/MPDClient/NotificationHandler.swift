@@ -13,21 +13,32 @@ class MPDClientNotificationHandler: MPDClientDelegate {
   let notificationQueue = DispatchQueue.main
   
   func didUpdateState(mpdClient: MPDClient, state: mpd_state) {
-    self.notificationQueue.async {
-      NotificationCenter.default.post(
-        name: MPDClient.stateChanged,
-        object: AppDelegate.mpdClient,
-        userInfo: [MPDClient.stateKey: state]
-      )
-    }
+    sendNotification(
+      name: MPDClient.stateChanged,
+      userInfo: [MPDClient.stateKey: state]
+    )
   }
 
   func didUpdateQueue(mpdClient: MPDClient, queue: [MPDClient.Song]) {
+    sendNotification(
+      name: MPDClient.queueChanged,
+      userInfo: [MPDClient.queueKey: queue]
+    )
+  }
+
+  func didUpdateQueuePos(mpdClient: MPDClient, song: Int32) {
+    sendNotification(
+      name: MPDClient.queuePosChanged,
+      userInfo: [MPDClient.queuePosKey: song]
+    )
+  }
+
+  private func sendNotification(name: Notification.Name, userInfo: [AnyHashable : Any]) {
     self.notificationQueue.async {
       NotificationCenter.default.post(
-        name: MPDClient.queueChanged,
+        name: name,
         object: AppDelegate.mpdClient,
-        userInfo: [MPDClient.queueKey: queue]
+        userInfo: userInfo
       )
     }
   }
