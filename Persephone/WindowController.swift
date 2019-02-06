@@ -43,9 +43,9 @@ class WindowController: NSWindowController {
     transportControls.setEnabled([MPD_STATE_PLAY, MPD_STATE_PAUSE].contains(state), forSegment: 3)
 
     if [MPD_STATE_PAUSE, MPD_STATE_STOP, MPD_STATE_UNKNOWN].contains(state) {
-      transportControls.setImage(NSImage(named: NSImage.Name(rawValue: "playButton")), forSegment: 1)
+      transportControls.setImage(NSImage(named: NSImage.Name("playButton")), forSegment: 1)
     } else {
-      transportControls.setImage(NSImage(named: NSImage.Name(rawValue: "pauseButton")), forSegment: 1)
+      transportControls.setImage(NSImage(named: NSImage.Name("pauseButton")), forSegment: 1)
     }
   }
 

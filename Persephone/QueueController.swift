@@ -13,9 +13,6 @@ class QueueController: NSViewController, NSOutlineViewDataSource, NSOutlineViewD
   var queue: [MPDClient.Song] = []
   var queuePos: Int32 = -1
 
-  let songTitleColumn = NSUserInterfaceItemIdentifier("songTitleColumm")
-  let songArtistColumn = NSUserInterfaceItemIdentifier("songArtistColumm")
-
   struct SongItem {
     var song: MPDClient.Song
     var queuePos: Int
@@ -60,9 +57,6 @@ class QueueController: NSViewController, NSOutlineViewDataSource, NSOutlineViewD
       let oldSongArtistCell = oldSongRow?.view(atColumn: 1) as! NSTableCellView
       oldSongTitleCell.textField?.font = NSFont.systemFont(ofSize: 13, weight: .regular)
       oldSongArtistCell.textField?.font = NSFont.systemFont(ofSize: 13, weight: .regular)
-
-      //oldSongTitleCell.needsDisplay = true
-      //oldSongArtistCell.needsDisplay = true
     }
 
     let oldQueuePos = self.queuePos
@@ -74,8 +68,6 @@ class QueueController: NSViewController, NSOutlineViewDataSource, NSOutlineViewD
     songTitleCell.textField?.font = NSFont.systemFont(ofSize: 13, weight: .bold)
     songArtistCell.textField?.font = NSFont.systemFont(ofSize: 13, weight: .bold)
 
-    //songTitleCell.needsDisplay = true
-    //songArtistCell.needsDisplay = true
     queueView.reloadData(
       forRowIndexes: [Int(oldQueuePos + 1), Int(queuePos + 1)],
       columnIndexes: [0, 1]
@@ -108,6 +100,11 @@ class QueueController: NSViewController, NSOutlineViewDataSource, NSOutlineViewD
         ) as! NSTableCellView
 
         cellView.textField?.stringValue = songItem.song.getTag(MPD_TAG_TITLE)
+        if songItem.queuePos == self.queuePos {
+          cellView.imageView?.image = NSImage(named: NSImage.Name("playButton"))
+        } else {
+          cellView.imageView?.image = nil
+        }
 
         return cellView
       case "songArtistColumn":
