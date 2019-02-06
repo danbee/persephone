@@ -11,6 +11,15 @@ import mpdclient
 
 class QueueController: NSViewController, NSOutlineViewDataSource, NSOutlineViewDelegate {
   var queue: [MPDClient.Song] = []
+  var queuePos: Int32 = -1
+
+  let songTitleColumn = NSUserInterfaceItemIdentifier("songTitleColumm")
+  let songArtistColumn = NSUserInterfaceItemIdentifier("songArtistColumm")
+
+  struct SongItem {
+    var song: MPDClient.Song
+    var queuePos: Int
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -21,6 +30,13 @@ class QueueController: NSViewController, NSOutlineViewDataSource, NSOutlineViewD
       self,
       selector: #selector(queueChanged(_:)),
       name: MPDClient.queueChanged,
+      object: AppDelegate.mpdClient
+    )
+
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(queuePosChanged(_:)),
+      name: MPDClient.queuePosChanged,
       object: AppDelegate.mpdClient
     )
   }
@@ -34,6 +50,38 @@ class QueueController: NSViewController, NSOutlineViewDataSource, NSOutlineViewD
     queueView.reloadData()
   }
 
+  @objc func queuePosChanged(_ notification: Notification) {
+    guard let queuePos = notification.userInfo?[MPDClient.queuePosKey] as? Int32
+      else { return }
+
+    if self.queuePos > -1 {
+      let oldSongRow = queueView.rowView(atRow: Int(self.queuePos + 1), makeIfNecessary: true)
+      let oldSongTitleCell = oldSongRow?.view(atColumn: 0) as! NSTableCellView
+      let oldSongArtistCell = oldSongRow?.view(atColumn: 1) as! NSTableCellView
+      oldSongTitleCell.textField?.font = NSFont.systemFont(ofSize: 13, weight: .regular)
+      oldSongArtistCell.textField?.font = NSFont.systemFont(ofSize: 13, weight: .regular)
+
+      //oldSongTitleCell.needsDisplay = true
+      //oldSongArtistCell.needsDisplay = true
+    }
+
+    let oldQueuePos = self.queuePos
+    self.queuePos = queuePos
+
+    let songRow = queueView.rowView(atRow: Int(self.queuePos + 1), makeIfNecessary: true)
+    let songTitleCell = songRow?.view(atColumn: 0) as! NSTableCellView
+    let songArtistCell = songRow?.view(atColumn: 1) as! NSTableCellView
+    songTitleCell.textField?.font = NSFont.systemFont(ofSize: 13, weight: .bold)
+    songArtistCell.textField?.font = NSFont.systemFont(ofSize: 13, weight: .bold)
+
+    //songTitleCell.needsDisplay = true
+    //songArtistCell.needsDisplay = true
+    queueView.reloadData(
+      forRowIndexes: [Int(oldQueuePos + 1), Int(queuePos + 1)],
+      columnIndexes: [0, 1]
+    )
+  }
+
   func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
     return queue.count + 1
   }
@@ -44,31 +92,31 @@ class QueueController: NSViewController, NSOutlineViewDataSource, NSOutlineViewD
 
   func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
     if index > 0 {
-      return queue[index - 1]
+      return SongItem(song: queue[index - 1], queuePos: index - 1)
     } else {
       return ""
     }
   }
 
   func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
-    if let song = item as? MPDClient.Song {
+    if let songItem = item as? SongItem {
       switch tableColumn?.identifier.rawValue {
       case "songTitleColumn":
         let cellView = outlineView.makeView(
-          withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "songTitleCell"),
+          withIdentifier: NSUserInterfaceItemIdentifier("songTitleCell"),
           owner: self
         ) as! NSTableCellView
 
-        cellView.textField?.stringValue = song.getTag(MPD_TAG_TITLE)
+        cellView.textField?.stringValue = songItem.song.getTag(MPD_TAG_TITLE)
 
         return cellView
       case "songArtistColumn":
         let cellView = outlineView.makeView(
-          withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "songArtistCell"),
+          withIdentifier: NSUserInterfaceItemIdentifier("songArtistCell"),
           owner: self
         ) as! NSTableCellView
 
-        cellView.textField?.stringValue = song.getTag(MPD_TAG_ARTIST)
+        cellView.textField?.stringValue = songItem.song.getTag(MPD_TAG_ARTIST)
 
         return cellView
       default:
@@ -77,7 +125,7 @@ class QueueController: NSViewController, NSOutlineViewDataSource, NSOutlineViewD
     } else {
       if tableColumn?.identifier.rawValue == "songTitleColumn" {
         let cellView = outlineView.makeView(
-          withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "queueHeadingCell"),
+          withIdentifier: NSUserInterfaceItemIdentifier("queueHeadingCell"),
           owner: self
         ) as! NSTableCellView
 

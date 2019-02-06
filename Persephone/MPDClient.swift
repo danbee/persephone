@@ -73,6 +73,7 @@ class MPDClient {
 
     self.delegate?.didUpdateState(mpdClient: self, state: self.status!.state())
     self.delegate?.didUpdateQueue(mpdClient: self, queue: self.queue)
+    self.delegate?.didUpdateQueuePos(mpdClient: self, song: self.status!.song())
     idle()
   }
 
@@ -190,6 +191,7 @@ class MPDClient {
     if mpdIdle.contains(.player) {
       self.fetchStatus()
       self.delegate?.didUpdateState(mpdClient: self, state: self.status!.state())
+      self.delegate?.didUpdateQueuePos(mpdClient: self, song: self.status!.song())
     }
     if !mpdIdle.isEmpty {
       self.idle()
