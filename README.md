@@ -13,6 +13,11 @@ From the [website](https://www.musicpd.org):
 Wikipedia has a [more comprehensive
 description](https://en.wikipedia.org/wiki/Music_Player_Daemon).
 
+## Screenshot
+
+![Screenshot](Resources/screenshot.png)
+
 ## Setup
 
-Run `bin/setup` before opening the Xcode project.
+Run `bin/setup` before opening the Xcode project. You probably want MPD server
+to be running on your local machine.
