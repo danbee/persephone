@@ -18,7 +18,7 @@
 		E465049A21E94DF500A70F4C /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E465049921E94DF500A70F4C /* WindowController.swift */; };
 		E4A642DA22090CBE00067D21 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A642D922090CBE00067D21 /* Status.swift */; };
 		E4E8CC902204EC7F0024217A /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC8F2204EC7F0024217A /* Delegate.swift */; };
-		E4E8CC922204F4B80024217A /* QueueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC912204F4B80024217A /* QueueController.swift */; };
+		E4E8CC922204F4B80024217A /* QueueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC912204F4B80024217A /* QueueViewController.swift */; };
 		E4E8CC942206097F0024217A /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC932206097F0024217A /* NotificationsController.swift */; };
 		E4E8CC9A22075D370024217A /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC9922075D370024217A /* Song.swift */; };
 /* End PBXBuildFile section */
@@ -108,7 +108,7 @@
 		E465049921E94DF500A70F4C /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		E4A642D922090CBE00067D21 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		E4E8CC8F2204EC7F0024217A /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
-		E4E8CC912204F4B80024217A /* QueueController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueController.swift; sourceTree = "<group>"; };
+		E4E8CC912204F4B80024217A /* QueueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueViewController.swift; sourceTree = "<group>"; };
 		E4E8CC932206097F0024217A /* NotificationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
 		E4E8CC9922075D370024217A /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -282,7 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				E4E8CC932206097F0024217A /* NotificationsController.swift */,
-				E4E8CC912204F4B80024217A /* QueueController.swift */,
+				E4E8CC912204F4B80024217A /* QueueViewController.swift */,
 				E465049921E94DF500A70F4C /* WindowController.swift */,
 			);
 			path = Controllers;
@@ -440,7 +440,7 @@
 				E407861C2110CE6E006887B1 /* AppDelegate.swift in Sources */,
 				E4E8CC9A22075D370024217A /* Song.swift in Sources */,
 				E4E8CC902204EC7F0024217A /* Delegate.swift in Sources */,
-				E4E8CC922204F4B80024217A /* QueueController.swift in Sources */,
+				E4E8CC922204F4B80024217A /* QueueViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

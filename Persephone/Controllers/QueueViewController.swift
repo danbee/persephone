@@ -9,7 +9,7 @@
 import Cocoa
 import mpdclient
 
-class QueueController: NSViewController, NSOutlineViewDataSource, NSOutlineViewDelegate {
+class QueueViewController: NSViewController, NSOutlineViewDataSource, NSOutlineViewDelegate {
   var queue: [MPDClient.Song] = []
   var queuePos: Int32 = -1
 

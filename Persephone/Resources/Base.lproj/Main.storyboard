@@ -757,10 +757,10 @@
             </objects>
             <point key="canvasLocation" x="74" y="677"/>
         </scene>
-        <!--Queue Controller-->
+        <!--Queue View Controller-->
         <scene sceneID="QcX-dC-cTZ">
             <objects>
-                <viewController id="KIP-rq-4dM" customClass="QueueController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="KIP-rq-4dM" customClass="QueueViewController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="2su-YT-hba">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -876,8 +876,8 @@
                                                 </tableColumn>
                                             </tableColumns>
                                             <connections>
-                                                <outlet property="dataSource" destination="KIP-rq-4dM" id="pQO-Qh-B3D"/>
-                                                <outlet property="delegate" destination="KIP-rq-4dM" id="iI3-RL-4Hd"/>
+                                                <outlet property="dataSource" destination="KIP-rq-4dM" id="K1Q-7o-xXW"/>
+                                                <outlet property="delegate" destination="KIP-rq-4dM" id="60F-6x-bUE"/>
                                             </connections>
                                         </outlineView>
                                     </subviews>
@@ -901,7 +901,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="queueView" destination="jEJ-jg-fll" id="VSN-Xu-fvv"/>
+                        <outlet property="queueView" destination="jEJ-jg-fll" id="cwo-E8-deo"/>
                     </connections>
                 </viewController>
                 <customObject id="du4-e9-TfX" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
