@@ -514,7 +514,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = BDEE7ZBFZ3;
 				INFOPLIST_FILE = PersephoneTests/Info.plist;
@@ -525,6 +525,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.danbarber.PersephoneTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Persephone.app/Contents/MacOS/Persephone";
 			};
@@ -535,7 +536,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = BDEE7ZBFZ3;
 				INFOPLIST_FILE = PersephoneTests/Info.plist;
@@ -546,6 +547,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.danbarber.PersephoneTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Persephone.app/Contents/MacOS/Persephone";
 			};
@@ -555,7 +557,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = BDEE7ZBFZ3;
 				INFOPLIST_FILE = PersephoneUITests/Info.plist;
@@ -566,6 +569,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.danbarber.PersephoneUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = Persephone;
 			};
@@ -575,7 +579,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = BDEE7ZBFZ3;
 				INFOPLIST_FILE = PersephoneUITests/Info.plist;
@@ -586,6 +590,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.danbarber.PersephoneUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = Persephone;
 			};
