@@ -3,5 +3,5 @@ osx_image: xcode10.1
 xcode_destination: platform=macOS
 language: swift
 xcode_project: Persephone.xcodeproj
-xcode_scheme: PersephoneTests
+xcode_scheme: Persephone
 install: bin/setup
