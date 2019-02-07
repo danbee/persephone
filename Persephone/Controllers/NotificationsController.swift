@@ -9,7 +9,7 @@
 import Foundation
 import mpdclient
 
-class MPDClientNotificationHandler: MPDClientDelegate {
+class NotificationsController: MPDClientDelegate {
   let notificationQueue = DispatchQueue.main
   
   func didUpdateState(mpdClient: MPDClient, state: mpd_state) {
