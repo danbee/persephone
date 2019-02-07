@@ -4,4 +4,6 @@ xcode_destination: platform=macOS
 language: swift
 xcode_project: Persephone.xcodeproj
 xcode_scheme: Persephone
-install: bin/setup
+before_install:
+  - brew install meson ninja
+  - bin/setup

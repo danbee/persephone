@@ -1,7 +1,5 @@
 #!/bin/sh
 
-brew install meson ninja
-
 git submodule update --init
 
 cd libmpdclient && \
