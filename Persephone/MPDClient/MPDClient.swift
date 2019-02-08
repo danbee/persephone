@@ -11,32 +11,18 @@ import mpdclient
 
 class MPDClient {
   var delegate: MPDClientDelegate?
-  static let stateChanged = Notification.Name("MPDClientStateChanged")
-  static let queueChanged = Notification.Name("MPDClientQueueChanged")
-  static let queuePosChanged = Notification.Name("MPDClientQueuePosChanged")
-
-  static let stateKey = "state"
-  static let queueKey = "queue"
-  static let queuePosKey = "song"
 
   let HOST = "localhost"
   let PORT: UInt32 = 6600
 
   private var connection: OpaquePointer?
-  var status: Status?
+  private var status: Status?
   private var queue: [Song] = []
 
   private let commandQueue = DispatchQueue(label: "commandQueue")
 
   enum Command {
     case prevTrack, nextTrack, playPause, stop, fetchStatus, fetchQueue
-  }
-
-  enum State: UInt32 {
-    case unknown = 0
-    case stopped = 1
-    case playing = 2
-    case paused = 3
   }
 
   struct Idle: OptionSet {
@@ -71,9 +57,9 @@ class MPDClient {
 
     fetchQueue()
 
-    self.delegate?.didUpdateState(mpdClient: self, state: self.status!.state())
+    self.delegate?.didUpdateState(mpdClient: self, state: self.status!.state)
     self.delegate?.didUpdateQueue(mpdClient: self, queue: self.queue)
-    self.delegate?.didUpdateQueuePos(mpdClient: self, song: self.status!.song())
+    self.delegate?.didUpdateQueuePos(mpdClient: self, song: self.status!.song)
     idle()
   }
 
@@ -145,15 +131,19 @@ class MPDClient {
   }
 
   func sendNextTrack() {
-    if [MPD_STATE_PLAY, MPD_STATE_PAUSE].contains(status?.state()) {
-      mpd_run_next(connection)
-    }
+    guard let state = status?.state,
+      state.isOneOf([.playing, .paused])
+      else { return }
+
+    mpd_run_next(connection)
   }
 
   func sendPreviousTrack() {
-    if [MPD_STATE_PLAY, MPD_STATE_PAUSE].contains(status?.state()) {
-      mpd_run_previous(connection)
-    }
+    guard let state = status?.state,
+      state.isOneOf([.playing, .paused])
+      else { return }
+
+    mpd_run_previous(connection)
   }
 
   func sendStop() {
@@ -161,7 +151,7 @@ class MPDClient {
   }
 
   func sendPlay() {
-    if status?.state() == MPD_STATE_STOP {
+    if status?.state == .stopped {
       mpd_run_play(connection)
     } else {
       mpd_run_toggle_pause(connection)
@@ -190,8 +180,8 @@ class MPDClient {
     }
     if mpdIdle.contains(.player) {
       self.fetchStatus()
-      self.delegate?.didUpdateState(mpdClient: self, state: self.status!.state())
-      self.delegate?.didUpdateQueuePos(mpdClient: self, song: self.status!.song())
+      self.delegate?.didUpdateState(mpdClient: self, state: self.status!.state)
+      self.delegate?.didUpdateQueuePos(mpdClient: self, song: self.status!.song)
     }
     if !mpdIdle.isEmpty {
       self.idle()

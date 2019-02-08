@@ -9,9 +9,22 @@
 import Foundation
 import mpdclient
 
+extension RawRepresentable where Self: Equatable {
+  func isOneOf<Options: Sequence>(_ options: Options) -> Bool where Options.Element == Self {
+    return options.contains(self)
+  }
+}
+
 extension MPDClient {
   class Status {
-    let mpdStatus: OpaquePointer
+    private let mpdStatus: OpaquePointer
+
+    enum State: UInt {
+      case unknown = 0
+      case stopped = 1
+      case playing = 2
+      case paused = 3
+    }
 
     init(_ mpdStatus: OpaquePointer) {
       self.mpdStatus = mpdStatus
@@ -21,12 +34,15 @@ extension MPDClient {
       mpd_status_free(mpdStatus)
     }
 
-    func state() -> mpd_state {
-      return mpd_status_get_state(mpdStatus)
+    var state: State {
+      let mpdState = mpd_status_get_state(mpdStatus)
+
+      return State(rawValue: UInt(mpdState.rawValue))!
     }
 
-    func song() -> Int32 {
-      return mpd_status_get_song_pos(mpdStatus)
+    var song: Int {
+      return Int(mpd_status_get_song_pos(mpdStatus))
     }
+
   }
 }

@@ -12,6 +12,8 @@
 		E40786232110CE70006887B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E40786212110CE70006887B1 /* Main.storyboard */; };
 		E407862F2110CE70006887B1 /* PersephoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E407862E2110CE70006887B1 /* PersephoneTests.swift */; };
 		E407863A2110CE70006887B1 /* PersephoneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40786392110CE70006887B1 /* PersephoneUITests.swift */; };
+		E408D3B6220DD8970006D9BE /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E408D3B5220DD8970006D9BE /* Notification.swift */; };
+		E408D3B9220DE98F0006D9BE /* NSUserInterfaceItemIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E408D3B8220DE98F0006D9BE /* NSUserInterfaceItemIdentifier.swift */; };
 		E41B22C021FB6BBA00D544F6 /* libmpdclient.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E41B22BF21FB6BBA00D544F6 /* libmpdclient.2.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
 		E41B22C121FB6C3300D544F6 /* libmpdclient.2.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = E41B22BF21FB6BBA00D544F6 /* libmpdclient.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		E41B22C621FB932700D544F6 /* MPDClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41B22C521FB932700D544F6 /* MPDClient.swift */; };
@@ -67,6 +69,8 @@
 		E40786352110CE70006887B1 /* PersephoneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PersephoneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E40786392110CE70006887B1 /* PersephoneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersephoneUITests.swift; sourceTree = "<group>"; };
 		E407863B2110CE70006887B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E408D3B5220DD8970006D9BE /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		E408D3B8220DE98F0006D9BE /* NSUserInterfaceItemIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSUserInterfaceItemIdentifier.swift; sourceTree = "<group>"; };
 		E41B22BF21FB6BBA00D544F6 /* libmpdclient.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libmpdclient.2.dylib; path = libmpdclient/output/libmpdclient.2.dylib; sourceTree = "<group>"; };
 		E41B22C421FB715A00D544F6 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		E41B22C521FB932700D544F6 /* MPDClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDClient.swift; sourceTree = "<group>"; };
@@ -163,6 +167,7 @@
 		E407861A2110CE6E006887B1 /* Persephone */ = {
 			isa = PBXGroup;
 			children = (
+				E408D3B7220DE8CC0006D9BE /* Extensions */,
 				E4D1B598220BA3C90026F233 /* Resources */,
 				E4D1B597220BA3A20026F233 /* Controllers */,
 				E41B22C721FB966C00D544F6 /* include */,
@@ -190,6 +195,15 @@
 				E407863B2110CE70006887B1 /* Info.plist */,
 			);
 			path = PersephoneUITests;
+			sourceTree = "<group>";
+		};
+		E408D3B7220DE8CC0006D9BE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E408D3B5220DD8970006D9BE /* Notification.swift */,
+				E408D3B8220DE98F0006D9BE /* NSUserInterfaceItemIdentifier.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E41B22BE21FB6B3300D544F6 /* Frameworks */ = {
@@ -435,6 +449,8 @@
 			files = (
 				E4A642DA22090CBE00067D21 /* Status.swift in Sources */,
 				E4E8CC942206097F0024217A /* NotificationsController.swift in Sources */,
+				E408D3B6220DD8970006D9BE /* Notification.swift in Sources */,
+				E408D3B9220DE98F0006D9BE /* NSUserInterfaceItemIdentifier.swift in Sources */,
 				E465049A21E94DF500A70F4C /* WindowController.swift in Sources */,
 				E41B22C621FB932700D544F6 /* MPDClient.swift in Sources */,
 				E407861C2110CE6E006887B1 /* AppDelegate.swift in Sources */,

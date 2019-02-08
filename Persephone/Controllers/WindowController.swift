@@ -7,7 +7,6 @@
 //
 
 import Cocoa
-import mpdclient
 
 class WindowController: NSWindowController {
   enum TransportAction: Int {
@@ -17,6 +16,9 @@ class WindowController: NSWindowController {
     case nextTrack = 3
   }
 
+  let playIcon = NSImage(named: NSImage.Name("playButton"))
+  let pauseIcon = NSImage(named: NSImage.Name("pauseButton"))
+
   override func windowDidLoad() {
     super.windowDidLoad()
     window?.titleVisibility = .hidden
@@ -24,28 +26,28 @@ class WindowController: NSWindowController {
     NotificationCenter.default.addObserver(
       self,
       selector: #selector(stateChanged(_:)),
-      name: MPDClient.stateChanged,
+      name: Notification.stateChanged,
       object: AppDelegate.mpdClient
     )
   }
 
   @objc func stateChanged(_ notification: Notification) {
-    guard let state = notification.userInfo?[MPDClient.stateKey] as? mpd_state
+    guard let state = notification.userInfo?[Notification.stateKey] as? MPDClient.Status.State
       else { return }
 
     setTransportControlState(state)
   }
 
-  func setTransportControlState(_ state: mpd_state) {
-    transportControls.setEnabled([MPD_STATE_PLAY, MPD_STATE_PAUSE].contains(state), forSegment: 0)
-    transportControls.setEnabled([MPD_STATE_PLAY, MPD_STATE_PAUSE, MPD_STATE_STOP].contains(state), forSegment: 1)
-    transportControls.setEnabled([MPD_STATE_PLAY, MPD_STATE_PAUSE].contains(state), forSegment: 2)
-    transportControls.setEnabled([MPD_STATE_PLAY, MPD_STATE_PAUSE].contains(state), forSegment: 3)
+  func setTransportControlState(_ state: MPDClient.Status.State) {
+    transportControls.setEnabled(state.isOneOf([.playing, .paused]), forSegment: 0)
+    transportControls.setEnabled(state.isOneOf([.playing, .paused, .stopped]), forSegment: 1)
+    transportControls.setEnabled(state.isOneOf([.playing, .paused]), forSegment: 2)
+    transportControls.setEnabled(state.isOneOf([.playing, .paused]), forSegment: 3)
 
-    if [MPD_STATE_PAUSE, MPD_STATE_STOP, MPD_STATE_UNKNOWN].contains(state) {
-      transportControls.setImage(NSImage(named: NSImage.Name("playButton")), forSegment: 1)
+    if state.isOneOf([.paused, .stopped, .unknown]) {
+      transportControls.setImage(playIcon, forSegment: 1)
     } else {
-      transportControls.setImage(NSImage(named: NSImage.Name("pauseButton")), forSegment: 1)
+      transportControls.setImage(pauseIcon, forSegment: 1)
     }
   }
 

@@ -11,12 +11,15 @@ import mpdclient
 
 class QueueViewController: NSViewController, NSOutlineViewDataSource, NSOutlineViewDelegate {
   var queue: [MPDClient.Song] = []
-  var queuePos: Int32 = -1
+  var queuePos: Int = -1
 
   var queueIcon: NSImage? = nil
 
   let systemFontRegular = NSFont.systemFont(ofSize: 13, weight: .regular)
   let systemFontBold = NSFont.systemFont(ofSize: 13, weight: .bold)
+
+  let playIcon = NSImage(named: NSImage.Name("playButton"))
+  let pauseIcon = NSImage(named: NSImage.Name("pauseButton"))
 
   struct SongItem {
     var song: MPDClient.Song
@@ -31,34 +34,34 @@ class QueueViewController: NSViewController, NSOutlineViewDataSource, NSOutlineV
     NotificationCenter.default.addObserver(
       self,
       selector: #selector(stateChanged(_:)),
-      name: MPDClient.stateChanged,
+      name: Notification.stateChanged,
       object: AppDelegate.mpdClient
     )
 
     NotificationCenter.default.addObserver(
       self,
       selector: #selector(queueChanged(_:)),
-      name: MPDClient.queueChanged,
+      name: Notification.queueChanged,
       object: AppDelegate.mpdClient
     )
 
     NotificationCenter.default.addObserver(
       self,
       selector: #selector(queuePosChanged(_:)),
-      name: MPDClient.queuePosChanged,
+      name: Notification.queuePosChanged,
       object: AppDelegate.mpdClient
     )
   }
 
   @objc func stateChanged(_ notification: Notification) {
-    guard let state = notification.userInfo?[MPDClient.stateKey] as? mpd_state
+    guard let state = notification.userInfo?[Notification.stateKey] as? MPDClient.Status.State
       else { return }
 
     setQueueIcon(state)
   }
 
   @objc func queueChanged(_ notification: Notification) {
-    guard let queue = notification.userInfo?[MPDClient.queueKey] as? [MPDClient.Song]
+    guard let queue = notification.userInfo?[Notification.queueKey] as? [MPDClient.Song]
       else { return }
 
     self.queue = queue
@@ -67,11 +70,13 @@ class QueueViewController: NSViewController, NSOutlineViewDataSource, NSOutlineV
   }
 
   @objc func queuePosChanged(_ notification: Notification) {
-    guard let queuePos = notification.userInfo?[MPDClient.queuePosKey] as? Int32
+    guard let queuePos = notification.userInfo?[Notification.queuePosKey] as? Int
       else { return }
 
-    let oldSongRowPos = Int(self.queuePos + 1)
-    let newSongRowPos = Int(queuePos + 1)
+    print(queuePos)
+
+    let oldSongRowPos = self.queuePos + 1
+    let newSongRowPos = queuePos + 1
     self.queuePos = queuePos
 
     setQueuePos(oldSongRowPos: oldSongRowPos, newSongRowPos: newSongRowPos)
@@ -82,12 +87,12 @@ class QueueViewController: NSViewController, NSOutlineViewDataSource, NSOutlineV
     )
   }
 
-  func setQueueIcon(_ state: mpd_state) {
+  func setQueueIcon(_ state: MPDClient.Status.State) {
     switch state {
-    case MPD_STATE_PLAY:
-      self.queueIcon = NSImage(named: NSImage.Name("playButton"))
-    case MPD_STATE_PAUSE:
-      self.queueIcon = NSImage(named: NSImage.Name("pauseButton"))
+    case .playing:
+      self.queueIcon = playIcon
+    case .paused:
+      self.queueIcon = pauseIcon
     default:
       self.queueIcon = nil
     }
@@ -95,18 +100,16 @@ class QueueViewController: NSViewController, NSOutlineViewDataSource, NSOutlineV
 
   func setQueuePos(oldSongRowPos: Int, newSongRowPos: Int) {
     if oldSongRowPos > 0 {
-      guard let oldSongRow = queueView.rowView(atRow: oldSongRowPos, makeIfNecessary: true)
-        else { return }
-      guard let oldSongTitleCell = oldSongRow.view(atColumn: 0) as? NSTableCellView
+      guard let oldSongRow = queueView.rowView(atRow: oldSongRowPos, makeIfNecessary: true),
+        let oldSongTitleCell = oldSongRow.view(atColumn: 0) as? NSTableCellView
         else { return }
 
       setRowFont(rowView: oldSongRow, font: systemFontRegular)
       oldSongTitleCell.imageView?.image = nil
     }
 
-    guard let songRow = queueView.rowView(atRow: newSongRowPos, makeIfNecessary: true)
-      else { return }
-    guard let newSongTitleCell = songRow.view(atColumn: 0) as? NSTableCellView
+    guard let songRow = queueView.rowView(atRow: newSongRowPos, makeIfNecessary: true),
+      let newSongTitleCell = songRow.view(atColumn: 0) as? NSTableCellView
       else { return }
 
     setRowFont(rowView: songRow, font: systemFontBold)
@@ -114,9 +117,8 @@ class QueueViewController: NSViewController, NSOutlineViewDataSource, NSOutlineV
   }
 
   func setRowFont(rowView: NSTableRowView, font: NSFont) {
-    guard let songTitleCell = rowView.view(atColumn: 0) as? NSTableCellView
-      else { return }
-    guard let songArtistCell = rowView.view(atColumn: 1) as? NSTableCellView
+    guard let songTitleCell = rowView.view(atColumn: 0) as? NSTableCellView,
+      let songArtistCell = rowView.view(atColumn: 1) as? NSTableCellView
       else { return }
 
     songTitleCell.textField?.font = font
@@ -144,7 +146,7 @@ class QueueViewController: NSViewController, NSOutlineViewDataSource, NSOutlineV
       switch tableColumn?.identifier.rawValue {
       case "songTitleColumn":
         let cellView = outlineView.makeView(
-          withIdentifier: NSUserInterfaceItemIdentifier("songTitleCell"),
+          withIdentifier: .queueSongTitle,
           owner: self
         ) as! NSTableCellView
 
@@ -153,7 +155,7 @@ class QueueViewController: NSViewController, NSOutlineViewDataSource, NSOutlineV
         return cellView
       case "songArtistColumn":
         let cellView = outlineView.makeView(
-          withIdentifier: NSUserInterfaceItemIdentifier("songArtistCell"),
+          withIdentifier: .queueSongArtist,
           owner: self
         ) as! NSTableCellView
 
@@ -166,7 +168,7 @@ class QueueViewController: NSViewController, NSOutlineViewDataSource, NSOutlineV
     } else {
       if tableColumn?.identifier.rawValue == "songTitleColumn" {
         let cellView = outlineView.makeView(
-          withIdentifier: NSUserInterfaceItemIdentifier("queueHeadingCell"),
+          withIdentifier: .queueHeading,
           owner: self
         ) as! NSTableCellView
 
