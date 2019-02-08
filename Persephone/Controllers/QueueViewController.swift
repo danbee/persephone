@@ -13,6 +13,8 @@ class QueueViewController: NSViewController, NSOutlineViewDataSource, NSOutlineV
   var queue: [MPDClient.Song] = []
   var queuePos: Int32 = -1
 
+  var queueIcon: NSImage? = nil
+
   let systemFontRegular = NSFont.systemFont(ofSize: 13, weight: .regular)
   let systemFontBold = NSFont.systemFont(ofSize: 13, weight: .bold)
 
@@ -28,6 +30,13 @@ class QueueViewController: NSViewController, NSOutlineViewDataSource, NSOutlineV
 
     NotificationCenter.default.addObserver(
       self,
+      selector: #selector(stateChanged(_:)),
+      name: MPDClient.stateChanged,
+      object: AppDelegate.mpdClient
+    )
+
+    NotificationCenter.default.addObserver(
+      self,
       selector: #selector(queueChanged(_:)),
       name: MPDClient.queueChanged,
       object: AppDelegate.mpdClient
@@ -39,6 +48,13 @@ class QueueViewController: NSViewController, NSOutlineViewDataSource, NSOutlineV
       name: MPDClient.queuePosChanged,
       object: AppDelegate.mpdClient
     )
+  }
+
+  @objc func stateChanged(_ notification: Notification) {
+    guard let state = notification.userInfo?[MPDClient.stateKey] as? mpd_state
+      else { return }
+
+    setQueueIcon(state)
   }
 
   @objc func queueChanged(_ notification: Notification) {
@@ -66,6 +82,17 @@ class QueueViewController: NSViewController, NSOutlineViewDataSource, NSOutlineV
     )
   }
 
+  func setQueueIcon(_ state: mpd_state) {
+    switch state {
+    case MPD_STATE_PLAY:
+      self.queueIcon = NSImage(named: NSImage.Name("playButton"))
+    case MPD_STATE_PAUSE:
+      self.queueIcon = NSImage(named: NSImage.Name("pauseButton"))
+    default:
+      self.queueIcon = nil
+    }
+  }
+
   func setQueuePos(oldSongRowPos: Int, newSongRowPos: Int) {
     if oldSongRowPos > 0 {
       guard let oldSongRow = queueView.rowView(atRow: oldSongRowPos, makeIfNecessary: true)
@@ -83,7 +110,7 @@ class QueueViewController: NSViewController, NSOutlineViewDataSource, NSOutlineV
       else { return }
 
     setRowFont(rowView: songRow, font: systemFontBold)
-    newSongTitleCell.imageView?.image = NSImage(named: NSImage.Name("playButton"))
+    newSongTitleCell.imageView?.image = self.queueIcon
   }
 
   func setRowFont(rowView: NSTableRowView, font: NSFont) {
