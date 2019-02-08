@@ -7,7 +7,6 @@
 //
 
 import Cocoa
-import mpdclient
 
 class QueueViewController: NSViewController, NSOutlineViewDataSource, NSOutlineViewDelegate {
   var queue: [MPDClient.Song] = []
@@ -72,8 +71,6 @@ class QueueViewController: NSViewController, NSOutlineViewDataSource, NSOutlineV
   @objc func queuePosChanged(_ notification: Notification) {
     guard let queuePos = notification.userInfo?[Notification.queuePosKey] as? Int
       else { return }
-
-    print(queuePos)
 
     let oldSongRowPos = self.queuePos + 1
     let newSongRowPos = queuePos + 1
@@ -150,7 +147,7 @@ class QueueViewController: NSViewController, NSOutlineViewDataSource, NSOutlineV
           owner: self
         ) as! NSTableCellView
 
-        cellView.textField?.stringValue = songItem.song.getTag(MPD_TAG_TITLE)
+        cellView.textField?.stringValue = songItem.song.getTag(.title)
 
         return cellView
       case "songArtistColumn":
@@ -159,7 +156,7 @@ class QueueViewController: NSViewController, NSOutlineViewDataSource, NSOutlineV
           owner: self
         ) as! NSTableCellView
 
-        cellView.textField?.stringValue = songItem.song.getTag(MPD_TAG_ARTIST)
+        cellView.textField?.stringValue = songItem.song.getTag(.artist)
 
         return cellView
       default:

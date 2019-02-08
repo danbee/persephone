@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import mpdclient
 
 class NotificationsController: MPDClientDelegate {
   let notificationQueue = DispatchQueue.main

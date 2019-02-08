@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import mpdclient
 
 protocol MPDClientDelegate {
   func didUpdateState(mpdClient: MPDClient, state: MPDClient.Status.State)
