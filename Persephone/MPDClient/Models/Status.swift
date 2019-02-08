@@ -9,12 +9,6 @@
 import Foundation
 import mpdclient
 
-extension RawRepresentable where Self: Equatable {
-  func isOneOf<Options: Sequence>(_ options: Options) -> Bool where Options.Element == Self {
-    return options.contains(self)
-  }
-}
-
 extension MPDClient {
   class Status {
     private let mpdStatus: OpaquePointer

@@ -14,6 +14,7 @@
 		E407863A2110CE70006887B1 /* PersephoneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40786392110CE70006887B1 /* PersephoneUITests.swift */; };
 		E408D3B6220DD8970006D9BE /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E408D3B5220DD8970006D9BE /* Notification.swift */; };
 		E408D3B9220DE98F0006D9BE /* NSUserInterfaceItemIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E408D3B8220DE98F0006D9BE /* NSUserInterfaceItemIdentifier.swift */; };
+		E408D3BE220E03EE0006D9BE /* RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E408D3BD220E03EE0006D9BE /* RawRepresentable.swift */; };
 		E41B22C021FB6BBA00D544F6 /* libmpdclient.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E41B22BF21FB6BBA00D544F6 /* libmpdclient.2.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
 		E41B22C121FB6C3300D544F6 /* libmpdclient.2.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = E41B22BF21FB6BBA00D544F6 /* libmpdclient.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		E41B22C621FB932700D544F6 /* MPDClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41B22C521FB932700D544F6 /* MPDClient.swift */; };
@@ -71,6 +72,7 @@
 		E407863B2110CE70006887B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E408D3B5220DD8970006D9BE /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		E408D3B8220DE98F0006D9BE /* NSUserInterfaceItemIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSUserInterfaceItemIdentifier.swift; sourceTree = "<group>"; };
+		E408D3BD220E03EE0006D9BE /* RawRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawRepresentable.swift; sourceTree = "<group>"; };
 		E41B22BF21FB6BBA00D544F6 /* libmpdclient.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libmpdclient.2.dylib; path = libmpdclient/output/libmpdclient.2.dylib; sourceTree = "<group>"; };
 		E41B22C421FB715A00D544F6 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		E41B22C521FB932700D544F6 /* MPDClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDClient.swift; sourceTree = "<group>"; };
@@ -206,6 +208,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		E408D3BC220E03D20006D9BE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E408D3BD220E03EE0006D9BE /* RawRepresentable.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		E41B22BE21FB6B3300D544F6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +278,7 @@
 		E4A642DB220912FA00067D21 /* MPDClient */ = {
 			isa = PBXGroup;
 			children = (
+				E408D3BC220E03D20006D9BE /* Extensions */,
 				E41B22C521FB932700D544F6 /* MPDClient.swift */,
 				E4D1B595220BA27C0026F233 /* Protocols */,
 				E4D1B594220BA2490026F233 /* Models */,
@@ -456,6 +467,7 @@
 				E407861C2110CE6E006887B1 /* AppDelegate.swift in Sources */,
 				E4E8CC9A22075D370024217A /* Song.swift in Sources */,
 				E4E8CC902204EC7F0024217A /* Delegate.swift in Sources */,
+				E408D3BE220E03EE0006D9BE /* RawRepresentable.swift in Sources */,
 				E4E8CC922204F4B80024217A /* QueueViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
