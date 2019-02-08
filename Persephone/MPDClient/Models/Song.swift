@@ -16,7 +16,7 @@ extension MPDClient {
     enum TagType: Int {
       case unknown = -1
       case artist, album, albumArtist, title, track, name,
-      genre, date, composer, performer, comment, disc
+        genre, date, composer, performer, comment, disc
 
       case musicBrainzArtistId
       case musicBrainzAlbumId
@@ -43,7 +43,7 @@ extension MPDClient {
 
     func getTag(_ tagType: TagType) -> String {
       let mpdTagType = mpd_tag_type(rawValue: Int32(tagType.rawValue))
-      
+
       guard let tag = mpd_song_get_tag(mpdSong, mpdTagType, 0)
         else { return "" }
       

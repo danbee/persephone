@@ -10,10 +10,7 @@ import Cocoa
 
 class WindowController: NSWindowController {
   enum TransportAction: Int {
-    case prevTrack = 0
-    case playPause = 1
-    case stop = 2
-    case nextTrack = 3
+    case prevTrack, playPause, stop, nextTrack
   }
 
   let playIcon = NSImage(named: NSImage.Name("playButton"))

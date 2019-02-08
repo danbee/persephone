@@ -11,7 +11,7 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
   static let mpdClient = MPDClient(
-    withDelegate: NotificationsController() as MPDClientDelegate
+    withDelegate: NotificationsController()
   )
  
   func applicationDidFinishLaunching(_ aNotification: Notification) {

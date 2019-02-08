@@ -134,7 +134,7 @@ class QueueViewController: NSViewController, NSOutlineViewDataSource, NSOutlineV
     if index > 0 {
       return SongItem(song: queue[index - 1], queuePos: index - 1)
     } else {
-      return ""
+      return false
     }
   }
 
