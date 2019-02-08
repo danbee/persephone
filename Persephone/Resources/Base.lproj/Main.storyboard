@@ -815,7 +815,7 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="17" id="UFf-Fg-9Qg"/>
                                                                     </constraints>
-                                                                    <imageCell key="cell" refusesFirstResponder="YES" imageScaling="proportionallyDown" image="playButton" id="ckK-gW-Vhx"/>
+                                                                    <imageCell key="cell" refusesFirstResponder="YES" imageScaling="proportionallyDown" id="ckK-gW-Vhx"/>
                                                                 </imageView>
                                                                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="i0h-bn-auJ">
                                                                     <rect key="frame" x="25" y="0.0" width="197" height="17"/>
