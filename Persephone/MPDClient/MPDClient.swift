@@ -22,7 +22,8 @@ class MPDClient {
   private let commandQueue = DispatchQueue(label: "commandQueue")
 
   enum Command {
-    case prevTrack, nextTrack, playPause, stop, fetchStatus, fetchQueue
+    case prevTrack, nextTrack, playPause, stop, fetchStatus, fetchQueue,
+      fetchAllAlbums
   }
 
   struct Idle: OptionSet {
@@ -57,6 +58,8 @@ class MPDClient {
 
     fetchQueue()
 
+    fetchAllAlbums()
+
     self.delegate?.didUpdateState(mpdClient: self, state: self.status!.state)
     self.delegate?.didUpdateQueue(mpdClient: self, queue: self.queue)
     self.delegate?.didUpdateQueuePos(mpdClient: self, song: self.status!.song)
@@ -76,6 +79,10 @@ class MPDClient {
 
   func fetchQueue() {
     sendCommand(command: .fetchQueue)
+  }
+
+  func fetchAllAlbums() {
+    sendCommand(command: .fetchAllAlbums)
   }
 
   func playPause() {
@@ -103,6 +110,7 @@ class MPDClient {
   }
 
   func sendCommand(command: Command) {
+    print("Command:", command)
     switch command {
 
     // Transport commands
@@ -114,19 +122,12 @@ class MPDClient {
       sendStop()
     case .playPause:
       sendPlay()
-
     case .fetchStatus:
-      guard let status = mpd_run_status(connection) else { break }
-      self.status = Status(status)
-
+      sendRunStatus()
     case .fetchQueue:
-      self.queue = []
-      mpd_send_list_queue_meta(connection)
-
-      while let mpdSong = mpd_recv_song(connection) {
-        let song = Song(mpdSong)
-        self.queue.append(song)
-      }
+      sendFetchQueue()
+    case .fetchAllAlbums:
+      allAlbums()
     }
   }
 
@@ -158,6 +159,84 @@ class MPDClient {
     }
   }
 
+  func sendRunStatus() {
+    guard let status = mpd_run_status(connection) else { return }
+    self.status = Status(status)
+  }
+
+  func sendFetchQueue() {
+    self.queue = []
+    mpd_send_list_queue_meta(connection)
+
+    while let mpdSong = mpd_recv_song(connection) {
+      let song = Song(mpdSong)
+      self.queue.append(song)
+    }
+  }
+
+  func allAlbums() {
+    var albums: [Album] = []
+    var artist: String = ""
+
+    mpd_search_db_tags(self.connection, MPD_TAG_ALBUM)
+    mpd_search_add_group_tag(self.connection, MPD_TAG_ALBUM_ARTIST)
+    mpd_search_commit(self.connection)
+    while let mpdPair = mpd_recv_pair(self.connection) {
+      let name = String(cString: mpdPair.pointee.name)
+      let value = String(cString: mpdPair.pointee.value)
+
+      switch name {
+      case "AlbumArtist":
+        artist = value
+      case "Album":
+        albums.append(Album(title: value, artist: artist))
+      default:
+        break
+      }
+      
+      mpd_return_pair(self.connection, mpdPair)
+    }
+
+    delegate?.didLoadAlbums(mpdClient: self, albums: albums)
+  }
+
+  func albumsForArtist(_ artist: String) -> [Album] {
+    var albums: [Album] = []
+
+    mpd_search_db_tags(self.connection, MPD_TAG_ALBUM)
+    mpd_search_add_tag_constraint(self.connection, MPD_OPERATOR_DEFAULT, MPD_TAG_ARTIST, artist)
+    mpd_search_commit(self.connection)
+    while let mpdAlbumPair = mpd_recv_pair_tag(self.connection, MPD_TAG_ALBUM) {
+      print(artist, "-", String(cString: mpdAlbumPair.pointee.value))
+      albums.append(Album(title: String(cString: mpdAlbumPair.pointee.value), artist: artist))
+      mpd_return_pair(self.connection, mpdAlbumPair)
+    }
+
+    return albums
+  }
+
+  func allArtists() -> [String] {
+    var artists: [String] = []
+
+    mpd_search_db_tags(self.connection, MPD_TAG_ARTIST)
+    mpd_search_commit(self.connection)
+    while let mpdArtistPair = mpd_recv_pair_tag(self.connection, MPD_TAG_ARTIST) {
+      artists.append(String(cString: mpdArtistPair.pointee.value))
+      mpd_return_pair(self.connection, mpdArtistPair)
+    }
+
+    return artists
+  }
+
+  func sendSearchDbTags(_ tagType: mpd_tag_type) {
+    mpd_search_db_tags(self.connection, tagType)
+    mpd_search_commit(self.connection)
+    while let mpdPair = mpd_recv_pair_tag(self.connection, tagType) {
+      print(String(cString: mpdPair.pointee.value))
+      mpd_return_pair(self.connection, mpdPair)
+    }
+  }
+
   func noIdle() {
     mpd_send_noidle(connection)
   }
@@ -184,6 +263,7 @@ class MPDClient {
       self.delegate?.didUpdateQueuePos(mpdClient: self, song: self.status!.song)
     }
     if !mpdIdle.isEmpty {
+      print("Status")
       self.idle()
     }
   }

@@ -908,47 +908,55 @@
             </objects>
             <point key="canvasLocation" x="744" y="459"/>
         </scene>
-        <!--View Controller-->
+        <!--Album View Controller-->
         <scene sceneID="7Ua-Hj-zWt">
             <objects>
-                <viewController id="gPn-fP-LFc" sceneMemberID="viewController">
+                <viewController id="gPn-fP-LFc" customClass="AlbumViewController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="v1d-6d-Fl3">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wia-Qk-FEw">
+                            <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5f-35-7x8">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                                <clipView key="contentView" id="leP-Jn-VMY">
+                                <clipView key="contentView" id="iXE-Xl-zu6">
                                     <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <collectionView id="2XB-gk-sPO">
+                                        <collectionView id="lfq-AB-epE">
                                             <rect key="frame" x="0.0" y="0.0" width="450" height="158"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="OKj-Q2-LS1">
-                                                <size key="itemSize" width="50" height="50"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="20" minimumLineSpacing="20" id="K0l-P8-OW0">
+                                                <size key="itemSize" width="206" height="248"/>
+                                                <edgeInsets key="sectionInset" left="40" right="40" top="20" bottom="60"/>
                                             </collectionViewFlowLayout>
                                             <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <connections>
+                                                <outlet property="dataSource" destination="gPn-fP-LFc" id="2VB-5V-ltv"/>
+                                                <outlet property="delegate" destination="gPn-fP-LFc" id="LQ2-Vl-r08"/>
+                                            </connections>
                                         </collectionView>
                                     </subviews>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="Dqn-NC-UFS">
-                                    <rect key="frame" x="1" y="144" width="233" height="15"/>
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="bK3-Ei-Odz">
+                                    <rect key="frame" x="1" y="213" width="348" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Enn-qw-4lt">
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="SkF-fO-hfN">
                                     <rect key="frame" x="234" y="1" width="15" height="143"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="wia-Qk-FEw" firstAttribute="top" secondItem="v1d-6d-Fl3" secondAttribute="top" id="NG4-cV-AAv"/>
-                            <constraint firstAttribute="bottom" secondItem="wia-Qk-FEw" secondAttribute="bottom" id="emh-fE-n6N"/>
-                            <constraint firstAttribute="trailing" secondItem="wia-Qk-FEw" secondAttribute="trailing" id="izX-0D-aEA"/>
-                            <constraint firstItem="wia-Qk-FEw" firstAttribute="leading" secondItem="v1d-6d-Fl3" secondAttribute="leading" id="v7v-S1-h5Z"/>
+                            <constraint firstItem="i5f-35-7x8" firstAttribute="top" secondItem="v1d-6d-Fl3" secondAttribute="top" id="BXd-LQ-OWX"/>
+                            <constraint firstItem="i5f-35-7x8" firstAttribute="leading" secondItem="v1d-6d-Fl3" secondAttribute="leading" id="Bgm-NV-0Ft"/>
+                            <constraint firstAttribute="bottom" secondItem="i5f-35-7x8" secondAttribute="bottom" id="G8K-PG-9Zq"/>
+                            <constraint firstAttribute="trailing" secondItem="i5f-35-7x8" secondAttribute="trailing" id="vcm-wb-Ghi"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="albumCollectionView" destination="lfq-AB-epE" id="p69-Fs-hCN"/>
+                    </connections>
                 </viewController>
                 <customObject id="uex-Ws-5X4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

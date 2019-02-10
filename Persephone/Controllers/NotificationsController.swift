@@ -32,6 +32,13 @@ class NotificationsController: MPDClientDelegate {
     )
   }
 
+  func didLoadAlbums(mpdClient: MPDClient, albums: [MPDClient.Album]) {
+    sendNotification(
+      name: Notification.loadedAlbums,
+      userInfo: [Notification.albumsKey: albums]
+    )
+  }
+
   private func sendNotification(name: Notification.Name, userInfo: [AnyHashable : Any]) {
     self.notificationQueue.async {
       NotificationCenter.default.post(

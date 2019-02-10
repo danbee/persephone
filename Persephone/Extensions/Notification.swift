@@ -12,8 +12,10 @@ extension Notification {
   static let stateChanged = Notification.Name("MPDClientStateChanged")
   static let queueChanged = Notification.Name("MPDClientQueueChanged")
   static let queuePosChanged = Notification.Name("MPDClientQueuePosChanged")
+  static let loadedAlbums = Notification.Name("MPDClientLoadedAlbums")
 
   static let stateKey = "state"
   static let queueKey = "queue"
   static let queuePosKey = "song"
+  static let albumsKey = "albums"
 }
