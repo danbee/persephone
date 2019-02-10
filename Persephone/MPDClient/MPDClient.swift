@@ -110,6 +110,7 @@ class MPDClient {
   }
 
   func sendCommand(command: Command) {
+    print("Command:", command)
     switch command {
 
     // Transport commands
@@ -224,6 +225,7 @@ class MPDClient {
       self.delegate?.didUpdateQueuePos(mpdClient: self, song: self.status!.song)
     }
     if !mpdIdle.isEmpty {
+      print("Status")
       self.idle()
     }
   }

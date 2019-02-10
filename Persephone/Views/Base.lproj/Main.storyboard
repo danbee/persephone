@@ -930,7 +930,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="450" height="158"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="20" minimumLineSpacing="20" id="K0l-P8-OW0">
-                                                <size key="itemSize" width="159" height="207"/>
+                                                <size key="itemSize" width="206" height="248"/>
                                                 <edgeInsets key="sectionInset" left="40" right="40" top="20" bottom="60"/>
                                             </collectionViewFlowLayout>
                                             <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
