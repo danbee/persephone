@@ -19,17 +19,17 @@
             <rect key="frame" x="0.0" y="0.0" width="206" height="248"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField identifier="albumTitle" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KEh-NL-c2W">
-                    <rect key="frame" x="-2" y="20" width="37" height="17"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="pDs-0t-e1j">
+                <textField identifier="albumTitle" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" preferredMaxLayoutWidth="206" translatesAutoresizingMaskIntoConstraints="NO" id="KEh-NL-c2W">
+                    <rect key="frame" x="-2" y="20" width="210" height="17"/>
+                    <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Label" id="pDs-0t-e1j">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField identifier="albumArtist" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5Uu-j1-qyT">
-                    <rect key="frame" x="-2" y="0.0" width="37" height="17"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="yZn-e9-zyP">
+                <textField identifier="albumArtist" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" preferredMaxLayoutWidth="206" translatesAutoresizingMaskIntoConstraints="NO" id="5Uu-j1-qyT">
+                    <rect key="frame" x="-2" y="0.0" width="210" height="17"/>
+                    <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Label" id="yZn-e9-zyP">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
