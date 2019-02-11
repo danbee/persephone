@@ -15,4 +15,12 @@ class Pair {
   init(_ mpdPair: UnsafeMutablePointer<mpd_pair>) {
     self.mpdPair = mpdPair
   }
+
+  var name: String {
+    get { return String(cString: mpdPair.pointee.name) }
+  }
+
+  var value: String {
+    get { return String(cString: mpdPair.pointee.value) }
+  }
 }

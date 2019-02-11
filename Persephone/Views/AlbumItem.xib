@@ -16,41 +16,43 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="206" height="248"/>
+            <rect key="frame" x="0.0" y="0.0" width="160" height="207"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField identifier="albumTitle" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" preferredMaxLayoutWidth="206" translatesAutoresizingMaskIntoConstraints="NO" id="KEh-NL-c2W">
-                    <rect key="frame" x="-2" y="20" width="210" height="17"/>
+                <imageView identifier="albumArtwork" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kfb-8f-ean">
+                    <rect key="frame" x="0.0" y="45" width="160" height="162"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="blankAlbum" id="FsA-JX-BFh"/>
+                </imageView>
+                <textField identifier="albumTitle" horizontalHuggingPriority="251" verticalHuggingPriority="750" preferredMaxLayoutWidth="206" translatesAutoresizingMaskIntoConstraints="NO" id="KEh-NL-c2W">
+                    <rect key="frame" x="-2" y="20" width="164" height="17"/>
                     <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Label" id="pDs-0t-e1j">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField identifier="albumArtist" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" preferredMaxLayoutWidth="206" translatesAutoresizingMaskIntoConstraints="NO" id="5Uu-j1-qyT">
-                    <rect key="frame" x="-2" y="0.0" width="210" height="17"/>
+                <textField identifier="albumArtist" horizontalHuggingPriority="251" verticalHuggingPriority="750" preferredMaxLayoutWidth="206" translatesAutoresizingMaskIntoConstraints="NO" id="5Uu-j1-qyT">
+                    <rect key="frame" x="-2" y="0.0" width="164" height="17"/>
                     <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Label" id="yZn-e9-zyP">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <imageView identifier="albumArtwork" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kfb-8f-ean">
-                    <rect key="frame" x="0.0" y="42" width="206" height="206"/>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="blankAlbum" id="FsA-JX-BFh"/>
-                </imageView>
             </subviews>
             <constraints>
-                <constraint firstItem="KEh-NL-c2W" firstAttribute="leading" secondItem="5Uu-j1-qyT" secondAttribute="leading" id="Iji-NN-ju3"/>
+                <constraint firstItem="5Uu-j1-qyT" firstAttribute="trailing" secondItem="KEh-NL-c2W" secondAttribute="trailing" id="64z-uz-4nY"/>
+                <constraint firstAttribute="bottom" secondItem="KEh-NL-c2W" secondAttribute="bottom" constant="20" symbolic="YES" id="8Kg-1r-wNp"/>
                 <constraint firstItem="Kfb-8f-ean" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="JMi-4i-dgs"/>
-                <constraint firstItem="KEh-NL-c2W" firstAttribute="top" secondItem="Kfb-8f-ean" secondAttribute="bottom" constant="5" id="Jdb-sY-lnB"/>
                 <constraint firstAttribute="trailing" secondItem="Kfb-8f-ean" secondAttribute="trailing" id="KQC-Wz-Bsg"/>
+                <constraint firstItem="5Uu-j1-qyT" firstAttribute="leading" secondItem="KEh-NL-c2W" secondAttribute="leading" id="MUo-0i-fX9"/>
                 <constraint firstItem="Kfb-8f-ean" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="Qbk-jx-zAi"/>
-                <constraint firstItem="Kfb-8f-ean" firstAttribute="leading" secondItem="KEh-NL-c2W" secondAttribute="leading" id="diY-bi-0Yg"/>
-                <constraint firstAttribute="bottom" secondItem="5Uu-j1-qyT" secondAttribute="bottom" id="puG-ym-5hh"/>
-                <constraint firstAttribute="bottom" secondItem="KEh-NL-c2W" secondAttribute="bottom" constant="20" symbolic="YES" id="yIJ-L1-2c5"/>
+                <constraint firstItem="KEh-NL-c2W" firstAttribute="trailing" secondItem="Kfb-8f-ean" secondAttribute="trailing" id="U0w-G4-ggX"/>
+                <constraint firstItem="KEh-NL-c2W" firstAttribute="leading" secondItem="Kfb-8f-ean" secondAttribute="leading" id="V8r-Rc-Dx7"/>
+                <constraint firstItem="KEh-NL-c2W" firstAttribute="top" secondItem="Kfb-8f-ean" secondAttribute="bottom" constant="8" symbolic="YES" id="XFx-sv-dpF"/>
+                <constraint firstAttribute="bottom" secondItem="5Uu-j1-qyT" secondAttribute="bottom" id="gci-4h-pDZ"/>
             </constraints>
-            <point key="canvasLocation" x="3" y="142"/>
+            <point key="canvasLocation" x="-22" y="139.5"/>
         </customView>
         <collectionViewItem id="Qgu-aI-55A" customClass="AlbumItem" customModule="Persephone" customModuleProvider="target"/>
     </objects>

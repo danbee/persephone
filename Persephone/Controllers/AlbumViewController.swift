@@ -46,8 +46,7 @@ class AlbumViewController: NSViewController,
     guard let albumItem = item as? AlbumItem else { return item }
 
     albumItem.view.wantsLayer = true
-    albumItem.setAlbumTitle(albums[indexPath.item].title)
-    albumItem.setAlbumArtist(albums[indexPath.item].artist)
+    albumItem.setAlbum(albums[indexPath.item])
 
     return albumItem
   }

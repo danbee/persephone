@@ -14,12 +14,9 @@ class AlbumItem: NSCollectionViewItem {
     // Do view setup here.
   }
 
-  func setAlbumTitle(_ title: String) {
-    albumTitle.stringValue = title
-  }
-
-  func setAlbumArtist(_ artist: String) {
-    albumArtist.stringValue = artist
+  func setAlbum(_ album: MPDClient.Album) {
+    albumTitle.stringValue = album.title
+    albumArtist.stringValue = album.artist
   }
 
   @IBOutlet var albumTitle: NSTextField!

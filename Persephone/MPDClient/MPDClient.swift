@@ -182,19 +182,18 @@ class MPDClient {
     mpd_search_add_group_tag(self.connection, MPD_TAG_ALBUM_ARTIST)
     mpd_search_commit(self.connection)
     while let mpdPair = mpd_recv_pair(self.connection) {
-      let name = String(cString: mpdPair.pointee.name)
-      let value = String(cString: mpdPair.pointee.value)
+      let pair = Pair(mpdPair)
 
-      switch name {
+      switch pair.name {
       case "AlbumArtist":
-        artist = value
+        artist = pair.value
       case "Album":
-        albums.append(Album(title: value, artist: artist))
+        albums.append(Album(title: pair.value, artist: artist))
       default:
         break
       }
-      
-      mpd_return_pair(self.connection, mpdPair)
+
+      mpd_return_pair(self.connection, pair.mpdPair)
     }
 
     delegate?.didLoadAlbums(mpdClient: self, albums: albums)
