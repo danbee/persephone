@@ -28,7 +28,7 @@ class QueueViewController: NSViewController, NSOutlineViewDataSource, NSOutlineV
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    queueView.columnAutoresizingStyle = .uniformColumnAutoresizingStyle
+    queueView.columnAutoresizingStyle = .sequentialColumnAutoresizingStyle
 
     NotificationCenter.default.addObserver(
       self,

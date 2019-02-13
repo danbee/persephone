@@ -179,6 +179,7 @@
 		E407861A2110CE6E006887B1 /* Persephone */ = {
 			isa = PBXGroup;
 			children = (
+				E407861F2110CE70006887B1 /* Assets.xcassets */,
 				E408D3B7220DE8CC0006D9BE /* Extensions */,
 				E4D1B598220BA3C90026F233 /* Resources */,
 				E4D1B597220BA3A20026F233 /* Controllers */,
@@ -230,9 +231,7 @@
 		E408D3C3220E138B0006D9BE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E40786212110CE70006887B1 /* Main.storyboard */,
 				E408D3C8220E341D0006D9BE /* AlbumItem.swift */,
-				E408D3C9220E341D0006D9BE /* AlbumItem.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -340,7 +339,8 @@
 		E4D1B598220BA3C90026F233 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E407861F2110CE70006887B1 /* Assets.xcassets */,
+				E40786212110CE70006887B1 /* Main.storyboard */,
+				E408D3C9220E341D0006D9BE /* AlbumItem.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
