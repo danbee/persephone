@@ -110,7 +110,6 @@ class MPDClient {
   }
 
   func sendCommand(command: Command) {
-    print("Command:", command)
     switch command {
 
     // Transport commands
@@ -199,43 +198,6 @@ class MPDClient {
     delegate?.didLoadAlbums(mpdClient: self, albums: albums)
   }
 
-  func albumsForArtist(_ artist: String) -> [Album] {
-    var albums: [Album] = []
-
-    mpd_search_db_tags(self.connection, MPD_TAG_ALBUM)
-    mpd_search_add_tag_constraint(self.connection, MPD_OPERATOR_DEFAULT, MPD_TAG_ARTIST, artist)
-    mpd_search_commit(self.connection)
-    while let mpdAlbumPair = mpd_recv_pair_tag(self.connection, MPD_TAG_ALBUM) {
-      print(artist, "-", String(cString: mpdAlbumPair.pointee.value))
-      albums.append(Album(title: String(cString: mpdAlbumPair.pointee.value), artist: artist))
-      mpd_return_pair(self.connection, mpdAlbumPair)
-    }
-
-    return albums
-  }
-
-  func allArtists() -> [String] {
-    var artists: [String] = []
-
-    mpd_search_db_tags(self.connection, MPD_TAG_ARTIST)
-    mpd_search_commit(self.connection)
-    while let mpdArtistPair = mpd_recv_pair_tag(self.connection, MPD_TAG_ARTIST) {
-      artists.append(String(cString: mpdArtistPair.pointee.value))
-      mpd_return_pair(self.connection, mpdArtistPair)
-    }
-
-    return artists
-  }
-
-  func sendSearchDbTags(_ tagType: mpd_tag_type) {
-    mpd_search_db_tags(self.connection, tagType)
-    mpd_search_commit(self.connection)
-    while let mpdPair = mpd_recv_pair_tag(self.connection, tagType) {
-      print(String(cString: mpdPair.pointee.value))
-      mpd_return_pair(self.connection, mpdPair)
-    }
-  }
-
   func noIdle() {
     mpd_send_noidle(connection)
   }
@@ -262,7 +224,6 @@ class MPDClient {
       self.delegate?.didUpdateQueuePos(mpdClient: self, song: self.status!.song)
     }
     if !mpdIdle.isEmpty {
-      print("Status")
       self.idle()
     }
   }
