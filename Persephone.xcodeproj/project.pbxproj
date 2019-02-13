@@ -697,11 +697,17 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/libmpdclient/output",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.danbarber.PersephoneTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
+				SYSTEM_HEADER_SEARCH_PATHS = Persephone/include;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Persephone.app/Contents/MacOS/Persephone";
+				USER_HEADER_SEARCH_PATHS = libmpdclient/output;
 			};
 			name = Debug;
 		};
@@ -720,11 +726,17 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/libmpdclient/output",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.danbarber.PersephoneTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
+				SYSTEM_HEADER_SEARCH_PATHS = Persephone/include;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Persephone.app/Contents/MacOS/Persephone";
+				USER_HEADER_SEARCH_PATHS = libmpdclient/output;
 			};
 			name = Release;
 		};

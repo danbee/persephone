@@ -7,7 +7,7 @@
 //
 
 import XCTest
-//@testable import Persephone
+@testable import Persephone
 
 class PersephoneTests: XCTestCase {
     
