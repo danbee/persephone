@@ -9,7 +9,9 @@
         <customObject id="-2" userLabel="File's Owner" customClass="AlbumItem" customModule="Persephone" customModuleProvider="target">
             <connections>
                 <outlet property="albumArtist" destination="5Uu-j1-qyT" id="2Et-tX-InT"/>
+                <outlet property="albumCoverView" destination="Kfb-8f-ean" id="ZAL-jD-lHj"/>
                 <outlet property="albumTitle" destination="KEh-NL-c2W" id="SI3-hm-H2B"/>
+                <outlet property="imageView" destination="Kfb-8f-ean" id="Ur0-hX-wJm"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="v7W-XA-Emc"/>
             </connections>
         </customObject>
