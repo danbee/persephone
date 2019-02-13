@@ -178,5 +178,9 @@ class QueueViewController: NSViewController, NSOutlineViewDataSource, NSOutlineV
     }
   }
 
+  func outlineView(_ outlineView: NSOutlineView, shouldSelectItem item: Any) -> Bool {
+    return item is SongItem
+  }
+
   @IBOutlet var queueView: NSOutlineView!
 }
