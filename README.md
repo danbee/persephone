@@ -21,3 +21,7 @@ description](https://en.wikipedia.org/wiki/Music_Player_Daemon).
 
 Run `bin/setup` before opening the Xcode project. You probably want MPD server
 to be running on your local machine.
+
+## Credits
+
+Lyre by Xinh Studio from the Noun Project
