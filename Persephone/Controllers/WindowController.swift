@@ -13,8 +13,8 @@ class WindowController: NSWindowController {
     case prevTrack, playPause, stop, nextTrack
   }
 
-  let playIcon = NSImage(named: NSImage.Name("playButton"))
-  let pauseIcon = NSImage(named: NSImage.Name("pauseButton"))
+  let playIcon = NSImage(named: "playButton")
+  let pauseIcon = NSImage(named: "pauseButton")
 
   override func windowDidLoad() {
     super.windowDidLoad()

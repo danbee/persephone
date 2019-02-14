@@ -17,8 +17,8 @@ class QueueViewController: NSViewController, NSOutlineViewDataSource, NSOutlineV
   let systemFontRegular = NSFont.systemFont(ofSize: 13, weight: .regular)
   let systemFontBold = NSFont.systemFont(ofSize: 13, weight: .bold)
 
-  let playIcon = NSImage(named: NSImage.Name("playButton"))
-  let pauseIcon = NSImage(named: NSImage.Name("pauseButton"))
+  let playIcon = NSImage(named: "playButton")
+  let pauseIcon = NSImage(named: "pauseButton")
 
   struct SongItem {
     var song: MPDClient.Song
