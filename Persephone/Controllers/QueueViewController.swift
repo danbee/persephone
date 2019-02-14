@@ -52,6 +52,15 @@ class QueueViewController: NSViewController, NSOutlineViewDataSource, NSOutlineV
     )
   }
 
+  @IBAction func playTrack(_ sender: Any) {
+    guard let view = sender as? NSOutlineView
+      else { return }
+
+    let queuePos = view.selectedRow - 1
+
+    AppDelegate.mpdClient.playTrack(queuePos: queuePos)
+  }
+
   @objc func stateChanged(_ notification: Notification) {
     guard let state = notification.userInfo?[Notification.stateKey] as? MPDClient.Status.State
       else { return }

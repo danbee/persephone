@@ -22,8 +22,8 @@ class MPDClient {
   private let commandQueue = DispatchQueue(label: "commandQueue")
 
   enum Command {
-    case prevTrack, nextTrack, playPause, stop, fetchStatus, fetchQueue,
-      fetchAllAlbums
+    case prevTrack, nextTrack, playPause, stop,
+      fetchStatus, fetchQueue, fetchAllAlbums
   }
 
   struct Idle: OptionSet {
@@ -99,6 +99,14 @@ class MPDClient {
 
   func nextTrack() {
     queueCommand(command: .nextTrack)
+  }
+
+  func playTrack(queuePos: Int) {
+    noIdle()
+    commandQueue.async { [unowned self] in
+      mpd_run_play_pos(self.connection, UInt32(queuePos))
+    }
+    idle()
   }
 
   func queueCommand(command: Command) {
