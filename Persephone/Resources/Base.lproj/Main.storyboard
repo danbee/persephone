@@ -689,8 +689,9 @@
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="207" y="570" width="480" height="270"/>
+                        <rect key="contentRect" x="207" y="570" width="960" height="560"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <value key="minSize" type="size" width="800" height="400"/>
                         <toolbar key="toolbar" implicitIdentifier="33DCB92B-74AF-496A-99FE-1F88002CB88A" autosavesConfiguration="NO" displayMode="iconOnly" sizeMode="regular" id="eNB-TI-KUS">
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="mhg-16-CNM"/>
@@ -755,7 +756,7 @@
                 </splitViewController>
                 <customObject id="Dag-kO-ps3" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="74" y="677"/>
+            <point key="canvasLocation" x="74" y="873"/>
         </scene>
         <!--Queue View Controller-->
         <scene sceneID="QcX-dC-cTZ">
@@ -876,6 +877,7 @@
                                                 </tableColumn>
                                             </tableColumns>
                                             <connections>
+                                                <action trigger="doubleAction" selector="playTrack:" target="KIP-rq-4dM" id="opa-6G-OW0"/>
                                                 <outlet property="dataSource" destination="KIP-rq-4dM" id="K1Q-7o-xXW"/>
                                                 <outlet property="delegate" destination="KIP-rq-4dM" id="60F-6x-bUE"/>
                                             </connections>
@@ -910,7 +912,7 @@
                 </viewController>
                 <customObject id="du4-e9-TfX" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="744" y="459"/>
+            <point key="canvasLocation" x="848" y="635"/>
         </scene>
         <!--Album View Controller-->
         <scene sceneID="7Ua-Hj-zWt">
@@ -964,7 +966,7 @@
                 </viewController>
                 <customObject id="uex-Ws-5X4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="744" y="831"/>
+            <point key="canvasLocation" x="744" y="1077"/>
         </scene>
     </scenes>
     <resources>
