@@ -38,7 +38,6 @@ class AlbumViewController: NSViewController,
     guard let albums = notification.userInfo?[Notification.albumsKey] as? [MPDClient.Album]
       else { return }
 
-    print("Loaded albums")
     self.albums = albums
 
     albumCollectionView.reloadData()
