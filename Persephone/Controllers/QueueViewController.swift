@@ -58,7 +58,9 @@ class QueueViewController: NSViewController, NSOutlineViewDataSource, NSOutlineV
 
     let queuePos = view.selectedRow - 1
 
-    AppDelegate.mpdClient.playTrack(queuePos: queuePos)
+    if queuePos >= 0 {
+      AppDelegate.mpdClient.playTrack(queuePos: queuePos)
+    }
   }
 
   @objc func stateChanged(_ notification: Notification) {
@@ -187,8 +189,15 @@ class QueueViewController: NSViewController, NSOutlineViewDataSource, NSOutlineV
     }
   }
 
-  func outlineView(_ outlineView: NSOutlineView, shouldSelectItem item: Any) -> Bool {
-    return item is SongItem
+  func outlineView(
+    _ outlineView: NSOutlineView,
+    selectionIndexesForProposedSelection proposedSelectionIndexes: IndexSet
+  ) -> IndexSet {
+    if proposedSelectionIndexes.contains(0) {
+      return IndexSet.init()
+    } else {
+      return proposedSelectionIndexes
+    }
   }
 
   @IBOutlet var queueView: NSOutlineView!
