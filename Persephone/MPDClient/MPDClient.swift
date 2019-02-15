@@ -12,10 +12,8 @@ import mpdclient
 class MPDClient {
   var delegate: MPDClientDelegate?
 
-  let HOST = "localhost"
-  let PORT: UInt32 = 6600
-
   private var connection: OpaquePointer?
+  private var isConnected: Bool = false
   private var status: Status?
   private var queue: [Song] = []
 
@@ -46,30 +44,40 @@ class MPDClient {
     self.delegate = delegate
   }
 
-  func connect() {
-    guard let connection = mpd_connection_new(HOST, PORT, 0)
-      else { return }
+  func connect(host: String, port: Int) {
+    commandQueue.async { [unowned self] in
+      guard let connection = mpd_connection_new(host, UInt32(port), 10000),
+        mpd_connection_get_error(connection) == MPD_ERROR_SUCCESS
+        else { return }
 
-    guard let status = mpd_run_status(connection)
-      else { return }
+      self.isConnected = true
 
-    self.connection = connection
-    self.status = Status(status)
+      guard let status = mpd_run_status(connection)
+        else { return }
 
-    fetchQueue()
+      self.connection = connection
+      self.status = Status(status)
 
-    fetchAllAlbums()
+      self.fetchQueue()
+      self.fetchAllAlbums()
+      self.idle()
 
-    self.delegate?.didUpdateState(mpdClient: self, state: self.status!.state)
-    self.delegate?.didUpdateQueue(mpdClient: self, queue: self.queue)
-    self.delegate?.didUpdateQueuePos(mpdClient: self, song: self.status!.song)
-    idle()
+      self.delegate?.didConnect(mpdClient: self)
+      self.delegate?.didUpdateState(mpdClient: self, state: self.status!.state)
+      self.delegate?.didUpdateQueue(mpdClient: self, queue: self.queue)
+      self.delegate?.didUpdateQueuePos(mpdClient: self, song: self.status!.song)
+    }
   }
 
   func disconnect() {
+    guard isConnected else { return }
+    
     noIdle()
     commandQueue.async { [unowned self] in
+      self.delegate?.willDisconnect(mpdClient: self)
+      
       mpd_connection_free(self.connection)
+      self.isConnected = false
     }
   }
 
@@ -102,6 +110,8 @@ class MPDClient {
   }
 
   func playTrack(queuePos: Int) {
+    guard isConnected else { return }
+
     noIdle()
     commandQueue.async { [unowned self] in
       mpd_run_play_pos(self.connection, UInt32(queuePos))
@@ -110,6 +120,8 @@ class MPDClient {
   }
 
   func queueCommand(command: Command) {
+    guard isConnected else { return }
+    
     noIdle()
     commandQueue.async { [unowned self] in
       self.sendCommand(command: command)
@@ -236,15 +248,15 @@ class MPDClient {
     }
   }
 
-  func getLastErrorMessage() -> String! {
+  func getLastErrorMessage() -> String? {
     if mpd_connection_get_error(connection) == MPD_ERROR_SUCCESS {
-      return "no error"
+      return nil
     }
 
     if let errorMessage = mpd_connection_get_error_message(connection) {
       return String(cString: errorMessage)
     }
 
-    return "no error"
+    return nil
   }
 }

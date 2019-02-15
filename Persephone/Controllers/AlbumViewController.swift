@@ -25,6 +25,13 @@ class AlbumViewController: NSViewController,
       name: Notification.loadedAlbums,
       object: AppDelegate.mpdClient
     )
+
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(clearAlbums(_:)),
+      name: Notification.willDisconnect,
+      object: AppDelegate.mpdClient
+    )
   }
 
   override func viewWillLayout() {
@@ -38,6 +45,12 @@ class AlbumViewController: NSViewController,
       else { return }
 
     self.albums = albums
+
+    albumCollectionView.reloadData()
+  }
+
+  @objc func clearAlbums(_ notification: Notification) {
+    self.albums = []
 
     albumCollectionView.reloadData()
   }
