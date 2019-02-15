@@ -23,7 +23,11 @@ struct Preferences {
       return UserDefaults.standard.value(forKey: "mpdPort") as? Int
     }
     set {
-      UserDefaults.standard.set(newValue, forKey: "mpdPort")
+      if (newValue.map { $0 > 0 } ?? false) {
+        UserDefaults.standard.set(newValue, forKey: "mpdPort")
+      } else {
+        UserDefaults.standard.removeObject(forKey: "mpdPort")
+      }
     }
   }
 
