@@ -9,6 +9,9 @@
 import Foundation
 
 extension Notification {
+  static let didConnect = Notification.Name("MPDClientDidConnect")
+  static let willDisconnect = Notification.Name("MPDClientWillDisconnect")
+
   static let stateChanged = Notification.Name("MPDClientStateChanged")
   static let queueChanged = Notification.Name("MPDClientQueueChanged")
   static let queuePosChanged = Notification.Name("MPDClientQueuePosChanged")

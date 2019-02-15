@@ -50,6 +50,13 @@ class QueueViewController: NSViewController, NSOutlineViewDataSource, NSOutlineV
       name: Notification.queuePosChanged,
       object: AppDelegate.mpdClient
     )
+
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(clearQueue(_:)),
+      name: Notification.willDisconnect,
+      object: AppDelegate.mpdClient
+    )
   }
 
   @IBAction func playTrack(_ sender: Any) {
@@ -93,6 +100,12 @@ class QueueViewController: NSViewController, NSOutlineViewDataSource, NSOutlineV
       forRowIndexes: [oldSongRowPos, newSongRowPos],
       columnIndexes: [0, 1]
     )
+  }
+
+  @objc func clearQueue(_ notification: Notification) {
+    self.queue = []
+
+    queueView.reloadData()
   }
 
   func setQueueIcon(_ state: MPDClient.Status.State) {

@@ -24,7 +24,12 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
+                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
+                                            <connections>
+                                                <action selector="preferencesItemSelected:" target="Voe-Tx-rLC" id="bxe-zW-cho"/>
+                                                <segue destination="xYu-7w-E5x" kind="show" id="OTW-56-v9E"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                                         <menuItem title="Services" id="NMo-om-nkz">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -680,7 +685,7 @@
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="0.0"/>
+            <point key="canvasLocation" x="115" y="-366"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -703,10 +708,10 @@
                                         <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedRounded" trackingMode="momentary" id="EBk-sD-nG7">
                                             <font key="font" metaFont="system"/>
                                             <segments>
-                                                <segment image="prevTrackButton" width="32"/>
-                                                <segment image="playButton" width="48" tag="1"/>
-                                                <segment image="stopButton" width="32"/>
-                                                <segment image="nextTrackButton" width="32"/>
+                                                <segment image="prevTrackButton" width="32" enabled="NO"/>
+                                                <segment image="playButton" width="48" enabled="NO" tag="1"/>
+                                                <segment image="stopButton" width="32" enabled="NO"/>
+                                                <segment image="nextTrackButton" width="32" enabled="NO"/>
                                             </segments>
                                             <connections>
                                                 <action selector="handleTransportControl:" target="B8D-0N-5wS" id="HTN-5E-y75"/>
@@ -757,6 +762,91 @@
                 <customObject id="Dag-kO-ps3" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="74" y="873"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="Rpk-bo-5kf">
+            <objects>
+                <windowController id="xYu-7w-E5x" sceneMemberID="viewController">
+                    <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="3FN-my-6kU">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+                        <rect key="contentRect" x="245" y="301" width="416" height="100"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <connections>
+                            <outlet property="delegate" destination="xYu-7w-E5x" id="gZw-NF-8zl"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="nYi-sw-ZNp" kind="relationship" relationship="window.shadowedContentViewController" id="607-3F-gJf"/>
+                    </connections>
+                </windowController>
+                <customObject id="0sd-8B-etN" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="915" y="-89"/>
+        </scene>
+        <!--Preferences View Controller-->
+        <scene sceneID="xTC-Y5-Agk">
+            <objects>
+                <viewController id="nYi-sw-ZNp" customClass="PreferencesViewController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Uwt-Lw-ILP">
+                        <rect key="frame" x="0.0" y="0.0" width="420" height="100"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wPm-sJ-e9E">
+                                <rect key="frame" x="162" y="58" width="184" height="22"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="left" placeholderString="127.0.0.1" drawsBackground="YES" id="MSX-mn-2ma">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <action selector="updateMpdHost:" target="nYi-sw-ZNp" id="Y7x-N9-6ag"/>
+                                </connections>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IbX-oV-soD">
+                                <rect key="frame" x="162" y="26" width="80" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="6600" drawsBackground="YES" id="i9j-nB-bqq">
+                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" numberStyle="decimal" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="UiQ-gi-Hbp">
+                                        <real key="minimum" value="0.0"/>
+                                        <real key="maximum" value="65535"/>
+                                    </numberFormatter>
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <action selector="updateMpdPort:" target="nYi-sw-ZNp" id="406-EC-aO2"/>
+                                </connections>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kvB-99-zwY">
+                                <rect key="frame" x="76" y="62" width="80" height="17"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Server Host:" id="AVi-g9-Irz">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AU9-wN-kbU">
+                                <rect key="frame" x="77" y="30" width="77" height="17"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Server Port:" id="DgA-xT-2ir">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="mpdHostField" destination="wPm-sJ-e9E" id="PR7-oL-tVQ"/>
+                        <outlet property="mpdPortField" destination="IbX-oV-soD" id="VLG-DK-5N6"/>
+                    </connections>
+                </viewController>
+                <customObject id="lzf-yO-5pP" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="917" y="217"/>
         </scene>
         <!--Queue View Controller-->
         <scene sceneID="QcX-dC-cTZ">

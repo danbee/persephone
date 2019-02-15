@@ -10,7 +10,15 @@ import Foundation
 
 class NotificationsController: MPDClientDelegate {
   let notificationQueue = DispatchQueue.main
-  
+
+  func didConnect(mpdClient: MPDClient) {
+    sendNotification(name: Notification.didConnect)
+  }
+
+  func willDisconnect(mpdClient: MPDClient) {
+    sendNotification(name: Notification.willDisconnect)
+  }
+
   func didUpdateState(mpdClient: MPDClient, state: MPDClient.Status.State) {
     sendNotification(
       name: Notification.stateChanged,
@@ -39,7 +47,7 @@ class NotificationsController: MPDClientDelegate {
     )
   }
 
-  private func sendNotification(name: Notification.Name, userInfo: [AnyHashable : Any]) {
+  private func sendNotification(name: Notification.Name, userInfo: [AnyHashable : Any] = [:]) {
     self.notificationQueue.async {
       NotificationCenter.default.post(
         name: name,

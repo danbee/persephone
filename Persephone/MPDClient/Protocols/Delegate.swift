@@ -9,6 +9,9 @@
 import Foundation
 
 protocol MPDClientDelegate {
+  func didConnect(mpdClient: MPDClient)
+  func willDisconnect(mpdClient: MPDClient)
+
   func didUpdateState(mpdClient: MPDClient, state: MPDClient.Status.State)
   func didUpdateQueue(mpdClient: MPDClient, queue: [MPDClient.Song])
   func didUpdateQueuePos(mpdClient: MPDClient, song: Int)
