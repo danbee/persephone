@@ -194,7 +194,7 @@ class QueueViewController: NSViewController, NSOutlineViewDataSource, NSOutlineV
     selectionIndexesForProposedSelection proposedSelectionIndexes: IndexSet
   ) -> IndexSet {
     if proposedSelectionIndexes.contains(0) {
-      return IndexSet.init()
+      return IndexSet()
     } else {
       return proposedSelectionIndexes
     }
