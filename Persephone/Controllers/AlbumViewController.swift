@@ -13,7 +13,6 @@ class AlbumViewController: NSViewController,
                            NSCollectionViewDelegate,
                            NSCollectionViewDelegateFlowLayout {
   var albums: [MPDClient.Album] = []
-  var albumWidth: CGFloat = 0
   let paddingWidth: CGFloat = 40
   let gutterWidth: CGFloat = 20
 
@@ -48,10 +47,7 @@ class AlbumViewController: NSViewController,
   }
 
   func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-    let item = collectionView.makeItem(
-      withIdentifier: NSUserInterfaceItemIdentifier("AlbumItem"),
-      for: indexPath
-    )
+    let item = collectionView.makeItem(withIdentifier: .albumItem, for: indexPath)
     guard let albumItem = item as? AlbumItem else { return item }
 
     albumItem.view.wantsLayer = true

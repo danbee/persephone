@@ -22,6 +22,7 @@
 		E41B22C121FB6C3300D544F6 /* libmpdclient.2.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = E41B22BF21FB6BBA00D544F6 /* libmpdclient.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		E41B22C621FB932700D544F6 /* MPDClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41B22C521FB932700D544F6 /* MPDClient.swift */; };
 		E465049A21E94DF500A70F4C /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E465049921E94DF500A70F4C /* WindowController.swift */; };
+		E4928E0B2218D62A001D4BEA /* CGColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4928E0A2218D62A001D4BEA /* CGColor.swift */; };
 		E4A642DA22090CBE00067D21 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A642D922090CBE00067D21 /* Status.swift */; };
 		E4E8CC902204EC7F0024217A /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC8F2204EC7F0024217A /* Delegate.swift */; };
 		E4E8CC922204F4B80024217A /* QueueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC912204F4B80024217A /* QueueViewController.swift */; };
@@ -120,6 +121,7 @@
 		E41B22EA21FB966C00D544F6 /* queue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = queue.h; sourceTree = "<group>"; };
 		E41B22EB21FB966C00D544F6 /* playlist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = playlist.h; sourceTree = "<group>"; };
 		E465049921E94DF500A70F4C /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		E4928E0A2218D62A001D4BEA /* CGColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGColor.swift; sourceTree = "<group>"; };
 		E4A642D922090CBE00067D21 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		E4E8CC8F2204EC7F0024217A /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
 		E4E8CC912204F4B80024217A /* QueueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueViewController.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 		E408D3B7220DE8CC0006D9BE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E4928E0A2218D62A001D4BEA /* CGColor.swift */,
 				E408D3B5220DD8970006D9BE /* Notification.swift */,
 				E408D3B8220DE98F0006D9BE /* NSUserInterfaceItemIdentifier.swift */,
 			);
@@ -483,6 +486,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E408D3C2220E134F0006D9BE /* AlbumViewController.swift in Sources */,
+				E4928E0B2218D62A001D4BEA /* CGColor.swift in Sources */,
 				E4A642DA22090CBE00067D21 /* Status.swift in Sources */,
 				E4E8CC942206097F0024217A /* NotificationsController.swift in Sources */,
 				E408D3B6220DD8970006D9BE /* Notification.swift in Sources */,

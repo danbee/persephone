@@ -177,10 +177,10 @@ class MPDClient {
     var albums: [Album] = []
     var artist: String = ""
 
-    mpd_search_db_tags(self.connection, MPD_TAG_ALBUM)
-    mpd_search_add_group_tag(self.connection, MPD_TAG_ALBUM_ARTIST)
-    mpd_search_commit(self.connection)
-    while let mpdPair = mpd_recv_pair(self.connection) {
+    mpd_search_db_tags(connection, MPD_TAG_ALBUM)
+    mpd_search_add_group_tag(connection, MPD_TAG_ALBUM_ARTIST)
+    mpd_search_commit(connection)
+    while let mpdPair = mpd_recv_pair(connection) {
       let pair = Pair(mpdPair)
 
       switch pair.name {
@@ -192,7 +192,7 @@ class MPDClient {
         break
       }
 
-      mpd_return_pair(self.connection, pair.mpdPair)
+      mpd_return_pair(connection, pair.mpdPair)
     }
 
     delegate?.didLoadAlbums(mpdClient: self, albums: albums)

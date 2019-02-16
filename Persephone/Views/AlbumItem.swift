@@ -9,13 +9,10 @@
 import Cocoa
 
 class AlbumItem: NSCollectionViewItem {
-  let borderColorLight = NSColor.black.withAlphaComponent(0.1).cgColor
-  let borderColorDark = NSColor.white.withAlphaComponent(0.1).cgColor
   var observer: NSKeyValueObservation?
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do view setup here.
 
     albumCoverView.wantsLayer = true
     albumCoverView.layer?.cornerRadius = 3
@@ -39,9 +36,9 @@ class AlbumItem: NSCollectionViewItem {
       let darkMode = NSApp.effectiveAppearance.bestMatch(from:
         [.darkAqua, .aqua]) == .darkAqua
 
-      albumCoverView.layer?.borderColor = darkMode ? borderColorDark : borderColorLight
+      albumCoverView.layer?.borderColor = darkMode ? .albumBorderColorDark : .albumBorderColorLight
     } else {
-      albumCoverView.layer?.borderColor = borderColorLight
+      albumCoverView.layer?.borderColor = .albumBorderColorLight
     }
   }
 
