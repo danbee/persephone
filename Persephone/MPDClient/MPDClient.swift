@@ -119,6 +119,27 @@ class MPDClient {
     idle()
   }
 
+  func playAlbum(_ album: Album) {
+    noIdle()
+    commandQueue.async { [unowned self] in
+      var songs: [Song] = []
+
+      mpd_run_clear(self.connection)
+      mpd_search_db_songs(self.connection, true)
+      mpd_search_add_tag_constraint(self.connection, MPD_OPERATOR_DEFAULT, MPD_TAG_ALBUM, album.title)
+      mpd_search_add_tag_constraint(self.connection, MPD_OPERATOR_DEFAULT, MPD_TAG_ALBUM_ARTIST, album.artist)
+      mpd_search_commit(self.connection)
+      while let mpdSong = mpd_recv_song(self.connection) {
+        songs.append(Song(mpdSong))
+      }
+      for song in songs {
+        mpd_run_add(self.connection, song.uri)
+      }
+      mpd_run_play_pos(self.connection, 0)
+    }
+    idle()
+  }
+
   func queueCommand(command: Command) {
     guard isConnected else { return }
     

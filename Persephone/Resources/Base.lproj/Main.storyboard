@@ -932,7 +932,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="songArtistColumn" width="144" minWidth="128" maxWidth="1000" id="SPM-QP-DX8">
+                                                <tableColumn identifier="songArtistColumn" width="144" minWidth="64" maxWidth="1000" id="SPM-QP-DX8">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Artist">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -949,9 +949,8 @@
                                                             <rect key="frame" x="204" y="1" width="144" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tBe-Q9-3Rw">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="222" height="17"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="tBe-Q9-3Rw">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="149" height="17"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="Ceb-ec-ydU">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -959,6 +958,11 @@
                                                                     </textFieldCell>
                                                                 </textField>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="tBe-Q9-3Rw" firstAttribute="centerY" secondItem="JSk-Vc-Y7e" secondAttribute="centerY" id="Tkg-cb-Bg6"/>
+                                                                <constraint firstAttribute="trailing" secondItem="tBe-Q9-3Rw" secondAttribute="trailing" constant="-3" id="VhZ-ua-QQX"/>
+                                                                <constraint firstItem="tBe-Q9-3Rw" firstAttribute="leading" secondItem="JSk-Vc-Y7e" secondAttribute="leading" constant="2" id="cTy-tR-Grg"/>
+                                                            </constraints>
                                                             <connections>
                                                                 <outlet property="textField" destination="tBe-Q9-3Rw" id="2e6-zi-tKj"/>
                                                             </connections>
@@ -968,7 +972,6 @@
                                             </tableColumns>
                                             <connections>
                                                 <action trigger="doubleAction" selector="playTrack:" target="KIP-rq-4dM" id="opa-6G-OW0"/>
-                                                <outlet property="dataSource" destination="KIP-rq-4dM" id="K1Q-7o-xXW"/>
                                                 <outlet property="delegate" destination="KIP-rq-4dM" id="60F-6x-bUE"/>
                                             </connections>
                                         </outlineView>
@@ -1024,7 +1027,6 @@
                                             <collectionViewLayout key="collectionViewLayout" id="YE8-sD-l5P" customClass="AlbumViewLayout" customModule="Persephone" customModuleProvider="target"/>
                                             <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <connections>
-                                                <outlet property="dataSource" destination="gPn-fP-LFc" id="2VB-5V-ltv"/>
                                                 <outlet property="delegate" destination="gPn-fP-LFc" id="LQ2-Vl-r08"/>
                                             </connections>
                                         </collectionView>
@@ -1049,6 +1051,7 @@
                     </view>
                     <connections>
                         <outlet property="albumCollectionView" destination="lfq-AB-epE" id="p69-Fs-hCN"/>
+                        <outlet property="albumScrollView" destination="i5f-35-7x8" id="jmd-Sa-Bxt"/>
                     </connections>
                 </viewController>
                 <customObject id="uex-Ws-5X4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

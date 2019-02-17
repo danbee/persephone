@@ -41,6 +41,10 @@ extension MPDClient {
       mpd_song_free(mpdSong)
     }
 
+    var uri: UnsafePointer<Int8> {
+      return mpd_song_get_uri(mpdSong)
+    }
+
     func getTag(_ tagType: TagType) -> String {
       let mpdTagType = mpd_tag_type(rawValue: Int32(tagType.rawValue))
 

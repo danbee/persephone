@@ -10,6 +10,7 @@ import Cocoa
 
 class AlbumItem: NSCollectionViewItem {
   var observer: NSKeyValueObservation?
+  var album: MPDClient.Album?
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -27,6 +28,7 @@ class AlbumItem: NSCollectionViewItem {
   }
 
   func setAlbum(_ album: MPDClient.Album) {
+    self.album = album
     albumTitle.stringValue = album.title
     albumArtist.stringValue = album.artist
   }
@@ -40,6 +42,12 @@ class AlbumItem: NSCollectionViewItem {
     } else {
       albumCoverView.layer?.borderColor = .albumBorderColorLight
     }
+  }
+
+  @IBAction func playAlbum(_ sender: Any) {
+    guard let album = album else { return }
+    
+    AppDelegate.mpdClient.playAlbum(album)
   }
 
   @IBOutlet var albumCoverView: NSImageView!

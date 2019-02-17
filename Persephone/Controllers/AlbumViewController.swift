@@ -9,15 +9,17 @@
 import Cocoa
 
 class AlbumViewController: NSViewController,
-                           NSCollectionViewDataSource,
                            NSCollectionViewDelegate,
                            NSCollectionViewDelegateFlowLayout {
-  var albums: [MPDClient.Album] = []
   let paddingWidth: CGFloat = 40
   let gutterWidth: CGFloat = 20
 
+  var dataSource = AlbumDataSource()
+
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    albumScrollView.postsBoundsChangedNotifications = true
 
     NotificationCenter.default.addObserver(
       self,
@@ -32,6 +34,8 @@ class AlbumViewController: NSViewController,
       name: Notification.willDisconnect,
       object: AppDelegate.mpdClient
     )
+
+    albumCollectionView.dataSource = dataSource
   }
 
   override func viewWillLayout() {
@@ -44,30 +48,16 @@ class AlbumViewController: NSViewController,
     guard let albums = notification.userInfo?[Notification.albumsKey] as? [MPDClient.Album]
       else { return }
 
-    self.albums = albums
-
+    dataSource.albums = albums
     albumCollectionView.reloadData()
   }
 
   @objc func clearAlbums(_ notification: Notification) {
-    self.albums = []
+    dataSource.albums = []
 
     albumCollectionView.reloadData()
   }
 
-  func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-    return albums.count
-  }
-
-  func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-    let item = collectionView.makeItem(withIdentifier: .albumItem, for: indexPath)
-    guard let albumItem = item as? AlbumItem else { return item }
-
-    albumItem.view.wantsLayer = true
-    albumItem.setAlbum(albums[indexPath.item])
-
-    return albumItem
-  }
-
+  @IBOutlet var albumScrollView: NSScrollView!
   @IBOutlet var albumCollectionView: NSCollectionView!
 }
