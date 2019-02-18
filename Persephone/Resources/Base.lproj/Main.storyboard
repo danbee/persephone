@@ -931,10 +931,7 @@
                                         <collectionView id="lfq-AB-epE">
                                             <rect key="frame" x="0.0" y="0.0" width="450" height="158"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="20" minimumLineSpacing="20" id="K0l-P8-OW0">
-                                                <size key="itemSize" width="206" height="248"/>
-                                                <edgeInsets key="sectionInset" left="40" right="40" top="20" bottom="60"/>
-                                            </collectionViewFlowLayout>
+                                            <collectionViewLayout key="collectionViewLayout" id="YE8-sD-l5P" customClass="AlbumViewLayout" customModule="Persephone" customModuleProvider="target"/>
                                             <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <connections>
                                                 <outlet property="dataSource" destination="gPn-fP-LFc" id="2VB-5V-ltv"/>

@@ -18,6 +18,7 @@
 		E408D3C2220E134F0006D9BE /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E408D3C1220E134F0006D9BE /* AlbumViewController.swift */; };
 		E408D3CA220E341D0006D9BE /* AlbumItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E408D3C8220E341D0006D9BE /* AlbumItem.swift */; };
 		E408D3CB220E341D0006D9BE /* AlbumItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = E408D3C9220E341D0006D9BE /* AlbumItem.xib */; };
+		E40FE719221B48E300A4223F /* AlbumViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40FE718221B48E300A4223F /* AlbumViewLayout.swift */; };
 		E41B22C021FB6BBA00D544F6 /* libmpdclient.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E41B22BF21FB6BBA00D544F6 /* libmpdclient.2.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
 		E41B22C121FB6C3300D544F6 /* libmpdclient.2.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = E41B22BF21FB6BBA00D544F6 /* libmpdclient.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		E41B22C621FB932700D544F6 /* MPDClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41B22C521FB932700D544F6 /* MPDClient.swift */; };
@@ -82,6 +83,7 @@
 		E408D3C1220E134F0006D9BE /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
 		E408D3C8220E341D0006D9BE /* AlbumItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumItem.swift; sourceTree = "<group>"; };
 		E408D3C9220E341D0006D9BE /* AlbumItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumItem.xib; sourceTree = "<group>"; };
+		E40FE718221B48E300A4223F /* AlbumViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewLayout.swift; sourceTree = "<group>"; };
 		E41B22BF21FB6BBA00D544F6 /* libmpdclient.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libmpdclient.2.dylib; path = libmpdclient/output/libmpdclient.2.dylib; sourceTree = "<group>"; };
 		E41B22C421FB715A00D544F6 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		E41B22C521FB932700D544F6 /* MPDClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDClient.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 		E407861A2110CE6E006887B1 /* Persephone */ = {
 			isa = PBXGroup;
 			children = (
+				E40FE717221B48CE00A4223F /* Layouts */,
 				E407861F2110CE70006887B1 /* Assets.xcassets */,
 				E408D3B7220DE8CC0006D9BE /* Extensions */,
 				E4D1B598220BA3C90026F233 /* Resources */,
@@ -237,6 +240,14 @@
 				E408D3C8220E341D0006D9BE /* AlbumItem.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		E40FE717221B48CE00A4223F /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				E40FE718221B48E300A4223F /* AlbumViewLayout.swift */,
+			);
+			path = Layouts;
 			sourceTree = "<group>";
 		};
 		E41B22BE21FB6B3300D544F6 /* Frameworks */ = {
@@ -492,6 +503,7 @@
 				E4928E0B2218D62A001D4BEA /* CGColor.swift in Sources */,
 				E4A642DA22090CBE00067D21 /* Status.swift in Sources */,
 				E4E8CC942206097F0024217A /* NotificationsController.swift in Sources */,
+				E40FE719221B48E300A4223F /* AlbumViewLayout.swift in Sources */,
 				E408D3B6220DD8970006D9BE /* Notification.swift in Sources */,
 				E408D3B9220DE98F0006D9BE /* NSUserInterfaceItemIdentifier.swift in Sources */,
 				E4EB2379220F10B8008C70C0 /* Pair.swift in Sources */,
