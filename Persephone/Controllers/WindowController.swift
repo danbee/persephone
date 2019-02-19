@@ -28,6 +28,15 @@ class WindowController: NSWindowController {
     )
   }
 
+  override func keyDown(with event: NSEvent) {
+    switch event.keyCode {
+    case NSEvent.keyCodeSpace:
+      AppDelegate.mpdClient.playPause()
+    default:
+      nextResponder?.keyDown(with: event)
+    }
+  }
+
   @objc func stateChanged(_ notification: Notification) {
     guard let state = notification.userInfo?[Notification.stateKey] as? MPDClient.Status.State
       else { return }
