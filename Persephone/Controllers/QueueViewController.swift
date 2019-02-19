@@ -12,12 +12,6 @@ class QueueViewController: NSViewController,
                            NSOutlineViewDelegate {
   var dataSource = QueueDataSource()
 
-  let systemFontRegular = NSFont.systemFont(ofSize: 13, weight: .regular)
-  let systemFontBold = NSFont.systemFont(ofSize: 13, weight: .bold)
-  
-  let playIcon = NSImage(named: "playButton")
-  let pauseIcon = NSImage(named: "pauseButton")
-
   @IBOutlet var queueView: NSOutlineView!
 
   override func viewDidLoad() {
@@ -100,14 +94,14 @@ class QueueViewController: NSViewController,
     let cellView = outlineView.makeView(
       withIdentifier: .queueSongTitle,
       owner: self
-      ) as! NSTableCellView
+    ) as! NSTableCellView
 
     cellView.textField?.stringValue = songItem.song.getTag(.title)
     if songItem.isPlaying {
-      cellView.textField?.font = systemFontBold
+      cellView.textField?.font = .systemFontBold
       cellView.imageView?.image = dataSource.queueIcon
     } else {
-      cellView.textField?.font = systemFontRegular
+      cellView.textField?.font = .systemFontRegular
       cellView.imageView?.image = nil
     }
 
@@ -118,13 +112,13 @@ class QueueViewController: NSViewController,
     let cellView = outlineView.makeView(
       withIdentifier: .queueSongArtist,
       owner: self
-      ) as! NSTableCellView
+    ) as! NSTableCellView
 
     cellView.textField?.stringValue = songItem.song.getTag(.artist)
     if songItem.isPlaying {
-      cellView.textField?.font = systemFontBold
+      cellView.textField?.font = .systemFontBold
     } else {
-      cellView.textField?.font = systemFontRegular
+      cellView.textField?.font = .systemFontRegular
     }
 
     return cellView
@@ -134,7 +128,7 @@ class QueueViewController: NSViewController,
     let cellView = outlineView.makeView(
       withIdentifier: .queueHeading,
       owner: self
-      ) as! NSTableCellView
+    ) as! NSTableCellView
 
     cellView.textField?.stringValue = "QUEUE"
 

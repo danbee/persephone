@@ -26,6 +26,16 @@ class NotificationsController: MPDClientDelegate {
     )
   }
 
+  func didUpdateTime(mpdClient: MPDClient, total: UInt, elapsedMs: UInt) {
+    sendNotification(
+      name: Notification.timeChanged,
+      userInfo: [
+        Notification.totalTimeKey: total,
+        Notification.elapsedTimeMsKey: elapsedMs
+      ]
+    )
+  }
+
   func didUpdateQueue(mpdClient: MPDClient, queue: [MPDClient.Song]) {
     sendNotification(
       name: Notification.queueChanged,

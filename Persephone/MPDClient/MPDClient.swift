@@ -64,6 +64,7 @@ class MPDClient {
 
       self.delegate?.didConnect(mpdClient: self)
       self.delegate?.didUpdateState(mpdClient: self, state: self.status!.state)
+      self.delegate?.didUpdateTime(mpdClient: self, total: self.status!.totalTime, elapsedMs: self.status!.elapsedTimeMs)
       self.delegate?.didUpdateQueue(mpdClient: self, queue: self.queue)
       self.delegate?.didUpdateQueuePos(mpdClient: self, song: self.status!.song)
     }
@@ -71,11 +72,11 @@ class MPDClient {
 
   func disconnect() {
     guard isConnected else { return }
-    
+
     noIdle()
     commandQueue.async { [unowned self] in
       self.delegate?.willDisconnect(mpdClient: self)
-      
+
       mpd_connection_free(self.connection)
       self.isConnected = false
     }
@@ -119,6 +120,14 @@ class MPDClient {
     idle()
   }
 
+  func seekCurrentSong(timeInSeconds: Float) {
+    noIdle()
+    commandQueue.async { [unowned self] in
+      mpd_run_seek_current(self.connection, timeInSeconds, false)
+    }
+    idle()
+  }
+
   func playAlbum(_ album: Album) {
     noIdle()
     commandQueue.async { [unowned self] in
@@ -142,7 +151,7 @@ class MPDClient {
 
   func queueCommand(command: Command) {
     guard isConnected else { return }
-    
+
     noIdle()
     commandQueue.async { [unowned self] in
       self.sendCommand(command: command)
@@ -246,8 +255,8 @@ class MPDClient {
   func idle() {
     commandQueue.async { [unowned self] in
       mpd_send_idle(self.connection)
-      let result = mpd_recv_idle(self.connection, true)
 
+      let result = mpd_recv_idle(self.connection, true)
       self.handleIdleResult(result)
     }
   }
@@ -261,8 +270,12 @@ class MPDClient {
     }
     if mpdIdle.contains(.player) {
       self.fetchStatus()
-      self.delegate?.didUpdateState(mpdClient: self, state: self.status!.state)
-      self.delegate?.didUpdateQueuePos(mpdClient: self, song: self.status!.song)
+
+      if let status = self.status {
+        self.delegate?.didUpdateState(mpdClient: self, state: status.state)
+        self.delegate?.didUpdateTime(mpdClient: self, total: status.totalTime, elapsedMs: status.elapsedTimeMs)
+        self.delegate?.didUpdateQueuePos(mpdClient: self, song: status.song)
+      }
     }
     if !mpdIdle.isEmpty {
       self.idle()

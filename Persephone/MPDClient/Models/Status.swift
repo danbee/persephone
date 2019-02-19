@@ -34,9 +34,20 @@ extension MPDClient {
       return State(rawValue: UInt(mpdState.rawValue))!
     }
 
+    var totalTime: UInt {
+      let mpdTotalTime = mpd_status_get_total_time(mpdStatus)
+
+      return UInt(mpdTotalTime)
+    }
+
+    var elapsedTimeMs: UInt {
+      let mpdElapsedTimeMs = mpd_status_get_elapsed_ms(mpdStatus)
+
+      return UInt(mpdElapsedTimeMs)
+    }
+
     var song: Int {
       return Int(mpd_status_get_song_pos(mpdStatus))
     }
-
   }
 }
