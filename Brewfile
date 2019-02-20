@@ -1,0 +1,2 @@
+brew "meson"
+brew "ninja"

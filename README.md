@@ -19,8 +19,25 @@ description](https://en.wikipedia.org/wiki/Music_Player_Daemon).
 
 ## Setup
 
-Run `bin/setup` before opening the Xcode project. You probably want MPD server
-to be running on your local machine.
+Install dependencies from Homebrew:
+
+```sh
+$ brew bundle
+```
+
+Run `bin/setup`:
+
+```sh
+$ bin/setup
+```
+
+Open the Xcode project:
+
+```sh
+$ open Persephone.xcodeproj
+```
+
+You will probably want MPD server to be running on your local machine.
 
 ## Credits
 
