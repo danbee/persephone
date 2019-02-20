@@ -23,16 +23,12 @@ class PreferencesViewController: NSViewController {
     }
   }
 
-  @IBAction func updateMpdHost(_ sender: Any) {
-    guard let mpdHostField = sender as? NSTextField else { return }
-
-    preferences.mpdHost = mpdHostField.stringValue
+  @IBAction func updateMpdHost(_ sender: NSTextField) {
+    preferences.mpdHost = sender.stringValue
   }
 
-  @IBAction func updateMpdPort(_ sender: Any) {
-    guard let mpdPortField = sender as? NSTextField else { return }
-
-    preferences.mpdPort = mpdPortField.integerValue
+  @IBAction func updateMpdPort(_ sender: NSTextField) {
+    preferences.mpdPort = sender.integerValue
   }
 
   @IBOutlet var mpdHostField: NSTextField!
