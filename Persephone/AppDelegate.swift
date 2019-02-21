@@ -19,8 +19,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   func applicationDidFinishLaunching(_ aNotification: Notification) {
     connect()
 
-    UserDefaults.standard.addObserver(self, forKeyPath: "mpdHost", options: .new, context: nil)
-    UserDefaults.standard.addObserver(self, forKeyPath: "mpdPort", options: .new, context: nil)
+    preferences.addObserver(self, forKeyPath: "mpdHost")
+    preferences.addObserver(self, forKeyPath: "mpdPort")
   }
 
   func applicationWillTerminate(_ aNotification: Notification) {

@@ -9,24 +9,26 @@
 import Foundation
 
 struct Preferences {
+  let preferences = UserDefaults.standard
+
   var mpdHost: String? {
     get {
-      return UserDefaults.standard.string(forKey: "mpdHost")
+      return preferences.string(forKey: "mpdHost")
     }
     set {
-      UserDefaults.standard.set(newValue, forKey: "mpdHost")
+      preferences.set(newValue, forKey: "mpdHost")
     }
   }
 
   var mpdPort: Int? {
     get {
-      return UserDefaults.standard.value(forKey: "mpdPort") as? Int
+      return preferences.value(forKey: "mpdPort") as? Int
     }
     set {
       if (newValue.map { $0 > 0 } ?? false) {
-        UserDefaults.standard.set(newValue, forKey: "mpdPort")
+        preferences.set(newValue, forKey: "mpdPort")
       } else {
-        UserDefaults.standard.removeObject(forKey: "mpdPort")
+        preferences.removeObject(forKey: "mpdPort")
       }
     }
   }
@@ -37,5 +39,9 @@ struct Preferences {
 
   var mpdPortOrDefault: Int {
     return mpdPort ?? 6600
+  }
+
+  func addObserver(_ observer: NSObject, forKeyPath keyPath: String) {
+    preferences.addObserver(observer, forKeyPath: keyPath, options: .new, context: nil)
   }
 }
