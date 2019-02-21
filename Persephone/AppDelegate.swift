@@ -27,7 +27,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     disconnect()
   }
 
-  override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+  override func observeValue(
+    forKeyPath keyPath: String?,
+    of object: Any?,
+    change: [NSKeyValueChangeKey : Any]?,
+    context: UnsafeMutableRawPointer?
+  ) {
     switch keyPath {
     case "mpdHost", "mpdPort":
       disconnect()
