@@ -2,6 +2,8 @@
 
 git submodule update --init
 
+carthage update
+
 cd libmpdclient && \
   meson . output && \
   ninja -C output

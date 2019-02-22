@@ -23,6 +23,9 @@
 		E41B22C121FB6C3300D544F6 /* libmpdclient.2.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = E41B22BF21FB6BBA00D544F6 /* libmpdclient.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		E41B22C621FB932700D544F6 /* MPDClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41B22C521FB932700D544F6 /* MPDClient.swift */; };
 		E41EA46C221636AF0068EF46 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41EA46B221636AF0068EF46 /* PreferencesViewController.swift */; };
+		E41EA46F221715910068EF46 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41EA46E221715910068EF46 /* Preferences.swift */; };
+		E421ACA3221F73C4008B2449 /* MediaKeyTap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E421ACA1221F73B8008B2449 /* MediaKeyTap.framework */; };
+		E421ACA4221F73C4008B2449 /* MediaKeyTap.framework in Embed Libraries */ = {isa = PBXBuildFile; fileRef = E421ACA1221F73B8008B2449 /* MediaKeyTap.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E42A8F3B22176D6400A13ED9 /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = E42A8F3922176D6400A13ED9 /* LICENSE.md */; };
 		E42A8F3C22176D6400A13ED9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E42A8F3A22176D6400A13ED9 /* README.md */; };
 		E435E3E2221CD4E200184CFC /* NSFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = E435E3E1221CD4E200184CFC /* NSFont.swift */; };
@@ -34,6 +37,7 @@
 		E47E2FD72220720300F747E6 /* AlbumItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E2FD62220720300F747E6 /* AlbumItemView.swift */; };
 		E47E2FDD2220A6D100F747E6 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E2FDC2220A6D100F747E6 /* Time.swift */; };
 		E47E2FE52220AA0700F747E6 /* AlbumViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E2FE42220AA0700F747E6 /* AlbumViewLayout.swift */; };
+		E47E2FCC2220573500F747E6 /* MediaKeyTap.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = E47E2FCB2220573500F747E6 /* MediaKeyTap.framework.dSYM */; };
 		E4928E0B2218D62A001D4BEA /* CGColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4928E0A2218D62A001D4BEA /* CGColor.swift */; };
 		E4A642DA22090CBE00067D21 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A642D922090CBE00067D21 /* Status.swift */; };
 		E4E8CC902204EC7F0024217A /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC8F2204EC7F0024217A /* Delegate.swift */; };
@@ -72,8 +76,18 @@
 			dstSubfolderSpec = 10;
 			files = (
 				E41B22C121FB6C3300D544F6 /* libmpdclient.2.dylib in Embed Libraries */,
+				E421ACA4221F73C4008B2449 /* MediaKeyTap.framework in Embed Libraries */,
 			);
 			name = "Embed Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E421AC9B221F7319008B2449 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -137,6 +151,8 @@
 		E41B22EA21FB966C00D544F6 /* queue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = queue.h; sourceTree = "<group>"; };
 		E41B22EB21FB966C00D544F6 /* playlist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = playlist.h; sourceTree = "<group>"; };
 		E41EA46B221636AF0068EF46 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		E41EA46E221715910068EF46 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		E421ACA1221F73B8008B2449 /* MediaKeyTap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaKeyTap.framework; path = Carthage/Build/Mac/MediaKeyTap.framework; sourceTree = "<group>"; };
 		E42A8F3922176D6400A13ED9 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		E42A8F3A22176D6400A13ED9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E435E3E1221CD4E200184CFC /* NSFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSFont.swift; sourceTree = "<group>"; };
@@ -148,6 +164,7 @@
 		E47E2FD62220720300F747E6 /* AlbumItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumItemView.swift; sourceTree = "<group>"; };
 		E47E2FDC2220A6D100F747E6 /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		E47E2FE42220AA0700F747E6 /* AlbumViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumViewLayout.swift; sourceTree = "<group>"; };
+		E47E2FCB2220573500F747E6 /* MediaKeyTap.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = MediaKeyTap.framework.dSYM; path = Carthage/Build/Mac/MediaKeyTap.framework.dSYM; sourceTree = "<group>"; };
 		E4928E0A2218D62A001D4BEA /* CGColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGColor.swift; sourceTree = "<group>"; };
 		E4A642D922090CBE00067D21 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		E4E8CC8F2204EC7F0024217A /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
@@ -167,6 +184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E41B22C021FB6BBA00D544F6 /* libmpdclient.2.dylib in Frameworks */,
+				E421ACA3221F73C4008B2449 /* MediaKeyTap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +299,8 @@
 		E41B22BE21FB6B3300D544F6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E47E2FCB2220573500F747E6 /* MediaKeyTap.framework.dSYM */,
+				E421ACA1221F73B8008B2449 /* MediaKeyTap.framework */,
 				E41B22BF21FB6BBA00D544F6 /* libmpdclient.2.dylib */,
 			);
 			name = Frameworks;
@@ -428,6 +448,7 @@
 				E40786152110CE6E006887B1 /* Frameworks */,
 				E40786162110CE6E006887B1 /* Resources */,
 				E41B22C221FB6C3300D544F6 /* Embed Libraries */,
+				E421AC9B221F7319008B2449 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -535,6 +556,7 @@
 				E42A8F3C22176D6400A13ED9 /* README.md in Resources */,
 				E408D3CB220E341D0006D9BE /* AlbumItem.xib in Resources */,
 				E40786232110CE70006887B1 /* Main.storyboard in Resources */,
+				E47E2FCC2220573500F747E6 /* MediaKeyTap.framework.dSYM in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -756,6 +778,10 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = BDEE7ZBFZ3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = Persephone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -783,6 +809,10 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = BDEE7ZBFZ3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = Persephone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

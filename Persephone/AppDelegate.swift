@@ -7,10 +7,12 @@
 //
 
 import Cocoa
+import MediaKeyTap
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, MediaKeyTapDelegate {
   var preferences = Preferences()
+  var mediaKeyTap: MediaKeyTap?
 
   static let mpdClient = MPDClient(
     withDelegate: NotificationsController()
@@ -21,6 +23,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     preferences.addObserver(self, forKeyPath: "mpdHost")
     preferences.addObserver(self, forKeyPath: "mpdPort")
+
+    mediaKeyTap = MediaKeyTap(delegate: self)
+    mediaKeyTap?.start()
   }
 
   func applicationWillTerminate(_ aNotification: Notification) {
@@ -39,6 +44,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       connect()
     default:
       break
+    }
+  }
+
+  func handle(mediaKey: MediaKey, event: KeyEvent) {
+    switch mediaKey {
+    case .playPause:
+      AppDelegate.mpdClient.playPause()
+    case .next, .fastForward:
+      AppDelegate.mpdClient.nextTrack()
+    case .previous, .rewind:
+      AppDelegate.mpdClient.prevTrack()
     }
   }
 
