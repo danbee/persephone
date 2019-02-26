@@ -17,7 +17,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, MediaKeyTapDelegate {
   static let mpdClient = MPDClient(
     withDelegate: NotificationsController()
   )
- 
+
+  @IBAction func fetchCoverArt(_ sender: NSMenuItem) {
+    NotificationCenter.default.post(
+      name: Notification.Name("fetchAlbumArt"),
+      object: self,
+      userInfo: nil
+    )
+  }
+
   func applicationDidFinishLaunching(_ aNotification: Notification) {
     connect()
 

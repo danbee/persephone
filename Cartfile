@@ -1,1 +1,2 @@
 github "nhurden/MediaKeyTap" "fix-tis-tsm-error"
+github "SwiftyJSON/SwiftyJSON" ~> 4.0

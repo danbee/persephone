@@ -22,13 +22,15 @@
 		E41B22C021FB6BBA00D544F6 /* libmpdclient.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E41B22BF21FB6BBA00D544F6 /* libmpdclient.2.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
 		E41B22C121FB6C3300D544F6 /* libmpdclient.2.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = E41B22BF21FB6BBA00D544F6 /* libmpdclient.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		E41B22C621FB932700D544F6 /* MPDClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41B22C521FB932700D544F6 /* MPDClient.swift */; };
-		E41EA46C221636AF0068EF46 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41EA46B221636AF0068EF46 /* PreferencesViewController.swift */; };
+		E41EA46C221636AF0068EF46 /* GeneralPrefsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41EA46B221636AF0068EF46 /* GeneralPrefsViewController.swift */; };
 		E421ACA3221F73C4008B2449 /* MediaKeyTap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E421ACA1221F73B8008B2449 /* MediaKeyTap.framework */; };
 		E421ACA4221F73C4008B2449 /* MediaKeyTap.framework in Embed Libraries */ = {isa = PBXBuildFile; fileRef = E421ACA1221F73B8008B2449 /* MediaKeyTap.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E42A8F3B22176D6400A13ED9 /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = E42A8F3922176D6400A13ED9 /* LICENSE.md */; };
 		E42A8F3C22176D6400A13ED9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E42A8F3A22176D6400A13ED9 /* README.md */; };
 		E435E3E2221CD4E200184CFC /* NSFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = E435E3E1221CD4E200184CFC /* NSFont.swift */; };
 		E435E3E4221CD75D00184CFC /* NSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E435E3E3221CD75D00184CFC /* NSImage.swift */; };
+		E450AD772224C0450091BED3 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E450AD762224C0450091BED3 /* SwiftyJSON.framework */; };
+		E450AD7A2224C1150091BED3 /* SwiftyJSON.framework in Embed Libraries */ = {isa = PBXBuildFile; fileRef = E450AD782224C1150091BED3 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E465049A21E94DF500A70F4C /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E465049921E94DF500A70F4C /* WindowController.swift */; };
 		E47E2FCC2220573500F747E6 /* MediaKeyTap.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = E47E2FCB2220573500F747E6 /* MediaKeyTap.framework.dSYM */; };
 		E47E2FD122205C4600F747E6 /* MainSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E2FD022205C4600F747E6 /* MainSplitViewController.swift */; };
@@ -39,6 +41,9 @@
 		E47E2FE52220AA0700F747E6 /* AlbumViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E2FE42220AA0700F747E6 /* AlbumViewLayout.swift */; };
 		E4928E0B2218D62A001D4BEA /* CGColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4928E0A2218D62A001D4BEA /* CGColor.swift */; };
 		E4A642DA22090CBE00067D21 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A642D922090CBE00067D21 /* Status.swift */; };
+		E4A83BEF2221F8CF0098FED6 /* AlbumArtPrefsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A83BEE2221F8CF0098FED6 /* AlbumArtPrefsController.swift */; };
+		E4A83BF12221FAA00098FED6 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A83BF02221FAA00098FED6 /* PreferencesViewController.swift */; };
+		E4A83BF4222207D50098FED6 /* AlbumArtService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A83BF3222207D50098FED6 /* AlbumArtService.swift */; };
 		E4E8CC902204EC7F0024217A /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC8F2204EC7F0024217A /* Delegate.swift */; };
 		E4E8CC922204F4B80024217A /* QueueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC912204F4B80024217A /* QueueViewController.swift */; };
 		E4E8CC942206097F0024217A /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC932206097F0024217A /* NotificationsController.swift */; };
@@ -76,6 +81,7 @@
 			files = (
 				E41B22C121FB6C3300D544F6 /* libmpdclient.2.dylib in Embed Libraries */,
 				E421ACA4221F73C4008B2449 /* MediaKeyTap.framework in Embed Libraries */,
+				E450AD7A2224C1150091BED3 /* SwiftyJSON.framework in Embed Libraries */,
 			);
 			name = "Embed Libraries";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,12 +155,14 @@
 		E41B22E921FB966C00D544F6 /* capabilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = capabilities.h; sourceTree = "<group>"; };
 		E41B22EA21FB966C00D544F6 /* queue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = queue.h; sourceTree = "<group>"; };
 		E41B22EB21FB966C00D544F6 /* playlist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = playlist.h; sourceTree = "<group>"; };
-		E41EA46B221636AF0068EF46 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		E41EA46B221636AF0068EF46 /* GeneralPrefsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralPrefsViewController.swift; sourceTree = "<group>"; };
 		E421ACA1221F73B8008B2449 /* MediaKeyTap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaKeyTap.framework; path = Carthage/Build/Mac/MediaKeyTap.framework; sourceTree = "<group>"; };
 		E42A8F3922176D6400A13ED9 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		E42A8F3A22176D6400A13ED9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E435E3E1221CD4E200184CFC /* NSFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSFont.swift; sourceTree = "<group>"; };
 		E435E3E3221CD75D00184CFC /* NSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImage.swift; sourceTree = "<group>"; };
+		E450AD762224C0450091BED3 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/Mac/SwiftyJSON.framework; sourceTree = "<group>"; };
+		E450AD782224C1150091BED3 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/Mac/SwiftyJSON.framework; sourceTree = "<group>"; };
 		E465049921E94DF500A70F4C /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		E47E2FCB2220573500F747E6 /* MediaKeyTap.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = MediaKeyTap.framework.dSYM; path = Carthage/Build/Mac/MediaKeyTap.framework.dSYM; sourceTree = "<group>"; };
 		E47E2FD022205C4600F747E6 /* MainSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSplitViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +173,9 @@
 		E47E2FE42220AA0700F747E6 /* AlbumViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumViewLayout.swift; sourceTree = "<group>"; };
 		E4928E0A2218D62A001D4BEA /* CGColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGColor.swift; sourceTree = "<group>"; };
 		E4A642D922090CBE00067D21 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		E4A83BEE2221F8CF0098FED6 /* AlbumArtPrefsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumArtPrefsController.swift; sourceTree = "<group>"; };
+		E4A83BF02221FAA00098FED6 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		E4A83BF3222207D50098FED6 /* AlbumArtService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumArtService.swift; sourceTree = "<group>"; };
 		E4E8CC8F2204EC7F0024217A /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
 		E4E8CC912204F4B80024217A /* QueueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueViewController.swift; sourceTree = "<group>"; };
 		E4E8CC932206097F0024217A /* NotificationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
@@ -183,6 +194,7 @@
 			files = (
 				E41B22C021FB6BBA00D544F6 /* libmpdclient.2.dylib in Frameworks */,
 				E421ACA3221F73C4008B2449 /* MediaKeyTap.framework in Frameworks */,
+				E450AD772224C0450091BED3 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +218,7 @@
 		E407860F2110CE6E006887B1 = {
 			isa = PBXGroup;
 			children = (
+				E450AD782224C1150091BED3 /* SwiftyJSON.framework */,
 				E407861A2110CE6E006887B1 /* Persephone */,
 				E407862D2110CE70006887B1 /* PersephoneTests */,
 				E40786382110CE70006887B1 /* PersephoneUITests */,
@@ -229,6 +242,8 @@
 		E407861A2110CE6E006887B1 /* Persephone */ = {
 			isa = PBXGroup;
 			children = (
+				E4A83BF2222207BE0098FED6 /* Services */,
+				E4A83BEC2221F5DD0098FED6 /* Preferences */,
 				E47E2FE32220AA0700F747E6 /* Layouts */,
 				E4F6B461221E124700ACF42A /* Models */,
 				E4F6B45E221E117600ACF42A /* DataSources */,
@@ -297,6 +312,7 @@
 		E41B22BE21FB6B3300D544F6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E450AD762224C0450091BED3 /* SwiftyJSON.framework */,
 				E47E2FCB2220573500F747E6 /* MediaKeyTap.framework.dSYM */,
 				E421ACA1221F73B8008B2449 /* MediaKeyTap.framework */,
 				E41B22BF21FB6BBA00D544F6 /* libmpdclient.2.dylib */,
@@ -374,6 +390,32 @@
 			path = MPDClient;
 			sourceTree = "<group>";
 		};
+		E4A83BEC2221F5DD0098FED6 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				E4A83BED2221F5E60098FED6 /* Controllers */,
+			);
+			path = Preferences;
+			sourceTree = "<group>";
+		};
+		E4A83BED2221F5E60098FED6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E41EA46B221636AF0068EF46 /* GeneralPrefsViewController.swift */,
+				E4A83BEE2221F8CF0098FED6 /* AlbumArtPrefsController.swift */,
+				E4A83BF02221FAA00098FED6 /* PreferencesViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E4A83BF2222207BE0098FED6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E4A83BF3222207D50098FED6 /* AlbumArtService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		E4D1B594220BA2490026F233 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -398,7 +440,6 @@
 			children = (
 				E47E2FD4222071FD00F747E6 /* AlbumItem.swift */,
 				E408D3C1220E134F0006D9BE /* AlbumViewController.swift */,
-				E41EA46B221636AF0068EF46 /* PreferencesViewController.swift */,
 				E4E8CC932206097F0024217A /* NotificationsController.swift */,
 				E4E8CC912204F4B80024217A /* QueueViewController.swift */,
 				E465049921E94DF500A70F4C /* WindowController.swift */,
@@ -600,6 +641,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4A83BEF2221F8CF0098FED6 /* AlbumArtPrefsController.swift in Sources */,
 				E4F6B467221E233200ACF42A /* AlbumDataSource.swift in Sources */,
 				E408D3C2220E134F0006D9BE /* AlbumViewController.swift in Sources */,
 				E40FE71B221B904300A4223F /* NSEvent.swift in Sources */,
@@ -612,6 +654,7 @@
 				E408D3B9220DE98F0006D9BE /* NSUserInterfaceItemIdentifier.swift in Sources */,
 				E4EB2379220F10B8008C70C0 /* Pair.swift in Sources */,
 				E4F6B463221E125900ACF42A /* SongItem.swift in Sources */,
+				E4A83BF12221FAA00098FED6 /* PreferencesViewController.swift in Sources */,
 				E465049A21E94DF500A70F4C /* WindowController.swift in Sources */,
 				E41B22C621FB932700D544F6 /* MPDClient.swift in Sources */,
 				E40F41F3221EDE27004B6CB8 /* Preferences.swift in Sources */,
@@ -621,8 +664,9 @@
 				E47E2FD322205D2500F747E6 /* MainWindow.swift in Sources */,
 				E47E2FD122205C4600F747E6 /* MainSplitViewController.swift in Sources */,
 				E4E8CC9A22075D370024217A /* Song.swift in Sources */,
-				E41EA46C221636AF0068EF46 /* PreferencesViewController.swift in Sources */,
+				E41EA46C221636AF0068EF46 /* GeneralPrefsViewController.swift in Sources */,
 				E4E8CC902204EC7F0024217A /* Delegate.swift in Sources */,
+				E4A83BF4222207D50098FED6 /* AlbumArtService.swift in Sources */,
 				E47E2FD5222071FD00F747E6 /* AlbumItem.swift in Sources */,
 				E408D3BE220E03EE0006D9BE /* RawRepresentable.swift in Sources */,
 				E4E8CC922204F4B80024217A /* QueueViewController.swift in Sources */,

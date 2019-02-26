@@ -1,1 +1,2 @@
+github "SwiftyJSON/SwiftyJSON" "4.2.0"
 github "nhurden/MediaKeyTap" "355d346c56243e6d56487fa46fcad945251e16ae"

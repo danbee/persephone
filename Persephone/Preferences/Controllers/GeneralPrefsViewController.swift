@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class PreferencesViewController: NSViewController {
+class GeneralPrefsViewController: NSViewController {
   var preferences = Preferences()
 
   override func viewDidLoad() {
@@ -21,6 +21,12 @@ class PreferencesViewController: NSViewController {
     if let mpdPort = preferences.mpdPort {
       mpdPortField.stringValue = "\(mpdPort)"
     }
+
+    preferredContentSize = NSMakeSize(view.frame.size.width, view.frame.size.height)
+  }
+
+  override func viewDidAppear() {
+    super.viewDidAppear()
   }
 
   @IBAction func updateMpdHost(_ sender: NSTextField) {
