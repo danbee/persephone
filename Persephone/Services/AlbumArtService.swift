@@ -13,7 +13,7 @@ class AlbumArtService: NSObject {
   static var shared = AlbumArtService()
   var session = URLSession(configuration: .default)
 
-  func fetchAlbumArt(for album: MPDClient.Album, callBack: @escaping (_ image: NSImage) -> Void) {
+  func fetchAlbumArt(for album: AlbumItem, callBack: @escaping (_ image: NSImage) -> Void) {
     let artist = album.artist
     let title = album.title
 

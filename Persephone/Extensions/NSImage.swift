@@ -11,4 +11,6 @@ import Cocoa
 extension NSImage {
   static let playIcon = NSImage(named: "playButton")
   static let pauseIcon = NSImage(named: "pauseButton")
+
+  static let defaultCoverArt = NSImage(named: "blankAlbum")
 }

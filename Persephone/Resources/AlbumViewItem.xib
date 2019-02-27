@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="AlbumItem" customModule="Persephone" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="AlbumViewItem" customModule="Persephone" customModuleProvider="target">
             <connections>
                 <outlet property="albumArtist" destination="5Uu-j1-qyT" id="2Et-tX-InT"/>
                 <outlet property="albumCoverView" destination="Kfb-8f-ean" id="CXx-gB-gz8"/>
@@ -76,7 +76,7 @@
             </connections>
             <point key="canvasLocation" x="-22" y="125.5"/>
         </customView>
-        <collectionViewItem id="Qgu-aI-55A" customClass="AlbumItem" customModule="Persephone" customModuleProvider="target"/>
+        <collectionViewItem id="Qgu-aI-55A" customClass="AlbumViewItem" customModule="Persephone" customModuleProvider="target"/>
     </objects>
     <resources>
         <image name="blankAlbum" width="128" height="128"/>

@@ -1,5 +1,5 @@
 //
-//  AlbumItem.swift
+//  AlbumViewItem.swift
 //  Persephone
 //
 //  Created by Daniel Barber on 2019/2/08.
@@ -8,9 +8,9 @@
 
 import Cocoa
 
-class AlbumItem: NSCollectionViewItem {
+class AlbumViewItem: NSCollectionViewItem {
   var observer: NSKeyValueObservation?
-  var album: MPDClient.Album?
+  var album: AlbumItem?
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -44,10 +44,16 @@ class AlbumItem: NSCollectionViewItem {
     }
   }
 
-  func setAlbum(_ album: MPDClient.Album) {
+  func setAlbum(_ album: AlbumItem) {
     self.album = album
     albumTitle.stringValue = album.title
     albumArtist.stringValue = album.artist
+    
+    if let coverArt = album.coverArt {
+      albumCoverView.image = coverArt
+    } else {
+      albumCoverView.image = .defaultCoverArt
+    }
   }
 
   func setAppearance() {
@@ -64,7 +70,7 @@ class AlbumItem: NSCollectionViewItem {
   @IBAction func playAlbum(_ sender: Any) {
     guard let album = album else { return }
     
-    AppDelegate.mpdClient.playAlbum(album)
+    AppDelegate.mpdClient.playAlbum(album.album)
   }
 
   @IBOutlet var albumCoverView: NSImageView!

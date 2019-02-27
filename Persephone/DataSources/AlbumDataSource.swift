@@ -9,19 +9,19 @@
 import Cocoa
 
 class AlbumDataSource: NSObject, NSCollectionViewDataSource {
-  var albums: [MPDClient.Album] = []
+  var albums: [AlbumItem] = []
 
   func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
     return albums.count
   }
 
   func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-    let item = collectionView.makeItem(withIdentifier: .albumItem, for: indexPath)
-    guard let albumItem = item as? AlbumItem else { return item }
+    let item = collectionView.makeItem(withIdentifier: .albumViewItem, for: indexPath)
+    guard let albumViewItem = item as? AlbumViewItem else { return item }
 
-    albumItem.view.wantsLayer = true
-    albumItem.setAlbum(albums[indexPath.item])
+    albumViewItem.view.wantsLayer = true
+    albumViewItem.setAlbum(albums[indexPath.item])
 
-    return albumItem
+    return albumViewItem
   }
 }
