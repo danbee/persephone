@@ -62,6 +62,16 @@
                                     </items>
                                 </menu>
                             </menuItem>
+                            <menuItem title="Database" id="usv-UH-vkC">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Database" id="rFP-zL-1X4">
+                                    <items>
+                                        <menuItem title="Update" enabled="NO" keyEquivalent="u" id="EJg-93-1F6">
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
                             <menuItem title="Window" id="aUF-d1-5bR">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Window" systemMenu="window" id="Td7-aD-5lo">
@@ -494,7 +504,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <collectionView id="lfq-AB-epE">
+                                        <collectionView identifier="albumCollectionView" id="lfq-AB-epE">
                                             <rect key="frame" x="0.0" y="0.0" width="450" height="158"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                             <collectionViewLayout key="collectionViewLayout" id="YE8-sD-l5P" customClass="AlbumViewLayout" customModule="Persephone" customModuleProvider="target"/>

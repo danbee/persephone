@@ -25,23 +25,6 @@ class AlbumViewItem: NSCollectionViewItem {
         self.setAppearance()
       }
     }
-
-    NotificationCenter.default.addObserver(
-      self,
-      selector: #selector(fetchAlbumArt(_:)),
-      name: Notification.Name("fetchAlbumArt"),
-      object: nil
-    )
-  }
-
-  @objc func fetchAlbumArt(_ notification: Notification) {
-    guard let album = album else { return }
-
-    AlbumArtService.shared.fetchAlbumArt(for: album) { image in
-      DispatchQueue.main.async { [unowned self] in
-        self.albumCoverView.image = image
-      }
-    }
   }
 
   func setAlbum(_ album: AlbumItem) {

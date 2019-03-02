@@ -19,4 +19,8 @@ struct AlbumItem {
   var artist: String {
     return album.artist
   }
+
+  var hash: String {
+    return "\(title) - \(artist)".sha1()
+  }
 }

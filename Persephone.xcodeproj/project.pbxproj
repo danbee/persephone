@@ -32,15 +32,16 @@
 		E450AD7E222620A10091BED3 /* AlbumItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450AD7D222620A10091BED3 /* AlbumItem.swift */; };
 		E450AD8622262AE60091BED3 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E450AD8522262AE60091BED3 /* SwiftyJSON.framework */; };
 		E450AD8822262AEC0091BED3 /* SwiftyJSON.framework in Embed Libraries */ = {isa = PBXBuildFile; fileRef = E450AD8522262AE60091BED3 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E450AD8B22262B590091BED3 /* AlbumArtOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450AD8A22262B590091BED3 /* AlbumArtOperation.swift */; };
 		E450AD8F22262C620091BED3 /* PromiseKit.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = E450AD8E22262C620091BED3 /* PromiseKit.framework.dSYM */; };
 		E450AD9122262C780091BED3 /* SwiftyJSON.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = E450AD9022262C780091BED3 /* SwiftyJSON.framework.dSYM */; };
 		E450AD9222262C970091BED3 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E450AD8C22262C590091BED3 /* PromiseKit.framework */; };
 		E450AD9322262C970091BED3 /* PromiseKit.framework in Embed Libraries */ = {isa = PBXBuildFile; fileRef = E450AD8C22262C590091BED3 /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E450AD9522262DF10091BED3 /* AlbumArtOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450AD9422262DF10091BED3 /* AlbumArtOperations.swift */; };
+		E450AD9522262DF10091BED3 /* AlbumArtQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450AD9422262DF10091BED3 /* AlbumArtQueue.swift */; };
 		E450AD98222633920091BED3 /* Alamofire.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = E450AD96222633920091BED3 /* Alamofire.framework.dSYM */; };
-		E450AD9A222633AB0091BED3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E450AD97222633920091BED3 /* Alamofire.framework */; };
-		E450AD9B222633AB0091BED3 /* Alamofire.framework in Embed Libraries */ = {isa = PBXBuildFile; fileRef = E450AD97222633920091BED3 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E450AD9D2229B9050091BED3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450AD9C2229B9050091BED3 /* String.swift */; };
+		E450ADA12229E7C90091BED3 /* PMKFoundation.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = E450AD9F2229E7C90091BED3 /* PMKFoundation.framework.dSYM */; };
+		E450ADA32229E7E00091BED3 /* PMKFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E450ADA02229E7C90091BED3 /* PMKFoundation.framework */; };
+		E450ADA42229E7E00091BED3 /* PMKFoundation.framework in Embed Libraries */ = {isa = PBXBuildFile; fileRef = E450ADA02229E7C90091BED3 /* PMKFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E465049A21E94DF500A70F4C /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E465049921E94DF500A70F4C /* WindowController.swift */; };
 		E47E2FCC2220573500F747E6 /* MediaKeyTap.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = E47E2FCB2220573500F747E6 /* MediaKeyTap.framework.dSYM */; };
 		E47E2FD122205C4600F747E6 /* MainSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E2FD022205C4600F747E6 /* MainSplitViewController.swift */; };
@@ -90,9 +91,9 @@
 			dstSubfolderSpec = 10;
 			files = (
 				E41B22C121FB6C3300D544F6 /* libmpdclient.2.dylib in Embed Libraries */,
+				E450ADA42229E7E00091BED3 /* PMKFoundation.framework in Embed Libraries */,
 				E421ACA4221F73C4008B2449 /* MediaKeyTap.framework in Embed Libraries */,
 				E450AD8822262AEC0091BED3 /* SwiftyJSON.framework in Embed Libraries */,
-				E450AD9B222633AB0091BED3 /* Alamofire.framework in Embed Libraries */,
 				E450AD9322262C970091BED3 /* PromiseKit.framework in Embed Libraries */,
 			);
 			name = "Embed Libraries";
@@ -175,13 +176,16 @@
 		E435E3E3221CD75D00184CFC /* NSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImage.swift; sourceTree = "<group>"; };
 		E450AD7D222620A10091BED3 /* AlbumItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumItem.swift; sourceTree = "<group>"; };
 		E450AD8522262AE60091BED3 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/Mac/SwiftyJSON.framework; sourceTree = "<group>"; };
-		E450AD8A22262B590091BED3 /* AlbumArtOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumArtOperation.swift; sourceTree = "<group>"; };
 		E450AD8C22262C590091BED3 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/Mac/PromiseKit.framework; sourceTree = "<group>"; };
 		E450AD8E22262C620091BED3 /* PromiseKit.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = PromiseKit.framework.dSYM; path = Carthage/Build/Mac/PromiseKit.framework.dSYM; sourceTree = "<group>"; };
 		E450AD9022262C780091BED3 /* SwiftyJSON.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftyJSON.framework.dSYM; path = Carthage/Build/Mac/SwiftyJSON.framework.dSYM; sourceTree = "<group>"; };
-		E450AD9422262DF10091BED3 /* AlbumArtOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumArtOperations.swift; sourceTree = "<group>"; };
+		E450AD9422262DF10091BED3 /* AlbumArtQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumArtQueue.swift; sourceTree = "<group>"; };
 		E450AD96222633920091BED3 /* Alamofire.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Alamofire.framework.dSYM; path = Carthage/Build/Mac/Alamofire.framework.dSYM; sourceTree = "<group>"; };
 		E450AD97222633920091BED3 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
+		E450AD9C2229B9050091BED3 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		E450AD9E2229B9BC0091BED3 /* PersephoneBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersephoneBridgingHeader.h; sourceTree = "<group>"; };
+		E450AD9F2229E7C90091BED3 /* PMKFoundation.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = PMKFoundation.framework.dSYM; path = Carthage/Build/Mac/PMKFoundation.framework.dSYM; sourceTree = "<group>"; };
+		E450ADA02229E7C90091BED3 /* PMKFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PMKFoundation.framework; path = Carthage/Build/Mac/PMKFoundation.framework; sourceTree = "<group>"; };
 		E465049921E94DF500A70F4C /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		E47E2FCB2220573500F747E6 /* MediaKeyTap.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = MediaKeyTap.framework.dSYM; path = Carthage/Build/Mac/MediaKeyTap.framework.dSYM; sourceTree = "<group>"; };
 		E47E2FD022205C4600F747E6 /* MainSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSplitViewController.swift; sourceTree = "<group>"; };
@@ -214,7 +218,7 @@
 				E41B22C021FB6BBA00D544F6 /* libmpdclient.2.dylib in Frameworks */,
 				E421ACA3221F73C4008B2449 /* MediaKeyTap.framework in Frameworks */,
 				E450AD8622262AE60091BED3 /* SwiftyJSON.framework in Frameworks */,
-				E450AD9A222633AB0091BED3 /* Alamofire.framework in Frameworks */,
+				E450ADA32229E7E00091BED3 /* PMKFoundation.framework in Frameworks */,
 				E450AD9222262C970091BED3 /* PromiseKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,6 +266,7 @@
 		E407861A2110CE6E006887B1 /* Persephone */ = {
 			isa = PBXGroup;
 			children = (
+				E450AD9E2229B9BC0091BED3 /* PersephoneBridgingHeader.h */,
 				E450AD8922262B420091BED3 /* Operations */,
 				E4A83BF2222207BE0098FED6 /* Services */,
 				E4A83BEC2221F5DD0098FED6 /* Preferences */,
@@ -309,6 +314,7 @@
 				E40FE71A221B904300A4223F /* NSEvent.swift */,
 				E435E3E1221CD4E200184CFC /* NSFont.swift */,
 				E435E3E3221CD75D00184CFC /* NSImage.swift */,
+				E450AD9C2229B9050091BED3 /* String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -333,6 +339,8 @@
 		E41B22BE21FB6B3300D544F6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E450ADA02229E7C90091BED3 /* PMKFoundation.framework */,
+				E450AD9F2229E7C90091BED3 /* PMKFoundation.framework.dSYM */,
 				E450AD97222633920091BED3 /* Alamofire.framework */,
 				E450AD96222633920091BED3 /* Alamofire.framework.dSYM */,
 				E450AD8C22262C590091BED3 /* PromiseKit.framework */,
@@ -400,8 +408,7 @@
 		E450AD8922262B420091BED3 /* Operations */ = {
 			isa = PBXGroup;
 			children = (
-				E450AD8A22262B590091BED3 /* AlbumArtOperation.swift */,
-				E450AD9422262DF10091BED3 /* AlbumArtOperations.swift */,
+				E450AD9422262DF10091BED3 /* AlbumArtQueue.swift */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -635,6 +642,7 @@
 				E450AD8F22262C620091BED3 /* PromiseKit.framework.dSYM in Resources */,
 				E408D3CB220E341D0006D9BE /* AlbumViewItem.xib in Resources */,
 				E40786232110CE70006887B1 /* Main.storyboard in Resources */,
+				E450ADA12229E7C90091BED3 /* PMKFoundation.framework.dSYM in Resources */,
 				E47E2FCC2220573500F747E6 /* MediaKeyTap.framework.dSYM in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -688,11 +696,10 @@
 				E4F6B460221E119B00ACF42A /* QueueDataSource.swift in Sources */,
 				E4A642DA22090CBE00067D21 /* Status.swift in Sources */,
 				E47E2FD72220720300F747E6 /* AlbumItemView.swift in Sources */,
-				E450AD9522262DF10091BED3 /* AlbumArtOperations.swift in Sources */,
+				E450AD9522262DF10091BED3 /* AlbumArtQueue.swift in Sources */,
 				E450AD7E222620A10091BED3 /* AlbumItem.swift in Sources */,
 				E4E8CC942206097F0024217A /* NotificationsController.swift in Sources */,
 				E408D3B6220DD8970006D9BE /* Notification.swift in Sources */,
-				E450AD8B22262B590091BED3 /* AlbumArtOperation.swift in Sources */,
 				E408D3B9220DE98F0006D9BE /* NSUserInterfaceItemIdentifier.swift in Sources */,
 				E4EB2379220F10B8008C70C0 /* Pair.swift in Sources */,
 				E4F6B463221E125900ACF42A /* SongItem.swift in Sources */,
@@ -713,6 +720,7 @@
 				E408D3BE220E03EE0006D9BE /* RawRepresentable.swift in Sources */,
 				E4E8CC922204F4B80024217A /* QueueViewController.swift in Sources */,
 				E4EB237B220F7CF1008C70C0 /* Album.swift in Sources */,
+				E450AD9D2229B9050091BED3 /* String.swift in Sources */,
 				E435E3E4221CD75D00184CFC /* NSImage.swift in Sources */,
 				E435E3E2221CD4E200184CFC /* NSFont.swift in Sources */,
 			);
@@ -817,6 +825,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = Persephone/PersephoneBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -870,6 +879,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = Persephone/PersephoneBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
