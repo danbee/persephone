@@ -14,10 +14,10 @@ import PMKFoundation
 class AlbumArtService: NSObject {
   static var shared = AlbumArtService()
   var session = URLSession(configuration: .default)
-  let cacheQueue = DispatchQueue(label: "albumArtCacheQueue", attributes: .concurrent)
+  let albumArtQueue = DispatchQueue(label: "albumArtCacheQueue", attributes: .concurrent)
 
   func fetchAlbumArt(for album: AlbumItem, callback: @escaping (_ image: NSImage) -> Void) {
-    cacheQueue.async {
+    albumArtQueue.async {
       if !self.getCachedArtwork(for: album, callback: callback) {
         self.getRemoteArtwork(for: album, callback: callback)
       }
@@ -35,7 +35,7 @@ class AlbumArtService: NSObject {
     if FileManager.default.fileExists(atPath: cacheFilePath) {
       guard let data = FileManager.default.contents(atPath: cacheFilePath),
         let image = NSImage(data: data)
-        else { return false }
+        else { return true }
 
       callback(image)
 
@@ -65,50 +65,32 @@ class AlbumArtService: NSObject {
   }
 
   func getArtworkFromMusicBrainz(for album: AlbumItem, callback: @escaping (_ image: NSImage) -> Void) {
-    if var urlComponents = URLComponents(string: "https://musicbrainz.org/ws/2/release/") {
-      urlComponents.query = "query=artist:\(album.artist) AND release:\(album.title) AND country:US&limit=1&fmt=json"
+    guard var urlComponents = URLComponents(string: "https://musicbrainz.org/ws/2/release/")
+      else { return }
 
-      guard let searchURL = urlComponents.url
-        else { return }
+    urlComponents.query = "query=artist:\(album.artist) AND release:\(album.title) AND country:US&limit=1&fmt=json"
 
-      let releaseTask = session.dataTask(with: searchURL) { data, response, error in
-        if let _ = error {
-          return
-        }
+    guard let searchURL = urlComponents.url
+      else { return }
 
-        guard let httpResponse = response as? HTTPURLResponse,
-          (200...299).contains(httpResponse.statusCode) else {
-            return
-        }
-
-        if let mimeType = httpResponse.mimeType, mimeType == "application/json",
-          let data = data,
-          let json = try? JSON(data: data) {
-
-          let releaseId = json["releases"][0]["id"]
-
-          let coverURL = URLComponents(string: "https://coverartarchive.org/release/\(releaseId)/front-500")
-
-          let coverArtTask = self.session.dataTask(with: coverURL!.url!) { data, response, error in
-
-            guard let httpResponse = response as? HTTPURLResponse,
-              (200...299).contains(httpResponse.statusCode) else {
-                return
-            }
-
-            if let mimeType = httpResponse.mimeType, mimeType == "image/jpeg",
-              let data = data,
-              let coverImage = NSImage(data: data) {
-
-              self.cacheArtwork(for: album, data: data)
-              callback(coverImage)
-            }
-          }
-
-          coverArtTask.resume()
-        }
-      }
-      releaseTask.resume()
+    firstly {
+      URLSession.shared.dataTask(.promise, with: searchURL).validate()
+    }.compactMap {
+      JSON($0.data)
+    }.compactMap {
+      $0["releases"][0]["id"].string
+    }.compactMap {
+      URLComponents(string: "https://coverartarchive.org/release/\($0)/front-500")
+    }.then { (urlComponents: URLComponents?) -> Promise<(data: Data, response: URLResponse)> in
+      let url = urlComponents!.url
+      return URLSession.shared.dataTask(.promise, with: url!).validate()
+    }.compactMap {
+      self.cacheArtwork(for: album, data: $0.data)
+      return NSImage(data: $0.data)
+    }.done {
+      callback($0)
+    }.catch { (error: Error) in
+      self.cacheArtwork(for: album, data: Data())
     }
   }
 }
