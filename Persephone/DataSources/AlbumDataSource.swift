@@ -27,7 +27,7 @@ class AlbumDataSource: NSObject, NSCollectionViewDataSource {
         self.albums[indexPath.item].coverArt = image
 
         DispatchQueue.main.async {
-          albumViewItem.setAlbum(self.albums[indexPath.item])
+          collectionView.reloadItems(at: [indexPath])
         }
       }
     }
