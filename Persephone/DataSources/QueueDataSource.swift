@@ -18,6 +18,8 @@ class QueueDataSource: NSObject, NSOutlineViewDataSource {
   let pauseIcon = NSImage(named: "pauseButton")
 
   func updateQueue(_ queue: [MPDClient.Song]) {
+    queuePos = -1
+    
     self.queue = queue.enumerated().map { index, song in
       SongItem(song: song, queuePos: index, isPlaying: index == queuePos)
     }
