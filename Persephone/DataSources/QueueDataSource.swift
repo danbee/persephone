@@ -14,9 +14,6 @@ class QueueDataSource: NSObject, NSOutlineViewDataSource {
 
   var queueIcon: NSImage? = nil
 
-  let playIcon = NSImage(named: "playButton")
-  let pauseIcon = NSImage(named: "pauseButton")
-
   func updateQueue(_ queue: [MPDClient.Song]) {
     queuePos = -1
     
@@ -41,9 +38,9 @@ class QueueDataSource: NSObject, NSOutlineViewDataSource {
   func setQueueIcon(_ state: MPDClient.Status.State) {
     switch state {
     case .playing:
-      queueIcon = playIcon
+      queueIcon = .playIcon
     case .paused:
-      queueIcon = pauseIcon
+      queueIcon = .pauseIcon
     default:
       queueIcon = nil
     }
