@@ -40,6 +40,19 @@ class AlbumItemView: NSView {
       name: NSScrollView.willStartLiveScrollNotification,
       object: nil
     )
+
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(viewWillScroll(_:)),
+      name: NSScrollView.didLiveScrollNotification,
+      object: nil
+    )
+  }
+
+  override func prepareForReuse() {
+    super.prepareForReuse()
+
+    hidePlayButton()
   }
 
   @objc func viewWillScroll(_ notification: Notification) {
