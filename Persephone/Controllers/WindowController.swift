@@ -90,6 +90,7 @@ class WindowController: NSWindowController {
       else { return }
 
     trackProgressBar.isEnabled = [.playing, .paused].contains(state)
+    trackProgressBar.integerValue = 0
     trackProgressBar.maxValue = Double(totalTime * 1000)
 
     if state == .playing {
