@@ -60,7 +60,7 @@ class AlbumItemView: NSView {
   }
 
   @objc func viewDidScroll(_ notification: Notification) {
-    viewWillScroll(notification)
+    hidePlayButton()
   }
 
   override func resize(withOldSuperviewSize oldSize: NSSize) {
