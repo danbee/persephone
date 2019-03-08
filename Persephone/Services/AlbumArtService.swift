@@ -90,74 +90,16 @@ class AlbumArtService: NSObject {
       callback($0)
     }.catch {
       if let httpError = $0 as? PMKHTTPError {
-        print(httpError.description)
+        switch httpError {
+        case let .badStatusCode(statusCode, _, _):
+          switch statusCode {
+          case 404:
+            self.cacheArtwork(for: album, data: Data())
+          default:
+            self.getRemoteArtwork(for: album, callback: callback)
+          }
+        }
       }
-      //print($0)
-      //self.cacheArtwork(for: album, data: Data())
-    }
-  }
-
-  func getArtworkFromITunes(for album: AlbumItem, callback: @escaping (_ image: NSImage) -> Void) {
-    guard var urlComponents = URLComponents(string: "https://itunes.apple.com/search")
-      else { return }
-
-    urlComponents.query = "term=\(album.artist) \(album.title)&country=us&entity=album&limit=1"
-
-    guard let searchURL = urlComponents.url
-      else { return }
-
-    URLSession.shared.dataTask(.promise, with: searchURL).validate()
-    .compactMap {
-      JSON($0.data)
-    }.compactMap {
-      $0["results"][0]["artworkUrl100"].string
-    }.compactMap {
-      $0.replacingOccurrences(of: "100x100", with: "600x600")
-    }.then { (imageURL: String) -> Promise<(data: Data, response: URLResponse)> in
-      let url = URL(string: imageURL)!
-      return URLSession.shared.dataTask(.promise, with: url).validate()
-    }.compactMap {
-      self.cacheArtwork(for: album, data: $0.data)
-      return NSImage(data: $0.data)
-    }.done {
-      callback($0)
-    }.catch { (error: Error) in
-      print(error)
-      //self.cacheArtwork(for: album, data: Data())
-    }
-  }
-
-  func getArtworkFromDiscogs(for album: AlbumItem, callback: @escaping (_ image: NSImage) -> Void) {
-    // TODO: Don't leave this token here!
-    let token = "fzCyDdJHwuDsjZoqbVyQnYRufHwltcjNUGOAWgeJ"
-    let apiURL = "https://api.discogs.com"
-
-    guard var urlComponents = URLComponents(string: "\(apiURL)/database/search")
-      else { return }
-
-    urlComponents.query = "artist=\(album.artist)&release_title=\(album.title)&country=us&format=album&token=\(token)"
-
-    guard let searchURL = urlComponents.url
-      else { return }
-
-    print(searchURL)
-
-    URLSession.shared.dataTask(.promise, with: searchURL).validate()
-    .compactMap {
-      JSON($0.data)
-    }.compactMap {
-      $0["results"][0]["cover_image"].string
-    }.then { (imageURL: String) -> Promise<(data: Data, response: URLResponse)> in
-      let url = URL(string: imageURL)!
-      return URLSession.shared.dataTask(.promise, with: url).validate()
-    }.compactMap {
-      self.cacheArtwork(for: album, data: $0.data)
-      return NSImage(data: $0.data)
-    }.done {
-      callback($0)
-    }.catch { (error: Error) in
-      print(error)
-      //self.cacheArtwork(for: album, data: Data())
     }
   }
 }
