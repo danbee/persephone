@@ -259,24 +259,94 @@
                         </connections>
                     </window>
                     <connections>
-                        <segue destination="nYi-sw-ZNp" kind="relationship" relationship="window.shadowedContentViewController" id="607-3F-gJf"/>
+                        <segue destination="zhe-qh-Mal" kind="relationship" relationship="window.shadowedContentViewController" id="iWi-v3-HxM"/>
                     </connections>
                 </windowController>
                 <customObject id="0sd-8B-etN" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="915" y="-89"/>
+            <point key="canvasLocation" x="915" y="-155"/>
         </scene>
-        <!--Preferences View Controller-->
+        <!--General-->
+        <scene sceneID="5er-B6-hoB">
+            <objects>
+                <tabViewController title="General" selectedTabViewItemIndex="0" tabStyle="toolbar" id="zhe-qh-Mal" customClass="PreferencesViewController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabViewItems>
+                        <tabViewItem label="General" identifier="generalPreferencesTab" image="NSPreferencesGeneral" id="kn0-fa-vM3"/>
+                        <tabViewItem label="Album Art" identifier="albumArtPreferencesTab" image="NSAdvanced" id="4Lj-dz-bOK"/>
+                    </tabViewItems>
+                    <viewControllerTransitionOptions key="transitionOptions" allowUserInteraction="YES"/>
+                    <tabView key="tabView" type="noTabsNoBorder" id="6dC-M0-oC5">
+                        <rect key="frame" x="0.0" y="0.0" width="418" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <font key="font" metaFont="message"/>
+                        <connections>
+                            <outlet property="delegate" destination="zhe-qh-Mal" id="LUL-qN-JlP"/>
+                        </connections>
+                    </tabView>
+                    <connections>
+                        <outlet property="tabView" destination="6dC-M0-oC5" id="jFQ-3f-s5E"/>
+                        <segue destination="nYi-sw-ZNp" kind="relationship" relationship="tabItems" id="Jr4-ql-vhk"/>
+                        <segue destination="3C9-vU-zjZ" kind="relationship" relationship="tabItems" id="zOQ-NT-Tof"/>
+                    </connections>
+                </tabViewController>
+                <customObject id="XtF-QO-9W0" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="916" y="236"/>
+        </scene>
+        <!--Album Art Prefs Controller-->
+        <scene sceneID="pQx-0G-WVt">
+            <objects>
+                <viewController id="3C9-vU-zjZ" customClass="AlbumArtPrefsController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="PyK-v2-kus">
+                        <rect key="frame" x="0.0" y="0.0" width="524" height="100"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zZn-Rm-e1f">
+                                <rect key="frame" x="52" y="63" width="104" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Music Directory:" id="sPn-V6-CfK">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gDk-ca-eOa">
+                                <rect key="frame" x="162" y="58" width="288" height="22"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="MPD music library path" drawsBackground="YES" id="7WZ-b7-GUs">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pRL-MG-1Be">
+                                <rect key="frame" x="160" y="27" width="253" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="check" title="Get missing artwork from MusicBrainz" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="LpD-Ew-HMd">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="zZn-Rm-e1f" firstAttribute="leading" secondItem="PyK-v2-kus" secondAttribute="leading" constant="54" id="GOH-Mx-w1M"/>
+                            <constraint firstItem="zZn-Rm-e1f" firstAttribute="top" secondItem="PyK-v2-kus" secondAttribute="top" constant="20" symbolic="YES" id="Ou1-BH-AgV"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="KzD-E3-lpA" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1626" y="339"/>
+        </scene>
+        <!--General Prefs View Controller-->
         <scene sceneID="xTC-Y5-Agk">
             <objects>
-                <viewController id="nYi-sw-ZNp" customClass="PreferencesViewController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="nYi-sw-ZNp" customClass="GeneralPrefsViewController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Uwt-Lw-ILP">
                         <rect key="frame" x="0.0" y="0.0" width="420" height="100"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wPm-sJ-e9E">
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wPm-sJ-e9E">
                                 <rect key="frame" x="162" y="58" width="184" height="22"/>
-                                <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="left" placeholderString="127.0.0.1" drawsBackground="YES" id="MSX-mn-2ma">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -286,9 +356,11 @@
                                     <action selector="updateMpdHost:" target="nYi-sw-ZNp" id="Y7x-N9-6ag"/>
                                 </connections>
                             </textField>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IbX-oV-soD">
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IbX-oV-soD">
                                 <rect key="frame" x="162" y="26" width="80" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="WAb-PB-Z1Y"/>
+                                </constraints>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="6600" drawsBackground="YES" id="i9j-nB-bqq">
                                     <numberFormatter key="formatter" formatterBehavior="custom10_4" numberStyle="decimal" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="UiQ-gi-Hbp">
                                         <real key="minimum" value="0.0"/>
@@ -302,18 +374,19 @@
                                     <action selector="updateMpdPort:" target="nYi-sw-ZNp" id="406-EC-aO2"/>
                                 </connections>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kvB-99-zwY">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kvB-99-zwY">
                                 <rect key="frame" x="76" y="62" width="80" height="17"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="76" id="4VR-n5-bGr"/>
+                                </constraints>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Server Host:" id="AVi-g9-Irz">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AU9-wN-kbU">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AU9-wN-kbU">
                                 <rect key="frame" x="77" y="30" width="77" height="17"/>
-                                <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Server Port:" id="DgA-xT-2ir">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -321,6 +394,18 @@
                                 </textFieldCell>
                             </textField>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="wPm-sJ-e9E" firstAttribute="top" secondItem="Uwt-Lw-ILP" secondAttribute="top" constant="20" symbolic="YES" id="1u9-dh-XrA"/>
+                            <constraint firstItem="wPm-sJ-e9E" firstAttribute="leading" secondItem="kvB-99-zwY" secondAttribute="trailing" constant="8" symbolic="YES" id="655-3c-mJH"/>
+                            <constraint firstItem="AU9-wN-kbU" firstAttribute="top" secondItem="kvB-99-zwY" secondAttribute="bottom" constant="15" id="FPR-mZ-SUo"/>
+                            <constraint firstItem="IbX-oV-soD" firstAttribute="top" secondItem="wPm-sJ-e9E" secondAttribute="bottom" constant="10" symbolic="YES" id="G7a-VX-OLJ"/>
+                            <constraint firstItem="kvB-99-zwY" firstAttribute="top" secondItem="Uwt-Lw-ILP" secondAttribute="top" constant="21" id="ITg-Ag-wpl"/>
+                            <constraint firstItem="kvB-99-zwY" firstAttribute="leading" secondItem="Uwt-Lw-ILP" secondAttribute="leading" constant="78" id="Kw0-2i-oST"/>
+                            <constraint firstItem="IbX-oV-soD" firstAttribute="leading" secondItem="AU9-wN-kbU" secondAttribute="trailing" constant="10" id="Y6y-25-qRM"/>
+                            <constraint firstAttribute="trailing" secondItem="wPm-sJ-e9E" secondAttribute="trailing" constant="74" id="cX3-Sz-RXR"/>
+                            <constraint firstItem="kvB-99-zwY" firstAttribute="centerX" secondItem="AU9-wN-kbU" secondAttribute="centerX" id="fdg-fL-UzL"/>
+                            <constraint firstItem="wPm-sJ-e9E" firstAttribute="leading" secondItem="IbX-oV-soD" secondAttribute="leading" id="qBw-Ri-Z4l"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="mpdHostField" destination="wPm-sJ-e9E" id="PR7-oL-tVQ"/>
@@ -329,7 +414,7 @@
                 </viewController>
                 <customObject id="lzf-yO-5pP" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="917" y="217"/>
+            <point key="canvasLocation" x="1574" y="69"/>
         </scene>
         <!--Queue View Controller-->
         <scene sceneID="QcX-dC-cTZ">
@@ -488,7 +573,7 @@
                 </viewController>
                 <customObject id="du4-e9-TfX" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="848" y="635"/>
+            <point key="canvasLocation" x="834" y="679"/>
         </scene>
         <!--Album View Controller-->
         <scene sceneID="7Ua-Hj-zWt">
@@ -543,6 +628,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="NSAdvanced" width="32" height="32"/>
+        <image name="NSPreferencesGeneral" width="32" height="32"/>
         <image name="nextTrackButton" width="17" height="17"/>
         <image name="playButton" width="17" height="17"/>
         <image name="prevTrackButton" width="17" height="17"/>
