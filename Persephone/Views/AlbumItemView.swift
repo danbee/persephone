@@ -43,7 +43,7 @@ class AlbumItemView: NSView {
 
     NotificationCenter.default.addObserver(
       self,
-      selector: #selector(viewWillScroll(_:)),
+      selector: #selector(viewDidScroll(_:)),
       name: NSScrollView.didLiveScrollNotification,
       object: nil
     )
@@ -57,6 +57,10 @@ class AlbumItemView: NSView {
 
   @objc func viewWillScroll(_ notification: Notification) {
     hidePlayButton()
+  }
+
+  @objc func viewDidScroll(_ notification: Notification) {
+    viewWillScroll(notification)
   }
 
   override func resize(withOldSuperviewSize oldSize: NSSize) {

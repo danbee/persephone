@@ -44,6 +44,15 @@ class AlbumViewController: NSViewController,
     albumCollectionView.collectionViewLayout?.invalidateLayout()
   }
 
+  override func viewDidLayout() {
+    super.viewDidLayout()
+
+    guard let layout = albumCollectionView.collectionViewLayout as? AlbumViewLayout
+      else { return }
+
+    layout.setScrollPosition()
+  }
+
   @objc func updateAlbums(_ notification: Notification) {
     guard let albums = notification.userInfo?[Notification.albumsKey] as? [MPDClient.Album]
       else { return }
