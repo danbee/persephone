@@ -249,7 +249,7 @@
         <!--Window Controller-->
         <scene sceneID="Rpk-bo-5kf">
             <objects>
-                <windowController id="xYu-7w-E5x" sceneMemberID="viewController">
+                <windowController id="xYu-7w-E5x" customClass="PreferencesWindowController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="3FN-my-6kU">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
                         <rect key="contentRect" x="245" y="301" width="416" height="100"/>
@@ -293,54 +293,63 @@
             </objects>
             <point key="canvasLocation" x="916" y="236"/>
         </scene>
-        <!--Album Art Prefs Controller-->
+        <!--Album Art-->
         <scene sceneID="pQx-0G-WVt">
             <objects>
-                <viewController id="3C9-vU-zjZ" customClass="AlbumArtPrefsController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Album Art" id="3C9-vU-zjZ" customClass="AlbumArtPrefsController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="PyK-v2-kus">
                         <rect key="frame" x="0.0" y="0.0" width="524" height="100"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zZn-Rm-e1f">
-                                <rect key="frame" x="52" y="63" width="104" height="17"/>
+                                <rect key="frame" x="53" y="62" width="104" height="17"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Music Directory:" id="sPn-V6-CfK">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gDk-ca-eOa">
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gDk-ca-eOa">
                                 <rect key="frame" x="162" y="58" width="288" height="22"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="MPD music library path" drawsBackground="YES" id="7WZ-b7-GUs">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="~/Music" drawsBackground="YES" id="7WZ-b7-GUs">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <action selector="updateMpdLibraryDir:" target="3C9-vU-zjZ" id="3Ta-fH-5Zh"/>
+                                </connections>
                             </textField>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pRL-MG-1Be">
-                                <rect key="frame" x="160" y="27" width="253" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="check" title="Get missing artwork from MusicBrainz" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="LpD-Ew-HMd">
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pRL-MG-1Be">
+                                <rect key="frame" x="160" y="27" width="265" height="18"/>
+                                <buttonCell key="cell" type="check" title="Fetch missing artwork from MusicBrainz" bezelStyle="regularSquare" imagePosition="left" inset="2" id="LpD-Ew-HMd">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="zZn-Rm-e1f" firstAttribute="leading" secondItem="PyK-v2-kus" secondAttribute="leading" constant="54" id="GOH-Mx-w1M"/>
-                            <constraint firstItem="zZn-Rm-e1f" firstAttribute="top" secondItem="PyK-v2-kus" secondAttribute="top" constant="20" symbolic="YES" id="Ou1-BH-AgV"/>
+                            <constraint firstItem="zZn-Rm-e1f" firstAttribute="leading" secondItem="PyK-v2-kus" secondAttribute="leading" constant="55" id="F9T-mO-lMa"/>
+                            <constraint firstItem="gDk-ca-eOa" firstAttribute="top" secondItem="PyK-v2-kus" secondAttribute="top" constant="20" symbolic="YES" id="NSz-Xf-KZS"/>
+                            <constraint firstAttribute="trailing" secondItem="gDk-ca-eOa" secondAttribute="trailing" constant="74" id="QMb-TP-IdQ"/>
+                            <constraint firstItem="pRL-MG-1Be" firstAttribute="top" secondItem="gDk-ca-eOa" secondAttribute="bottom" constant="15" id="bD6-hA-Wz5"/>
+                            <constraint firstItem="gDk-ca-eOa" firstAttribute="leading" secondItem="zZn-Rm-e1f" secondAttribute="trailing" constant="7" id="oZ5-45-Pe5"/>
+                            <constraint firstItem="gDk-ca-eOa" firstAttribute="leading" secondItem="pRL-MG-1Be" secondAttribute="leading" id="sBG-Yb-ii6"/>
+                            <constraint firstItem="zZn-Rm-e1f" firstAttribute="top" secondItem="PyK-v2-kus" secondAttribute="top" constant="21" id="wHW-jd-TaG"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mpdLibraryDirField" destination="gDk-ca-eOa" id="myi-BQ-0NS"/>
+                    </connections>
                 </viewController>
                 <customObject id="KzD-E3-lpA" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1626" y="339"/>
         </scene>
-        <!--General Prefs View Controller-->
+        <!--General-->
         <scene sceneID="xTC-Y5-Agk">
             <objects>
-                <viewController id="nYi-sw-ZNp" customClass="GeneralPrefsViewController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="General" id="nYi-sw-ZNp" customClass="GeneralPrefsViewController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Uwt-Lw-ILP">
                         <rect key="frame" x="0.0" y="0.0" width="420" height="100"/>
                         <autoresizingMask key="autoresizingMask"/>

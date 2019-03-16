@@ -27,6 +27,10 @@ class GeneralPrefsViewController: NSViewController {
 
   override func viewDidAppear() {
     super.viewDidAppear()
+
+    guard let title = title
+      else { return }
+    self.parent?.view.window?.title = title
   }
 
   @IBAction func updateMpdHost(_ sender: NSTextField) {

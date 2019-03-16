@@ -13,13 +13,21 @@ import PMKFoundation
 
 class AlbumArtService: NSObject {
   static var shared = AlbumArtService()
+
   var session = URLSession(configuration: .default)
-  let albumArtQueue = DispatchQueue(label: "albumArtCacheQueue", attributes: .concurrent)
+  let cacheQueue = DispatchQueue(label: "albumArtCacheQueue", attributes: .concurrent)
+  let filesystemQueue = DispatchQueue(label: "albumArtFilesystemQueue", attributes: .concurrent)
 
   func fetchAlbumArt(for album: AlbumItem, callback: @escaping (_ image: NSImage) -> Void) {
-    albumArtQueue.async {
+    cacheQueue.async { [unowned self] in
+      //print("Trying cache")
       if !self.getCachedArtwork(for: album, callback: callback) {
-        self.getRemoteArtwork(for: album, callback: callback)
+//        self.filesystemQueue.async {
+//          _ = self.getArtworkFromFilesystem(for: album, callback: callback)
+//        }
+//        if !self.getArtworkFromFilesystem(for: album, callback: callback) {
+//          // self.getRemoteArtwork(for: album, callback: callback)
+//        }
       }
     }
   }
@@ -43,6 +51,13 @@ class AlbumArtService: NSObject {
     } else {
       return false
     }
+  }
+
+  func getArtworkFromFilesystem(for album: AlbumItem, callback: @escaping (_ image: NSImage) -> Void) -> Bool {
+    print("No cache trying filesystem")
+    let uri = AppDelegate.mpdClient.getAlbumURI(for: album.album)
+    print(uri)
+    return false
   }
 
   func cacheArtwork(for album: AlbumItem, data: Data) {

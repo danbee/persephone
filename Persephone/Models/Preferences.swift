@@ -9,6 +9,10 @@
 import Foundation
 
 struct Preferences {
+  let mpdHostDefault = "127.0.0.1"
+  let mpdPortDefault = 6600
+  let mpdLibraryDirDefault = "~/Music"
+
   let preferences = UserDefaults.standard
 
   var mpdHost: String? {
@@ -18,6 +22,10 @@ struct Preferences {
     set {
       preferences.set(newValue, forKey: "mpdHost")
     }
+  }
+
+  var mpdHostOrDefault: String {
+    return mpdHost ?? mpdHostDefault
   }
 
   var mpdPort: Int? {
@@ -33,12 +41,21 @@ struct Preferences {
     }
   }
 
-  var mpdHostOrDefault: String {
-    return mpdHost ?? "127.0.0.1"
+  var mpdPortOrDefault: Int {
+    return mpdPort ?? mpdPortDefault
   }
 
-  var mpdPortOrDefault: Int {
-    return mpdPort ?? 6600
+  var mpdLibraryDir: String? {
+    get {
+      return preferences.string(forKey: "mpdLibraryDir")
+    }
+    set {
+      preferences.set(newValue, forKey: "mpdLibraryDir")
+    }
+  }
+
+  var mpdLibraryDirOrDefault: String {
+    return mpdLibraryDir ?? mpdLibraryDirDefault
   }
 
   func addObserver(_ observer: NSObject, forKeyPath keyPath: String) {

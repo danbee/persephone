@@ -45,6 +45,10 @@ extension MPDClient {
       return mpd_song_get_uri(mpdSong)
     }
 
+    var uriString: String {
+      return String(cString: uri)
+    }
+
     func getTag(_ tagType: TagType) -> String {
       let mpdTagType = mpd_tag_type(rawValue: Int32(tagType.rawValue))
 
