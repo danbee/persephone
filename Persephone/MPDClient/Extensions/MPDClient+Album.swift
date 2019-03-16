@@ -18,8 +18,12 @@ extension MPDClient {
     queueCommand(command: .playAlbum, userData: ["album": album])
   }
 
-  func getAlbumURI(for album: Album) {
-    queueCommand(command: .getAlbumURI, userData: ["album": album])
+  func getAlbumURI(for album: Album, callback: @escaping (String?) -> Void) {
+    queueCommand(
+      command: .getAlbumURI,
+      priority: .low,
+      userData: ["album": album, "callback": callback]
+    )
   }
 
   func sendPlayAlbum(_ album: Album) {
@@ -65,30 +69,31 @@ extension MPDClient {
     self.delegate?.didLoadAlbums(mpdClient: self, albums: albums)
   }
 
-  func albumURI(for album: Album) -> String? {
+  func albumURI(for album: Album, callback: (String?) -> Void) {
     var songURI: String?
 
-    guard isConnected else { return nil }
+    guard isConnected else { return }
 
-    print("Getting URI")
     mpd_search_db_songs(self.connection, true)
     mpd_search_add_tag_constraint(self.connection, MPD_OPERATOR_DEFAULT, MPD_TAG_ALBUM, album.title)
     mpd_search_add_tag_constraint(self.connection, MPD_OPERATOR_DEFAULT, MPD_TAG_ALBUM_ARTIST, album.artist)
     mpd_search_add_tag_constraint(self.connection, MPD_OPERATOR_DEFAULT, MPD_TAG_TRACK, "1")
 
     mpd_search_commit(self.connection)
-    print("Performed search")
 
     while let mpdSong = mpd_recv_song(self.connection) {
       let song = Song(mpdSong)
-      print(song)
 
       if songURI == nil {
         songURI = song.uriString
       }
     }
-    print("Got URI")
 
-    return songURI
+    callback(
+      songURI?
+        .split(separator: "/")
+        .dropLast()
+        .joined(separator: "/")
+    )
   }
 }

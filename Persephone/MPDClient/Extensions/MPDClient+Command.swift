@@ -38,8 +38,10 @@ extension MPDClient {
       guard let album = userData["album"] as? Album else { return }
       sendPlayAlbum(album)
     case .getAlbumURI:
-      guard let album = userData["album"] as? Album else { return }
-      _ = getAlbumURI(for: album)
+      guard let album = userData["album"] as? Album,
+        let callback = userData["callback"] as? (String?) -> Void
+        else { return }
+      albumURI(for: album, callback: callback)
     }
   }
 }

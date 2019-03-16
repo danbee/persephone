@@ -18,17 +18,13 @@ extension MPDClient {
   }
 
   func idle() {
-    let idleOperation = BlockOperation {
-      if !self.isIdle && self.commandsQueued == 0 {
-        mpd_send_idle(self.connection)
-        self.isIdle = true
+    if !self.isIdle && self.commandsQueued == 0 {
+      mpd_send_idle(self.connection)
+      self.isIdle = true
 
-        let result = mpd_recv_idle(self.connection, true)
-        self.handleIdleResult(result)
-      }
+      let result = mpd_recv_idle(self.connection, true)
+      self.handleIdleResult(result)
     }
-    idleOperation.queuePriority = .veryLow
-    commandQueue.addOperation(idleOperation)
   }
 
   func handleIdleResult(_ result: mpd_idle) {

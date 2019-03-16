@@ -13,18 +13,16 @@ import PMKFoundation
 
 class AlbumArtService: NSObject {
   static var shared = AlbumArtService()
+  var preferences = Preferences()
 
   var session = URLSession(configuration: .default)
   let cacheQueue = DispatchQueue(label: "albumArtCacheQueue", attributes: .concurrent)
-  let filesystemQueue = DispatchQueue(label: "albumArtFilesystemQueue", attributes: .concurrent)
 
   func fetchAlbumArt(for album: AlbumItem, callback: @escaping (_ image: NSImage) -> Void) {
     cacheQueue.async { [unowned self] in
       //print("Trying cache")
       if !self.getCachedArtwork(for: album, callback: callback) {
-//        self.filesystemQueue.async {
-//          _ = self.getArtworkFromFilesystem(for: album, callback: callback)
-//        }
+        self.getArtworkFromFilesystem(for: album, callback: callback)
 //        if !self.getArtworkFromFilesystem(for: album, callback: callback) {
 //          // self.getRemoteArtwork(for: album, callback: callback)
 //        }
@@ -53,11 +51,38 @@ class AlbumArtService: NSObject {
     }
   }
 
-  func getArtworkFromFilesystem(for album: AlbumItem, callback: @escaping (_ image: NSImage) -> Void) -> Bool {
-    print("No cache trying filesystem")
-    let uri = AppDelegate.mpdClient.getAlbumURI(for: album.album)
-    print(uri)
-    return false
+  func getArtworkFromFilesystem(
+    for album: AlbumItem,
+    callback: @escaping (_ image: NSImage) -> Void
+  ) {
+    let coverArtFilenames = [
+      "folder.jpg",
+      "cover.jpg",
+      "\(album.artist) - \(album.title).jpg"
+    ]
+
+    AppDelegate.mpdClient.getAlbumURI(
+      for: album.album,
+      callback: { (_ albumURI: String?) in
+        guard let albumURI = albumURI
+          else { return }
+
+        let musicDir = self.preferences.expandedMpdLibraryDir
+        let fullAlbumURI = "\(musicDir)/\(albumURI)"
+
+        for coverArtFilename in coverArtFilenames {
+          let coverArtURI = "\(fullAlbumURI)/\(coverArtFilename)"
+
+          if FileManager.default.fileExists(atPath: coverArtURI),
+            let data = FileManager.default.contents(atPath: coverArtURI),
+            let image = NSImage(data: data) {
+            self.cacheArtwork(for: album, data: data)
+            callback(image)
+            break
+          }
+        }
+      }
+    )
   }
 
   func cacheArtwork(for album: AlbumItem, data: Data) {

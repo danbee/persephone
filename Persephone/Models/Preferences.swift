@@ -58,6 +58,10 @@ struct Preferences {
     return mpdLibraryDir ?? mpdLibraryDirDefault
   }
 
+  var expandedMpdLibraryDir: String {
+    return NSString(string: mpdLibraryDirOrDefault).expandingTildeInPath
+  }
+
   func addObserver(_ observer: NSObject, forKeyPath keyPath: String) {
     preferences.addObserver(observer, forKeyPath: keyPath, options: .new, context: nil)
   }

@@ -40,13 +40,15 @@ class MPDClient {
     guard isConnected else { return }
 
     noIdle()
+
     let commandOperation = BlockOperation() { [unowned self] in
       self.commandsQueued -= 1
       self.sendCommand(command: command, userData: userData)
+
+      self.idle()
     }
     commandOperation.queuePriority = priority
     commandsQueued += 1
     commandQueue.addOperation(commandOperation)
-    idle()
   }
 }
