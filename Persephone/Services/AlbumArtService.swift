@@ -76,8 +76,15 @@ class AlbumArtService: NSObject {
           if FileManager.default.fileExists(atPath: coverArtURI),
             let data = FileManager.default.contents(atPath: coverArtURI),
             let image = NSImage(data: data) {
-            self.cacheArtwork(for: album, data: data)
-            callback(image)
+
+            let imageThumb = image.toFitBox(
+              size: NSSize(width: 180, height: 180)
+            )
+            self.cacheArtwork(
+              for: album,
+              data: imageThumb.jpegData(compressionQuality: 0.5)
+            )
+            callback(imageThumb)
             break
           }
         }
@@ -85,7 +92,7 @@ class AlbumArtService: NSObject {
     )
   }
 
-  func cacheArtwork(for album: AlbumItem, data: Data) {
+  func cacheArtwork(for album: AlbumItem, data: Data?) {
     guard let bundleIdentifier = Bundle.main.bundleIdentifier,
       let cacheDir = try? FileManager.default.url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
         .appendingPathComponent(bundleIdentifier)
