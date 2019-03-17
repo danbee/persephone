@@ -24,12 +24,22 @@ extension MPDClient {
       sendStop()
     case .playPause:
       sendPlay()
+    case .seekCurrentSong:
+      guard let timeInSeconds = userData["timeInSeconds"] as? Float
+        else { return }
+      sendSeekCurrentSong(timeInSeconds: timeInSeconds)
 
     // Status commands
     case .fetchStatus:
       sendRunStatus()
+
+    // Queue commands
     case .fetchQueue:
       sendFetchQueue()
+    case .playTrack:
+      guard let queuePos = userData["queuePos"] as? Int
+        else { return }
+      sendPlayTrack(at: queuePos)
 
     // Album commands
     case .fetchAllAlbums:

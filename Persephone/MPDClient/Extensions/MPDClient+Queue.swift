@@ -14,16 +14,12 @@ extension MPDClient {
     sendCommand(command: .fetchQueue)
   }
 
-  func playTrack(queuePos: Int) {
-    guard isConnected else { return }
+  func playTrack(at queuePos: Int) {
+    queueCommand(command: .playTrack, userData: ["queuePos": queuePos])
+  }
 
-    noIdle()
-    let commandOperation = BlockOperation { [unowned self] in
-      mpd_run_play_pos(self.connection, UInt32(queuePos))
-    }
-    commandOperation.queuePriority = .veryHigh
-    commandQueue.addOperation(commandOperation)
-    idle()
+  func sendPlayTrack(at queuePos: Int) {
+    mpd_run_play_pos(self.connection, UInt32(queuePos))
   }
 
   func sendFetchQueue() {

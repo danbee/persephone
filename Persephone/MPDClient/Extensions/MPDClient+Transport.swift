@@ -27,11 +27,10 @@ extension MPDClient {
   }
 
   func seekCurrentSong(timeInSeconds: Float) {
-    noIdle()
-    commandQueue.addOperation { [unowned self] in
-      mpd_run_seek_current(self.connection, timeInSeconds, false)
-    }
-    idle()
+    queueCommand(
+      command: .seekCurrentSong,
+      userData: ["timeInSeconds": timeInSeconds]
+    )
   }
 
   func sendNextTrack() {
@@ -62,4 +61,7 @@ extension MPDClient {
     }
   }
 
+  func sendSeekCurrentSong(timeInSeconds: Float) {
+    mpd_run_seek_current(self.connection, timeInSeconds, false)
+  }
 }

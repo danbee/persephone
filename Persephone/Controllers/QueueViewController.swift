@@ -36,7 +36,7 @@ class QueueViewController: NSViewController,
     let newQueuePos = queueView.selectedRow - 1
 
     if newQueuePos >= 0 {
-      AppDelegate.mpdClient.playTrack(queuePos: newQueuePos)
+      AppDelegate.mpdClient.playTrack(at: newQueuePos)
     }
   }
 

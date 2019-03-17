@@ -22,8 +22,8 @@ class MPDClient {
   var commandsQueued: UInt = 0
 
   enum Command {
-    case prevTrack, nextTrack, playPause, stop,
-      fetchStatus, fetchQueue, fetchAllAlbums,
+    case prevTrack, nextTrack, playPause, stop, seekCurrentSong,
+      fetchStatus, fetchQueue, playTrack, fetchAllAlbums,
       playAlbum, getAlbumURI
   }
 
