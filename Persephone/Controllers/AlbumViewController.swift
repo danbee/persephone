@@ -11,6 +11,8 @@ import Cocoa
 class AlbumViewController: NSViewController,
                            NSCollectionViewDelegate,
                            NSCollectionViewDelegateFlowLayout {
+  var preferences = Preferences()
+
   let paddingWidth: CGFloat = 40
   let gutterWidth: CGFloat = 20
 
@@ -36,6 +38,8 @@ class AlbumViewController: NSViewController,
     )
 
     albumCollectionView.dataSource = dataSource
+
+    preferences.addObserver(self, forKeyPath: "mpdLibraryDir")
   }
 
   override func viewWillLayout() {
@@ -51,6 +55,20 @@ class AlbumViewController: NSViewController,
       else { return }
 
     layout.setScrollPosition()
+  }
+
+  override func observeValue(
+    forKeyPath keyPath: String?,
+    of object: Any?,
+    change: [NSKeyValueChangeKey : Any]?,
+    context: UnsafeMutableRawPointer?
+    ) {
+    switch keyPath {
+    case "mpdLibraryDir":
+      albumCollectionView.reloadData()
+    default:
+      break
+    }
   }
 
   @objc func updateAlbums(_ notification: Notification) {
