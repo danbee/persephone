@@ -12,7 +12,9 @@ extension AlbumArtService {
   func getArtworkFromFilesystem(
     for album: AlbumItem,
     callback: @escaping (_ image: NSImage) -> Void
-    ) {
+  ) {
+    var tryImage: NSImage?
+
     let coverArtFilenames = [
       "folder.jpg",
       "cover.jpg",
@@ -29,7 +31,9 @@ extension AlbumArtService {
       for coverArtFilename in coverArtFilenames {
         let coverArtURI = "\(fullAlbumURI)/\(coverArtFilename)"
 
-        if let image = self.tryImage(coverArtURI) {
+        tryImage = self.tryImage(coverArtURI)
+
+        if let image = tryImage {
           self.cacheArtwork(
             for: album,
             data: image.jpegData(compressionQuality: self.cachedArtworkQuality)
@@ -37,6 +41,10 @@ extension AlbumArtService {
           callback(image)
           break
         }
+      }
+
+      if tryImage == nil && self.preferences.fetchMissingArtworkFromInternet {
+        self.getRemoteArtwork(for: album, callback: callback)
       }
     }
 
@@ -47,17 +55,15 @@ extension AlbumArtService {
   }
 
   func tryImage(_ filePath: String) -> NSImage? {
-    if FileManager.default.fileExists(atPath: filePath),
+    guard FileManager.default.fileExists(atPath: filePath),
       let data = FileManager.default.contents(atPath: filePath),
-      let image = NSImage(data: data) {
+      let image = NSImage(data: data)
+      else { return nil }
 
-      let imageThumb = image.toFitBox(
-        size: NSSize(width: self.cachedArtworkSize, height: self.cachedArtworkSize)
-      )
+    let imageThumb = image.toFitBox(
+      size: NSSize(width: self.cachedArtworkSize, height: self.cachedArtworkSize)
+    )
 
-      return imageThumb
-    } else {
-      return nil
-    }
+    return imageThumb
   }
 }

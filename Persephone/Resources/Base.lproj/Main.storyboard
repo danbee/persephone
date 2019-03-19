@@ -326,6 +326,9 @@
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="updateFetchMissingArtworkFromInternet:" target="3C9-vU-zjZ" id="I7x-9V-xJr"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>
@@ -339,6 +342,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="fetchMissingArtworkFromInternet" destination="pRL-MG-1Be" id="Xcp-sb-iZm"/>
                         <outlet property="mpdLibraryDirField" destination="gDk-ca-eOa" id="myi-BQ-0NS"/>
                     </connections>
                 </viewController>

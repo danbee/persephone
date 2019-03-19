@@ -18,6 +18,12 @@ class AlbumArtPrefsController: NSViewController {
       mpdLibraryDirField.stringValue = mpdLibraryDir
     }
 
+    if preferences.fetchMissingArtworkFromInternet {
+      fetchMissingArtworkFromInternet.state = .on
+    } else {
+      fetchMissingArtworkFromInternet.state = .off
+    }
+
     preferredContentSize = NSMakeSize(view.frame.size.width, view.frame.size.height)
   }
 
@@ -34,4 +40,14 @@ class AlbumArtPrefsController: NSViewController {
   }
 
   @IBOutlet var mpdLibraryDirField: NSTextField!
+
+  @IBAction func updateFetchMissingArtworkFromInternet(_ sender: NSButton) {
+    if sender.state == .on {
+      preferences.fetchMissingArtworkFromInternet = true
+    } else {
+      preferences.fetchMissingArtworkFromInternet = false
+    }
+  }
+
+  @IBOutlet var fetchMissingArtworkFromInternet: NSButton!
 }

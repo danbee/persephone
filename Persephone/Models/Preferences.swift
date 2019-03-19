@@ -62,6 +62,15 @@ struct Preferences {
     return NSString(string: mpdLibraryDirOrDefault).expandingTildeInPath
   }
 
+  var fetchMissingArtworkFromInternet: Bool {
+    get {
+      return preferences.bool(forKey: "fetchMissingArtworkFromInternet")
+    }
+    set {
+      preferences.set(newValue, forKey: "fetchMissingArtworkFromInternet")
+    }
+  }
+
   func addObserver(_ observer: NSObject, forKeyPath keyPath: String) {
     preferences.addObserver(observer, forKeyPath: keyPath, options: .new, context: nil)
   }

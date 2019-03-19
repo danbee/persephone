@@ -40,8 +40,15 @@ extension AlbumArtService {
         let url = urlComponents!.url
         return URLSession.shared.dataTask(.promise, with: url!).validate()
       }.compactMap {
-        self.cacheArtwork(for: album, data: $0.data)
-        return NSImage(data: $0.data)
+        NSImage(data: $0.data)?.toFitBox(
+          size: NSSize(width: self.cachedArtworkSize, height: self.cachedArtworkSize)
+        )
+      }.compactMap {
+        self.cacheArtwork(
+          for: album,
+          data: $0.jpegData(compressionQuality: self.cachedArtworkQuality)
+        )
+        return $0
       }.done {
         callback($0)
       }.catch {

@@ -9,11 +9,12 @@
 import Cocoa
 
 class AlbumArtService: NSObject {
+  var preferences = Preferences()
+  
   let cachedArtworkSize = 180
   let cachedArtworkQuality: CGFloat = 0.5
 
   static var shared = AlbumArtService()
-  var preferences = Preferences()
 
   var session = URLSession(configuration: .default)
   let cacheQueue = DispatchQueue(label: "albumArtCacheQueue", attributes: .concurrent)
