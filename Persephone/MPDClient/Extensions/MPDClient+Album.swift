@@ -11,15 +11,15 @@ import mpdclient
 
 extension MPDClient {
   func fetchAllAlbums() {
-    queueCommand(command: .fetchAllAlbums)
+    enqueueCommand(command: .fetchAllAlbums)
   }
 
   func playAlbum(_ album: Album) {
-    queueCommand(command: .playAlbum, userData: ["album": album])
+    enqueueCommand(command: .playAlbum, userData: ["album": album])
   }
 
   func getAlbumURI(for album: Album, callback: @escaping (String?) -> Void) {
-    queueCommand(
+    enqueueCommand(
       command: .getAlbumURI,
       priority: .low,
       userData: ["album": album, "callback": callback]

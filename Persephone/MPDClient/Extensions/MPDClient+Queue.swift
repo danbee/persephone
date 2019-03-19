@@ -15,7 +15,7 @@ extension MPDClient {
   }
 
   func playTrack(at queuePos: Int) {
-    queueCommand(command: .playTrack, userData: ["queuePos": queuePos])
+    enqueueCommand(command: .playTrack, userData: ["queuePos": queuePos])
   }
 
   func sendPlayTrack(at queuePos: Int) {

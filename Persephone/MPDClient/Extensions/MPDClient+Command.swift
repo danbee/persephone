@@ -54,4 +54,22 @@ extension MPDClient {
       albumURI(for: album, callback: callback)
     }
   }
+
+  func enqueueCommand(
+    command: Command,
+    priority: BlockOperation.QueuePriority = .normal,
+    userData: Dictionary<String, Any> = [:]
+  ) {
+    guard isConnected else { return }
+
+    noIdle()
+
+    let commandOperation = BlockOperation() { [unowned self] in
+      self.sendCommand(command: command, userData: userData)
+
+      self.idle()
+    }
+    commandOperation.queuePriority = priority
+    commandQueue.addOperation(commandOperation)
+  }
 }

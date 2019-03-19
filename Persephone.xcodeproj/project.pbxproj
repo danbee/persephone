@@ -53,6 +53,7 @@
 		E450ADA12229E7C90091BED3 /* PMKFoundation.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = E450AD9F2229E7C90091BED3 /* PMKFoundation.framework.dSYM */; };
 		E450ADA32229E7E00091BED3 /* PMKFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E450ADA02229E7C90091BED3 /* PMKFoundation.framework */; };
 		E450ADA42229E7E00091BED3 /* PMKFoundation.framework in Embed Libraries */ = {isa = PBXBuildFile; fileRef = E450ADA02229E7C90091BED3 /* PMKFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E45962C62241A78500FC1A1E /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45962C52241A78500FC1A1E /* Command.swift */; };
 		E465049A21E94DF500A70F4C /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E465049921E94DF500A70F4C /* WindowController.swift */; };
 		E47E2FCC2220573500F747E6 /* MediaKeyTap.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = E47E2FCB2220573500F747E6 /* MediaKeyTap.framework.dSYM */; };
 		E47E2FD122205C4600F747E6 /* MainSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E2FD022205C4600F747E6 /* MainSplitViewController.swift */; };
@@ -210,6 +211,7 @@
 		E450AD9E2229B9BC0091BED3 /* PersephoneBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersephoneBridgingHeader.h; sourceTree = "<group>"; };
 		E450AD9F2229E7C90091BED3 /* PMKFoundation.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = PMKFoundation.framework.dSYM; path = Carthage/Build/Mac/PMKFoundation.framework.dSYM; sourceTree = "<group>"; };
 		E450ADA02229E7C90091BED3 /* PMKFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PMKFoundation.framework; path = Carthage/Build/Mac/PMKFoundation.framework; sourceTree = "<group>"; };
+		E45962C52241A78500FC1A1E /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		E465049921E94DF500A70F4C /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		E47E2FCB2220573500F747E6 /* MediaKeyTap.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = MediaKeyTap.framework.dSYM; path = Carthage/Build/Mac/MediaKeyTap.framework.dSYM; sourceTree = "<group>"; };
 		E47E2FD022205C4600F747E6 /* MainSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSplitViewController.swift; sourceTree = "<group>"; };
@@ -512,6 +514,7 @@
 				E4EB2378220F10B8008C70C0 /* Pair.swift */,
 				E4EB237A220F7CF1008C70C0 /* Album.swift */,
 				E4C8B53D22349002009A20F3 /* Idle.swift */,
+				E45962C52241A78500FC1A1E /* Command.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -753,6 +756,7 @@
 				E450AD7E222620A10091BED3 /* AlbumItem.swift in Sources */,
 				E4E8CC942206097F0024217A /* NotificationsController.swift in Sources */,
 				E408D3B6220DD8970006D9BE /* Notification.swift in Sources */,
+				E45962C62241A78500FC1A1E /* Command.swift in Sources */,
 				E408D3B9220DE98F0006D9BE /* NSUserInterfaceItemIdentifier.swift in Sources */,
 				E4EB2379220F10B8008C70C0 /* Pair.swift in Sources */,
 				E4F6B463221E125900ACF42A /* SongItem.swift in Sources */,

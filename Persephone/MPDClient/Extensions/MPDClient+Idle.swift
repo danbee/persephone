@@ -18,7 +18,7 @@ extension MPDClient {
   }
 
   func idle() {
-    if !self.isIdle && self.commandsQueued == 0 {
+    if !self.isIdle && self.commandQueue.operationCount == 1 {
       mpd_send_idle(self.connection)
       self.isIdle = true
 

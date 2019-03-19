@@ -19,36 +19,9 @@ class MPDClient {
   var queue: [Song] = []
 
   let commandQueue = OperationQueue()
-  var commandsQueued: UInt = 0
-
-  enum Command {
-    case prevTrack, nextTrack, playPause, stop, seekCurrentSong,
-      fetchStatus, fetchQueue, playTrack, fetchAllAlbums,
-      playAlbum, getAlbumURI
-  }
 
   init(withDelegate delegate: MPDClientDelegate?) {
     commandQueue.maxConcurrentOperationCount = 1
     self.delegate = delegate
-  }
-
-  func queueCommand(
-    command: Command,
-    priority: BlockOperation.QueuePriority = .normal,
-    userData: Dictionary<String, Any> = [:]
-  ) {
-    guard isConnected else { return }
-
-    noIdle()
-
-    let commandOperation = BlockOperation() { [unowned self] in
-      self.commandsQueued -= 1
-      self.sendCommand(command: command, userData: userData)
-
-      self.idle()
-    }
-    commandOperation.queuePriority = priority
-    commandsQueued += 1
-    commandQueue.addOperation(commandOperation)
   }
 }

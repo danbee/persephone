@@ -11,23 +11,23 @@ import mpdclient
 
 extension MPDClient {
   func playPause() {
-    queueCommand(command: .playPause)
+    enqueueCommand(command: .playPause)
   }
 
   func stop() {
-    queueCommand(command: .stop)
+    enqueueCommand(command: .stop)
   }
 
   func prevTrack() {
-    queueCommand(command: .prevTrack)
+    enqueueCommand(command: .prevTrack)
   }
 
   func nextTrack() {
-    queueCommand(command: .nextTrack)
+    enqueueCommand(command: .nextTrack)
   }
 
   func seekCurrentSong(timeInSeconds: Float) {
-    queueCommand(
+    enqueueCommand(
       command: .seekCurrentSong,
       userData: ["timeInSeconds": timeInSeconds]
     )
