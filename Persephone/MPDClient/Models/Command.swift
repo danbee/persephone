@@ -17,6 +17,9 @@ extension MPDClient {
     case stop
     case seekCurrentSong
 
+    // Database commands
+    case updateDatabase
+
     // Status commands
     case fetchStatus
 

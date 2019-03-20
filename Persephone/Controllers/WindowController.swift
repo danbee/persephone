@@ -36,6 +36,20 @@ class WindowController: NSWindowController {
       object: AppDelegate.mpdClient
     )
 
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(startDatabaseUpdatingIndicator),
+      name: Notification.databaseUpdateStarted,
+      object: AppDelegate.mpdClient
+    )
+
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(stopDatabaseUpdatingIndicator),
+      name: Notification.databaseUpdated,
+      object: AppDelegate.mpdClient
+    )
+
     trackProgress.font = .timerFont
     trackRemaining.font = .timerFont
   }
@@ -132,6 +146,14 @@ class WindowController: NSWindowController {
     setTimeRemaining()
   }
 
+  @objc func startDatabaseUpdatingIndicator() {
+    databaseUpdatingIndicator.startAnimation(self)
+  }
+
+  @objc func stopDatabaseUpdatingIndicator() {
+    databaseUpdatingIndicator.stopAnimation(self)
+  }
+
   func setTimeElapsed() {
     guard let elapsedTimeMs = elapsedTimeMs else { return }
 
@@ -194,4 +216,5 @@ class WindowController: NSWindowController {
   @IBOutlet var trackProgress: NSTextField!
   @IBOutlet var trackProgressBar: NSSlider!
   @IBOutlet var trackRemaining: NSTextField!
+  @IBOutlet var databaseUpdatingIndicator: NSProgressIndicator!
 }
