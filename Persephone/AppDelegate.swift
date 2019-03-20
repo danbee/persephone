@@ -26,6 +26,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, MediaKeyTapDelegate {
 
     mediaKeyTap = MediaKeyTap(delegate: self)
     mediaKeyTap?.start()
+
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(enableUpdateDatabaseMenuItem),
+      name: Notification.databaseUpdateFinished,
+      object: AppDelegate.mpdClient
+    )
   }
 
   func applicationWillTerminate(_ aNotification: Notification) {
@@ -70,6 +77,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, MediaKeyTapDelegate {
   }
 
   @IBAction func updateDatabase(_ sender: NSMenuItem) {
+    sender.isEnabled = false
     AppDelegate.mpdClient.updateDatabase()
   }
+
+  @objc func enableUpdateDatabaseMenuItem() {
+    updateDatabaseMenuItem?.isEnabled = true
+  }
+
+  @IBOutlet weak var updateDatabaseMenuItem: NSMenuItem!
 }

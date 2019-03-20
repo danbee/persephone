@@ -64,9 +64,10 @@
                             </menuItem>
                             <menuItem title="Database" id="usv-UH-vkC">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Database" id="rFP-zL-1X4">
+                                <menu key="submenu" title="Database" autoenablesItems="NO" id="rFP-zL-1X4">
                                     <items>
                                         <menuItem title="Update" keyEquivalent="u" id="EJg-93-1F6">
+                                            <attributedString key="attributedTitle"/>
                                             <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                             <connections>
                                                 <action selector="updateDatabase:" target="Voe-Tx-rLC" id="FO1-Ge-TUL"/>
@@ -118,7 +119,11 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Persephone" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Persephone" customModuleProvider="target">
+                    <connections>
+                        <outlet property="updateDatabaseMenuItem" destination="EJg-93-1F6" id="gMf-SQ-lyI"/>
+                    </connections>
+                </customObject>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
