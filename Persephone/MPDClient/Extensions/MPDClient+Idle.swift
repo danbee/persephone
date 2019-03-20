@@ -52,9 +52,9 @@ extension MPDClient {
       self.fetchStatus()
 
       if self.status?.updating ?? false {
-        self.delegate?.willUpdateDatabase(mpdClient: self)
+        self.delegate?.willStartDatabaseUpdate(mpdClient: self)
       } else {
-        self.delegate?.didUpdateDatabase(mpdClient: self)
+        self.delegate?.didFinishDatabaseUpdate(mpdClient: self)
       }
     }
     if !mpdIdle.isEmpty {

@@ -36,11 +36,11 @@ class NotificationsController: MPDClientDelegate {
     )
   }
 
-  func willUpdateDatabase(mpdClient: MPDClient) {
+  func willStartDatabaseUpdate(mpdClient: MPDClient) {
     sendNotification(name: Notification.databaseUpdateStarted)
   }
 
-  func didUpdateDatabase(mpdClient: MPDClient) {
+  func didFinishDatabaseUpdate(mpdClient: MPDClient) {
     sendNotification(name: Notification.databaseUpdateFinished)
   }
 
