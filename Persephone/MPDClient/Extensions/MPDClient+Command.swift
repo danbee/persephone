@@ -29,6 +29,10 @@ extension MPDClient {
         else { return }
       sendSeekCurrentSong(timeInSeconds: timeInSeconds)
 
+    // Database commands
+    case .updateDatabase:
+      sendUpdateDatabase()
+
     // Status commands
     case .fetchStatus:
       sendRunStatus()

@@ -15,6 +15,9 @@ protocol MPDClientDelegate {
   func didUpdateState(mpdClient: MPDClient, state: MPDClient.Status.State)
   func didUpdateTime(mpdClient: MPDClient, total: UInt, elapsedMs: UInt)
 
+  func willUpdateDatabase(mpdClient: MPDClient)
+  func didUpdateDatabase(mpdClient: MPDClient)
+
   func didUpdateQueue(mpdClient: MPDClient, queue: [MPDClient.Song])
   func didUpdateQueuePos(mpdClient: MPDClient, song: Int)
   

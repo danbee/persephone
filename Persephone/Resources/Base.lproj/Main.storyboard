@@ -66,8 +66,11 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Database" id="rFP-zL-1X4">
                                     <items>
-                                        <menuItem title="Update" enabled="NO" keyEquivalent="u" id="EJg-93-1F6">
+                                        <menuItem title="Update" keyEquivalent="u" id="EJg-93-1F6">
                                             <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                            <connections>
+                                                <action selector="updateDatabase:" target="Voe-Tx-rLC" id="FO1-Ge-TUL"/>
+                                            </connections>
                                         </menuItem>
                                     </items>
                                 </menu>
@@ -195,9 +198,17 @@
                                         </textFieldCell>
                                     </textField>
                                 </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="6B3CE282-B6C1-48BF-8962-1A02892D8DF8" label="" paletteLabel="" tag="-1" sizingBehavior="auto" id="fw4-Lp-bWJ">
+                                    <nil key="toolTip"/>
+                                    <progressIndicator key="view" identifier="databaseUpdatingIndicator" wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" id="LpV-iM-o6t">
+                                        <rect key="frame" x="0.0" y="14" width="16" height="16"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    </progressIndicator>
+                                </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
                                 <toolbarItem reference="p3r-ty-Pxf"/>
+                                <toolbarItem reference="fw4-Lp-bWJ"/>
                                 <toolbarItem reference="9ol-aR-mzv"/>
                                 <toolbarItem reference="n52-8S-6kR"/>
                                 <toolbarItem reference="s1h-EC-nvL"/>
@@ -210,6 +221,7 @@
                         </connections>
                     </window>
                     <connections>
+                        <outlet property="databaseUpdatingIndicator" destination="LpV-iM-o6t" id="y0T-eR-ygY"/>
                         <outlet property="trackProgress" destination="kx6-xm-TAN" id="XDv-Th-Agj"/>
                         <outlet property="trackProgressBar" destination="KMy-xf-rmN" id="a67-JU-cyQ"/>
                         <outlet property="trackRemaining" destination="9WZ-ij-lrb" id="0pH-d7-wvD"/>

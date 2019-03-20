@@ -68,4 +68,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, MediaKeyTapDelegate {
   func disconnect() {
     AppDelegate.mpdClient.disconnect()
   }
+
+  @IBAction func updateDatabase(_ sender: NSMenuItem) {
+    AppDelegate.mpdClient.updateDatabase()
+  }
 }

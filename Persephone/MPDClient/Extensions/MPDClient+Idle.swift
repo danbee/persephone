@@ -32,6 +32,9 @@ extension MPDClient {
     
     let mpdIdle = Idle(rawValue: result.rawValue)
 
+    if mpdIdle.contains(.database) {
+      self.fetchAllAlbums()
+    }
     if mpdIdle.contains(.queue) {
       self.fetchQueue()
       self.delegate?.didUpdateQueue(mpdClient: self, queue: self.queue)
@@ -43,6 +46,15 @@ extension MPDClient {
         self.delegate?.didUpdateState(mpdClient: self, state: status.state)
         self.delegate?.didUpdateTime(mpdClient: self, total: status.totalTime, elapsedMs: status.elapsedTimeMs)
         self.delegate?.didUpdateQueuePos(mpdClient: self, song: status.song)
+      }
+    }
+    if mpdIdle.contains(.update) {
+      self.fetchStatus()
+
+      if self.status?.updating ?? false {
+        self.delegate?.willUpdateDatabase(mpdClient: self)
+      } else {
+        self.delegate?.didUpdateDatabase(mpdClient: self)
       }
     }
     if !mpdIdle.isEmpty {

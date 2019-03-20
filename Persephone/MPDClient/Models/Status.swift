@@ -49,5 +49,11 @@ extension MPDClient {
     var song: Int {
       return Int(mpd_status_get_song_pos(mpdStatus))
     }
+
+    var updating: Bool {
+      let updating = mpd_status_get_update_id(mpdStatus)
+
+      return updating > 0
+    }
   }
 }
