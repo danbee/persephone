@@ -15,7 +15,7 @@ extension Notification {
   static let stateChanged = Name("MPDClientStateChanged")
   static let timeChanged = Name("MPDClientTimeChanged")
   static let databaseUpdateStarted = Name("MPDClientDatabaseUpdateStarted")
-  static let databaseUpdated = Name("MPDClientDatabaseUpdated")
+  static let databaseUpdateFinished = Name("MPDClientDatabaseUpdateFinished")
   static let queueChanged = Name("MPDClientQueueChanged")
   static let queuePosChanged = Name("MPDClientQueuePosChanged")
   static let loadedAlbums = Name("MPDClientLoadedAlbums")
