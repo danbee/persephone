@@ -41,7 +41,7 @@ class NotificationsController: MPDClientDelegate {
   }
 
   func didUpdateDatabase(mpdClient: MPDClient) {
-    sendNotification(name: Notification.databaseUpdated)
+    sendNotification(name: Notification.databaseUpdateFinished)
   }
 
   func didUpdateQueue(mpdClient: MPDClient, queue: [MPDClient.Song]) {

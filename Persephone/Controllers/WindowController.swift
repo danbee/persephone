@@ -46,7 +46,7 @@ class WindowController: NSWindowController {
     NotificationCenter.default.addObserver(
       self,
       selector: #selector(stopDatabaseUpdatingIndicator),
-      name: Notification.databaseUpdated,
+      name: Notification.databaseUpdateFinished,
       object: AppDelegate.mpdClient
     )
 
