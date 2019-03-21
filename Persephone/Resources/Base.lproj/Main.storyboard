@@ -289,7 +289,7 @@
                 <tabViewController title="General" selectedTabViewItemIndex="0" tabStyle="toolbar" id="zhe-qh-Mal" customClass="PreferencesViewController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem label="General" identifier="generalPreferencesTab" image="NSPreferencesGeneral" id="kn0-fa-vM3"/>
-                        <tabViewItem label="Album Art" identifier="albumArtPreferencesTab" image="NSAdvanced" id="4Lj-dz-bOK"/>
+                        <tabViewItem label="Album Art" identifier="albumArtPreferencesTab" image="coverArtPreferencesIcon" id="4Lj-dz-bOK"/>
                     </tabViewItems>
                     <viewControllerTransitionOptions key="transitionOptions" allowUserInteraction="YES"/>
                     <tabView key="tabView" type="noTabsNoBorder" id="6dC-M0-oC5">
@@ -658,8 +658,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="NSAdvanced" width="32" height="32"/>
         <image name="NSPreferencesGeneral" width="32" height="32"/>
+        <image name="coverArtPreferencesIcon" width="32" height="32"/>
         <image name="nextTrackButton" width="17" height="17"/>
         <image name="playButton" width="17" height="17"/>
         <image name="prevTrackButton" width="17" height="17"/>
