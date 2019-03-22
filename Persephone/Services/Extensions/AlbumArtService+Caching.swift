@@ -7,30 +7,22 @@
 //
 
 import Cocoa
+import PromiseKit
 
 extension AlbumArtService {
-  func getCachedArtwork(for album: AlbumItem, callback: @escaping (_ image: NSImage) -> Void) -> Bool {
-    guard let bundleIdentifier = Bundle.main.bundleIdentifier,
-      let cacheDir = try? FileManager.default.url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-        .appendingPathComponent(bundleIdentifier)
-      else { return false }
+  static let cacheDir = try! FileManager.default.url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent(Bundle.main.bundleIdentifier!)
 
-    let cacheFilePath = cacheDir.appendingPathComponent(album.hash).path
+  func getCachedArtwork() -> Promise<NSImage?> {
+    return Promise { seal in
+      let cacheFilePath = AlbumArtService.cacheDir.appendingPathComponent(album.hash).path
+      let data = FileManager.default.contents(atPath: cacheFilePath)
+      let image = data.flatMap(NSImage.init(data:))
 
-    if FileManager.default.fileExists(atPath: cacheFilePath) {
-      guard let data = FileManager.default.contents(atPath: cacheFilePath),
-        let image = NSImage(data: data)
-        else { return true }
-
-      callback(image)
-
-      return true
-    } else {
-      return false
+      seal.fulfill(image)
     }
   }
 
-  func cacheArtwork(for album: AlbumItem, data: Data?) {
+  func cacheArtwork(data: Data?) {
     guard let bundleIdentifier = Bundle.main.bundleIdentifier,
       let cacheDir = try? FileManager.default.url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
         .appendingPathComponent(bundleIdentifier)

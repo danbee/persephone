@@ -23,7 +23,7 @@ class AlbumDataSource: NSObject, NSCollectionViewDataSource {
     albumViewItem.setAlbum(albums[indexPath.item])
 
     if albums[indexPath.item].coverArt == nil {
-      AlbumArtService.shared.fetchAlbumArt(for: albums[indexPath.item]) { image in
+      AlbumArtService(album: albums[indexPath.item]).fetchAlbumArt { image in
         self.albums[indexPath.item].coverArt = image
 
         DispatchQueue.main.async {

@@ -7,56 +7,36 @@
 //
 
 import Cocoa
+import PromiseKit
 
 extension AlbumArtService {
-  func getArtworkFromFilesystem(
-    for album: AlbumItem,
-    callback: @escaping (_ image: NSImage) -> Void
-  ) {
-    var tryImage: NSImage?
-
+  func getArtworkFromFilesystem() -> Promise<NSImage?> {
     let coverArtFilenames = [
       "folder.jpg",
       "cover.jpg",
       "\(album.artist) - \(album.title).jpg"
     ]
 
-    let callback = { (_ albumURI: String?) in
-      guard let albumURI = albumURI
-        else { return }
+    return getAlbumURI().map { albumURI in
+        let musicDir = self.preferences.expandedMpdLibraryDir
 
-      let musicDir = self.preferences.expandedMpdLibraryDir
-      let fullAlbumURI = "\(musicDir)/\(albumURI)"
-
-      for coverArtFilename in coverArtFilenames {
-        let coverArtURI = "\(fullAlbumURI)/\(coverArtFilename)"
-
-        tryImage = self.tryImage(coverArtURI)
-
-        if let image = tryImage {
-          self.cacheArtwork(
-            for: album,
-            data: image.jpegData(compressionQuality: self.cachedArtworkQuality)
-          )
-          callback(image)
-          break
-        }
+        return coverArtFilenames
+          .lazy
+          .map { "\(musicDir)/\($0)" }
+          .compactMap(self.tryImage)
+          .first
       }
+  }
 
-      if tryImage == nil && self.preferences.fetchMissingArtworkFromInternet {
-        self.getRemoteArtwork(for: album, callback: callback)
-      }
+  func getAlbumURI() -> Promise<String> {
+    return Promise { seal in
+      AppDelegate.mpdClient.getAlbumURI(for: album.album, callback: seal.fulfill)
     }
-
-    AppDelegate.mpdClient.getAlbumURI(
-      for: album.album,
-      callback: callback
-    )
+      .compactMap { $0 }
   }
 
   func tryImage(_ filePath: String) -> NSImage? {
-    guard FileManager.default.fileExists(atPath: filePath),
-      let data = FileManager.default.contents(atPath: filePath),
+    guard let data = FileManager.default.contents(atPath: filePath),
       let image = NSImage(data: data)
       else { return nil }
 

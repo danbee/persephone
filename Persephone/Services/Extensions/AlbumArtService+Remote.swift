@@ -12,24 +12,25 @@ import PromiseKit
 import PMKFoundation
 
 extension AlbumArtService {
-  func getRemoteArtwork(for album: AlbumItem, callback: @escaping (_ image: NSImage) -> Void) {
-    let albumArtWorkItem = DispatchWorkItem() {
-      self.getArtworkFromMusicBrainz(for: album, callback: callback)
-    }
-
-    AlbumArtQueue.shared.addToQueue(workItem: albumArtWorkItem)
+  enum MusicBrainzError: Error {
+    case noArtworkAvailable
   }
 
-  func getArtworkFromMusicBrainz(for album: AlbumItem, callback: @escaping (_ image: NSImage) -> Void) {
-    guard var urlComponents = URLComponents(string: "https://musicbrainz.org/ws/2/release/")
-      else { return }
+  func getRemoteArtwork() -> Promise<NSImage> {
+    return Promise { seal in
+      let albumArtWorkItem = DispatchWorkItem {
+        self.getArtworkFromMusicBrainz().pipe(to: seal.resolve)
+      }
 
-    urlComponents.query = "query=artist:\(album.artist) AND release:\(album.title) AND country:US&limit=1&fmt=json"
+      AlbumArtQueue.shared.addToQueue(workItem: albumArtWorkItem)
+    }
+  }
 
-    guard let searchURL = urlComponents.url
-      else { return }
+  func getArtworkFromMusicBrainz() -> Promise<NSImage> {
+    var search = URLComponents(string: "https://musicbrainz.org/ws/2/release/")!
+    search.query = "query=artist:\(album.artist) AND release:\(album.title) AND country:US&limit=1&fmt=json"
 
-    URLSession.shared.dataTask(.promise, with: searchURL).validate()
+    return URLSession.shared.dataTask(.promise, with: search.url!).validate()
       .compactMap {
         JSON($0.data)
       }.compactMap {
@@ -43,25 +44,11 @@ extension AlbumArtService {
         NSImage(data: $0.data)?.toFitBox(
           size: NSSize(width: self.cachedArtworkSize, height: self.cachedArtworkSize)
         )
-      }.compactMap {
-        self.cacheArtwork(
-          for: album,
-          data: $0.jpegData(compressionQuality: self.cachedArtworkQuality)
-        )
-        return $0
-      }.done {
-        callback($0)
-      }.catch {
-        if let httpError = $0 as? PMKHTTPError {
-          switch httpError {
-          case let .badStatusCode(statusCode, _, _):
-            switch statusCode {
-            case 404:
-              self.cacheArtwork(for: album, data: Data())
-            default:
-              self.getRemoteArtwork(for: album, callback: callback)
-            }
-          }
+      }.recover { error -> Promise<NSImage> in
+        if case PMKHTTPError.badStatusCode(404, _, _) = error {
+          throw MusicBrainzError.noArtworkAvailable
+        } else {
+          throw error
         }
       }
   }
