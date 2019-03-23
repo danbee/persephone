@@ -52,24 +52,3 @@ class AlbumArtService {
     }
   }
 }
-
-
-//getCachedArtwork
-//  .then {
-//    callback($0)
-//  }
-//  .catch {
-//    getFileSystemArtwork
-//  }
-//  .then {
-//    callback($0)
-//  }
-//  .catch {
-//    getRemoteArtwork
-//  }4
-//  .then {
-//    callback($0)
-//  }
-//
-//// [() -> Promise<NSImage?>]
-//// () -> Promise<NSImage>

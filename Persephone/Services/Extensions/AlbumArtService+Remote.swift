@@ -36,9 +36,8 @@ extension AlbumArtService {
       }.compactMap {
         $0["releases"][0]["id"].string
       }.compactMap {
-        URLComponents(string: "https://coverartarchive.org/release/\($0)/front-500")
-      }.then { (urlComponents: URLComponents?) -> Promise<(data: Data, response: URLResponse)> in
-        let url = urlComponents!.url
+        URLComponents(string: "https://coverartarchive.org/release/\($0)/front-500")?.url
+      }.then { (url: URL?) -> Promise<(data: Data, response: URLResponse)> in
         return URLSession.shared.dataTask(.promise, with: url!).validate()
       }.compactMap {
         NSImage(data: $0.data)?.toFitBox(
