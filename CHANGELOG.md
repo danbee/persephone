@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.10.3a - 2019-03-25
+
+### Changed
+
+- Fixed a bug introduced by the artwork service refactor that missed part of the
+  path and thus prevented it loading artwork from the filesystem
+
 ## 0.10.2a - 2019-03-23
 
 ### Added
