@@ -23,7 +23,7 @@ class AlbumDataSource: NSObject, NSCollectionViewDataSource {
     albumViewItem.setAlbum(albums[indexPath.item])
 
     if albums[indexPath.item].coverArt == nil {
-      AppDelegate.mpdClient.albumFirstSong(for: albums[indexPath.item].mpdAlbum) {
+      AppDelegate.mpdClient.getAlbumFirstSong(for: albums[indexPath.item].mpdAlbum) {
         guard let song = $0 else { return }
         
         AlbumArtService(song: Song(mpdSong: song)).fetchAlbumArt { image in

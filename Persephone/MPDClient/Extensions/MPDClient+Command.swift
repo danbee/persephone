@@ -55,6 +55,7 @@ extension MPDClient {
       guard let album = userData["album"] as? MPDAlbum,
         let callback = userData["callback"] as? (MPDSong?) -> Void
         else { return }
+
       albumFirstSong(for: album, callback: callback)
     }
   }

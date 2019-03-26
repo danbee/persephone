@@ -18,7 +18,7 @@ extension MPDClient {
     enqueueCommand(command: .playAlbum, userData: ["album": album])
   }
 
-  func getAlbumFirstSong(for album: MPDAlbum, callback: @escaping (String?) -> Void) {
+  func getAlbumFirstSong(for album: MPDAlbum, callback: @escaping (MPDSong?) -> Void) {
     enqueueCommand(
       command: .getAlbumFirstSong,
       priority: .low,
@@ -69,7 +69,7 @@ extension MPDClient {
     self.delegate?.didLoadAlbums(mpdClient: self, albums: albums)
   }
 
-  func albumFirstSong(for album: MPDAlbum, callback: @escaping (MPDSong?) -> Void) {
+  func albumFirstSong(for album: MPDAlbum, callback: (MPDSong?) -> Void) {
     guard isConnected else { return }
 
     var firstSong: MPDSong?
