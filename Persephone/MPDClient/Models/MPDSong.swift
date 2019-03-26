@@ -10,8 +10,8 @@ import Foundation
 import mpdclient
 
 extension MPDClient {
-  class Song {
-    let mpdSong: OpaquePointer
+  class MPDSong {
+    let song: OpaquePointer
     
     enum TagType: Int {
       case unknown = -1
@@ -33,26 +33,33 @@ extension MPDClient {
       case tagCount
     }
 
-    init(_ mpdSong: OpaquePointer) {
-      self.mpdSong = mpdSong
+    init(_ song: OpaquePointer) {
+      self.song = song
     }
 
     deinit {
-      mpd_song_free(mpdSong)
+      mpd_song_free(song)
     }
 
     var uri: UnsafePointer<Int8> {
-      return mpd_song_get_uri(mpdSong)
+      return mpd_song_get_uri(song)
     }
 
     var uriString: String {
       return String(cString: uri)
     }
 
+    var album: MPDAlbum {
+      return MPDAlbum(
+        title: getTag(.album),
+        artist: getTag(.albumArtist)
+      )
+    }
+
     func getTag(_ tagType: TagType) -> String {
       let mpdTagType = mpd_tag_type(rawValue: Int32(tagType.rawValue))
 
-      guard let tag = mpd_song_get_tag(mpdSong, mpdTagType, 0)
+      guard let tag = mpd_song_get_tag(song, mpdTagType, 0)
         else { return "" }
       
       return String(cString: tag)

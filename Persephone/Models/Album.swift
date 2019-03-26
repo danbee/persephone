@@ -8,16 +8,16 @@
 
 import Cocoa
 
-struct AlbumItem {
-  var album: MPDClient.Album
+struct Album {
+  var mpdAlbum: MPDClient.MPDAlbum
   var coverArt: NSImage?
 
   var title: String {
-    return album.title
+    return mpdAlbum.title
   }
 
   var artist: String {
-    return album.artist
+    return mpdAlbum.artist
   }
 
   var hash: String {

@@ -30,7 +30,7 @@ extension MPDClient {
   func handleIdleResult(_ result: mpd_idle) {
     isIdle = false
     
-    let mpdIdle = Idle(rawValue: result.rawValue)
+    let mpdIdle = MPDIdle(rawValue: result.rawValue)
 
     if mpdIdle.contains(.database) {
       self.fetchAllAlbums()

@@ -9,7 +9,7 @@
 import Foundation
 
 extension MPDClient {
-  enum Command {
+  enum MPDCommand {
     // Transport commands
     case prevTrack
     case nextTrack
@@ -30,6 +30,6 @@ extension MPDClient {
     // Album commands
     case fetchAllAlbums
     case playAlbum
-    case getAlbumURI
+    case getAlbumFirstSong
   }
 }

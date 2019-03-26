@@ -15,8 +15,8 @@ class MPDClient {
   var connection: OpaquePointer?
   var isConnected: Bool = false
   var isIdle: Bool = false
-  var status: Status?
-  var queue: [Song] = []
+  var status: MPDStatus?
+  var queue: [MPDSong] = []
 
   let commandQueue = OperationQueue()
 

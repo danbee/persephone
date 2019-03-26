@@ -19,7 +19,7 @@ class NotificationsController: MPDClientDelegate {
     sendNotification(name: Notification.willDisconnect)
   }
 
-  func didUpdateState(mpdClient: MPDClient, state: MPDClient.Status.State) {
+  func didUpdateState(mpdClient: MPDClient, state: MPDClient.MPDStatus.State) {
     sendNotification(
       name: Notification.stateChanged,
       userInfo: [Notification.stateKey: state]
@@ -44,7 +44,7 @@ class NotificationsController: MPDClientDelegate {
     sendNotification(name: Notification.databaseUpdateFinished)
   }
 
-  func didUpdateQueue(mpdClient: MPDClient, queue: [MPDClient.Song]) {
+  func didUpdateQueue(mpdClient: MPDClient, queue: [MPDClient.MPDSong]) {
     sendNotification(
       name: Notification.queueChanged,
       userInfo: [Notification.queueKey: queue]
@@ -58,7 +58,7 @@ class NotificationsController: MPDClientDelegate {
     )
   }
 
-  func didLoadAlbums(mpdClient: MPDClient, albums: [MPDClient.Album]) {
+  func didLoadAlbums(mpdClient: MPDClient, albums: [MPDClient.MPDAlbum]) {
     sendNotification(
       name: Notification.loadedAlbums,
       userInfo: [Notification.albumsKey: albums]

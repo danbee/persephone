@@ -22,7 +22,7 @@ extension MPDClient {
         else { return }
 
       self.connection = connection
-      self.status = Status(status)
+      self.status = MPDStatus(status)
 
       self.fetchQueue()
       self.fetchAllAlbums()

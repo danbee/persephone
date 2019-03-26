@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct SongItem {
-  var song: MPDClient.Song
+struct QueueItem {
+  var song: Song
   var queuePos: Int
   var isPlaying: Bool
 }

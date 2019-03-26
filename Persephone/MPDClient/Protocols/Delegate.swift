@@ -12,14 +12,14 @@ protocol MPDClientDelegate {
   func didConnect(mpdClient: MPDClient)
   func willDisconnect(mpdClient: MPDClient)
 
-  func didUpdateState(mpdClient: MPDClient, state: MPDClient.Status.State)
+  func didUpdateState(mpdClient: MPDClient, state: MPDClient.MPDStatus.State)
   func didUpdateTime(mpdClient: MPDClient, total: UInt, elapsedMs: UInt)
 
   func willStartDatabaseUpdate(mpdClient: MPDClient)
   func didFinishDatabaseUpdate(mpdClient: MPDClient)
 
-  func didUpdateQueue(mpdClient: MPDClient, queue: [MPDClient.Song])
+  func didUpdateQueue(mpdClient: MPDClient, queue: [MPDClient.MPDSong])
   func didUpdateQueuePos(mpdClient: MPDClient, song: Int)
   
-  func didLoadAlbums(mpdClient: MPDClient, albums: [MPDClient.Album])
+  func didLoadAlbums(mpdClient: MPDClient, albums: [MPDClient.MPDAlbum])
 }

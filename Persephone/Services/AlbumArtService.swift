@@ -11,7 +11,8 @@ import PromiseKit
 
 class AlbumArtService {
   var preferences = Preferences()
-  let album: AlbumItem
+  let song: Song
+  let album: Album
   
   let cachedArtworkSize = 180
   let cachedArtworkQuality: CGFloat = 0.5
@@ -19,8 +20,9 @@ class AlbumArtService {
   var session = URLSession(configuration: .default)
   let cacheQueue = DispatchQueue(label: "albumArtCacheQueue")
 
-  init(album: AlbumItem) {
-    self.album = album
+  init(song: Song) {
+    self.song = song
+    self.album = song.album
   }
 
   func fetchAlbumArt(callback: @escaping (_ image: NSImage?) -> Void) {

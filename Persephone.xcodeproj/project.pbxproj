@@ -19,6 +19,7 @@
 		E408D3CB220E341D0006D9BE /* AlbumViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = E408D3C9220E341D0006D9BE /* AlbumViewItem.xib */; };
 		E40F41F3221EDE27004B6CB8 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40F41F2221EDE27004B6CB8 /* Preferences.swift */; };
 		E40FE71B221B904300A4223F /* NSEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40FE71A221B904300A4223F /* NSEvent.swift */; };
+		E419E2872249B96600216A8C /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = E419E2862249B96600216A8C /* Song.swift */; };
 		E41B22C021FB6BBA00D544F6 /* libmpdclient.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E41B22BF21FB6BBA00D544F6 /* libmpdclient.2.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
 		E41B22C121FB6C3300D544F6 /* libmpdclient.2.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = E41B22BF21FB6BBA00D544F6 /* libmpdclient.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		E41B22C621FB932700D544F6 /* MPDClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41B22C521FB932700D544F6 /* MPDClient.swift */; };
@@ -41,7 +42,7 @@
 		E42A8F3C22176D6400A13ED9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E42A8F3A22176D6400A13ED9 /* README.md */; };
 		E435E3E2221CD4E200184CFC /* NSFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = E435E3E1221CD4E200184CFC /* NSFont.swift */; };
 		E435E3E4221CD75D00184CFC /* NSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E435E3E3221CD75D00184CFC /* NSImage.swift */; };
-		E450AD7E222620A10091BED3 /* AlbumItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450AD7D222620A10091BED3 /* AlbumItem.swift */; };
+		E450AD7E222620A10091BED3 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450AD7D222620A10091BED3 /* Album.swift */; };
 		E450AD8622262AE60091BED3 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E450AD8522262AE60091BED3 /* SwiftyJSON.framework */; };
 		E450AD8822262AEC0091BED3 /* SwiftyJSON.framework in Embed Libraries */ = {isa = PBXBuildFile; fileRef = E450AD8522262AE60091BED3 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E450AD8F22262C620091BED3 /* PromiseKit.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = E450AD8E22262C620091BED3 /* PromiseKit.framework.dSYM */; };
@@ -54,7 +55,7 @@
 		E450ADA12229E7C90091BED3 /* PMKFoundation.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = E450AD9F2229E7C90091BED3 /* PMKFoundation.framework.dSYM */; };
 		E450ADA32229E7E00091BED3 /* PMKFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E450ADA02229E7C90091BED3 /* PMKFoundation.framework */; };
 		E450ADA42229E7E00091BED3 /* PMKFoundation.framework in Embed Libraries */ = {isa = PBXBuildFile; fileRef = E450ADA02229E7C90091BED3 /* PMKFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E45962C62241A78500FC1A1E /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45962C52241A78500FC1A1E /* Command.swift */; };
+		E45962C62241A78500FC1A1E /* MPDCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45962C52241A78500FC1A1E /* MPDCommand.swift */; };
 		E465049A21E94DF500A70F4C /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E465049921E94DF500A70F4C /* WindowController.swift */; };
 		E47E2FCC2220573500F747E6 /* MediaKeyTap.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = E47E2FCB2220573500F747E6 /* MediaKeyTap.framework.dSYM */; };
 		E47E2FD122205C4600F747E6 /* MainSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E2FD022205C4600F747E6 /* MainSplitViewController.swift */; };
@@ -64,20 +65,20 @@
 		E47E2FDD2220A6D100F747E6 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E2FDC2220A6D100F747E6 /* Time.swift */; };
 		E47E2FE52220AA0700F747E6 /* AlbumViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E2FE42220AA0700F747E6 /* AlbumViewLayout.swift */; };
 		E4928E0B2218D62A001D4BEA /* CGColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4928E0A2218D62A001D4BEA /* CGColor.swift */; };
-		E4A642DA22090CBE00067D21 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A642D922090CBE00067D21 /* Status.swift */; };
+		E4A642DA22090CBE00067D21 /* MPDStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A642D922090CBE00067D21 /* MPDStatus.swift */; };
 		E4A83BEF2221F8CF0098FED6 /* AlbumArtPrefsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A83BEE2221F8CF0098FED6 /* AlbumArtPrefsController.swift */; };
 		E4A83BF12221FAA00098FED6 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A83BF02221FAA00098FED6 /* PreferencesViewController.swift */; };
 		E4A83BF4222207D50098FED6 /* AlbumArtService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A83BF3222207D50098FED6 /* AlbumArtService.swift */; };
 		E4C8B53C22342005009A20F3 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C8B53B22342005009A20F3 /* PreferencesWindowController.swift */; };
-		E4C8B53E22349002009A20F3 /* Idle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C8B53D22349002009A20F3 /* Idle.swift */; };
+		E4C8B53E22349002009A20F3 /* MPDIdle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C8B53D22349002009A20F3 /* MPDIdle.swift */; };
 		E4E8CC902204EC7F0024217A /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC8F2204EC7F0024217A /* Delegate.swift */; };
 		E4E8CC922204F4B80024217A /* QueueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC912204F4B80024217A /* QueueViewController.swift */; };
 		E4E8CC942206097F0024217A /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC932206097F0024217A /* NotificationsController.swift */; };
-		E4E8CC9A22075D370024217A /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC9922075D370024217A /* Song.swift */; };
-		E4EB2379220F10B8008C70C0 /* Pair.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB2378220F10B8008C70C0 /* Pair.swift */; };
-		E4EB237B220F7CF1008C70C0 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB237A220F7CF1008C70C0 /* Album.swift */; };
+		E4E8CC9A22075D370024217A /* MPDSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC9922075D370024217A /* MPDSong.swift */; };
+		E4EB2379220F10B8008C70C0 /* MPDPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB2378220F10B8008C70C0 /* MPDPair.swift */; };
+		E4EB237B220F7CF1008C70C0 /* MPDAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB237A220F7CF1008C70C0 /* MPDAlbum.swift */; };
 		E4F6B460221E119B00ACF42A /* QueueDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6B45F221E119B00ACF42A /* QueueDataSource.swift */; };
-		E4F6B463221E125900ACF42A /* SongItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6B462221E125900ACF42A /* SongItem.swift */; };
+		E4F6B463221E125900ACF42A /* QueueItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6B462221E125900ACF42A /* QueueItem.swift */; };
 		E4F6B467221E233200ACF42A /* AlbumDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6B466221E233200ACF42A /* AlbumDataSource.swift */; };
 /* End PBXBuildFile section */
 
@@ -145,6 +146,7 @@
 		E408D3C9220E341D0006D9BE /* AlbumViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumViewItem.xib; sourceTree = "<group>"; };
 		E40F41F2221EDE27004B6CB8 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		E40FE71A221B904300A4223F /* NSEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSEvent.swift; sourceTree = "<group>"; };
+		E419E2862249B96600216A8C /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		E41B22BF21FB6BBA00D544F6 /* libmpdclient.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libmpdclient.2.dylib; path = libmpdclient/output/libmpdclient.2.dylib; sourceTree = "<group>"; };
 		E41B22C421FB715A00D544F6 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		E41B22C521FB932700D544F6 /* MPDClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDClient.swift; sourceTree = "<group>"; };
@@ -201,7 +203,7 @@
 		E42A8F3A22176D6400A13ED9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E435E3E1221CD4E200184CFC /* NSFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSFont.swift; sourceTree = "<group>"; };
 		E435E3E3221CD75D00184CFC /* NSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImage.swift; sourceTree = "<group>"; };
-		E450AD7D222620A10091BED3 /* AlbumItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumItem.swift; sourceTree = "<group>"; };
+		E450AD7D222620A10091BED3 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		E450AD8522262AE60091BED3 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/Mac/SwiftyJSON.framework; sourceTree = "<group>"; };
 		E450AD8C22262C590091BED3 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/Mac/PromiseKit.framework; sourceTree = "<group>"; };
 		E450AD8E22262C620091BED3 /* PromiseKit.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = PromiseKit.framework.dSYM; path = Carthage/Build/Mac/PromiseKit.framework.dSYM; sourceTree = "<group>"; };
@@ -213,7 +215,7 @@
 		E450AD9E2229B9BC0091BED3 /* PersephoneBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersephoneBridgingHeader.h; sourceTree = "<group>"; };
 		E450AD9F2229E7C90091BED3 /* PMKFoundation.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = PMKFoundation.framework.dSYM; path = Carthage/Build/Mac/PMKFoundation.framework.dSYM; sourceTree = "<group>"; };
 		E450ADA02229E7C90091BED3 /* PMKFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PMKFoundation.framework; path = Carthage/Build/Mac/PMKFoundation.framework; sourceTree = "<group>"; };
-		E45962C52241A78500FC1A1E /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		E45962C52241A78500FC1A1E /* MPDCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDCommand.swift; sourceTree = "<group>"; };
 		E465049921E94DF500A70F4C /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		E47E2FCB2220573500F747E6 /* MediaKeyTap.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = MediaKeyTap.framework.dSYM; path = Carthage/Build/Mac/MediaKeyTap.framework.dSYM; sourceTree = "<group>"; };
 		E47E2FD022205C4600F747E6 /* MainSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSplitViewController.swift; sourceTree = "<group>"; };
@@ -223,20 +225,20 @@
 		E47E2FDC2220A6D100F747E6 /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		E47E2FE42220AA0700F747E6 /* AlbumViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumViewLayout.swift; sourceTree = "<group>"; };
 		E4928E0A2218D62A001D4BEA /* CGColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGColor.swift; sourceTree = "<group>"; };
-		E4A642D922090CBE00067D21 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		E4A642D922090CBE00067D21 /* MPDStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDStatus.swift; sourceTree = "<group>"; };
 		E4A83BEE2221F8CF0098FED6 /* AlbumArtPrefsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumArtPrefsController.swift; sourceTree = "<group>"; };
 		E4A83BF02221FAA00098FED6 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		E4A83BF3222207D50098FED6 /* AlbumArtService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumArtService.swift; sourceTree = "<group>"; };
 		E4C8B53B22342005009A20F3 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
-		E4C8B53D22349002009A20F3 /* Idle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Idle.swift; sourceTree = "<group>"; };
+		E4C8B53D22349002009A20F3 /* MPDIdle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDIdle.swift; sourceTree = "<group>"; };
 		E4E8CC8F2204EC7F0024217A /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
 		E4E8CC912204F4B80024217A /* QueueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueViewController.swift; sourceTree = "<group>"; };
 		E4E8CC932206097F0024217A /* NotificationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
-		E4E8CC9922075D370024217A /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
-		E4EB2378220F10B8008C70C0 /* Pair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pair.swift; sourceTree = "<group>"; };
-		E4EB237A220F7CF1008C70C0 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		E4E8CC9922075D370024217A /* MPDSong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDSong.swift; sourceTree = "<group>"; };
+		E4EB2378220F10B8008C70C0 /* MPDPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDPair.swift; sourceTree = "<group>"; };
+		E4EB237A220F7CF1008C70C0 /* MPDAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDAlbum.swift; sourceTree = "<group>"; };
 		E4F6B45F221E119B00ACF42A /* QueueDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueDataSource.swift; sourceTree = "<group>"; };
-		E4F6B462221E125900ACF42A /* SongItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongItem.swift; sourceTree = "<group>"; };
+		E4F6B462221E125900ACF42A /* QueueItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueItem.swift; sourceTree = "<group>"; };
 		E4F6B466221E233200ACF42A /* AlbumDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -512,12 +514,12 @@
 		E4D1B594220BA2490026F233 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E4E8CC9922075D370024217A /* Song.swift */,
-				E4A642D922090CBE00067D21 /* Status.swift */,
-				E4EB2378220F10B8008C70C0 /* Pair.swift */,
-				E4EB237A220F7CF1008C70C0 /* Album.swift */,
-				E4C8B53D22349002009A20F3 /* Idle.swift */,
-				E45962C52241A78500FC1A1E /* Command.swift */,
+				E4E8CC9922075D370024217A /* MPDSong.swift */,
+				E4A642D922090CBE00067D21 /* MPDStatus.swift */,
+				E4EB2378220F10B8008C70C0 /* MPDPair.swift */,
+				E4EB237A220F7CF1008C70C0 /* MPDAlbum.swift */,
+				E4C8B53D22349002009A20F3 /* MPDIdle.swift */,
+				E45962C52241A78500FC1A1E /* MPDCommand.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -564,10 +566,11 @@
 		E4F6B461221E124700ACF42A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E47E2FDC2220A6D100F747E6 /* Time.swift */,
+				E450AD7D222620A10091BED3 /* Album.swift */,
 				E40F41F2221EDE27004B6CB8 /* Preferences.swift */,
-				E4F6B462221E125900ACF42A /* SongItem.swift */,
-				E450AD7D222620A10091BED3 /* AlbumItem.swift */,
+				E4F6B462221E125900ACF42A /* QueueItem.swift */,
+				E419E2862249B96600216A8C /* Song.swift */,
+				E47E2FDC2220A6D100F747E6 /* Time.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -746,36 +749,37 @@
 				E408D3C2220E134F0006D9BE /* AlbumViewController.swift in Sources */,
 				E40FE71B221B904300A4223F /* NSEvent.swift in Sources */,
 				E4928E0B2218D62A001D4BEA /* CGColor.swift in Sources */,
-				E4C8B53E22349002009A20F3 /* Idle.swift in Sources */,
+				E4C8B53E22349002009A20F3 /* MPDIdle.swift in Sources */,
 				E4F6B460221E119B00ACF42A /* QueueDataSource.swift in Sources */,
 				E4C8B53C22342005009A20F3 /* PreferencesWindowController.swift in Sources */,
 				E41E5307223C019100173814 /* MPDClient+Status.swift in Sources */,
 				E41E5310223EF6CE00173814 /* AlbumArtService+Remote.swift in Sources */,
 				E41E530B223C033700173814 /* MPDClient+Album.swift in Sources */,
 				E42410B62241B956005ED6DF /* MPDClient+Database.swift in Sources */,
-				E4A642DA22090CBE00067D21 /* Status.swift in Sources */,
+				E4A642DA22090CBE00067D21 /* MPDStatus.swift in Sources */,
 				E47E2FD72220720300F747E6 /* AlbumItemView.swift in Sources */,
 				E450AD9522262DF10091BED3 /* AlbumArtQueue.swift in Sources */,
 				E41E52FD223BF87300173814 /* MPDClient+Connection.swift in Sources */,
-				E450AD7E222620A10091BED3 /* AlbumItem.swift in Sources */,
+				E450AD7E222620A10091BED3 /* Album.swift in Sources */,
 				E4E8CC942206097F0024217A /* NotificationsController.swift in Sources */,
 				E408D3B6220DD8970006D9BE /* Notification.swift in Sources */,
-				E45962C62241A78500FC1A1E /* Command.swift in Sources */,
+				E45962C62241A78500FC1A1E /* MPDCommand.swift in Sources */,
 				E408D3B9220DE98F0006D9BE /* NSUserInterfaceItemIdentifier.swift in Sources */,
-				E4EB2379220F10B8008C70C0 /* Pair.swift in Sources */,
-				E4F6B463221E125900ACF42A /* SongItem.swift in Sources */,
+				E4EB2379220F10B8008C70C0 /* MPDPair.swift in Sources */,
+				E4F6B463221E125900ACF42A /* QueueItem.swift in Sources */,
 				E4A83BF12221FAA00098FED6 /* PreferencesViewController.swift in Sources */,
 				E465049A21E94DF500A70F4C /* WindowController.swift in Sources */,
 				E41B22C621FB932700D544F6 /* MPDClient.swift in Sources */,
 				E40F41F3221EDE27004B6CB8 /* Preferences.swift in Sources */,
 				E47E2FDD2220A6D100F747E6 /* Time.swift in Sources */,
+				E419E2872249B96600216A8C /* Song.swift in Sources */,
 				E407861C2110CE6E006887B1 /* AppDelegate.swift in Sources */,
 				E41E5309223C020400173814 /* MPDClient+Command.swift in Sources */,
 				E47E2FE52220AA0700F747E6 /* AlbumViewLayout.swift in Sources */,
 				E41E52FF223BF95E00173814 /* MPDClient+Transport.swift in Sources */,
 				E47E2FD322205D2500F747E6 /* MainWindow.swift in Sources */,
 				E47E2FD122205C4600F747E6 /* MainSplitViewController.swift in Sources */,
-				E4E8CC9A22075D370024217A /* Song.swift in Sources */,
+				E4E8CC9A22075D370024217A /* MPDSong.swift in Sources */,
 				E41EA46C221636AF0068EF46 /* GeneralPrefsViewController.swift in Sources */,
 				E4E8CC902204EC7F0024217A /* Delegate.swift in Sources */,
 				E4A83BF4222207D50098FED6 /* AlbumArtService.swift in Sources */,
@@ -785,7 +789,7 @@
 				E4E8CC922204F4B80024217A /* QueueViewController.swift in Sources */,
 				E41E5312223EF74A00173814 /* AlbumArtService+Filesystem.swift in Sources */,
 				E41E5301223BF99300173814 /* MPDClient+Queue.swift in Sources */,
-				E4EB237B220F7CF1008C70C0 /* Album.swift in Sources */,
+				E4EB237B220F7CF1008C70C0 /* MPDAlbum.swift in Sources */,
 				E450AD9D2229B9050091BED3 /* String.swift in Sources */,
 				E41E5303223BF9C300173814 /* MPDClient+Idle.swift in Sources */,
 				E435E3E4221CD75D00184CFC /* NSImage.swift in Sources */,

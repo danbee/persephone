@@ -9,16 +9,21 @@
 import Cocoa
 
 class QueueDataSource: NSObject, NSOutlineViewDataSource {
-  var queue: [SongItem] = []
+  var queue: [QueueItem] = []
   var queuePos: Int = -1
 
   var queueIcon: NSImage? = nil
 
-  func updateQueue(_ queue: [MPDClient.Song]) {
+  func updateQueue(_ queue: [MPDClient.MPDSong]) {
     queuePos = -1
     
-    self.queue = queue.enumerated().map { index, song in
-      SongItem(song: song, queuePos: index, isPlaying: index == queuePos)
+    self.queue = queue.enumerated().map { index, mpdSong in
+      let song = Song(mpdSong: mpdSong)
+      return QueueItem(
+        song: song,
+        queuePos: index,
+        isPlaying: index == queuePos
+      )
     }
   }
 
@@ -35,7 +40,7 @@ class QueueDataSource: NSObject, NSOutlineViewDataSource {
     }
   }
 
-  func setQueueIcon(_ state: MPDClient.Status.State) {
+  func setQueueIcon(_ state: MPDClient.MPDStatus.State) {
     switch state {
     case .playing:
       queueIcon = .playIcon

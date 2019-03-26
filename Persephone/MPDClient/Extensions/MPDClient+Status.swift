@@ -16,6 +16,6 @@ extension MPDClient {
 
   func sendRunStatus() {
     guard let status = mpd_run_status(connection) else { return }
-    self.status = Status(status)
+    self.status = MPDStatus(status)
   }
 }

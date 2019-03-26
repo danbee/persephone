@@ -13,6 +13,7 @@ class QueueViewController: NSViewController,
   var dataSource = QueueDataSource()
 
   @IBOutlet var queueView: NSOutlineView!
+  @IBOutlet var queueAlbumArtImage: NSImageView!
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -41,14 +42,14 @@ class QueueViewController: NSViewController,
   }
 
   @objc func stateChanged(_ notification: Notification) {
-    guard let state = notification.userInfo?[Notification.stateKey] as? MPDClient.Status.State
+    guard let state = notification.userInfo?[Notification.stateKey] as? MPDClient.MPDStatus.State
       else { return }
 
     dataSource.setQueueIcon(state)
   }
 
   @objc func queueChanged(_ notification: Notification) {
-    guard let queue = notification.userInfo?[Notification.queueKey] as? [MPDClient.Song]
+    guard let queue = notification.userInfo?[Notification.queueKey] as? [MPDClient.MPDSong]
       else { return }
 
     dataSource.updateQueue(queue)
@@ -60,8 +61,16 @@ class QueueViewController: NSViewController,
       else { return }
 
     dataSource.setQueuePos(queuePos)
-
     queueView.reloadData()
+    updateAlbumArt()
+  }
+
+  func updateAlbumArt() {
+    if let playingSong = dataSource.queue.first(where: { $0.isPlaying }) {
+
+    } else {
+      queueAlbumArtImage.image = NSImage.defaultCoverArt
+    }
   }
 
   func outlineView(
@@ -76,12 +85,12 @@ class QueueViewController: NSViewController,
   }
 
   func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
-    if let songItem = item as? SongItem {
+    if let queueItem = item as? QueueItem {
       switch tableColumn?.identifier.rawValue {
       case "songTitleColumn":
-        return cellForSongTitle(outlineView, with: songItem)
+        return cellForSongTitle(outlineView, with: queueItem)
       case "songArtistColumn":
-        return cellForSongArtist(outlineView, with: songItem)
+        return cellForSongArtist(outlineView, with: queueItem)
       default:
         return nil
       }
@@ -92,14 +101,14 @@ class QueueViewController: NSViewController,
     }
   }
 
-  func cellForSongTitle(_ outlineView: NSOutlineView, with songItem: SongItem) -> NSView {
+func cellForSongTitle(_ outlineView: NSOutlineView, with queueItem: QueueItem) -> NSView {
     let cellView = outlineView.makeView(
       withIdentifier: .queueSongTitle,
       owner: self
     ) as! NSTableCellView
 
-    cellView.textField?.stringValue = songItem.song.getTag(.title)
-    if songItem.isPlaying {
+    cellView.textField?.stringValue = queueItem.song.title
+    if queueItem.isPlaying {
       cellView.textField?.font = .systemFontBold
       cellView.imageView?.image = dataSource.queueIcon
     } else {
@@ -110,14 +119,14 @@ class QueueViewController: NSViewController,
     return cellView
   }
 
-  func cellForSongArtist(_ outlineView: NSOutlineView, with songItem: SongItem) -> NSView {
+  func cellForSongArtist(_ outlineView: NSOutlineView, with queueItem: QueueItem) -> NSView {
     let cellView = outlineView.makeView(
       withIdentifier: .queueSongArtist,
       owner: self
     ) as! NSTableCellView
 
-    cellView.textField?.stringValue = songItem.song.getTag(.artist)
-    if songItem.isPlaying {
+    cellView.textField?.stringValue = queueItem.song.artist
+    if queueItem.isPlaying {
       cellView.textField?.font = .systemFontBold
     } else {
       cellView.textField?.font = .systemFontRegular

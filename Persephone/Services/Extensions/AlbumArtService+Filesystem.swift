@@ -17,22 +17,26 @@ extension AlbumArtService {
       "\(album.artist) - \(album.title).jpg"
     ]
 
-    return getAlbumURI().map { albumURI in
-      let musicDir = self.preferences.expandedMpdLibraryDir
+    let musicDir = self.preferences.expandedMpdLibraryDir
+    let songPath = self.songPath()
 
-      return coverArtFilenames
+    return Promise { seal in
+      let image = coverArtFilenames
         .lazy
-        .map { "\(musicDir)/\(albumURI)/\($0)" }
+        .map { "\(musicDir)/\(songPath)/\($0)" }
         .compactMap(self.tryImage)
         .first
+
+      seal.fulfill(image)
     }
   }
 
-  func getAlbumURI() -> Promise<String> {
-    return Promise { seal in
-      AppDelegate.mpdClient.getAlbumURI(for: album.album, callback: seal.fulfill)
-    }
-      .compactMap { $0 }
+  func songPath() -> String {
+    return song.mpdSong
+      .uriString
+      .split(separator: "/")
+      .dropLast()
+      .joined(separator: "/")
   }
 
   func tryImage(_ filePath: String) -> NSImage? {
@@ -40,10 +44,6 @@ extension AlbumArtService {
       let image = NSImage(data: data)
       else { return nil }
 
-    let imageThumb = image.toFitBox(
-      size: NSSize(width: self.cachedArtworkSize, height: self.cachedArtworkSize)
-    )
-
-    return imageThumb
+    return image
   }
 }

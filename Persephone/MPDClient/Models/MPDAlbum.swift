@@ -9,7 +9,7 @@
 import Foundation
 
 extension MPDClient {
-  struct Album {
+  struct MPDAlbum {
     let title: String
     let artist: String
   }

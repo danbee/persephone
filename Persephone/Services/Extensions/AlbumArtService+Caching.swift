@@ -30,6 +30,8 @@ extension AlbumArtService {
 
     let cacheFilePath = cacheDir.appendingPathComponent(album.hash).path
 
-    FileManager.default.createFile(atPath: cacheFilePath, contents: data, attributes: nil)
+    if !FileManager.default.fileExists(atPath: cacheFilePath) {
+      FileManager.default.createFile(atPath: cacheFilePath, contents: data, attributes: nil)
+    }
   }
 }

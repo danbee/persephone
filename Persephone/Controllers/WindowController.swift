@@ -13,7 +13,7 @@ class WindowController: NSWindowController {
     case prevTrack, playPause, stop, nextTrack
   }
 
-  var state: MPDClient.Status.State?
+  var state: MPDClient.MPDStatus.State?
   var totalTime: UInt?
   var elapsedTimeMs: UInt?
   var trackTimer: Timer?
@@ -64,7 +64,7 @@ class WindowController: NSWindowController {
   }
 
   @objc func stateChanged(_ notification: Notification) {
-    guard let state = notification.userInfo?[Notification.stateKey] as? MPDClient.Status.State
+    guard let state = notification.userInfo?[Notification.stateKey] as? MPDClient.MPDStatus.State
       else { return }
 
     self.state = state

@@ -27,7 +27,7 @@ extension MPDClient {
     mpd_send_list_queue_meta(connection)
 
     while let mpdSong = mpd_recv_song(connection) {
-      let song = Song(mpdSong)
+      let song = MPDSong(mpdSong)
       self.queue.append(song)
     }
   }

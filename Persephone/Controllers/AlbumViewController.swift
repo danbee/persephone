@@ -72,10 +72,10 @@ class AlbumViewController: NSViewController,
   }
 
   @objc func updateAlbums(_ notification: Notification) {
-    guard let albums = notification.userInfo?[Notification.albumsKey] as? [MPDClient.Album]
+    guard let albums = notification.userInfo?[Notification.albumsKey] as? [MPDClient.MPDAlbum]
       else { return }
 
-    dataSource.albums = albums.map { AlbumItem(album: $0, coverArt: nil) }
+    dataSource.albums = albums.map { Album(mpdAlbum: $0, coverArt: nil) }
     albumCollectionView.reloadData()
   }
 

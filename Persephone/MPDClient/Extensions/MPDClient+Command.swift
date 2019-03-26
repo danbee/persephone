@@ -10,7 +10,7 @@ import Foundation
 
 extension MPDClient {
   func sendCommand(
-    command: Command,
+    command: MPDCommand,
     userData: Dictionary<String, Any> = [:]
   ) {
     switch command {
@@ -49,18 +49,18 @@ extension MPDClient {
     case .fetchAllAlbums:
       allAlbums()
     case .playAlbum:
-      guard let album = userData["album"] as? Album else { return }
+      guard let album = userData["album"] as? MPDAlbum else { return }
       sendPlayAlbum(album)
-    case .getAlbumURI:
-      guard let album = userData["album"] as? Album,
-        let callback = userData["callback"] as? (String?) -> Void
+    case .getAlbumFirstSong:
+      guard let album = userData["album"] as? MPDAlbum,
+        let callback = userData["callback"] as? (MPDSong?) -> Void
         else { return }
-      albumURI(for: album, callback: callback)
+      albumFirstSong(for: album, callback: callback)
     }
   }
 
   func enqueueCommand(
-    command: Command,
+    command: MPDCommand,
     priority: BlockOperation.QueuePriority = .normal,
     userData: Dictionary<String, Any> = [:]
   ) {

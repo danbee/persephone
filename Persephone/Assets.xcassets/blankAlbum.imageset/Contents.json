@@ -30,6 +30,7 @@
   },
   "properties" : {
     "template-rendering-intent" : "original",
-    "preserves-vector-representation" : true
+    "preserves-vector-representation" : true,
+    "auto-scaling" : "auto"
   }
 }

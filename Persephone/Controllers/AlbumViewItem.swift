@@ -10,7 +10,7 @@ import Cocoa
 
 class AlbumViewItem: NSCollectionViewItem {
   var observer: NSKeyValueObservation?
-  var album: AlbumItem?
+  var album: Album?
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -27,7 +27,7 @@ class AlbumViewItem: NSCollectionViewItem {
     }
   }
 
-  func setAlbum(_ album: AlbumItem) {
+  func setAlbum(_ album: Album) {
     self.album = album
     albumTitle.stringValue = album.title
     albumArtist.stringValue = album.artist
@@ -53,7 +53,7 @@ class AlbumViewItem: NSCollectionViewItem {
   @IBAction func playAlbum(_ sender: Any) {
     guard let album = album else { return }
     
-    AppDelegate.mpdClient.playAlbum(album.album)
+    AppDelegate.mpdClient.playAlbum(album.mpdAlbum)
   }
 
   @IBOutlet var albumCoverView: NSImageView!

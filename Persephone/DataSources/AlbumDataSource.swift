@@ -9,7 +9,7 @@
 import Cocoa
 
 class AlbumDataSource: NSObject, NSCollectionViewDataSource {
-  var albums: [AlbumItem] = []
+  var albums: [Album] = []
 
   func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
     return albums.count
@@ -23,11 +23,15 @@ class AlbumDataSource: NSObject, NSCollectionViewDataSource {
     albumViewItem.setAlbum(albums[indexPath.item])
 
     if albums[indexPath.item].coverArt == nil {
-      AlbumArtService(album: albums[indexPath.item]).fetchAlbumArt { image in
-        self.albums[indexPath.item].coverArt = image
+      AppDelegate.mpdClient.albumFirstSong(for: albums[indexPath.item].mpdAlbum) {
+        guard let song = $0 else { return }
+        
+        AlbumArtService(song: Song(mpdSong: song)).fetchAlbumArt { image in
+          self.albums[indexPath.item].coverArt = image
 
-        DispatchQueue.main.async {
-          collectionView.reloadItems(at: [indexPath])
+          DispatchQueue.main.async {
+            collectionView.reloadItems(at: [indexPath])
+          }
         }
       }
     }
