@@ -18,14 +18,14 @@ extension AlbumArtService {
     ]
 
     return getAlbumURI().map { albumURI in
-        let musicDir = self.preferences.expandedMpdLibraryDir
+      let musicDir = self.preferences.expandedMpdLibraryDir
 
-        return coverArtFilenames
-          .lazy
-          .map { "\(musicDir)/\($0)" }
-          .compactMap(self.tryImage)
-          .first
-      }
+      return coverArtFilenames
+        .lazy
+        .map { "\(musicDir)/\(albumURI)/\($0)" }
+        .compactMap(self.tryImage)
+        .first
+    }
   }
 
   func getAlbumURI() -> Promise<String> {
