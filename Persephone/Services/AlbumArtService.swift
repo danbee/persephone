@@ -30,9 +30,9 @@ class AlbumArtService {
       firstly {
         self.getCachedArtwork()
       }.then { artwork -> Promise<NSImage?> in
-        artwork.map(Promise.value) ?? self.cacheIfNecessary(self.getArtworkFromFilesystem())
+        artwork.map { Promise.value($0 as NSImage?) } ?? self.cacheIfNecessary(self.getArtworkFromFilesystem())
       }.then { artwork -> Promise<NSImage?> in
-        artwork.map(Promise.value) ?? self.cacheIfNecessary(self.getArtworkFromMusicBrainz().map(Optional.some))
+        artwork.map { Promise.value($0 as NSImage?) } ?? self.cacheIfNecessary(self.getArtworkFromMusicBrainz().map(Optional.some))
       }.tap { result in
         switch result {
         case .fulfilled(nil), .rejected(MusicBrainzError.noArtworkAvailable):
