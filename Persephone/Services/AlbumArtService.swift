@@ -13,16 +13,14 @@ class AlbumArtService {
   var preferences = Preferences()
   let song: Song
   let album: Album
-  
+
   let cachedArtworkSize = 180
   let cachedArtworkQuality: CGFloat = 0.5
 
+  let bigArtworkSize = 600
+
   var session = URLSession(configuration: .default)
-  let artworkQueue = DispatchQueue(
-    label: "albumArtQueue",
-    qos: .background,
-    attributes: .concurrent
-  )
+  let artworkQueue = DispatchQueue(label: "albumArtQueue", qos: .background)
 
   init(song: Song) {
     self.song = song
@@ -32,8 +30,18 @@ class AlbumArtService {
   func fetchBigAlbumArt() -> Promise<NSImage?> {
     return firstly {
       self.getArtworkFromFilesystem()
-    }.then { (artwork: NSImage?) -> Promise<NSImage?> in
-      artwork.map(Promise.value) ?? self.getRemoteArtwork().map(Optional.some)
+    }.then { (image: NSImage?) -> Promise<NSImage?> in
+      image.map(Promise.value) ?? self.getRemoteArtwork().map(Optional.some)
+    }.compactMap(on :artworkQueue) { image in
+      if self.fileSystemArtworkFilePath() != nil {
+        let sizedImage = image?.toFitBox(
+          size: NSSize(width: self.bigArtworkSize, height: self.bigArtworkSize)
+        )
+        self.saveArtworkToFilesystem(data: sizedImage?.jpegData(compressionQuality: self.cachedArtworkQuality))
+        return sizedImage
+      } else {
+        return image
+      }
     }
   }
 

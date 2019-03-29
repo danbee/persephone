@@ -10,30 +10,55 @@ import Cocoa
 import PromiseKit
 
 extension AlbumArtService {
-  func getArtworkFromFilesystem() -> Promise<NSImage?> {
-    let coverArtFilenames = [
+  var coverArtFilenames: [String] {
+    return [
       "folder.jpg",
       "cover.jpg",
       "\(album.artist) - \(album.title).jpg"
     ]
+  }
 
-    let musicDir = self.preferences.expandedMpdLibraryDir
-    let songPath = self.songPath()
+  var musicDir: String {
+    return self.preferences.expandedMpdLibraryDir
+  }
 
+  func getArtworkFromFilesystem() -> Promise<NSImage?> {
     return Promise { seal in
       artworkQueue.async {
-        let image = coverArtFilenames
-          .lazy
-          .map { "\(musicDir)/\(songPath)/\($0)" }
-          .compactMap(self.tryImage)
-          .first
+        guard let artworkPath = self.fileSystemArtworkFilePath()
+          else { seal.fulfill(nil); return }
+
+        let image = self.tryImage(artworkPath)
 
         seal.fulfill(image)
       }
     }
   }
 
-  func songPath() -> String {
+  func saveArtworkToFilesystem(data: Data?) {
+    let artworkFileName = coverArtFilenames.first!
+
+    if self.fileSystemArtworkFilePath() == nil {
+      FileManager.default.createFile(
+        atPath: "\(self.musicDir)/\(self.songPath)/\(artworkFileName)",
+        contents: data,
+        attributes: nil
+      )
+    }
+  }
+
+  func fileSystemArtworkFilePath() -> String? {
+    let musicDir = self.preferences.expandedMpdLibraryDir
+
+    return self.coverArtFilenames
+      .lazy
+      .map { "\(musicDir)/\(self.songPath)/\($0)" }
+      .first {
+        FileManager.default.fileExists(atPath: $0)
+      }
+  }
+
+  var songPath: String {
     return song
       .mpdSong
       .uriString
