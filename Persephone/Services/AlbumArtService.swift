@@ -31,7 +31,7 @@ class AlbumArtService {
     return firstly {
       self.getArtworkFromFilesystem()
     }.then { (image: NSImage?) -> Promise<NSImage?> in
-      image.map(Promise.value) ?? self.getRemoteArtwork().map(Optional.some)
+      image.map(Promise.value) ?? self.getRemoteArtwork()
     }.compactMap(on :artworkQueue) { image in
       if self.fileSystemArtworkFilePath() != nil {
         let sizedImage = image?.toFitBox(
@@ -51,11 +51,16 @@ class AlbumArtService {
     }.then { (artwork: NSImage?) -> Promise<NSImage?> in
       artwork.map(Promise.value) ?? self.getArtworkFromFilesystem()
     }.then { (artwork: NSImage?) -> Promise<NSImage?> in
-      artwork.map(Promise.value) ?? self.getRemoteArtwork().map(Optional.some)
+      artwork.map(Promise.value) ?? self.getRemoteArtwork()
     }.compactMap(on: artworkQueue) {
       return self.sizeAndCacheImage($0).map(Optional.some)
     }.recover { error in
-      self.cacheArtwork(data: Data())
+      switch error {
+      case RemoteArtworkError.noArtworkAvailable:
+        self.cacheArtwork(data: Data())
+      default:
+        break
+      }
       return .value(nil)
     }
   }

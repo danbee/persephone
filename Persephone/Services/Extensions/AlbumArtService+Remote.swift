@@ -12,18 +12,23 @@ import PromiseKit
 import PMKFoundation
 
 extension AlbumArtService {
-  enum MusicBrainzError: Error {
+  enum RemoteArtworkError: Error {
     case noArtworkAvailable
+    case notConfigured
   }
 
-  func getRemoteArtwork() -> Promise<NSImage> {
+  func getRemoteArtwork() -> Promise<NSImage?> {
     return Promise { seal in
-      artworkQueue.async {
-        let albumArtWorkItem = DispatchWorkItem {
-          self.getArtworkFromMusicBrainz().pipe(to: seal.resolve)
-        }
+      if preferences.fetchMissingArtworkFromInternet {
+        artworkQueue.async {
+          let albumArtWorkItem = DispatchWorkItem {
+            self.getArtworkFromMusicBrainz().map(Optional.some).pipe(to: seal.resolve)
+          }
 
-        AlbumArtQueue.shared.addToQueue(workItem: albumArtWorkItem)
+          AlbumArtQueue.shared.addToQueue(workItem: albumArtWorkItem)
+        }
+      } else {
+        throw RemoteArtworkError.notConfigured
       }
     }
   }
@@ -48,7 +53,7 @@ extension AlbumArtService {
       )
     }.recover { error -> Promise<NSImage> in
       if case PMKHTTPError.badStatusCode(404, _, _) = error {
-        throw MusicBrainzError.noArtworkAvailable
+        throw RemoteArtworkError.noArtworkAvailable
       } else {
         throw error
       }
