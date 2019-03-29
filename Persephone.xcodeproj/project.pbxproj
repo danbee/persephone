@@ -298,23 +298,23 @@
 		E407861A2110CE6E006887B1 /* Persephone */ = {
 			isa = PBXGroup;
 			children = (
-				E450AD9E2229B9BC0091BED3 /* PersephoneBridgingHeader.h */,
-				E450AD8922262B420091BED3 /* Operations */,
-				E4A83BF2222207BE0098FED6 /* Services */,
-				E4A83BEC2221F5DD0098FED6 /* Preferences */,
+				E407861B2110CE6E006887B1 /* AppDelegate.swift */,
+				E407861F2110CE70006887B1 /* Assets.xcassets */,
+				E4D1B597220BA3A20026F233 /* Controllers */,
+				E4F6B45E221E117600ACF42A /* DataSources */,
+				E408D3B7220DE8CC0006D9BE /* Extensions */,
+				E41B22C721FB966C00D544F6 /* include */,
+				E40786242110CE70006887B1 /* Info.plist */,
 				E47E2FE32220AA0700F747E6 /* Layouts */,
 				E4F6B461221E124700ACF42A /* Models */,
-				E4F6B45E221E117600ACF42A /* DataSources */,
-				E407861F2110CE70006887B1 /* Assets.xcassets */,
-				E408D3B7220DE8CC0006D9BE /* Extensions */,
-				E4D1B598220BA3C90026F233 /* Resources */,
-				E4D1B597220BA3A20026F233 /* Controllers */,
-				E408D3C3220E138B0006D9BE /* Views */,
-				E41B22C721FB966C00D544F6 /* include */,
-				E407861B2110CE6E006887B1 /* AppDelegate.swift */,
-				E40786242110CE70006887B1 /* Info.plist */,
-				E40786252110CE70006887B1 /* Persephone.entitlements */,
 				E4A642DB220912FA00067D21 /* MPDClient */,
+				E450AD8922262B420091BED3 /* Operations */,
+				E40786252110CE70006887B1 /* Persephone.entitlements */,
+				E450AD9E2229B9BC0091BED3 /* PersephoneBridgingHeader.h */,
+				E4A83BEC2221F5DD0098FED6 /* Preferences */,
+				E4D1B598220BA3C90026F233 /* Resources */,
+				E4A83BF2222207BE0098FED6 /* Services */,
+				E408D3C3220E138B0006D9BE /* Views */,
 			);
 			path = Persephone;
 			sourceTree = "<group>";
@@ -342,10 +342,10 @@
 			children = (
 				E4928E0A2218D62A001D4BEA /* CGColor.swift */,
 				E408D3B5220DD8970006D9BE /* Notification.swift */,
-				E408D3B8220DE98F0006D9BE /* NSUserInterfaceItemIdentifier.swift */,
 				E40FE71A221B904300A4223F /* NSEvent.swift */,
 				E435E3E1221CD4E200184CFC /* NSFont.swift */,
 				E435E3E3221CD75D00184CFC /* NSImage.swift */,
+				E408D3B8220DE98F0006D9BE /* NSUserInterfaceItemIdentifier.swift */,
 				E450AD9C2229B9050091BED3 /* String.swift */,
 			);
 			path = Extensions;
@@ -354,15 +354,15 @@
 		E408D3BC220E03D20006D9BE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E41E530A223C033700173814 /* MPDClient+Album.swift */,
+				E41E5308223C020400173814 /* MPDClient+Command.swift */,
 				E41E52FC223BF87300173814 /* MPDClient+Connection.swift */,
 				E42410B52241B956005ED6DF /* MPDClient+Database.swift */,
-				E41E52FE223BF95E00173814 /* MPDClient+Transport.swift */,
-				E41E5300223BF99300173814 /* MPDClient+Queue.swift */,
-				E41E5302223BF9C300173814 /* MPDClient+Idle.swift */,
 				E41E5304223BFB0700173814 /* MPDClient+Error.swift */,
+				E41E5302223BF9C300173814 /* MPDClient+Idle.swift */,
+				E41E5300223BF99300173814 /* MPDClient+Queue.swift */,
 				E41E5306223C019100173814 /* MPDClient+Status.swift */,
-				E41E5308223C020400173814 /* MPDClient+Command.swift */,
-				E41E530A223C033700173814 /* MPDClient+Album.swift */,
+				E41E52FE223BF95E00173814 /* MPDClient+Transport.swift */,
 				E408D3BD220E03EE0006D9BE /* RawRepresentable.swift */,
 			);
 			path = Extensions;
@@ -450,8 +450,8 @@
 			isa = PBXGroup;
 			children = (
 				E41E530D223EF4CF00173814 /* AlbumArtService+Caching.swift */,
-				E41E530F223EF6CE00173814 /* AlbumArtService+Remote.swift */,
 				E41E5311223EF74A00173814 /* AlbumArtService+Filesystem.swift */,
+				E41E530F223EF6CE00173814 /* AlbumArtService+Remote.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -475,10 +475,10 @@
 		E4A642DB220912FA00067D21 /* MPDClient */ = {
 			isa = PBXGroup;
 			children = (
-				E41B22C521FB932700D544F6 /* MPDClient.swift */,
 				E408D3BC220E03D20006D9BE /* Extensions */,
-				E4D1B595220BA27C0026F233 /* Protocols */,
 				E4D1B594220BA2490026F233 /* Models */,
+				E41B22C521FB932700D544F6 /* MPDClient.swift */,
+				E4D1B595220BA27C0026F233 /* Protocols */,
 			);
 			path = MPDClient;
 			sourceTree = "<group>";
@@ -494,8 +494,8 @@
 		E4A83BED2221F5E60098FED6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E41EA46B221636AF0068EF46 /* GeneralPrefsViewController.swift */,
 				E4A83BEE2221F8CF0098FED6 /* AlbumArtPrefsController.swift */,
+				E41EA46B221636AF0068EF46 /* GeneralPrefsViewController.swift */,
 				E4A83BF02221FAA00098FED6 /* PreferencesViewController.swift */,
 				E4C8B53B22342005009A20F3 /* PreferencesWindowController.swift */,
 			);
@@ -505,8 +505,8 @@
 		E4A83BF2222207BE0098FED6 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				E41E530C223EF4BA00173814 /* Extensions */,
 				E4A83BF3222207D50098FED6 /* AlbumArtService.swift */,
+				E41E530C223EF4BA00173814 /* Extensions */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -514,12 +514,12 @@
 		E4D1B594220BA2490026F233 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E4EB237A220F7CF1008C70C0 /* MPDAlbum.swift */,
+				E45962C52241A78500FC1A1E /* MPDCommand.swift */,
+				E4C8B53D22349002009A20F3 /* MPDIdle.swift */,
+				E4EB2378220F10B8008C70C0 /* MPDPair.swift */,
 				E4E8CC9922075D370024217A /* MPDSong.swift */,
 				E4A642D922090CBE00067D21 /* MPDStatus.swift */,
-				E4EB2378220F10B8008C70C0 /* MPDPair.swift */,
-				E4EB237A220F7CF1008C70C0 /* MPDAlbum.swift */,
-				E4C8B53D22349002009A20F3 /* MPDIdle.swift */,
-				E45962C52241A78500FC1A1E /* MPDCommand.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -535,12 +535,12 @@
 		E4D1B597220BA3A20026F233 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E47E2FD4222071FD00F747E6 /* AlbumViewItem.swift */,
 				E408D3C1220E134F0006D9BE /* AlbumViewController.swift */,
+				E47E2FD4222071FD00F747E6 /* AlbumViewItem.swift */,
+				E47E2FD022205C4600F747E6 /* MainSplitViewController.swift */,
 				E4E8CC932206097F0024217A /* NotificationsController.swift */,
 				E4E8CC912204F4B80024217A /* QueueViewController.swift */,
 				E465049921E94DF500A70F4C /* WindowController.swift */,
-				E47E2FD022205C4600F747E6 /* MainSplitViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -557,8 +557,8 @@
 		E4F6B45E221E117600ACF42A /* DataSources */ = {
 			isa = PBXGroup;
 			children = (
-				E4F6B45F221E119B00ACF42A /* QueueDataSource.swift */,
 				E4F6B466221E233200ACF42A /* AlbumDataSource.swift */,
+				E4F6B45F221E119B00ACF42A /* QueueDataSource.swift */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";

@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import PromiseKit
 
 class AlbumDataSource: NSObject, NSCollectionViewDataSource {
   var albums: [Album] = []
@@ -26,13 +27,15 @@ class AlbumDataSource: NSObject, NSCollectionViewDataSource {
       AppDelegate.mpdClient.getAlbumFirstSong(for: albums[indexPath.item].mpdAlbum) {
         guard let song = $0 else { return }
         
-        AlbumArtService(song: Song(mpdSong: song)).fetchAlbumArt { image in
-          self.albums[indexPath.item].coverArt = image
+        AlbumArtService(song: Song(mpdSong: song))
+          .fetchAlbumArt()
+          .done { image in
+            self.albums[indexPath.item].coverArt = image
 
-          DispatchQueue.main.async {
-            collectionView.reloadItems(at: [indexPath])
+            DispatchQueue.main.async {
+              collectionView.reloadItems(at: [indexPath])
+            }
           }
-        }
       }
     }
 

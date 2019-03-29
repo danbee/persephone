@@ -21,18 +21,21 @@ extension AlbumArtService {
     let songPath = self.songPath()
 
     return Promise { seal in
-      let image = coverArtFilenames
-        .lazy
-        .map { "\(musicDir)/\(songPath)/\($0)" }
-        .compactMap(self.tryImage)
-        .first
+      artworkQueue.async {
+        let image = coverArtFilenames
+          .lazy
+          .map { "\(musicDir)/\(songPath)/\($0)" }
+          .compactMap(self.tryImage)
+          .first
 
-      seal.fulfill(image)
+        seal.fulfill(image)
+      }
     }
   }
 
   func songPath() -> String {
-    return song.mpdSong
+    return song
+      .mpdSong
       .uriString
       .split(separator: "/")
       .dropLast()

@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import PromiseKit
 
 class QueueViewController: NSViewController,
                            NSOutlineViewDelegate {
@@ -66,8 +67,18 @@ class QueueViewController: NSViewController,
   }
 
   func updateAlbumArt() {
-    if let playingSong = dataSource.queue.first(where: { $0.isPlaying }) {
+    if let playingQueueItem = dataSource.queue.first(where: { $0.isPlaying }) {
+      let albumArtService = AlbumArtService(song: playingQueueItem.song)
 
+      albumArtService.fetchBigAlbumArt()
+        .done() {
+          guard let image = $0 else { return }
+
+          self.queueAlbumArtImage.image = image.toFitBox(
+            size: NSSize(width: 500, height: 500)
+          )
+        }
+        .cauterize()
     } else {
       queueAlbumArtImage.image = NSImage.defaultCoverArt
     }

@@ -18,38 +18,54 @@ class AlbumArtService {
   let cachedArtworkQuality: CGFloat = 0.5
 
   var session = URLSession(configuration: .default)
-  let cacheQueue = DispatchQueue(label: "albumArtCacheQueue")
+  let artworkQueue = DispatchQueue(
+    label: "albumArtQueue",
+    qos: .background,
+    attributes: .concurrent
+  )
 
   init(song: Song) {
     self.song = song
     self.album = song.album
   }
 
-  func fetchAlbumArt(callback: @escaping (_ image: NSImage?) -> Void) {
-    cacheQueue.async {
-      firstly {
-        self.getCachedArtwork()
-      }.then { artwork -> Promise<NSImage?> in
-        artwork.map { Promise.value($0 as NSImage?) } ?? self.cacheIfNecessary(self.getArtworkFromFilesystem())
-      }.then { artwork -> Promise<NSImage?> in
-        artwork.map { Promise.value($0 as NSImage?) } ?? self.cacheIfNecessary(self.getArtworkFromMusicBrainz().map(Optional.some))
-      }.tap { result in
-        switch result {
-        case .fulfilled(nil), .rejected(MusicBrainzError.noArtworkAvailable):
-          self.cacheArtwork(data: Data())
-        default:
-          break
-        }
-      }.recover { error in
-        .value(nil)
-      }.done(callback)
+  func fetchBigAlbumArt() -> Promise<NSImage?> {
+    return firstly {
+      self.getArtworkFromFilesystem()
+    }.then { (artwork: NSImage?) -> Promise<NSImage?> in
+      artwork.map(Promise.value) ?? self.getRemoteArtwork().map(Optional.some)
     }
   }
 
-  func cacheIfNecessary(_ promise: Promise<NSImage?>) -> Promise<NSImage?> {
-    return promise.get { image in
-      if let data = image?.jpegData(compressionQuality: self.cachedArtworkQuality) {
-        self.cacheArtwork(data: data)
+  func fetchAlbumArt() -> Guarantee<NSImage?> {
+    return firstly {
+      self.getCachedArtwork()
+    }.then { (artwork: NSImage?) -> Promise<NSImage?> in
+      artwork.map(Promise.value) ?? self.getArtworkFromFilesystem()
+    }.then { (artwork: NSImage?) -> Promise<NSImage?> in
+      artwork.map(Promise.value) ?? self.getRemoteArtwork().map(Optional.some)
+    }.compactMap(on: artworkQueue) {
+      return self.sizeAndCacheImage($0).map(Optional.some)
+    }.recover { error in
+      self.cacheArtwork(data: Data())
+      return .value(nil)
+    }
+  }
+
+  func sizeAndCacheImage(_ image: NSImage?) -> NSImage? {
+    switch image {
+    case nil:
+      self.cacheArtwork(data: Data())
+      return image
+    case let image:
+      if self.isArtworkCached() {
+        return image
+      } else {
+        let sizedImage = image?.toFitBox(
+          size: NSSize(width: self.cachedArtworkSize, height: self.cachedArtworkSize)
+        )
+        self.cacheArtwork(data: sizedImage?.jpegData(compressionQuality: self.cachedArtworkQuality))
+        return sizedImage
       }
     }
   }
