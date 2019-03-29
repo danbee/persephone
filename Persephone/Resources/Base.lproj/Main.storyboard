@@ -315,11 +315,11 @@
             <objects>
                 <viewController title="Album Art" id="3C9-vU-zjZ" customClass="AlbumArtPrefsController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="PyK-v2-kus">
-                        <rect key="frame" x="0.0" y="0.0" width="524" height="100"/>
+                        <rect key="frame" x="0.0" y="0.0" width="524" height="168"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zZn-Rm-e1f">
-                                <rect key="frame" x="53" y="62" width="104" height="17"/>
+                                <rect key="frame" x="53" y="130" width="104" height="17"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Music Directory:" id="sPn-V6-CfK">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -327,7 +327,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gDk-ca-eOa">
-                                <rect key="frame" x="162" y="58" width="288" height="22"/>
+                                <rect key="frame" x="162" y="126" width="288" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="~/Music" drawsBackground="YES" id="7WZ-b7-GUs">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -338,7 +338,7 @@
                                 </connections>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pRL-MG-1Be">
-                                <rect key="frame" x="160" y="27" width="265" height="18"/>
+                                <rect key="frame" x="160" y="95" width="264" height="18"/>
                                 <buttonCell key="cell" type="check" title="Fetch missing artwork from MusicBrainz" bezelStyle="regularSquare" imagePosition="left" inset="2" id="LpD-Ew-HMd">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -347,15 +347,51 @@
                                     <action selector="updateFetchMissingArtworkFromInternet:" target="3C9-vU-zjZ" id="I7x-9V-xJr"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="z1g-nP-ksw">
+                                <rect key="frame" x="160" y="64" width="264" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="260" id="gK0-aW-CJy"/>
+                                </constraints>
+                                <buttonCell key="cell" type="check" title="Save fetched artwork to music directory" bezelStyle="regularSquare" imagePosition="left" inset="2" id="ZeZ-O4-vjS">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xgS-Kg-8KR">
+                                <rect key="frame" x="162" y="26" width="144" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="144" id="DSX-th-Wn1"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="folder.jpg" drawsBackground="YES" id="nKF-YI-xBL">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SmH-w6-5QI">
+                                <rect key="frame" x="37" y="30" width="119" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Cover art filename:" id="b4u-u7-iWD">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="pRL-MG-1Be" firstAttribute="centerX" secondItem="z1g-nP-ksw" secondAttribute="centerX" id="0Ev-Ia-XBO"/>
                             <constraint firstItem="gDk-ca-eOa" firstAttribute="leading" secondItem="pRL-MG-1Be" secondAttribute="leading" id="1jd-wZ-a4Q"/>
+                            <constraint firstItem="pRL-MG-1Be" firstAttribute="leading" secondItem="z1g-nP-ksw" secondAttribute="leading" id="3tZ-Ub-RaT"/>
                             <constraint firstItem="gDk-ca-eOa" firstAttribute="leading" secondItem="zZn-Rm-e1f" secondAttribute="trailing" constant="7" id="C0m-yx-gXh"/>
-                            <constraint firstItem="gDk-ca-eOa" firstAttribute="top" secondItem="PyK-v2-kus" secondAttribute="top" constant="20" symbolic="YES" id="HZD-uf-Mhl"/>
+                            <constraint firstItem="z1g-nP-ksw" firstAttribute="leading" secondItem="xgS-Kg-8KR" secondAttribute="leading" id="Dkv-ai-X2G"/>
+                            <constraint firstItem="xgS-Kg-8KR" firstAttribute="leading" secondItem="SmH-w6-5QI" secondAttribute="trailing" constant="8" symbolic="YES" id="KQk-nr-H8y"/>
                             <constraint firstItem="zZn-Rm-e1f" firstAttribute="leading" secondItem="PyK-v2-kus" secondAttribute="leading" constant="55" id="OzK-MR-zuB"/>
-                            <constraint firstItem="zZn-Rm-e1f" firstAttribute="top" secondItem="PyK-v2-kus" secondAttribute="top" constant="21" id="RpF-wL-4nE"/>
+                            <constraint firstAttribute="bottom" secondItem="SmH-w6-5QI" secondAttribute="bottom" constant="30" id="aBY-Ny-jPe"/>
                             <constraint firstItem="pRL-MG-1Be" firstAttribute="top" secondItem="gDk-ca-eOa" secondAttribute="bottom" constant="15" id="dKy-uC-r43"/>
+                            <constraint firstItem="xgS-Kg-8KR" firstAttribute="top" secondItem="z1g-nP-ksw" secondAttribute="bottom" constant="18" id="lfR-Im-bd4"/>
                             <constraint firstAttribute="trailing" secondItem="gDk-ca-eOa" secondAttribute="trailing" constant="74" id="n8X-T2-tXA"/>
+                            <constraint firstAttribute="bottom" secondItem="xgS-Kg-8KR" secondAttribute="bottom" constant="26" id="oXZ-qo-HwX"/>
+                            <constraint firstItem="SmH-w6-5QI" firstAttribute="top" secondItem="zZn-Rm-e1f" secondAttribute="bottom" constant="83" id="qhC-mD-Bvw"/>
+                            <constraint firstItem="z1g-nP-ksw" firstAttribute="top" secondItem="pRL-MG-1Be" secondAttribute="bottom" constant="17" id="sTP-hk-zfU"/>
                         </constraints>
                     </view>
                     <connections>
@@ -365,7 +401,7 @@
                 </viewController>
                 <customObject id="KzD-E3-lpA" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1626" y="339"/>
+            <point key="canvasLocation" x="1626" y="373"/>
         </scene>
         <!--General-->
         <scene sceneID="xTC-Y5-Agk">
@@ -427,13 +463,13 @@
                         <constraints>
                             <constraint firstItem="kvB-99-zwY" firstAttribute="centerX" secondItem="AU9-wN-kbU" secondAttribute="centerX" id="6bm-yZ-rJu"/>
                             <constraint firstItem="AU9-wN-kbU" firstAttribute="top" secondItem="kvB-99-zwY" secondAttribute="bottom" constant="15" id="6qh-zn-2xt"/>
-                            <constraint firstItem="kvB-99-zwY" firstAttribute="top" secondItem="Uwt-Lw-ILP" secondAttribute="top" constant="21" id="AyL-F9-VTD"/>
                             <constraint firstAttribute="trailing" secondItem="wPm-sJ-e9E" secondAttribute="trailing" constant="74" id="B0v-nc-2aA"/>
-                            <constraint firstItem="wPm-sJ-e9E" firstAttribute="top" secondItem="Uwt-Lw-ILP" secondAttribute="top" constant="20" symbolic="YES" id="F0N-Yn-jbd"/>
                             <constraint firstItem="kvB-99-zwY" firstAttribute="leading" secondItem="Uwt-Lw-ILP" secondAttribute="leading" constant="78" id="Hvc-Wt-Uha"/>
                             <constraint firstItem="wPm-sJ-e9E" firstAttribute="leading" secondItem="kvB-99-zwY" secondAttribute="trailing" constant="8" symbolic="YES" id="NAc-1j-JEH"/>
-                            <constraint firstItem="IbX-oV-soD" firstAttribute="top" secondItem="wPm-sJ-e9E" secondAttribute="bottom" constant="10" symbolic="YES" id="gT9-JL-dW0"/>
+                            <constraint firstAttribute="bottom" secondItem="IbX-oV-soD" secondAttribute="bottom" constant="26" id="QHJ-ID-D3L"/>
+                            <constraint firstAttribute="bottom" secondItem="AU9-wN-kbU" secondAttribute="bottom" constant="30" id="j5r-By-kiE"/>
                             <constraint firstItem="wPm-sJ-e9E" firstAttribute="leading" secondItem="IbX-oV-soD" secondAttribute="leading" id="lz4-7S-QQb"/>
+                            <constraint firstItem="IbX-oV-soD" firstAttribute="top" secondItem="wPm-sJ-e9E" secondAttribute="bottom" constant="10" id="sZA-01-JAS"/>
                         </constraints>
                     </view>
                     <connections>
