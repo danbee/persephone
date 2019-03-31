@@ -7,10 +7,16 @@
 //
 
 import Cocoa
+import CryptoSwift
 
 struct Album {
   var mpdAlbum: MPDClient.MPDAlbum
   var coverArt: NSImage?
+  var coverArtFetched: Bool = false
+
+  init(mpdAlbum: MPDClient.MPDAlbum) {
+    self.mpdAlbum = mpdAlbum
+  }
 
   var title: String {
     return mpdAlbum.title

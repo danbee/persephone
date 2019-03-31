@@ -1,3 +1,4 @@
 github "SwiftyJSON/SwiftyJSON" ~> 4.0
 github "PromiseKit/Foundation" ~> 3.0
-github "nhurden/MediaKeyTap" "fix-tis-tsm-error"
+github "nhurden/MediaKeyTap"
+github "krzyzanowskim/CryptoSwift"
