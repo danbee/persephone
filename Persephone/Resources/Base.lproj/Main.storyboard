@@ -352,7 +352,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="gK0-aW-CJy"/>
                                 </constraints>
-                                <buttonCell key="cell" type="check" title="Save fetched artwork to music directory" bezelStyle="regularSquare" imagePosition="left" inset="2" id="ZeZ-O4-vjS">
+                                <buttonCell key="cell" type="check" title="Save fetched artwork to music directory" bezelStyle="regularSquare" imagePosition="left" enabled="NO" inset="2" id="ZeZ-O4-vjS">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -362,7 +362,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="144" id="DSX-th-Wn1"/>
                                 </constraints>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="folder.jpg" drawsBackground="YES" id="nKF-YI-xBL">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="folder.jpg" drawsBackground="YES" id="nKF-YI-xBL">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -370,9 +370,9 @@
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SmH-w6-5QI">
                                 <rect key="frame" x="37" y="30" width="119" height="17"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Cover art filename:" id="b4u-u7-iWD">
+                                <textFieldCell key="cell" lineBreakMode="clipping" enabled="NO" alignment="right" title="Cover art filename:" id="b4u-u7-iWD">
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>

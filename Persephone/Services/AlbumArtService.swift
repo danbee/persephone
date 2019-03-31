@@ -32,16 +32,6 @@ class AlbumArtService {
       self.getArtworkFromFilesystem()
     }.then { (image: NSImage?) -> Promise<NSImage?> in
       image.map(Promise.value) ?? self.getRemoteArtwork()
-    }.compactMap(on :artworkQueue) { image in
-      if self.fileSystemArtworkFilePath() != nil {
-        let sizedImage = image?.toFitBox(
-          size: NSSize(width: self.bigArtworkSize, height: self.bigArtworkSize)
-        )
-        self.saveArtworkToFilesystem(data: sizedImage?.jpegData(compressionQuality: self.cachedArtworkQuality))
-        return sizedImage
-      } else {
-        return image
-      }
     }.recover { (_) -> Guarantee<NSImage?> in
       return .value(nil)
     }
