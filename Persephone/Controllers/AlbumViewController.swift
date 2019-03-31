@@ -40,6 +40,7 @@ class AlbumViewController: NSViewController,
     albumCollectionView.dataSource = dataSource
 
     preferences.addObserver(self, forKeyPath: "mpdLibraryDir")
+    preferences.addObserver(self, forKeyPath: "fetchMissingArtworkFromInternet")
   }
 
   override func viewWillLayout() {
@@ -66,6 +67,9 @@ class AlbumViewController: NSViewController,
     switch keyPath {
     case "mpdLibraryDir":
       albumCollectionView.reloadData()
+    case "fetchMissingArtworkFromInternet":
+      dataSource.resetCoverArt()
+      albumCollectionView.reloadData()
     default:
       break
     }
@@ -75,7 +79,7 @@ class AlbumViewController: NSViewController,
     guard let albums = notification.userInfo?[Notification.albumsKey] as? [MPDClient.MPDAlbum]
       else { return }
 
-    dataSource.albums = albums.map { Album(mpdAlbum: $0, coverArt: nil) }
+    dataSource.albums = albums.map { Album(mpdAlbum: $0) }
     albumCollectionView.reloadData()
   }
 

@@ -42,6 +42,8 @@ class AlbumArtService {
       } else {
         return image
       }
+    }.recover { (_) -> Guarantee<NSImage?> in
+      return .value(nil)
     }
   }
 
@@ -54,13 +56,7 @@ class AlbumArtService {
       artwork.map(Promise.value) ?? self.getRemoteArtwork()
     }.compactMap(on: artworkQueue) {
       return self.sizeAndCacheImage($0).map(Optional.some)
-    }.recover { error in
-      switch error {
-      case RemoteArtworkError.noArtworkAvailable:
-        self.cacheArtwork(data: Data())
-      default:
-        break
-      }
+    }.recover { _ in
       return .value(nil)
     }
   }

@@ -20,6 +20,6 @@ struct Song {
   }
 
   var album: Album {
-    return Album(mpdAlbum: mpdSong.album, coverArt: nil)
+    return Album(mpdAlbum: mpdSong.album)
   }
 }

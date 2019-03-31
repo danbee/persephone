@@ -72,11 +72,11 @@ class QueueViewController: NSViewController,
 
       albumArtService.fetchBigAlbumArt()
         .done() {
-          guard let image = $0 else { return }
-
-          self.queueAlbumArtImage.image = image.toFitBox(
-            size: NSSize(width: 500, height: 500)
-          )
+          if let image = $0 {
+            self.queueAlbumArtImage.image = image
+          } else {
+            self.queueAlbumArtImage.image = NSImage.defaultCoverArt
+          }
         }
         .cauterize()
     } else {

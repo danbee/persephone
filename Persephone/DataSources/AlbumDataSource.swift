@@ -16,6 +16,14 @@ class AlbumDataSource: NSObject, NSCollectionViewDataSource {
     return albums.count
   }
 
+  func resetCoverArt() {
+    albums = albums.map {
+      var album = $0
+      album.coverArtFetched = false
+      return album
+    }
+  }
+
   func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
     let item = collectionView.makeItem(withIdentifier: .albumViewItem, for: indexPath)
     guard let albumViewItem = item as? AlbumViewItem else { return item }
@@ -23,7 +31,9 @@ class AlbumDataSource: NSObject, NSCollectionViewDataSource {
     albumViewItem.view.wantsLayer = true
     albumViewItem.setAlbum(albums[indexPath.item])
 
-    if albums[indexPath.item].coverArt == nil {
+    if albums[indexPath.item].coverArt == nil &&
+      !albums[indexPath.item].coverArtFetched {
+
       AppDelegate.mpdClient.getAlbumFirstSong(for: albums[indexPath.item].mpdAlbum) {
         guard let song = $0 else { return }
         
@@ -31,6 +41,7 @@ class AlbumDataSource: NSObject, NSCollectionViewDataSource {
           .fetchAlbumArt()
           .done { image in
             self.albums[indexPath.item].coverArt = image
+            self.albums[indexPath.item].coverArtFetched = true
 
             DispatchQueue.main.async {
               collectionView.reloadItems(at: [indexPath])
