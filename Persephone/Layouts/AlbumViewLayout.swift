@@ -36,10 +36,6 @@ class AlbumViewLayout: NSCollectionViewFlowLayout {
     var divider: CGFloat = 1
     var itemWidth: CGFloat = 0
 
-    if let scrollView = collectionView.enclosingScrollView {
-      scrollPosition = scrollView.documentVisibleRect.minY / collectionView.bounds.height
-    }
-
     repeat {
       let totalPaddingWidth = sectionInset.left + sectionInset.right
       let totalGutterWidth = (divider - 1) * (minimumInteritemSpacing)
@@ -50,6 +46,15 @@ class AlbumViewLayout: NSCollectionViewFlowLayout {
     let itemHeight = itemWidth + albumInfoHeight
 
     itemSize = NSSize(width: itemWidth, height: itemHeight)
+  }
+
+  func saveScrollPosition() {
+    guard let collectionView = collectionView
+      else { return }
+
+    if let scrollView = collectionView.enclosingScrollView {
+      scrollPosition = scrollView.documentVisibleRect.minY / collectionView.bounds.height
+    }
   }
 
   func setScrollPosition() {
