@@ -46,6 +46,10 @@ class AlbumViewController: NSViewController,
   override func viewWillLayout() {
     super.viewWillLayout()
 
+    if let layout = albumCollectionView.collectionViewLayout as? AlbumViewLayout {
+      layout.saveScrollPosition()
+    }
+
     albumCollectionView.collectionViewLayout?.invalidateLayout()
   }
 
