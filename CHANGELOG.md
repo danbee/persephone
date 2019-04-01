@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.11.0-alpha - 2019-04-01
+
+### Added
+
+- Display the artwork of the currently playing track underneath the queue
+
+### Changed
+
+- Fix a bug that caused the album view to jump about occasionally
+- Fix a bug that caused the incorrect artwork to be displayed for albums that
+  have the same name as another album
+
 ## 0.10.3a - 2019-03-25
 
 ### Changed
