@@ -52,8 +52,16 @@ extension MPDClient {
     var album: MPDAlbum {
       return MPDAlbum(
         title: getTag(.album),
-        artist: getTag(.albumArtist)
+        artist: artist
       )
+    }
+
+    var artist: String {
+      if getTag(.albumArtist) != "" {
+        return getTag(.albumArtist)
+      } else {
+        return getTag(.artist)
+      }
     }
 
     func getTag(_ tagType: TagType) -> String {
