@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.11.1-alpha - 2019-04-01
+
+### Changed
+
+- Tweaked the QoS of the artwork queue for better performance
+
 ## 0.11.0-alpha - 2019-04-01
 
 ### Added
