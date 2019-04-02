@@ -20,7 +20,7 @@ class AlbumArtService {
   let bigArtworkSize = 600
 
   var session = URLSession(configuration: .default)
-  let artworkQueue = DispatchQueue(label: "albumArtQueue", qos: .background)
+  let artworkQueue = DispatchQueue(label: "albumArtQueue", qos: .utility)
 
   init(song: Song) {
     self.song = song
