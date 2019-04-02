@@ -15,7 +15,17 @@ extension NSImage {
   static let defaultCoverArt = NSImage(named: "blankAlbum")
 
   func toFitBox(size: NSSize) -> NSImage {
-    let newImage = NSImage(size: size)
+    var newSize: NSSize = NSSize.zero
+    let aspectRatio = self.size.width / self.size.height
+    let boxAspectRatio = size.width / size.height
+
+    if aspectRatio > boxAspectRatio {
+      newSize = NSSize(width: size.width, height: size.width / aspectRatio)
+    } else {
+      newSize = NSSize(width: size.height * aspectRatio, height: size.height)
+    }
+
+    let newImage = NSImage(size: newSize)
     newImage.lockFocus()
     self.draw(in: newImage.alignmentRect)
     newImage.unlockFocus()
