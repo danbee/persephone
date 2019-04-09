@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.11.2-alpha - 2019-04-09
+
+### Changed
+
+- Fixed image scaling so it retains the original image aspect ratio
+
 ## 0.11.1-alpha - 2019-04-01
 
 ### Changed
