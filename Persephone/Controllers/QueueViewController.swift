@@ -47,7 +47,6 @@ class QueueViewController: NSViewController,
       else { return }
 
     dataSource.setQueueIcon(state)
-    notifyTrack()
   }
 
   func notifyTrack() {
@@ -59,6 +58,7 @@ class QueueViewController: NSViewController,
     let notification = NSUserNotification()
     notification.title = currentSong.title
     notification.subtitle = "\(currentSong.artist) — \(currentSong.album.title)"
+    notification.contentImage = queueAlbumArtImage.image
 
     NSUserNotificationCenter.default.deliver(notification)
   }
@@ -91,6 +91,8 @@ class QueueViewController: NSViewController,
           } else {
             self.queueAlbumArtImage.image = NSImage.defaultCoverArt
           }
+
+          self.notifyTrack()
         }
         .cauterize()
     } else {
