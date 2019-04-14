@@ -43,9 +43,9 @@ extension MPDClient {
       self.fetchStatus()
 
       if let status = self.status {
-        self.delegate?.didUpdateState(mpdClient: self, state: status.state)
-        self.delegate?.didUpdateTime(mpdClient: self, total: status.totalTime, elapsedMs: status.elapsedTimeMs)
         self.delegate?.didUpdateQueuePos(mpdClient: self, song: status.song)
+        self.delegate?.didUpdateTime(mpdClient: self, total: status.totalTime, elapsedMs: status.elapsedTimeMs)
+        self.delegate?.didUpdateState(mpdClient: self, state: status.state)
       }
     }
     if mpdIdle.contains(.update) {

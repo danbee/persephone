@@ -47,6 +47,20 @@ class QueueViewController: NSViewController,
       else { return }
 
     dataSource.setQueueIcon(state)
+    notifyTrack()
+  }
+
+  func notifyTrack() {
+    guard let currentSong = dataSource.currentSong,
+      let status = AppDelegate.mpdClient.status,
+      status.state == .playing
+    else { return }
+
+    let notification = NSUserNotification()
+    notification.title = currentSong.title
+    notification.subtitle = "\(currentSong.artist) — \(currentSong.album.title)"
+
+    NSUserNotificationCenter.default.deliver(notification)
   }
 
   @objc func queueChanged(_ notification: Notification) {
