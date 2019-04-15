@@ -42,6 +42,7 @@
 		E42A8F3C22176D6400A13ED9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E42A8F3A22176D6400A13ED9 /* README.md */; };
 		E435E3E2221CD4E200184CFC /* NSFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = E435E3E1221CD4E200184CFC /* NSFont.swift */; };
 		E435E3E4221CD75D00184CFC /* NSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E435E3E3221CD75D00184CFC /* NSImage.swift */; };
+		E439109822640213002982E9 /* SongNotifierService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439109722640213002982E9 /* SongNotifierService.swift */; };
 		E450AD7E222620A10091BED3 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450AD7D222620A10091BED3 /* Album.swift */; };
 		E450AD8622262AE60091BED3 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E450AD8522262AE60091BED3 /* SwiftyJSON.framework */; };
 		E450AD8822262AEC0091BED3 /* SwiftyJSON.framework in Embed Libraries */ = {isa = PBXBuildFile; fileRef = E450AD8522262AE60091BED3 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -210,6 +211,7 @@
 		E42A8F3A22176D6400A13ED9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E435E3E1221CD4E200184CFC /* NSFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSFont.swift; sourceTree = "<group>"; };
 		E435E3E3221CD75D00184CFC /* NSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImage.swift; sourceTree = "<group>"; };
+		E439109722640213002982E9 /* SongNotifierService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongNotifierService.swift; sourceTree = "<group>"; };
 		E450AD7D222620A10091BED3 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		E450AD8522262AE60091BED3 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/Mac/SwiftyJSON.framework; sourceTree = "<group>"; };
 		E450AD8C22262C590091BED3 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/Mac/PromiseKit.framework; sourceTree = "<group>"; };
@@ -523,6 +525,7 @@
 			isa = PBXGroup;
 			children = (
 				E4A83BF3222207D50098FED6 /* AlbumArtService.swift */,
+				E439109722640213002982E9 /* SongNotifierService.swift */,
 				E41E530C223EF4BA00173814 /* Extensions */,
 			);
 			path = Services;
@@ -797,6 +800,7 @@
 				E40F41F3221EDE27004B6CB8 /* Preferences.swift in Sources */,
 				E47E2FDD2220A6D100F747E6 /* Time.swift in Sources */,
 				E419E2872249B96600216A8C /* Song.swift in Sources */,
+				E439109822640213002982E9 /* SongNotifierService.swift in Sources */,
 				E407861C2110CE6E006887B1 /* AppDelegate.swift in Sources */,
 				E41E5309223C020400173814 /* MPDClient+Command.swift in Sources */,
 				E47E2FE52220AA0700F747E6 /* AlbumViewLayout.swift in Sources */,

@@ -55,12 +55,8 @@ class QueueViewController: NSViewController,
       status.state == .playing
     else { return }
 
-    let notification = NSUserNotification()
-    notification.title = currentSong.title
-    notification.subtitle = "\(currentSong.artist) — \(currentSong.album.title)"
-    notification.contentImage = queueAlbumArtImage.image
-
-    NSUserNotificationCenter.default.deliver(notification)
+    SongNotifierService(song: currentSong, image: queueAlbumArtImage.image)
+      .deliver()
   }
 
   @objc func queueChanged(_ notification: Notification) {
