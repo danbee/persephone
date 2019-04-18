@@ -38,9 +38,10 @@ class QueueDataSource: NSObject, NSOutlineViewDataSource {
     }
     if newSongRowPos >= 0 {
       queue[newSongRowPos].isPlaying = true
+      currentSong = queue[newSongRowPos].song
+    } else {
+      currentSong = nil
     }
-
-    currentSong = queue[newSongRowPos].song
   }
 
   func setQueueIcon(_ state: MPDClient.MPDStatus.State) {
