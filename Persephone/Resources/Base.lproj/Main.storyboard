@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
-        <capability name="System colors introduced in macOS 10.14" minToolsVersion="10.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -117,17 +116,51 @@
                     </menu>
                     <connections>
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
+                        <outlet property="dockMenu" destination="HMZ-6U-dkI" id="z8r-8r-l9q"/>
                     </connections>
                 </application>
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Persephone" customModuleProvider="target">
                     <connections>
+                        <outlet property="nextTrackMenuItem" destination="InD-dy-4Xk" id="vTQ-Gf-E8k"/>
+                        <outlet property="playPauseMenu" destination="Ldt-58-fDl" id="p2r-nI-tf4"/>
+                        <outlet property="playPauseMenuItem" destination="Ldt-58-fDl" id="KGN-OQ-uHK"/>
+                        <outlet property="prevTrackMenuItem" destination="90s-qF-dI2" id="Zba-8D-UEg"/>
+                        <outlet property="stopMenuItem" destination="F1T-fC-2rX" id="doK-EU-w6M"/>
                         <outlet property="updateDatabaseMenuItem" destination="EJg-93-1F6" id="gMf-SQ-lyI"/>
                     </connections>
                 </customObject>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <menu autoenablesItems="NO" id="HMZ-6U-dkI">
+                    <items>
+                        <menuItem title="Play" enabled="NO" id="Ldt-58-fDl">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="playPauseMenuAction:" target="Voe-Tx-rLC" id="J7X-Fe-jyM"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Stop" enabled="NO" id="F1T-fC-2rX">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="stopMenuAction:" target="Voe-Tx-rLC" id="CnR-Hf-mDH"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Next" enabled="NO" id="InD-dy-4Xk">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="nextMenuAction:" target="Voe-Tx-rLC" id="7QQ-ce-PyS"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Previous" enabled="NO" id="90s-qF-dI2">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="prevMenuAction:" target="Voe-Tx-rLC" id="iw3-oE-E2Y"/>
+                            </connections>
+                        </menuItem>
+                    </items>
+                </menu>
             </objects>
-            <point key="canvasLocation" x="115" y="-366"/>
+            <point key="canvasLocation" x="81" y="-332"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -527,7 +560,7 @@
                                                                     </constraints>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="QUEUE" id="Mqf-uh-ibl">
                                                                         <font key="font" metaFont="smallSystemBold"/>
-                                                                        <color key="textColor" name="controlAccentColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                 </textField>
