@@ -53,6 +53,12 @@ class WindowController: NSWindowController {
     }
   }
 
+  func setWindowTitle() {
+    guard let status = AppDelegate.mpdClient.status else { return }
+
+    self.window?.title = status.
+  }
+
   func setTrackProgressControls(_ playerState: PlayerState) {
     guard let state = playerState.state,
       let totalTime = playerState.totalTime,
