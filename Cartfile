@@ -2,3 +2,4 @@ github "SwiftyJSON/SwiftyJSON" ~> 4.0
 github "PromiseKit/Foundation" ~> 3.0
 github "nhurden/MediaKeyTap"
 github "krzyzanowskim/CryptoSwift"
+github "ReSwift/ReSwift" "mjarvis/swift-5.0"

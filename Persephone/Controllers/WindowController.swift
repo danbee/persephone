@@ -7,34 +7,23 @@
 //
 
 import Cocoa
+import ReSwift
 
-class WindowController: NSWindowController {
+class WindowController: NSWindowController, StoreSubscriber {
+  typealias StoreSubscriberStateType = AppState
+
   enum TransportAction: Int {
     case prevTrack, playPause, stop, nextTrack
   }
 
   var state: MPDClient.MPDStatus.State?
-  var totalTime: UInt?
-  var elapsedTimeMs: UInt?
   var trackTimer: Timer?
 
   override func windowDidLoad() {
     super.windowDidLoad()
     window?.titleVisibility = .hidden
 
-    NotificationCenter.default.addObserver(
-      self,
-      selector: #selector(stateChanged(_:)),
-      name: Notification.stateChanged,
-      object: AppDelegate.mpdClient
-    )
-
-    NotificationCenter.default.addObserver(
-      self,
-      selector: #selector(timeChanged(_:)),
-      name: Notification.timeChanged,
-      object: AppDelegate.mpdClient
-    )
+    AppDelegate.store.subscribe(self)
 
     NotificationCenter.default.addObserver(
       self,
@@ -54,6 +43,15 @@ class WindowController: NSWindowController {
     trackRemaining.font = .timerFont
   }
 
+  func newState(state: WindowController.StoreSubscriberStateType) {
+    self.state = state.playerState.state
+
+    DispatchQueue.main.async {
+      self.setTransportControlState(state.playerState)
+      self.setTrackProgressControls(state.playerState)
+    }
+  }
+
   override func keyDown(with event: NSEvent) {
     switch event.keyCode {
     case NSEvent.keyCodeSpace:
@@ -63,17 +61,8 @@ class WindowController: NSWindowController {
     }
   }
 
-  @objc func stateChanged(_ notification: Notification) {
-    guard let state = notification.userInfo?[Notification.stateKey] as? MPDClient.MPDStatus.State
-      else { return }
-
-    self.state = state
-
-    setTransportControlState()
-  }
-
-  func setTransportControlState() {
-    guard let state = state else { return }
+  func setTransportControlState(_ state: PlayerState) {
+    guard let state = state.state else { return }
 
     transportControls.setEnabled(state.isOneOf([.playing, .paused]), forSegment: 0)
     transportControls.setEnabled(state.isOneOf([.playing, .paused, .stopped]), forSegment: 1)
@@ -87,64 +76,37 @@ class WindowController: NSWindowController {
     }
   }
 
-  @objc func timeChanged(_ notification: Notification) {
-    guard let totalTime = notification.userInfo?[Notification.totalTimeKey] as? UInt,
-      let elapsedTimeMs = notification.userInfo?[Notification.elapsedTimeMsKey] as? UInt
+  func setTrackProgressControls(_ playerState: PlayerState) {
+    guard let state = playerState.state,
+      let totalTime = playerState.totalTime,
+      let elapsedTimeMs = playerState.elapsedTimeMs
       else { return }
 
-    self.totalTime = totalTime
-    self.elapsedTimeMs = elapsedTimeMs
-
-    setTrackProgressControls()
-  }
-
-  func setTrackProgressControls() {
-    guard let totalTime = totalTime,
-      let elapsedTimeMs = elapsedTimeMs
-      else { return }
-
-    trackProgressBar.isEnabled = [.playing, .paused].contains(state)
+    trackProgressBar.isEnabled = state.isOneOf([.playing, .paused])
     trackProgressBar.maxValue = Double(totalTime * 1000)
+    trackProgressBar.integerValue = Int(elapsedTimeMs)
 
-    if state == .playing {
-      trackTimer?.invalidate()
-
-      trackTimer = Timer.scheduledTimer(
-        timeInterval: 0.25,
-        target: self,
-        selector: #selector(updateProgress(_:)),
-        userInfo: [
-          "startTime": CACurrentMediaTime(),
-          "startElapsed": Double(elapsedTimeMs) / 1000
-        ],
-        repeats: true
-      )
-    } else {
-      trackTimer?.invalidate()
-
-      trackProgressBar.integerValue = Int(elapsedTimeMs)
-      setTimeElapsed()
-      setTimeRemaining()
-   }
+    setTimeElapsed(elapsedTimeMs)
+    setTimeRemaining(elapsedTimeMs, totalTime * 1000)
   }
 
-  @objc func updateProgress(_ timer: Timer) {
-    let currentTime = CACurrentMediaTime()
-
-    guard let userInfo = timer.userInfo as? Dictionary<String, Any>,
-      let startTime = userInfo["startTime"] as? Double,
-      let startElapsed = userInfo["startElapsed"] as? Double
-      else { return }
-
-    let timeDiff = currentTime - startTime
-    let newElapsedTimeMs = (startElapsed + timeDiff) * 1000
-
-    self.elapsedTimeMs = UInt(newElapsedTimeMs)
-    trackProgressBar.integerValue = Int(newElapsedTimeMs)
-
-    setTimeElapsed()
-    setTimeRemaining()
-  }
+//  func updateProgressState() {
+//    let currentTime = CACurrentMediaTime()
+//
+//    guard let userInfo = timer.userInfo as? Dictionary<String, Any>,
+//      let startTime = userInfo["startTime"] as? Double,
+//      let startElapsed = userInfo["startElapsed"] as? Double
+//      else { return }
+//
+//    let timeDiff = currentTime - startTime
+//    let newElapsedTimeMs = (startElapsed + timeDiff) * 1000
+//
+//    self.elapsedTimeMs = UInt(newElapsedTimeMs)
+//    trackProgressBar.integerValue = Int(newElapsedTimeMs)
+//
+//    setTimeElapsed()
+//    setTimeRemaining()
+//  }
 
   @objc func startDatabaseUpdatingIndicator() {
     databaseUpdatingIndicator.startAnimation(self)
@@ -154,7 +116,7 @@ class WindowController: NSWindowController {
     databaseUpdatingIndicator.stopAnimation(self)
   }
 
-  func setTimeElapsed() {
+  func setTimeElapsed(_ elapsedTimeMs: UInt?) {
     guard let elapsedTimeMs = elapsedTimeMs else { return }
 
     let time = Time(timeInSeconds: Int(elapsedTimeMs) / 1000)
@@ -162,38 +124,40 @@ class WindowController: NSWindowController {
     trackProgress.stringValue = time.formattedTime
   }
 
-  func setTimeRemaining() {
+  func setTimeRemaining(_ elapsedTimeMs: UInt?, _ totalTime: UInt?) {
     guard let elapsedTimeMs = elapsedTimeMs,
       let totalTime = totalTime
       else { return }
 
-    let time = Time(timeInSeconds: -(Int(totalTime) - Int(elapsedTimeMs) / 1000))
+    let time = Time(
+      timeInSeconds: -(Int(totalTime) - Int(elapsedTimeMs)) / 1000
+    )
 
     trackRemaining.stringValue = time.formattedTime
   }
 
   // TODO: Refactor this using a gesture recognizer
-  @IBAction func changeTrackProgress(_ sender: NSSlider) {
-    guard let event = NSApplication.shared.currentEvent else {
-      return
-    }
-
-    switch event.type {
-    case .leftMouseDown:
-      trackTimer?.invalidate()
-    case .leftMouseDragged:
-      self.elapsedTimeMs = UInt(sender.integerValue)
-
-      setTimeElapsed()
-      setTimeRemaining()
-    case .leftMouseUp:
-      let seekTime = Float(sender.integerValue) / 1000
-
-      AppDelegate.mpdClient.seekCurrentSong(timeInSeconds: seekTime)
-    default:
-      break
-    }
-  }
+//  @IBAction func changeTrackProgress(_ sender: NSSlider) {
+//    guard let event = NSApplication.shared.currentEvent else {
+//      return
+//    }
+//
+//    switch event.type {
+//    case .leftMouseDown:
+//      trackTimer?.invalidate()
+//    case .leftMouseDragged:
+//      self.elapsedTimeMs = UInt(sender.integerValue)
+//
+//      setTimeElapsed()
+//      setTimeRemaining()
+//    case .leftMouseUp:
+//      let seekTime = Float(sender.integerValue) / 1000
+//
+//      AppDelegate.mpdClient.seekCurrentSong(timeInSeconds: seekTime)
+//    default:
+//      break
+//    }
+//  }
 
   @IBAction func handleTransportControl(_ sender: NSSegmentedControl) {
     guard let transportAction = TransportAction(rawValue: sender.selectedSegment)

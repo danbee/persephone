@@ -29,8 +29,7 @@ extension MPDClient {
       self.idle()
 
       self.delegate?.didConnect(mpdClient: self)
-      self.delegate?.didUpdateState(mpdClient: self, state: self.status!.state)
-      self.delegate?.didUpdateTime(mpdClient: self, total: self.status!.totalTime, elapsedMs: self.status!.elapsedTimeMs)
+      self.delegate?.didUpdateStatus(mpdClient: self, status: self.status!)
       self.delegate?.didUpdateQueue(mpdClient: self, queue: self.queue)
       self.delegate?.didUpdateQueuePos(mpdClient: self, song: self.status!.song)
     }

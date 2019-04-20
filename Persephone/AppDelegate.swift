@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import ReSwift
 import MediaKeyTap
 
 @NSApplicationMain
@@ -17,6 +18,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, MediaKeyTapDelegate {
   static let mpdClient = MPDClient(
     withDelegate: NotificationsController()
   )
+
+  static let trackTimer = TrackTimer()
+
+  static let store = Store(reducer: appReducer, state: nil)
 
   func applicationDidFinishLaunching(_ aNotification: Notification) {
     connect()

@@ -12,8 +12,7 @@ protocol MPDClientDelegate {
   func didConnect(mpdClient: MPDClient)
   func willDisconnect(mpdClient: MPDClient)
 
-  func didUpdateState(mpdClient: MPDClient, state: MPDClient.MPDStatus.State)
-  func didUpdateTime(mpdClient: MPDClient, total: UInt, elapsedMs: UInt)
+  func didUpdateStatus(mpdClient: MPDClient, status: MPDClient.MPDStatus)
 
   func willStartDatabaseUpdate(mpdClient: MPDClient)
   func didFinishDatabaseUpdate(mpdClient: MPDClient)

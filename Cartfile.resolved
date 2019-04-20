@@ -1,5 +1,6 @@
 github "PromiseKit/Foundation" "3.3.2"
-github "SwiftyJSON/SwiftyJSON" "4.2.0"
+github "ReSwift/ReSwift" "bc5943ad9493fc7fbad5200f690be538db8e86fb"
+github "SwiftyJSON/SwiftyJSON" "4.3.0"
 github "krzyzanowskim/CryptoSwift" "1.0.0"
 github "mxcl/PromiseKit" "6.8.4"
 github "nhurden/MediaKeyTap" "2.2.1"

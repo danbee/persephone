@@ -1,5 +1,5 @@
 //
-//  MPDClientNotificationHandler.swift
+//  NotificationsController.swift
 //  Persephone
 //
 //  Created by Daniel Barber on 2019/2/02.
@@ -19,21 +19,23 @@ class NotificationsController: MPDClientDelegate {
     sendNotification(name: Notification.willDisconnect)
   }
 
-  func didUpdateState(mpdClient: MPDClient, state: MPDClient.MPDStatus.State) {
+  func didUpdateStatus(mpdClient: MPDClient, status: MPDClient.MPDStatus) {
+    AppDelegate.store.dispatch(UpdateStatusAction(status: status))
     sendNotification(
       name: Notification.stateChanged,
-      userInfo: [Notification.stateKey: state]
+      userInfo: [Notification.stateKey: status.state]
+    )
+    sendNotification(
+      name: Notification.timeChanged,
+      userInfo: [
+        Notification.totalTimeKey: status.totalTime,
+        Notification.elapsedTimeMsKey: status.elapsedTimeMs
+      ]
     )
   }
 
   func didUpdateTime(mpdClient: MPDClient, total: UInt, elapsedMs: UInt) {
-    sendNotification(
-      name: Notification.timeChanged,
-      userInfo: [
-        Notification.totalTimeKey: total,
-        Notification.elapsedTimeMsKey: elapsedMs
-      ]
-    )
+
   }
 
   func willStartDatabaseUpdate(mpdClient: MPDClient) {
@@ -45,6 +47,7 @@ class NotificationsController: MPDClientDelegate {
   }
 
   func didUpdateQueue(mpdClient: MPDClient, queue: [MPDClient.MPDSong]) {
+    //AppDelegate.store.dispatch(UpdateQueueAction(queue: queue))
     sendNotification(
       name: Notification.queueChanged,
       userInfo: [Notification.queueKey: queue]
