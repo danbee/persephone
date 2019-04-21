@@ -23,6 +23,7 @@ class WindowController: NSWindowController, StoreSubscriber {
     super.windowDidLoad()
     window?.titleVisibility = .hidden
 
+    // TODO: We will want to filter this subscribe later
     AppDelegate.store.subscribe(self)
 
     NotificationCenter.default.addObserver(
@@ -90,24 +91,6 @@ class WindowController: NSWindowController, StoreSubscriber {
     setTimeRemaining(elapsedTimeMs, totalTime * 1000)
   }
 
-//  func updateProgressState() {
-//    let currentTime = CACurrentMediaTime()
-//
-//    guard let userInfo = timer.userInfo as? Dictionary<String, Any>,
-//      let startTime = userInfo["startTime"] as? Double,
-//      let startElapsed = userInfo["startElapsed"] as? Double
-//      else { return }
-//
-//    let timeDiff = currentTime - startTime
-//    let newElapsedTimeMs = (startElapsed + timeDiff) * 1000
-//
-//    self.elapsedTimeMs = UInt(newElapsedTimeMs)
-//    trackProgressBar.integerValue = Int(newElapsedTimeMs)
-//
-//    setTimeElapsed()
-//    setTimeRemaining()
-//  }
-
   @objc func startDatabaseUpdatingIndicator() {
     databaseUpdatingIndicator.startAnimation(self)
   }
@@ -137,27 +120,25 @@ class WindowController: NSWindowController, StoreSubscriber {
   }
 
   // TODO: Refactor this using a gesture recognizer
-//  @IBAction func changeTrackProgress(_ sender: NSSlider) {
-//    guard let event = NSApplication.shared.currentEvent else {
-//      return
-//    }
-//
-//    switch event.type {
-//    case .leftMouseDown:
-//      trackTimer?.invalidate()
-//    case .leftMouseDragged:
-//      self.elapsedTimeMs = UInt(sender.integerValue)
-//
-//      setTimeElapsed()
-//      setTimeRemaining()
-//    case .leftMouseUp:
-//      let seekTime = Float(sender.integerValue) / 1000
-//
-//      AppDelegate.mpdClient.seekCurrentSong(timeInSeconds: seekTime)
-//    default:
-//      break
-//    }
-//  }
+  @IBAction func changeTrackProgress(_ sender: NSSlider) {
+    guard let event = NSApplication.shared.currentEvent
+      else { return }
+
+    switch event.type {
+    case .leftMouseDown:
+      trackTimer?.invalidate()
+    case .leftMouseDragged:
+      AppDelegate.store.dispatch(
+        UpdateElapsedTimeAction(elapsedTimeMs: UInt(sender.integerValue))
+      )
+    case .leftMouseUp:
+      let seekTime = Float(sender.integerValue) / 1000
+
+      AppDelegate.mpdClient.seekCurrentSong(timeInSeconds: seekTime)
+    default:
+      break
+    }
+  }
 
   @IBAction func handleTransportControl(_ sender: NSSegmentedControl) {
     guard let transportAction = TransportAction(rawValue: sender.selectedSegment)

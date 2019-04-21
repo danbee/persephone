@@ -14,9 +14,7 @@ class TrackTimer: NSObject {
   var startElapsed: Double = 0
 
   func start(elapsedTimeMs: UInt?) {
-    print("Starting timer")
     guard let elapsedTimeMs = elapsedTimeMs else { return }
-    print(elapsedTimeMs)
 
     timer?.invalidate()
 
@@ -28,7 +26,6 @@ class TrackTimer: NSObject {
         withTimeInterval: 0.25,
         repeats: true
       ) { _ in
-        print("Timer fired")
         let currentTime = CACurrentMediaTime()
 
         let timeDiff = currentTime - self.startTime
@@ -42,7 +39,6 @@ class TrackTimer: NSObject {
   }
 
   func stop(elapsedTimeMs: UInt?) {
-    print("Stopping timer")
     guard let elapsedTimeMs = elapsedTimeMs else { return }
 
     timer?.invalidate()
