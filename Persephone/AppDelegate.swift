@@ -11,7 +11,10 @@ import ReSwift
 import MediaKeyTap
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate, MediaKeyTapDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, MediaKeyTapDelegate, StoreSubscriber {
+
+  typealias StoreSubscriberStateType = PlayerState
+
   var preferences = Preferences()
   var mediaKeyTap: MediaKeyTap?
 
@@ -32,12 +35,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, MediaKeyTapDelegate {
     mediaKeyTap = MediaKeyTap(delegate: self)
     mediaKeyTap?.start()
 
-    NotificationCenter.default.addObserver(
-      self,
-      selector: #selector(enableUpdateDatabaseMenuItem),
-      name: Notification.databaseUpdateFinished,
-      object: AppDelegate.mpdClient
-    )
+    AppDelegate.store.subscribe(self) {
+      (subscription: Subscription<AppState>) -> Subscription<PlayerState> in
+
+      subscription.select { state in state.playerState }
+    }
   }
 
   func applicationWillTerminate(_ aNotification: Notification) {
@@ -82,12 +84,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, MediaKeyTapDelegate {
   }
 
   @IBAction func updateDatabase(_ sender: NSMenuItem) {
-    sender.isEnabled = false
     AppDelegate.mpdClient.updateDatabase()
   }
 
-  @objc func enableUpdateDatabaseMenuItem() {
-    updateDatabaseMenuItem?.isEnabled = true
+  func newState(state: PlayerState) {
+    updateDatabaseMenuItem.isEnabled = !state.databaseUpdating
   }
 
   @IBOutlet weak var updateDatabaseMenuItem: NSMenuItem!

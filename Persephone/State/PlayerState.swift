@@ -16,12 +16,15 @@ struct PlayerState: StateType {
 
   var totalTime: UInt?
   var elapsedTimeMs: UInt?
+
+  var databaseUpdating: Bool = false
 }
 
 extension PlayerState: Equatable {
   static func == (lhs: PlayerState, rhs: PlayerState) -> Bool {
     return (lhs.state == rhs.state) &&
       (lhs.totalTime == rhs.totalTime) &&
-      (lhs.elapsedTimeMs == rhs.elapsedTimeMs)
+      (lhs.elapsedTimeMs == rhs.elapsedTimeMs) &&
+      (lhs.databaseUpdating == rhs.databaseUpdating)
   }
 }

@@ -29,20 +29,6 @@ class WindowController: NSWindowController, StoreSubscriber {
       subscription.select { state in state.playerState }
     }
 
-    NotificationCenter.default.addObserver(
-      self,
-      selector: #selector(startDatabaseUpdatingIndicator),
-      name: Notification.databaseUpdateStarted,
-      object: AppDelegate.mpdClient
-    )
-
-    NotificationCenter.default.addObserver(
-      self,
-      selector: #selector(stopDatabaseUpdatingIndicator),
-      name: Notification.databaseUpdateFinished,
-      object: AppDelegate.mpdClient
-    )
-
     trackProgress.font = .timerFont
     trackRemaining.font = .timerFont
   }
@@ -53,6 +39,7 @@ class WindowController: NSWindowController, StoreSubscriber {
     DispatchQueue.main.async {
       self.setTransportControlState(state)
       self.setTrackProgressControls(state)
+      self.setDatabaseUpdatingIndicator(state)
     }
   }
 
@@ -94,11 +81,19 @@ class WindowController: NSWindowController, StoreSubscriber {
     setTimeRemaining(elapsedTimeMs, totalTime * 1000)
   }
 
-  @objc func startDatabaseUpdatingIndicator() {
+  func setDatabaseUpdatingIndicator(_ playerState: PlayerState) {
+    if playerState.databaseUpdating {
+      startDatabaseUpdatingIndicator()
+    } else {
+      stopDatabaseUpdatingIndicator()
+    }
+  }
+
+  func startDatabaseUpdatingIndicator() {
     databaseUpdatingIndicator.startAnimation(self)
   }
 
-  @objc func stopDatabaseUpdatingIndicator() {
+  func stopDatabaseUpdatingIndicator() {
     databaseUpdatingIndicator.stopAnimation(self)
   }
 

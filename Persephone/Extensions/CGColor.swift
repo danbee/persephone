@@ -9,6 +9,6 @@
 import Cocoa
 
 extension CGColor {
-  static let albumBorderColorLight = NSColor.black.withAlphaComponent(0.1).cgColor
-  static let albumBorderColorDark = NSColor.white.withAlphaComponent(0.1).cgColor
+  static let albumBorderColorLight = NSColor.black.withAlphaComponent(0.15).cgColor
+  static let albumBorderColorDark = NSColor.white.withAlphaComponent(0.15).cgColor
 }

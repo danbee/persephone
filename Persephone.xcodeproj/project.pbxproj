@@ -99,6 +99,7 @@
 		E4B11BAD2274F2E80075461B /* UpdateAlbumArt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BAC2274F2E80075461B /* UpdateAlbumArt.swift */; };
 		E4B11BB02274F71A0075461B /* EnumEquatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BAF2274F71A0075461B /* EnumEquatable.swift */; };
 		E4B11BB22274F9520075461B /* ResetAlbumListArt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BB12274F9520075461B /* ResetAlbumListArt.swift */; };
+		E4B11BB42275002D0075461B /* UpdateMPDDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BB32275002D0075461B /* UpdateMPDDatabase.swift */; };
 		E4C8B53C22342005009A20F3 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C8B53B22342005009A20F3 /* PreferencesWindowController.swift */; };
 		E4C8B53E22349002009A20F3 /* MPDIdle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C8B53D22349002009A20F3 /* MPDIdle.swift */; };
 		E4E8CC902204EC7F0024217A /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC8F2204EC7F0024217A /* Delegate.swift */; };
@@ -289,6 +290,7 @@
 		E4B11BAC2274F2E80075461B /* UpdateAlbumArt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAlbumArt.swift; sourceTree = "<group>"; };
 		E4B11BAF2274F71A0075461B /* EnumEquatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumEquatable.swift; sourceTree = "<group>"; };
 		E4B11BB12274F9520075461B /* ResetAlbumListArt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetAlbumListArt.swift; sourceTree = "<group>"; };
+		E4B11BB32275002D0075461B /* UpdateMPDDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateMPDDatabase.swift; sourceTree = "<group>"; };
 		E4C8B53B22342005009A20F3 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
 		E4C8B53D22349002009A20F3 /* MPDIdle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDIdle.swift; sourceTree = "<group>"; };
 		E4E8CC8F2204EC7F0024217A /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
@@ -619,6 +621,7 @@
 				E4B11B6E226A5C7A0075461B /* UpdateStatusAction.swift */,
 				E4B11BAC2274F2E80075461B /* UpdateAlbumArt.swift */,
 				E4B11BB12274F9520075461B /* ResetAlbumListArt.swift */,
+				E4B11BB32275002D0075461B /* UpdateMPDDatabase.swift */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -886,6 +889,7 @@
 				E4928E0B2218D62A001D4BEA /* CGColor.swift in Sources */,
 				E4C8B53E22349002009A20F3 /* MPDIdle.swift in Sources */,
 				E4B11BAD2274F2E80075461B /* UpdateAlbumArt.swift in Sources */,
+				E4B11BB42275002D0075461B /* UpdateMPDDatabase.swift in Sources */,
 				E4B11B6F226A5C7A0075461B /* UpdateStatusAction.swift in Sources */,
 				E4F6B460221E119B00ACF42A /* QueueDataSource.swift in Sources */,
 				E4C8B53C22342005009A20F3 /* PreferencesWindowController.swift in Sources */,

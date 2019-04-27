@@ -28,6 +28,12 @@ func playerReducer(action: Action, state: PlayerState?) -> PlayerState {
   case let action as UpdateElapsedTimeAction:
     state.elapsedTimeMs = action.elapsedTimeMs
 
+  case is StartedDatabaseUpdate:
+    state.databaseUpdating = true
+
+  case is FinishedDatabaseUpdate:
+    state.databaseUpdating = false
+
   default:
     break
   }

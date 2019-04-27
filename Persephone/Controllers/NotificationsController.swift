@@ -29,11 +29,15 @@ class NotificationsController: MPDClientDelegate {
   }
 
   func willStartDatabaseUpdate(mpdClient: MPDClient) {
-    sendNotification(name: Notification.databaseUpdateStarted)
+    DispatchQueue.main.async {
+      AppDelegate.store.dispatch(StartedDatabaseUpdate())
+    }
   }
 
   func didFinishDatabaseUpdate(mpdClient: MPDClient) {
-    sendNotification(name: Notification.databaseUpdateFinished)
+    DispatchQueue.main.async {
+      AppDelegate.store.dispatch(FinishedDatabaseUpdate())
+    }
   }
 
   func didUpdateQueue(mpdClient: MPDClient, queue: [MPDClient.MPDSong]) {
@@ -52,10 +56,6 @@ class NotificationsController: MPDClientDelegate {
     DispatchQueue.main.async {
       AppDelegate.store.dispatch(UpdateAlbumListAction(albums: albums))
     }
-    sendNotification(
-      name: Notification.loadedAlbums,
-      userInfo: [Notification.albumsKey: albums]
-    )
   }
 
   private func sendNotification(name: Notification.Name, userInfo: [AnyHashable : Any] = [:]) {
