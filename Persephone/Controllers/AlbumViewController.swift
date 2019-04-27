@@ -75,15 +75,13 @@ class AlbumViewController: NSViewController,
     case "mpdLibraryDir":
       albumCollectionView.reloadData()
     case "fetchMissingArtworkFromInternet":
-      // dataSource.resetCoverArt()
-      albumCollectionView.reloadData()
+      AppDelegate.store.dispatch(ResetAlbumListArt())
     default:
       break
     }
   }
 
   func newState(state: StoreSubscriberStateType) {
-    print("New album list state")
     if dataSource.albums == [] {
       dataSource.albums = state.albums
       albumCollectionView.reloadData()

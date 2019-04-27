@@ -49,7 +49,6 @@ class NotificationsController: MPDClientDelegate {
   }
 
   func didLoadAlbums(mpdClient: MPDClient, albums: [MPDClient.MPDAlbum]) {
-    print("Albums")
     DispatchQueue.main.async {
       AppDelegate.store.dispatch(UpdateAlbumListAction(albums: albums))
     }

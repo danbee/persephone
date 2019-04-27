@@ -39,7 +39,6 @@ class QueueViewController: NSViewController,
   }
   
   func newState(state: StoreSubscriberStateType) {
-    print("New queue state")
     dataSource.setQueueIcon()
     queueView.reloadData()
     updateAlbumArt(state)

@@ -48,7 +48,6 @@ class WindowController: NSWindowController, StoreSubscriber {
   }
 
   func newState(state: StoreSubscriberStateType) {
-    print("New player state")
     self.state = state.state
 
     DispatchQueue.main.async {

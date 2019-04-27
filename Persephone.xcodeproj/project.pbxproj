@@ -98,6 +98,7 @@
 		E4B11BA92274EDE30075461B /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BA82274EDE30075461B /* Loading.swift */; };
 		E4B11BAD2274F2E80075461B /* UpdateAlbumArt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BAC2274F2E80075461B /* UpdateAlbumArt.swift */; };
 		E4B11BB02274F71A0075461B /* EnumEquatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BAF2274F71A0075461B /* EnumEquatable.swift */; };
+		E4B11BB22274F9520075461B /* ResetAlbumListArt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BB12274F9520075461B /* ResetAlbumListArt.swift */; };
 		E4C8B53C22342005009A20F3 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C8B53B22342005009A20F3 /* PreferencesWindowController.swift */; };
 		E4C8B53E22349002009A20F3 /* MPDIdle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C8B53D22349002009A20F3 /* MPDIdle.swift */; };
 		E4E8CC902204EC7F0024217A /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC8F2204EC7F0024217A /* Delegate.swift */; };
@@ -287,6 +288,7 @@
 		E4B11BA82274EDE30075461B /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		E4B11BAC2274F2E80075461B /* UpdateAlbumArt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAlbumArt.swift; sourceTree = "<group>"; };
 		E4B11BAF2274F71A0075461B /* EnumEquatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumEquatable.swift; sourceTree = "<group>"; };
+		E4B11BB12274F9520075461B /* ResetAlbumListArt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetAlbumListArt.swift; sourceTree = "<group>"; };
 		E4C8B53B22342005009A20F3 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
 		E4C8B53D22349002009A20F3 /* MPDIdle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDIdle.swift; sourceTree = "<group>"; };
 		E4E8CC8F2204EC7F0024217A /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
@@ -616,7 +618,7 @@
 				E4B11B76226CC6BE0075461B /* UpdateQueuePosAction.swift */,
 				E4B11B6E226A5C7A0075461B /* UpdateStatusAction.swift */,
 				E4B11BAC2274F2E80075461B /* UpdateAlbumArt.swift */,
-				E4B11BAF2274F71A0075461B /* EnumEquatable.swift */,
+				E4B11BB12274F9520075461B /* ResetAlbumListArt.swift */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -624,6 +626,7 @@
 		E4B11BAE2274F7030075461B /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				E4B11BAF2274F71A0075461B /* EnumEquatable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -934,6 +937,7 @@
 				E41E5312223EF74A00173814 /* AlbumArtService+Filesystem.swift in Sources */,
 				E41E5301223BF99300173814 /* MPDClient+Queue.swift in Sources */,
 				E4EB237B220F7CF1008C70C0 /* MPDAlbum.swift in Sources */,
+				E4B11BB22274F9520075461B /* ResetAlbumListArt.swift in Sources */,
 				E41E5303223BF9C300173814 /* MPDClient+Idle.swift in Sources */,
 				E4B11B53226928F20075461B /* AppState.swift in Sources */,
 				E435E3E4221CD75D00184CFC /* NSImage.swift in Sources */,

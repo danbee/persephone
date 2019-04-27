@@ -15,14 +15,6 @@ class AlbumDataSource: NSObject, NSCollectionViewDataSource {
   func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
     return albums.count
   }
-//
-//  func resetCoverArt() {
-//    albums = AppDelegate.store.state.albumListState.albums.map {
-//      var album = $0
-//      album.coverArtFetched = false
-//      return album
-//    }
-//  }
 
   func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
     let item = collectionView.makeItem(withIdentifier: .albumViewItem, for: indexPath)
