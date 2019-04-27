@@ -88,6 +88,10 @@
 		E4B11B6F226A5C7A0075461B /* UpdateStatusAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11B6E226A5C7A0075461B /* UpdateStatusAction.swift */; };
 		E4B11B71226A64E60075461B /* UpdateElapsedTimeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11B70226A64E60075461B /* UpdateElapsedTimeAction.swift */; };
 		E4B11B73226A6C770075461B /* TrackTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11B72226A6C770075461B /* TrackTimer.swift */; };
+		E4B11B75226CC4D30075461B /* QueueReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11B74226CC4D30075461B /* QueueReducer.swift */; };
+		E4B11B77226CC6BE0075461B /* UpdateQueuePosAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11B76226CC6BE0075461B /* UpdateQueuePosAction.swift */; };
+		E4B11B79226D346B0075461B /* AlbumListReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11B78226D346B0075461B /* AlbumListReducer.swift */; };
+		E4B11B7B226D34F80075461B /* UpdateAlbumListAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11B7A226D34F80075461B /* UpdateAlbumListAction.swift */; };
 		E4C8B53C22342005009A20F3 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C8B53B22342005009A20F3 /* PreferencesWindowController.swift */; };
 		E4C8B53E22349002009A20F3 /* MPDIdle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C8B53D22349002009A20F3 /* MPDIdle.swift */; };
 		E4E8CC902204EC7F0024217A /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC8F2204EC7F0024217A /* Delegate.swift */; };
@@ -267,6 +271,10 @@
 		E4B11B6E226A5C7A0075461B /* UpdateStatusAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateStatusAction.swift; sourceTree = "<group>"; };
 		E4B11B70226A64E60075461B /* UpdateElapsedTimeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateElapsedTimeAction.swift; sourceTree = "<group>"; };
 		E4B11B72226A6C770075461B /* TrackTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTimer.swift; sourceTree = "<group>"; };
+		E4B11B74226CC4D30075461B /* QueueReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueReducer.swift; sourceTree = "<group>"; };
+		E4B11B76226CC6BE0075461B /* UpdateQueuePosAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateQueuePosAction.swift; sourceTree = "<group>"; };
+		E4B11B78226D346B0075461B /* AlbumListReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListReducer.swift; sourceTree = "<group>"; };
+		E4B11B7A226D34F80075461B /* UpdateAlbumListAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAlbumListAction.swift; sourceTree = "<group>"; };
 		E4C8B53B22342005009A20F3 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
 		E4C8B53D22349002009A20F3 /* MPDIdle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDIdle.swift; sourceTree = "<group>"; };
 		E4E8CC8F2204EC7F0024217A /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
@@ -566,6 +574,8 @@
 			children = (
 				E4B11B60226A4BFF0075461B /* PlayerReducer.swift */,
 				E4B11B62226A4C510075461B /* AppReducer.swift */,
+				E4B11B74226CC4D30075461B /* QueueReducer.swift */,
+				E4B11B78226D346B0075461B /* AlbumListReducer.swift */,
 			);
 			path = Reducers;
 			sourceTree = "<group>";
@@ -584,9 +594,11 @@
 		E4B11B6B226A5AF50075461B /* Actions */ = {
 			isa = PBXGroup;
 			children = (
-				E4B11B6C226A5B180075461B /* UpdateQueueAction.swift */,
-				E4B11B6E226A5C7A0075461B /* UpdateStatusAction.swift */,
+				E4B11B7A226D34F80075461B /* UpdateAlbumListAction.swift */,
 				E4B11B70226A64E60075461B /* UpdateElapsedTimeAction.swift */,
+				E4B11B6C226A5B180075461B /* UpdateQueueAction.swift */,
+				E4B11B76226CC6BE0075461B /* UpdateQueuePosAction.swift */,
+				E4B11B6E226A5C7A0075461B /* UpdateStatusAction.swift */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -837,6 +849,7 @@
 				E4F6B467221E233200ACF42A /* AlbumDataSource.swift in Sources */,
 				E408D3C2220E134F0006D9BE /* AlbumViewController.swift in Sources */,
 				E40FE71B221B904300A4223F /* NSEvent.swift in Sources */,
+				E4B11B7B226D34F80075461B /* UpdateAlbumListAction.swift in Sources */,
 				E4B11B6D226A5B180075461B /* UpdateQueueAction.swift in Sources */,
 				E4B11B68226A4FA00075461B /* QueueState.swift in Sources */,
 				E4928E0B2218D62A001D4BEA /* CGColor.swift in Sources */,
@@ -848,6 +861,7 @@
 				E41E5307223C019100173814 /* MPDClient+Status.swift in Sources */,
 				E41E5310223EF6CE00173814 /* AlbumArtService+Remote.swift in Sources */,
 				E41E530B223C033700173814 /* MPDClient+Album.swift in Sources */,
+				E4B11B77226CC6BE0075461B /* UpdateQueuePosAction.swift in Sources */,
 				E42410B62241B956005ED6DF /* MPDClient+Database.swift in Sources */,
 				E4A642DA22090CBE00067D21 /* MPDStatus.swift in Sources */,
 				E47E2FD72220720300F747E6 /* AlbumItemView.swift in Sources */,
@@ -870,8 +884,10 @@
 				E419E2872249B96600216A8C /* Song.swift in Sources */,
 				E439109822640213002982E9 /* SongNotifierService.swift in Sources */,
 				E407861C2110CE6E006887B1 /* AppDelegate.swift in Sources */,
+				E4B11B75226CC4D30075461B /* QueueReducer.swift in Sources */,
 				E41E5309223C020400173814 /* MPDClient+Command.swift in Sources */,
 				E4B11B73226A6C770075461B /* TrackTimer.swift in Sources */,
+				E4B11B79226D346B0075461B /* AlbumListReducer.swift in Sources */,
 				E47E2FE52220AA0700F747E6 /* AlbumViewLayout.swift in Sources */,
 				E41E52FF223BF95E00173814 /* MPDClient+Transport.swift in Sources */,
 				E47E2FD322205D2500F747E6 /* MainWindow.swift in Sources */,

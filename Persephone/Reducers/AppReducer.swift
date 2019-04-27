@@ -6,11 +6,13 @@
 //  Copyright © 2019 Dan Barber. All rights reserved.
 //
 
-import Foundation
 import ReSwift
 
 func appReducer(action: Action, state: AppState?) -> AppState {
+  print(action)
   return AppState(
-    playerState: playerReducer(action: action, state: state?.playerState)
+    playerState: playerReducer(action: action, state: state?.playerState),
+    queueState: queueReducer(action: action, state: state?.queueState),
+    albumListState: albumListReducer(action: action, state: state?.albumListState)
   )
 }

@@ -21,7 +21,7 @@ class TrackTimer: NSObject {
     startTime = CACurrentMediaTime()
     startElapsed = Double(elapsedTimeMs) / 1000
 
-    DispatchQueue.main.sync {
+    DispatchQueue.main.async {
       self.timer = Timer.scheduledTimer(
         withTimeInterval: 0.25,
         repeats: true

@@ -7,10 +7,14 @@
 //
 
 import Cocoa
+import ReSwift
 
 class AlbumViewController: NSViewController,
                            NSCollectionViewDelegate,
-                           NSCollectionViewDelegateFlowLayout {
+                           NSCollectionViewDelegateFlowLayout,
+                           StoreSubscriber {
+  typealias StoreSubscriberStateType = AlbumListState
+
   var preferences = Preferences()
 
   let paddingWidth: CGFloat = 40
@@ -21,21 +25,13 @@ class AlbumViewController: NSViewController,
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    AppDelegate.store.subscribe(self) {
+      (subscription: Subscription<AppState>) -> Subscription<AlbumListState> in
+
+      subscription.select { state -> AlbumListState in state.albumListState }
+    }
+
     albumScrollView.postsBoundsChangedNotifications = true
-
-    NotificationCenter.default.addObserver(
-      self,
-      selector: #selector(updateAlbums(_:)),
-      name: Notification.loadedAlbums,
-      object: AppDelegate.mpdClient
-    )
-
-    NotificationCenter.default.addObserver(
-      self,
-      selector: #selector(clearAlbums(_:)),
-      name: Notification.willDisconnect,
-      object: AppDelegate.mpdClient
-    )
 
     albumCollectionView.dataSource = dataSource
 
@@ -72,24 +68,15 @@ class AlbumViewController: NSViewController,
     case "mpdLibraryDir":
       albumCollectionView.reloadData()
     case "fetchMissingArtworkFromInternet":
-      dataSource.resetCoverArt()
+      // dataSource.resetCoverArt()
       albumCollectionView.reloadData()
     default:
       break
     }
   }
 
-  @objc func updateAlbums(_ notification: Notification) {
-    guard let albums = notification.userInfo?[Notification.albumsKey] as? [MPDClient.MPDAlbum]
-      else { return }
-
-    dataSource.albums = albums.map { Album(mpdAlbum: $0) }
-    albumCollectionView.reloadData()
-  }
-
-  @objc func clearAlbums(_ notification: Notification) {
-    dataSource.albums = []
-
+  func newState(state: StoreSubscriberStateType) {
+    print("New album list state")
     albumCollectionView.reloadData()
   }
 

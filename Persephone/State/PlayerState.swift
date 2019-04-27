@@ -17,3 +17,11 @@ struct PlayerState: StateType {
   var totalTime: UInt?
   var elapsedTimeMs: UInt?
 }
+
+extension PlayerState: Equatable {
+  static func == (lhs: PlayerState, rhs: PlayerState) -> Bool {
+    return (lhs.state == rhs.state) &&
+      (lhs.totalTime == rhs.totalTime) &&
+      (lhs.elapsedTimeMs == rhs.elapsedTimeMs)
+  }
+}

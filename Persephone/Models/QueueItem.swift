@@ -13,3 +13,11 @@ struct QueueItem {
   var queuePos: Int
   var isPlaying: Bool
 }
+
+extension QueueItem: Equatable {
+  static func == (lhs: QueueItem, rhs: QueueItem) -> Bool {
+    return (lhs.song == rhs.song) &&
+      (lhs.queuePos == rhs.queuePos) &&
+      (lhs.isPlaying == rhs.isPlaying)
+  }
+}

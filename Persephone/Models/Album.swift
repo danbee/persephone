@@ -30,3 +30,10 @@ struct Album {
     return "\(title) - \(artist)".sha1()
   }
 }
+
+extension Album: Equatable {
+  static func == (lhs: Album, rhs: Album) -> Bool {
+    return (lhs.artist == rhs.artist) &&
+      (lhs.title == rhs.title)
+  }
+}

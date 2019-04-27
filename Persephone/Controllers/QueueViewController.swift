@@ -7,10 +7,13 @@
 //
 
 import Cocoa
-import PromiseKit
+import ReSwift
 
 class QueueViewController: NSViewController,
-                           NSOutlineViewDelegate {
+                           NSOutlineViewDelegate,
+                           StoreSubscriber {
+  typealias StoreSubscriberStateType = QueueState
+
   var dataSource = QueueDataSource()
 
   @IBOutlet var queueView: NSOutlineView!
@@ -19,11 +22,22 @@ class QueueViewController: NSViewController,
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    setupNotificationObservers()
+    AppDelegate.store.subscribe(self) {
+      (subscription: Subscription<AppState>) -> Subscription<QueueState> in
+
+      subscription.select { state in state.queueState }
+    }
 
     queueView.dataSource = dataSource
     queueView.columnAutoresizingStyle = .sequentialColumnAutoresizingStyle
- }
+  }
+
+  func newState(state: StoreSubscriberStateType) {
+    print("New queue state")
+    dataSource.setQueueIcon()
+    queueView.reloadData()
+    updateAlbumArt(state)
+  }
 
   override func keyDown(with event: NSEvent) {
     switch event.keyCode {
@@ -42,15 +56,8 @@ class QueueViewController: NSViewController,
     }
   }
 
-  @objc func stateChanged(_ notification: Notification) {
-    guard let state = notification.userInfo?[Notification.stateKey] as? MPDClient.MPDStatus.State
-      else { return }
-
-    dataSource.setQueueIcon(state)
-  }
-
-  func notifyTrack() {
-    guard let currentSong = dataSource.currentSong,
+  func notifyTrack(_ state: QueueState) {
+    guard let currentSong = state.currentSong,
       let status = AppDelegate.mpdClient.status,
       status.state == .playing
     else { return }
@@ -59,25 +66,10 @@ class QueueViewController: NSViewController,
       .deliver()
   }
 
-  @objc func queueChanged(_ notification: Notification) {
-    guard let queue = notification.userInfo?[Notification.queueKey] as? [MPDClient.MPDSong]
-      else { return }
-
-    dataSource.updateQueue(queue)
-    queueView.reloadData()
-  }
-
-  @objc func queuePosChanged(_ notification: Notification) {
-    guard let queuePos = notification.userInfo?[Notification.queuePosKey] as? Int
-      else { return }
-
-    dataSource.setQueuePos(queuePos)
-    queueView.reloadData()
-    updateAlbumArt()
-  }
-
-  func updateAlbumArt() {
-    if let playingQueueItem = dataSource.queue.first(where: { $0.isPlaying }) {
+  func updateAlbumArt(_ state: QueueState) {
+    if let playingQueueItem = state.queue.first(
+      where: { $0.isPlaying }
+    ) {
       let albumArtService = AlbumArtService(song: playingQueueItem.song)
 
       albumArtService.fetchBigAlbumArt()
@@ -88,7 +80,7 @@ class QueueViewController: NSViewController,
             self.queueAlbumArtImage.image = NSImage.defaultCoverArt
           }
 
-          self.notifyTrack()
+          self.notifyTrack(state)
         }
         .cauterize()
     } else {
@@ -167,28 +159,5 @@ func cellForSongTitle(_ outlineView: NSOutlineView, with queueItem: QueueItem) -
     cellView.textField?.stringValue = "QUEUE"
 
     return cellView
-  }
-
-  func setupNotificationObservers() {
-    NotificationCenter.default.addObserver(
-      self,
-      selector: #selector(stateChanged(_:)),
-      name: Notification.stateChanged,
-      object: AppDelegate.mpdClient
-    )
-
-    NotificationCenter.default.addObserver(
-      self,
-      selector: #selector(queueChanged(_:)),
-      name: Notification.queueChanged,
-      object: AppDelegate.mpdClient
-    )
-
-    NotificationCenter.default.addObserver(
-      self,
-      selector: #selector(queuePosChanged(_:)),
-      name: Notification.queuePosChanged,
-      object: AppDelegate.mpdClient
-    )
   }
 }

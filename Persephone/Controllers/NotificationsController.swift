@@ -16,26 +16,16 @@ class NotificationsController: MPDClientDelegate {
   }
 
   func willDisconnect(mpdClient: MPDClient) {
+    DispatchQueue.main.async {
+      AppDelegate.store.dispatch(UpdateAlbumListAction(albums: []))
+    }
     sendNotification(name: Notification.willDisconnect)
   }
 
   func didUpdateStatus(mpdClient: MPDClient, status: MPDClient.MPDStatus) {
-    AppDelegate.store.dispatch(UpdateStatusAction(status: status))
-    sendNotification(
-      name: Notification.stateChanged,
-      userInfo: [Notification.stateKey: status.state]
-    )
-    sendNotification(
-      name: Notification.timeChanged,
-      userInfo: [
-        Notification.totalTimeKey: status.totalTime,
-        Notification.elapsedTimeMsKey: status.elapsedTimeMs
-      ]
-    )
-  }
-
-  func didUpdateTime(mpdClient: MPDClient, total: UInt, elapsedMs: UInt) {
-
+    DispatchQueue.main.async {
+      AppDelegate.store.dispatch(UpdateStatusAction(status: status))
+    }
   }
 
   func willStartDatabaseUpdate(mpdClient: MPDClient) {
@@ -47,21 +37,22 @@ class NotificationsController: MPDClientDelegate {
   }
 
   func didUpdateQueue(mpdClient: MPDClient, queue: [MPDClient.MPDSong]) {
-    //AppDelegate.store.dispatch(UpdateQueueAction(queue: queue))
-    sendNotification(
-      name: Notification.queueChanged,
-      userInfo: [Notification.queueKey: queue]
-    )
+    DispatchQueue.main.async {
+      AppDelegate.store.dispatch(UpdateQueueAction(queue: queue))
+    }
   }
 
   func didUpdateQueuePos(mpdClient: MPDClient, song: Int) {
-    sendNotification(
-      name: Notification.queuePosChanged,
-      userInfo: [Notification.queuePosKey: song]
-    )
+    DispatchQueue.main.async {
+      AppDelegate.store.dispatch(UpdateQueuePosAction(queuePos: song))
+    }
   }
 
   func didLoadAlbums(mpdClient: MPDClient, albums: [MPDClient.MPDAlbum]) {
+    print("Albums")
+    DispatchQueue.main.async {
+      AppDelegate.store.dispatch(UpdateAlbumListAction(albums: albums))
+    }
     sendNotification(
       name: Notification.loadedAlbums,
       userInfo: [Notification.albumsKey: albums]

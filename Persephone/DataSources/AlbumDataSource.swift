@@ -10,45 +10,44 @@ import Cocoa
 import PromiseKit
 
 class AlbumDataSource: NSObject, NSCollectionViewDataSource {
-  var albums: [Album] = []
-
   func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-    return albums.count
+    return AppDelegate.store.state.albumListState.albums.count
   }
-
-  func resetCoverArt() {
-    albums = albums.map {
-      var album = $0
-      album.coverArtFetched = false
-      return album
-    }
-  }
+//
+//  func resetCoverArt() {
+//    albums = AppDelegate.store.state.albumListState.albums.map {
+//      var album = $0
+//      album.coverArtFetched = false
+//      return album
+//    }
+//  }
 
   func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
+    let albums = AppDelegate.store.state.albumListState.albums
     let item = collectionView.makeItem(withIdentifier: .albumViewItem, for: indexPath)
     guard let albumViewItem = item as? AlbumViewItem else { return item }
 
     albumViewItem.view.wantsLayer = true
     albumViewItem.setAlbum(albums[indexPath.item])
 
-    if albums[indexPath.item].coverArt == nil &&
-      !albums[indexPath.item].coverArtFetched {
-
-      AppDelegate.mpdClient.getAlbumFirstSong(for: albums[indexPath.item].mpdAlbum) {
-        guard let song = $0 else { return }
-        
-        AlbumArtService(song: Song(mpdSong: song))
-          .fetchAlbumArt()
-          .done { image in
-            self.albums[indexPath.item].coverArt = image
-            self.albums[indexPath.item].coverArtFetched = true
-
-            DispatchQueue.main.async {
-              collectionView.reloadItems(at: [indexPath])
-            }
-          }
-      }
-    }
+//    if albums[indexPath.item].coverArt == nil &&
+//      !albums[indexPath.item].coverArtFetched {
+//
+//      AppDelegate.mpdClient.getAlbumFirstSong(for: albums[indexPath.item].mpdAlbum) {
+//        guard let song = $0 else { return }
+//        
+//          AlbumArtService(song: Song(mpdSong: song))
+//            .fetchAlbumArt()
+//            .done { image in
+//              self.albums[indexPath.item].coverArt = image
+//              self.albums[indexPath.item].coverArtFetched = true
+//
+//              DispatchQueue.main.async {
+//                collectionView.reloadItems(at: [indexPath])
+//              }
+//            }
+//      }
+//    }
 
     return albumViewItem
   }

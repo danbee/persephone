@@ -10,7 +10,7 @@ import Cocoa
 import ReSwift
 
 class WindowController: NSWindowController, StoreSubscriber {
-  typealias StoreSubscriberStateType = AppState
+  typealias StoreSubscriberStateType = PlayerState
 
   enum TransportAction: Int {
     case prevTrack, playPause, stop, nextTrack
@@ -23,8 +23,11 @@ class WindowController: NSWindowController, StoreSubscriber {
     super.windowDidLoad()
     window?.titleVisibility = .hidden
 
-    // TODO: We will want to filter this subscribe later
-    AppDelegate.store.subscribe(self)
+    AppDelegate.store.subscribe(self) {
+      (subscription: Subscription<AppState>) -> Subscription<PlayerState> in
+
+      subscription.select { state in state.playerState }
+    }
 
     NotificationCenter.default.addObserver(
       self,
@@ -44,12 +47,13 @@ class WindowController: NSWindowController, StoreSubscriber {
     trackRemaining.font = .timerFont
   }
 
-  func newState(state: WindowController.StoreSubscriberStateType) {
-    self.state = state.playerState.state
+  func newState(state: StoreSubscriberStateType) {
+    print("New player state")
+    self.state = state.state
 
     DispatchQueue.main.async {
-      self.setTransportControlState(state.playerState)
-      self.setTrackProgressControls(state.playerState)
+      self.setTransportControlState(state)
+      self.setTrackProgressControls(state)
     }
   }
 

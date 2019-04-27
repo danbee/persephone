@@ -21,7 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, MediaKeyTapDelegate {
 
   static let trackTimer = TrackTimer()
 
-  static let store = Store(reducer: appReducer, state: nil)
+  static let store = Store<AppState>(reducer: appReducer, state: nil)
 
   func applicationDidFinishLaunching(_ aNotification: Notification) {
     connect()
