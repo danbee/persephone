@@ -10,10 +10,7 @@ import Cocoa
 import ReSwift
 
 class QueueViewController: NSViewController,
-                           NSOutlineViewDelegate,
-                           StoreSubscriber {
-  typealias StoreSubscriberStateType = QueueState
-
+                           NSOutlineViewDelegate {
   var dataSource = QueueDataSource()
 
   @IBOutlet var queueView: NSOutlineView!
@@ -36,12 +33,6 @@ class QueueViewController: NSViewController,
     super.viewWillDisappear()
 
     AppDelegate.store.unsubscribe(self)
-  }
-  
-  func newState(state: StoreSubscriberStateType) {
-    dataSource.setQueueIcon()
-    queueView.reloadData()
-    updateAlbumArt(state)
   }
 
   override func keyDown(with event: NSEvent) {
@@ -164,5 +155,15 @@ func cellForSongTitle(_ outlineView: NSOutlineView, with queueItem: QueueItem) -
     cellView.textField?.stringValue = "QUEUE"
 
     return cellView
+  }
+}
+
+extension QueueViewController: StoreSubscriber {
+  typealias StoreSubscriberStateType = QueueState
+
+  func newState(state: StoreSubscriberStateType) {
+    dataSource.setQueueIcon()
+    queueView.reloadData()
+    updateAlbumArt(state)
   }
 }

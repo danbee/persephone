@@ -9,9 +9,7 @@
 import Cocoa
 import ReSwift
 
-class WindowController: NSWindowController, StoreSubscriber {
-  typealias StoreSubscriberStateType = PlayerState
-
+class WindowController: NSWindowController {
   enum TransportAction: Int {
     case prevTrack, playPause, stop, nextTrack
   }
@@ -31,16 +29,6 @@ class WindowController: NSWindowController, StoreSubscriber {
 
     trackProgress.font = .timerFont
     trackRemaining.font = .timerFont
-  }
-
-  func newState(state: StoreSubscriberStateType) {
-    self.state = state.state
-
-    DispatchQueue.main.async {
-      self.setTransportControlState(state)
-      self.setTrackProgressControls(state)
-      self.setDatabaseUpdatingIndicator(state)
-    }
   }
 
   override func keyDown(with event: NSEvent) {
@@ -160,4 +148,18 @@ class WindowController: NSWindowController, StoreSubscriber {
   @IBOutlet var trackProgressBar: NSSlider!
   @IBOutlet var trackRemaining: NSTextField!
   @IBOutlet var databaseUpdatingIndicator: NSProgressIndicator!
+}
+
+extension WindowController: StoreSubscriber {
+  typealias StoreSubscriberStateType = PlayerState
+
+  func newState(state: StoreSubscriberStateType) {
+    self.state = state.state
+
+    DispatchQueue.main.async {
+      self.setTransportControlState(state)
+      self.setTrackProgressControls(state)
+      self.setDatabaseUpdatingIndicator(state)
+    }
+  }
 }

@@ -12,10 +12,7 @@ import Differ
 
 class AlbumViewController: NSViewController,
                            NSCollectionViewDelegate,
-                           NSCollectionViewDelegateFlowLayout,
-                           StoreSubscriber {
-  typealias StoreSubscriberStateType = AlbumListState
-
+                           NSCollectionViewDelegateFlowLayout {
   var preferences = Preferences()
 
   let paddingWidth: CGFloat = 40
@@ -81,6 +78,13 @@ class AlbumViewController: NSViewController,
     }
   }
 
+  @IBOutlet var albumScrollView: NSScrollView!
+  @IBOutlet var albumCollectionView: NSCollectionView!
+}
+
+extension AlbumViewController: StoreSubscriber {
+  typealias StoreSubscriberStateType = AlbumListState
+
   func newState(state: StoreSubscriberStateType) {
     if dataSource.albums == [] {
       dataSource.albums = state.albums
@@ -94,7 +98,4 @@ class AlbumViewController: NSViewController,
       )
     }
   }
-
-  @IBOutlet var albumScrollView: NSScrollView!
-  @IBOutlet var albumCollectionView: NSCollectionView!
 }

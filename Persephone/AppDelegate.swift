@@ -11,10 +11,9 @@ import ReSwift
 import MediaKeyTap
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate, MediaKeyTapDelegate, StoreSubscriber {
-
-  typealias StoreSubscriberStateType = PlayerState
-
+class AppDelegate: NSObject,
+                   NSApplicationDelegate,
+                   MediaKeyTapDelegate {
   var preferences = Preferences()
   var mediaKeyTap: MediaKeyTap?
 
@@ -87,9 +86,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, MediaKeyTapDelegate, StoreSu
     AppDelegate.mpdClient.updateDatabase()
   }
 
+  @IBOutlet weak var updateDatabaseMenuItem: NSMenuItem!
+}
+
+extension AppDelegate: StoreSubscriber {
+  typealias StoreSubscriberStateType = PlayerState
+
   func newState(state: PlayerState) {
     updateDatabaseMenuItem.isEnabled = !state.databaseUpdating
   }
-
-  @IBOutlet weak var updateDatabaseMenuItem: NSMenuItem!
 }
