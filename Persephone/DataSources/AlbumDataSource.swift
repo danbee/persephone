@@ -24,7 +24,7 @@ class AlbumDataSource: NSObject, NSCollectionViewDataSource {
     albumViewItem.setAlbum(albums[indexPath.item])
 
     switch albums[indexPath.item].coverArt {
-    case .notAsked:
+    case .notLoaded:
       AppDelegate.mpdClient.getAlbumFirstSong(for: albums[indexPath.item].mpdAlbum) {
         guard let song = $0 else { return }
 
@@ -35,7 +35,6 @@ class AlbumDataSource: NSObject, NSCollectionViewDataSource {
               AppDelegate.store.dispatch(
                 UpdateAlbumArt(coverArt: image, albumIndex: indexPath.item)
               )
-              //collectionView.reloadItems(at: [indexPath])
             }
           }
       }

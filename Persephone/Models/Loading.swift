@@ -9,7 +9,7 @@
 import Foundation
 
 enum Loading<T> {
-  case notAsked
+  case notLoaded
   case loading
   case loaded(T)
   case error(Error)
@@ -18,7 +18,7 @@ enum Loading<T> {
 extension Loading: EnumEquatable {
   static func ~= (lhs: Loading<T>, rhs: Loading<T>) -> Bool {
     switch (lhs, rhs) {
-    case (.notAsked, .notAsked),
+    case (.notLoaded, .notLoaded),
          (.loading, .loading),
          (.loaded, .loaded),
          (.error, .error):

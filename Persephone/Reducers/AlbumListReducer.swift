@@ -24,10 +24,10 @@ func albumListReducer(action: Action, state: AlbumListState?) -> AlbumListState 
       switch album.coverArt {
       case .loaded(let coverArt):
         if coverArt == nil {
-          album.coverArt = .notAsked
+          album.coverArt = .notLoaded
         }
       default:
-        album.coverArt = .notAsked
+        album.coverArt = .notLoaded
       }
       return album
     }
