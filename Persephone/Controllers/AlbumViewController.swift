@@ -8,6 +8,7 @@
 
 import Cocoa
 import ReSwift
+import Differ
 
 class AlbumViewController: NSViewController,
                            NSCollectionViewDelegate,
@@ -37,6 +38,12 @@ class AlbumViewController: NSViewController,
 
     preferences.addObserver(self, forKeyPath: "mpdLibraryDir")
     preferences.addObserver(self, forKeyPath: "fetchMissingArtworkFromInternet")
+  }
+
+  override func viewWillDisappear() {
+    super.viewWillDisappear()
+
+    AppDelegate.store.unsubscribe(self)
   }
 
   override func viewWillLayout() {
@@ -77,7 +84,17 @@ class AlbumViewController: NSViewController,
 
   func newState(state: StoreSubscriberStateType) {
     print("New album list state")
-    albumCollectionView.reloadData()
+    if dataSource.albums == [] {
+      dataSource.albums = state.albums
+      albumCollectionView.reloadData()
+    } else {
+      let oldAlbums = dataSource.albums
+      dataSource.albums = state.albums
+      albumCollectionView.animateItemChanges(
+        oldData: oldAlbums,
+        newData: dataSource.albums
+      )
+    }
   }
 
   @IBOutlet var albumScrollView: NSScrollView!

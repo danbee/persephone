@@ -11,8 +11,7 @@ import CryptoSwift
 
 struct Album {
   var mpdAlbum: MPDClient.MPDAlbum
-  var coverArt: NSImage?
-  var coverArtFetched: Bool = false
+  var coverArt: Loading<NSImage?> = .notAsked
 
   init(mpdAlbum: MPDClient.MPDAlbum) {
     self.mpdAlbum = mpdAlbum
@@ -34,6 +33,7 @@ struct Album {
 extension Album: Equatable {
   static func == (lhs: Album, rhs: Album) -> Bool {
     return (lhs.artist == rhs.artist) &&
-      (lhs.title == rhs.title)
+      (lhs.title == rhs.title) &&
+      (lhs.coverArt ~= rhs.coverArt)
   }
 }

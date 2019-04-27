@@ -9,7 +9,6 @@
 import ReSwift
 
 func appReducer(action: Action, state: AppState?) -> AppState {
-  print(action)
   return AppState(
     playerState: playerReducer(action: action, state: state?.playerState),
     queueState: queueReducer(action: action, state: state?.queueState),

@@ -31,10 +31,11 @@ class AlbumViewItem: NSCollectionViewItem {
     self.album = album
     albumTitle.stringValue = album.title
     albumArtist.stringValue = album.artist
-    
-    if let coverArt = album.coverArt {
+
+    switch album.coverArt {
+    case .loaded(let coverArt):
       albumCoverView.image = coverArt
-    } else {
+    default:
       albumCoverView.image = .defaultCoverArt
     }
   }

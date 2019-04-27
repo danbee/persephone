@@ -32,6 +32,12 @@ class QueueViewController: NSViewController,
     queueView.columnAutoresizingStyle = .sequentialColumnAutoresizingStyle
   }
 
+  override func viewWillDisappear() {
+    super.viewWillDisappear()
+
+    AppDelegate.store.unsubscribe(self)
+  }
+  
   func newState(state: StoreSubscriberStateType) {
     print("New queue state")
     dataSource.setQueueIcon()

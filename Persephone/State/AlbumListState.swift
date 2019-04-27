@@ -10,7 +10,6 @@ import ReSwift
 
 struct AlbumListState: StateType {
   var albums: [Album] = []
-  var albumsWithUpdates: [Int]
 }
 
 extension AlbumListState: Equatable {
