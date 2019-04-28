@@ -12,4 +12,5 @@ struct AppState: StateType {
   var playerState = PlayerState()
   var queueState = QueueState()
   var albumListState = AlbumListState()
+  var preferencesState = PreferencesState()
 }

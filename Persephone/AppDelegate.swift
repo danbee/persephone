@@ -14,9 +14,9 @@ import MediaKeyTap
 class AppDelegate: NSObject,
                    NSApplicationDelegate,
                    MediaKeyTapDelegate {
-  var preferences = Preferences()
   var mediaKeyTap: MediaKeyTap?
-  var userNotificationsController: UserNotificationsController?
+  var userNotificationsController = UserNotificationsController()
+  var mpdServerController = MPDServerController()
 
   static let mpdClient = MPDClient(
     withDelegate: NotificationsController()
@@ -27,38 +27,18 @@ class AppDelegate: NSObject,
   static let store = Store<AppState>(reducer: appReducer, state: nil)
 
   func applicationDidFinishLaunching(_ aNotification: Notification) {
-    connect()
-
-    preferences.addObserver(self, forKeyPath: "mpdHost")
-    preferences.addObserver(self, forKeyPath: "mpdPort")
+    mpdServerController.connect()
 
     mediaKeyTap = MediaKeyTap(delegate: self)
     mediaKeyTap?.start()
 
     AppDelegate.store.subscribe(self) {
-      $0.select { $0.playerState }
+      $0.select { $0.playerState.databaseUpdating }
     }
-
-    userNotificationsController = UserNotificationsController()
   }
 
   func applicationWillTerminate(_ aNotification: Notification) {
-    disconnect()
-  }
-
-  override func observeValue(
-    forKeyPath keyPath: String?,
-    of object: Any?,
-    change: [NSKeyValueChangeKey : Any]?,
-    context: UnsafeMutableRawPointer?
-  ) {
-    switch keyPath {
-    case "mpdHost", "mpdPort":
-      disconnect()
-      connect()
-    default:
-      break
-    }
+    mpdServerController.disconnect()
   }
 
   func handle(mediaKey: MediaKey, event: KeyEvent) {
@@ -72,17 +52,6 @@ class AppDelegate: NSObject,
     }
   }
 
-  func connect() {
-    AppDelegate.mpdClient.connect(
-      host: preferences.mpdHostOrDefault,
-      port: preferences.mpdPortOrDefault
-    )
-  }
-
-  func disconnect() {
-    AppDelegate.mpdClient.disconnect()
-  }
-
   @IBAction func updateDatabase(_ sender: NSMenuItem) {
     AppDelegate.mpdClient.updateDatabase()
   }
@@ -91,9 +60,9 @@ class AppDelegate: NSObject,
 }
 
 extension AppDelegate: StoreSubscriber {
-  typealias StoreSubscriberStateType = PlayerState
+  typealias StoreSubscriberStateType = Bool
 
-  func newState(state: PlayerState) {
-    updateDatabaseMenuItem.isEnabled = !state.databaseUpdating
+  func newState(state: Bool) {
+    updateDatabaseMenuItem.isEnabled = !state
   }
 }

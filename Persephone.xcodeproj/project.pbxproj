@@ -17,7 +17,6 @@
 		E408D3BE220E03EE0006D9BE /* RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E408D3BD220E03EE0006D9BE /* RawRepresentable.swift */; };
 		E408D3C2220E134F0006D9BE /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E408D3C1220E134F0006D9BE /* AlbumViewController.swift */; };
 		E408D3CB220E341D0006D9BE /* AlbumViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = E408D3C9220E341D0006D9BE /* AlbumViewItem.xib */; };
-		E40F41F3221EDE27004B6CB8 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40F41F2221EDE27004B6CB8 /* Preferences.swift */; };
 		E40FE71B221B904300A4223F /* NSEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40FE71A221B904300A4223F /* NSEvent.swift */; };
 		E419E2872249B96600216A8C /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = E419E2862249B96600216A8C /* Song.swift */; };
 		E41B22C621FB932700D544F6 /* MPDClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41B22C521FB932700D544F6 /* MPDClient.swift */; };
@@ -39,6 +38,7 @@
 		E435E3E2221CD4E200184CFC /* NSFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = E435E3E1221CD4E200184CFC /* NSFont.swift */; };
 		E435E3E4221CD75D00184CFC /* NSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E435E3E3221CD75D00184CFC /* NSImage.swift */; };
 		E439109822640213002982E9 /* SongNotifierService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439109722640213002982E9 /* SongNotifierService.swift */; };
+		E4405192227644340090CD6F /* MPDServerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4405191227644340090CD6F /* MPDServerController.swift */; };
 		E450AD7E222620A10091BED3 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450AD7D222620A10091BED3 /* Album.swift */; };
 		E450AD8F22262C620091BED3 /* PromiseKit.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = E450AD8E22262C620091BED3 /* PromiseKit.framework.dSYM */; };
 		E450AD9122262C780091BED3 /* SwiftyJSON.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = E450AD9022262C780091BED3 /* SwiftyJSON.framework.dSYM */; };
@@ -108,6 +108,10 @@
 		E4F6B460221E119B00ACF42A /* QueueDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6B45F221E119B00ACF42A /* QueueDataSource.swift */; };
 		E4F6B463221E125900ACF42A /* QueueItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6B462221E125900ACF42A /* QueueItem.swift */; };
 		E4F6B467221E233200ACF42A /* AlbumDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6B466221E233200ACF42A /* AlbumDataSource.swift */; };
+		E4FF718E2276010E00D4C412 /* PreferencesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF718D2276010E00D4C412 /* PreferencesState.swift */; };
+		E4FF7190227601B400D4C412 /* PreferencesReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF718F227601B400D4C412 /* PreferencesReducer.swift */; };
+		E4FF71922276029000D4C412 /* PreferencesActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF71912276029000D4C412 /* PreferencesActions.swift */; };
+		E4FF71942276043A00D4C412 /* MPDServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF71932276043A00D4C412 /* MPDServer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,7 +179,6 @@
 		E408D3BD220E03EE0006D9BE /* RawRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawRepresentable.swift; sourceTree = "<group>"; };
 		E408D3C1220E134F0006D9BE /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
 		E408D3C9220E341D0006D9BE /* AlbumViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumViewItem.xib; sourceTree = "<group>"; };
-		E40F41F2221EDE27004B6CB8 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		E40FE71A221B904300A4223F /* NSEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSEvent.swift; sourceTree = "<group>"; };
 		E419E2862249B96600216A8C /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		E41B22BF21FB6BBA00D544F6 /* libmpdclient.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libmpdclient.2.dylib; path = libmpdclient/output/libmpdclient.2.dylib; sourceTree = "<group>"; };
@@ -235,6 +238,7 @@
 		E435E3E1221CD4E200184CFC /* NSFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSFont.swift; sourceTree = "<group>"; };
 		E435E3E3221CD75D00184CFC /* NSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImage.swift; sourceTree = "<group>"; };
 		E439109722640213002982E9 /* SongNotifierService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongNotifierService.swift; sourceTree = "<group>"; };
+		E4405191227644340090CD6F /* MPDServerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDServerController.swift; sourceTree = "<group>"; };
 		E450AD7D222620A10091BED3 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		E450AD8522262AE60091BED3 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/Mac/SwiftyJSON.framework; sourceTree = "<group>"; };
 		E450AD8C22262C590091BED3 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/Mac/PromiseKit.framework; sourceTree = "<group>"; };
@@ -296,6 +300,10 @@
 		E4F6B45F221E119B00ACF42A /* QueueDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueDataSource.swift; sourceTree = "<group>"; };
 		E4F6B462221E125900ACF42A /* QueueItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueItem.swift; sourceTree = "<group>"; };
 		E4F6B466221E233200ACF42A /* AlbumDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDataSource.swift; sourceTree = "<group>"; };
+		E4FF718D2276010E00D4C412 /* PreferencesState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesState.swift; sourceTree = "<group>"; };
+		E4FF718F227601B400D4C412 /* PreferencesReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesReducer.swift; sourceTree = "<group>"; };
+		E4FF71912276029000D4C412 /* PreferencesActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesActions.swift; sourceTree = "<group>"; };
+		E4FF71932276043A00D4C412 /* MPDServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDServer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -361,7 +369,6 @@
 			isa = PBXGroup;
 			children = (
 				E4B11BAE2274F7030075461B /* Protocols */,
-				E4B11B6B226A5AF50075461B /* Actions */,
 				E407861B2110CE6E006887B1 /* AppDelegate.swift */,
 				E407861F2110CE70006887B1 /* Assets.xcassets */,
 				E4D1B597220BA3A20026F233 /* Controllers */,
@@ -376,7 +383,6 @@
 				E40786252110CE70006887B1 /* Persephone.entitlements */,
 				E450AD9E2229B9BC0091BED3 /* PersephoneBridgingHeader.h */,
 				E4A83BEC2221F5DD0098FED6 /* Preferences */,
-				E4B11B5F226A4BED0075461B /* Reducers */,
 				E4D1B598220BA3C90026F233 /* Resources */,
 				E4A83BF2222207BE0098FED6 /* Services */,
 				E4B11B64226A4F460075461B /* State */,
@@ -591,6 +597,7 @@
 				E4B11B62226A4C510075461B /* AppReducer.swift */,
 				E4B11B74226CC4D30075461B /* QueueReducer.swift */,
 				E4B11B78226D346B0075461B /* AlbumListReducer.swift */,
+				E4FF718F227601B400D4C412 /* PreferencesReducer.swift */,
 			);
 			path = Reducers;
 			sourceTree = "<group>";
@@ -598,10 +605,13 @@
 		E4B11B64226A4F460075461B /* State */ = {
 			isa = PBXGroup;
 			children = (
+				E4B11B6B226A5AF50075461B /* Actions */,
+				E4B11B5F226A4BED0075461B /* Reducers */,
 				E4B11B52226928F20075461B /* AppState.swift */,
 				E4B11B65226A4F830075461B /* PlayerState.swift */,
 				E4B11B67226A4FA00075461B /* QueueState.swift */,
 				E4B11B69226A4FBC0075461B /* AlbumListState.swift */,
+				E4FF718D2276010E00D4C412 /* PreferencesState.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -612,6 +622,7 @@
 				E4B11BC12275EE410075461B /* AlbumListActions.swift */,
 				E4B11BBD2275EDAA0075461B /* PlayerActions.swift */,
 				E4B11BBF2275EE150075461B /* QueueActions.swift */,
+				E4FF71912276029000D4C412 /* PreferencesActions.swift */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -655,6 +666,7 @@
 				E4E8CC912204F4B80024217A /* QueueViewController.swift */,
 				E465049921E94DF500A70F4C /* WindowController.swift */,
 				E4B11BB52275374B0075461B /* UserNotificationsController.swift */,
+				E4405191227644340090CD6F /* MPDServerController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -682,7 +694,7 @@
 			children = (
 				E450AD7D222620A10091BED3 /* Album.swift */,
 				E4B11BA82274EDE30075461B /* Loading.swift */,
-				E40F41F2221EDE27004B6CB8 /* Preferences.swift */,
+				E4FF71932276043A00D4C412 /* MPDServer.swift */,
 				E4F6B462221E125900ACF42A /* QueueItem.swift */,
 				E419E2862249B96600216A8C /* Song.swift */,
 				E47E2FDC2220A6D100F747E6 /* Time.swift */,
@@ -877,6 +889,7 @@
 				E4B11BB62275374B0075461B /* UserNotificationsController.swift in Sources */,
 				E4B11B68226A4FA00075461B /* QueueState.swift in Sources */,
 				E4928E0B2218D62A001D4BEA /* CGColor.swift in Sources */,
+				E4405192227644340090CD6F /* MPDServerController.swift in Sources */,
 				E4C8B53E22349002009A20F3 /* MPDIdle.swift in Sources */,
 				E4F6B460221E119B00ACF42A /* QueueDataSource.swift in Sources */,
 				E4C8B53C22342005009A20F3 /* PreferencesWindowController.swift in Sources */,
@@ -896,15 +909,17 @@
 				E45962C62241A78500FC1A1E /* MPDCommand.swift in Sources */,
 				E408D3B9220DE98F0006D9BE /* NSUserInterfaceItemIdentifier.swift in Sources */,
 				E4EB2379220F10B8008C70C0 /* MPDPair.swift in Sources */,
+				E4FF7190227601B400D4C412 /* PreferencesReducer.swift in Sources */,
 				E4F6B463221E125900ACF42A /* QueueItem.swift in Sources */,
 				E4A83BF12221FAA00098FED6 /* PreferencesViewController.swift in Sources */,
 				E4B11BC22275EE410075461B /* AlbumListActions.swift in Sources */,
 				E4B11B61226A4C000075461B /* PlayerReducer.swift in Sources */,
+				E4FF71922276029000D4C412 /* PreferencesActions.swift in Sources */,
 				E465049A21E94DF500A70F4C /* WindowController.swift in Sources */,
 				E41B22C621FB932700D544F6 /* MPDClient.swift in Sources */,
-				E40F41F3221EDE27004B6CB8 /* Preferences.swift in Sources */,
 				E47E2FDD2220A6D100F747E6 /* Time.swift in Sources */,
 				E419E2872249B96600216A8C /* Song.swift in Sources */,
+				E4FF718E2276010E00D4C412 /* PreferencesState.swift in Sources */,
 				E439109822640213002982E9 /* SongNotifierService.swift in Sources */,
 				E407861C2110CE6E006887B1 /* AppDelegate.swift in Sources */,
 				E4B11B75226CC4D30075461B /* QueueReducer.swift in Sources */,
@@ -925,6 +940,7 @@
 				E408D3BE220E03EE0006D9BE /* RawRepresentable.swift in Sources */,
 				E4B11B66226A4F830075461B /* PlayerState.swift in Sources */,
 				E4B11BBE2275EDAA0075461B /* PlayerActions.swift in Sources */,
+				E4FF71942276043A00D4C412 /* MPDServer.swift in Sources */,
 				E41E530E223EF4CF00173814 /* CoverArtService+Caching.swift in Sources */,
 				E4E8CC922204F4B80024217A /* QueueViewController.swift in Sources */,
 				E41E5312223EF74A00173814 /* CoverArtService+Filesystem.swift in Sources */,

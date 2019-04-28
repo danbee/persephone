@@ -12,6 +12,7 @@ func appReducer(action: Action, state: AppState?) -> AppState {
   return AppState(
     playerState: playerReducer(action: action, state: state?.playerState),
     queueState: queueReducer(action: action, state: state?.queueState),
-    albumListState: albumListReducer(action: action, state: state?.albumListState)
+    albumListState: albumListReducer(action: action, state: state?.albumListState),
+    preferencesState: preferencesReducer(action: action, state: state?.preferencesState)
   )
 }

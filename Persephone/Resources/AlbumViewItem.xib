@@ -39,7 +39,7 @@
                 </textField>
                 <imageView identifier="albumArtwork" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Kfb-8f-ean">
                     <rect key="frame" x="0.0" y="39" width="128" height="128"/>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="blankAlbum" id="FsA-JX-BFh"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="defaultCoverArt" id="FsA-JX-BFh"/>
                 </imageView>
                 <button hidden="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="n8W-do-HyG">
                     <rect key="frame" x="43" y="81" width="42" height="43"/>
@@ -79,7 +79,7 @@
         <collectionViewItem id="Qgu-aI-55A" customClass="AlbumViewItem" customModule="Persephone" customModuleProvider="target"/>
     </objects>
     <resources>
-        <image name="blankAlbum" width="128" height="128"/>
+        <image name="defaultCoverArt" width="128" height="128"/>
         <image name="playButtonLarge" width="22" height="22"/>
     </resources>
 </document>

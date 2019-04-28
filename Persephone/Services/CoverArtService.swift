@@ -10,7 +10,6 @@ import Cocoa
 import PromiseKit
 
 class CoverArtService {
-  var preferences = Preferences()
   let song: Song
   let album: Album
 

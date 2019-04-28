@@ -14,6 +14,7 @@ class PreferencesWindowController: NSWindowController, NSWindowDelegate {
   }
 
   func windowShouldClose(_ sender: NSWindow) -> Bool {
+    AppDelegate.store.dispatch(SavePreferences())
     self.window?.orderOut(sender)
     return false
   }

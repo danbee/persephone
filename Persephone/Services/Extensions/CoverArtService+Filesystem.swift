@@ -19,7 +19,7 @@ extension CoverArtService {
   }
 
   var musicDir: String {
-    return self.preferences.expandedMpdLibraryDir
+    return AppDelegate.store.state.preferencesState.expandedMpdLibraryDir
   }
 
   func getArtworkFromFilesystem() -> Promise<NSImage?> {
@@ -48,7 +48,7 @@ extension CoverArtService {
   }
 
   func fileSystemArtworkFilePath() -> String? {
-    let musicDir = self.preferences.expandedMpdLibraryDir
+    let musicDir = AppDelegate.store.state.preferencesState.expandedMpdLibraryDir
 
     return self.coverArtFilenames
       .lazy

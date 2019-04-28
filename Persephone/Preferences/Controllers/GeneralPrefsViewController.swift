@@ -7,18 +7,18 @@
 //
 
 import Cocoa
+import ReSwift
 
 class GeneralPrefsViewController: NSViewController {
-  var preferences = Preferences()
-
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    if let mpdHost = preferences.mpdHost {
+    if let mpdHost = AppDelegate.store.state.preferencesState.mpdServer.host {
       mpdHostField.stringValue = mpdHost
     }
 
-    if let mpdPort = preferences.mpdPort {
+    if let mpdPort = AppDelegate.store.state.preferencesState.mpdServer.port {
+      print(mpdPort)
       mpdPortField.stringValue = "\(mpdPort)"
     }
 
@@ -34,11 +34,11 @@ class GeneralPrefsViewController: NSViewController {
   }
 
   @IBAction func updateMpdHost(_ sender: NSTextField) {
-    preferences.mpdHost = sender.stringValue
+    AppDelegate.store.dispatch(UpdateServerHost(host: sender.stringValue))
   }
 
   @IBAction func updateMpdPort(_ sender: NSTextField) {
-    preferences.mpdPort = sender.integerValue
+    AppDelegate.store.dispatch(UpdateServerPort(port: sender.integerValue))
   }
 
   @IBOutlet var mpdHostField: NSTextField!

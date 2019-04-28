@@ -13,8 +13,6 @@ import Differ
 class AlbumViewController: NSViewController,
                            NSCollectionViewDelegate,
                            NSCollectionViewDelegateFlowLayout {
-  var preferences = Preferences()
-
   let paddingWidth: CGFloat = 40
   let gutterWidth: CGFloat = 20
 
@@ -31,8 +29,8 @@ class AlbumViewController: NSViewController,
 
     albumCollectionView.dataSource = dataSource
 
-    preferences.addObserver(self, forKeyPath: "mpdLibraryDir")
-    preferences.addObserver(self, forKeyPath: "fetchMissingArtworkFromInternet")
+//    preferences.addObserver(self, forKeyPath: "mpdLibraryDir")
+//    preferences.addObserver(self, forKeyPath: "fetchMissingArtworkFromInternet")
   }
 
   override func viewWillDisappear() {
