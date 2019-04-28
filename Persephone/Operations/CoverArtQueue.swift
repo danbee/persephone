@@ -1,5 +1,5 @@
 //
-//  AlbumArtOperationQueue.swift
+//  CoverArtQueue.swift
 //  Persephone
 //
 //  Created by Daniel Barber on 2019/2/26.
@@ -8,10 +8,10 @@
 
 import Cocoa
 
-class AlbumArtQueue {
-  static let shared = AlbumArtQueue()
+class CoverArtQueue {
+  static let shared = CoverArtQueue()
 
-  let queue = DispatchQueue(label: "AlbumArtQueue")
+  let queue = DispatchQueue(label: "CoverArtQueue")
   var lastDispatchedTime = DispatchTime(uptimeNanoseconds: 0) - 1
 
   func addToQueue(workItem: DispatchWorkItem) {

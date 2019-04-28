@@ -1,5 +1,5 @@
 //
-//  CurrentArtView.swift
+//  CurrentCoverArtView.swift
 //  Persephone
 //
 //  Created by Daniel Barber on 2019/4/27.
@@ -9,7 +9,7 @@
 import Cocoa
 import ReSwift
 
-class CurrentArtView: NSImageView {
+class CurrentCoverArtView: NSImageView {
   required init?(coder: NSCoder) {
     super.init(coder: coder)
 
@@ -19,7 +19,7 @@ class CurrentArtView: NSImageView {
   }
 }
 
-extension CurrentArtView: StoreSubscriber {
+extension CurrentCoverArtView: StoreSubscriber {
   typealias StoreSubscriberStateType = NSImage?
 
   func newState(state: NSImage?) {

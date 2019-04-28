@@ -22,9 +22,9 @@ class UserNotificationsController {
       status.state == .playing
       else { return }
 
-    let albumArtService = AlbumArtService(song: currentSong)
+    let coverArtService = CoverArtService(song: currentSong)
 
-    albumArtService.fetchBigAlbumArt()
+    coverArtService.fetchBigCoverArt()
       .done() {
         SongNotifierService(song: currentSong, image: $0)
           .deliver()

@@ -29,26 +29,26 @@ func playerReducer(action: Action, state: PlayerState?) -> PlayerState {
     state.currentSong = action.currentSong
 
     if let currentSong = state.currentSong {
-      let albumArtService = AlbumArtService(song: currentSong)
+      let coverArtService = CoverArtService(song: currentSong)
 
-      albumArtService.fetchBigAlbumArt()
+      coverArtService.fetchBigCoverArt()
         .done() { image in
           DispatchQueue.main.async {
             if let image = image {
-              AppDelegate.store.dispatch(UpdateCurrentArtwork(coverArt: image))
+              AppDelegate.store.dispatch(UpdateCurrentCoverArt(coverArt: image))
             } else {
-              AppDelegate.store.dispatch(UpdateCurrentArtwork(coverArt: .defaultCoverArt))
+              AppDelegate.store.dispatch(UpdateCurrentCoverArt(coverArt: .defaultCoverArt))
             }
           }
         }
         .cauterize()
     } else {
       DispatchQueue.main.async {
-        AppDelegate.store.dispatch(UpdateCurrentArtwork(coverArt: .defaultCoverArt))
+        AppDelegate.store.dispatch(UpdateCurrentCoverArt(coverArt: .defaultCoverArt))
       }
     }
 
-  case let action as UpdateCurrentArtwork:
+  case let action as UpdateCurrentCoverArt:
     state.currentArtwork = action.coverArt
 
   case let action as UpdateElapsedTimeAction:

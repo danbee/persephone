@@ -12,7 +12,7 @@ extension NSImage {
   static let playIcon = NSImage(named: "playButton")
   static let pauseIcon = NSImage(named: "pauseButton")
 
-  static let defaultCoverArt = NSImage(named: "blankAlbum")
+  static let defaultCoverArt = NSImage(named: "defaultCoverArt")
 
   func toFitBox(size: NSSize) -> NSImage {
     var newSize: NSSize = NSSize.zero

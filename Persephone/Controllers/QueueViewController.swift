@@ -14,7 +14,7 @@ class QueueViewController: NSViewController,
   var dataSource = QueueDataSource()
 
   @IBOutlet var queueView: NSOutlineView!
-  @IBOutlet var queueAlbumArtImage: NSImageView!
+  @IBOutlet var queueCoverArtImage: NSImageView!
 
   override func viewDidLoad() {
     super.viewDidLoad()

@@ -1,5 +1,5 @@
 //
-//  AlbumArtService+Caching.swift
+//  CoverArtService+Caching.swift
 //  Persephone
 //
 //  Created by Daniel Barber on 2019/3/17.
@@ -9,14 +9,14 @@
 import Cocoa
 import PromiseKit
 
-extension AlbumArtService {
+extension CoverArtService {
   static let cacheDir = try! FileManager.default.url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent(Bundle.main.bundleIdentifier!)
 
   func getCachedArtwork() -> Promise<NSImage?> {
     return Promise { seal in
-      artworkQueue.async {
+      coverArtQueue.async {
         if self.isArtworkCached() {
-          let cacheFilePath = AlbumArtService.cacheDir.appendingPathComponent(self.album.hash).path
+          let cacheFilePath = CoverArtService.cacheDir.appendingPathComponent(self.album.hash).path
           let data = FileManager.default.contents(atPath: cacheFilePath)
           let image = NSImage(data: data ?? Data()) ?? NSImage.defaultCoverArt
 
@@ -29,7 +29,7 @@ extension AlbumArtService {
   }
 
   func cacheArtwork(data: Data?) {
-    artworkQueue.async {
+    coverArtQueue.async {
       guard let bundleIdentifier = Bundle.main.bundleIdentifier,
         let cacheDir = try? FileManager.default.url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
           .appendingPathComponent(bundleIdentifier)
@@ -44,7 +44,7 @@ extension AlbumArtService {
   }
 
   func isArtworkCached() -> Bool {
-    let cacheFilePath = AlbumArtService.cacheDir.appendingPathComponent(album.hash).path
+    let cacheFilePath = CoverArtService.cacheDir.appendingPathComponent(album.hash).path
 
     return FileManager.default.fileExists(atPath: cacheFilePath)
   }

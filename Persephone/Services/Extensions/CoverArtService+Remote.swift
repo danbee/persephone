@@ -1,5 +1,5 @@
 //
-//  AlbumArtService+Remote.swift
+//  CoverArtService+Remote.swift
 //  Persephone
 //
 //  Created by Daniel Barber on 2019/3/17.
@@ -11,7 +11,7 @@ import SwiftyJSON
 import PromiseKit
 import PMKFoundation
 
-extension AlbumArtService {
+extension CoverArtService {
   enum RemoteArtworkError: Error {
     case noArtworkAvailable
     case notConfigured
@@ -20,12 +20,12 @@ extension AlbumArtService {
   func getRemoteArtwork() -> Promise<NSImage?> {
     return Promise { seal in
       if preferences.fetchMissingArtworkFromInternet {
-        artworkQueue.async {
-          let albumArtWorkItem = DispatchWorkItem {
+        coverArtQueue.async {
+          let coverArtWorkItem = DispatchWorkItem {
             self.getArtworkFromMusicBrainz().map(Optional.some).pipe(to: seal.resolve)
           }
 
-          AlbumArtQueue.shared.addToQueue(workItem: albumArtWorkItem)
+          CoverArtQueue.shared.addToQueue(workItem: coverArtWorkItem)
         }
       } else {
         throw RemoteArtworkError.notConfigured

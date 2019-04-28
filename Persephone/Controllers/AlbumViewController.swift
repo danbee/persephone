@@ -70,7 +70,7 @@ class AlbumViewController: NSViewController,
     case "mpdLibraryDir":
       albumCollectionView.reloadData()
     case "fetchMissingArtworkFromInternet":
-      AppDelegate.store.dispatch(ResetAlbumListArt())
+      AppDelegate.store.dispatch(ResetAlbumListCoverArt())
     default:
       break
     }

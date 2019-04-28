@@ -1,5 +1,5 @@
 //
-//  AlbumArtService.swift
+//  CoverArtService.swift
 //  Persephone
 //
 //  Created by Daniel Barber on 2019/2/23.
@@ -9,7 +9,7 @@
 import Cocoa
 import PromiseKit
 
-class AlbumArtService {
+class CoverArtService {
   var preferences = Preferences()
   let song: Song
   let album: Album
@@ -20,14 +20,14 @@ class AlbumArtService {
   let bigArtworkSize = 600
 
   var session = URLSession(configuration: .default)
-  let artworkQueue = DispatchQueue(label: "albumArtQueue", qos: .utility)
+  let coverArtQueue = DispatchQueue(label: "coverArtQueue", qos: .utility)
 
   init(song: Song) {
     self.song = song
     self.album = song.album
   }
 
-  func fetchBigAlbumArt() -> Promise<NSImage?> {
+  func fetchBigCoverArt() -> Promise<NSImage?> {
     return firstly {
       self.getArtworkFromFilesystem()
     }.then { (image: NSImage?) -> Promise<NSImage?> in
@@ -37,14 +37,14 @@ class AlbumArtService {
     }
   }
 
-  func fetchAlbumArt() -> Guarantee<NSImage?> {
+  func fetchCoverArt() -> Guarantee<NSImage?> {
     return firstly {
       self.getCachedArtwork()
     }.then { (artwork: NSImage?) -> Promise<NSImage?> in
       artwork.map(Promise.value) ?? self.getArtworkFromFilesystem()
     }.then { (artwork: NSImage?) -> Promise<NSImage?> in
       artwork.map(Promise.value) ?? self.getRemoteArtwork()
-    }.compactMap(on: artworkQueue) {
+    }.compactMap(on: coverArtQueue) {
       return self.sizeAndCacheImage($0).map(Optional.some)
     }.recover { _ in
       return .value(nil)

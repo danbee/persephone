@@ -1,5 +1,5 @@
 //
-//  AlbumArtPrefsController.swift
+//  CoverArtPrefsController.swift
 //  Persephone
 //
 //  Created by Daniel Barber on 2019/2/23.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class AlbumArtPrefsController: NSViewController {
+class CoverArtPrefsController: NSViewController {
   var preferences = Preferences()
 
   override func viewDidLoad() {

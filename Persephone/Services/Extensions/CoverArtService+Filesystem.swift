@@ -1,5 +1,5 @@
 //
-//  AlbumArtService+Filesystem.swift
+//  CoverArtService+Filesystem.swift
 //  Persephone
 //
 //  Created by Daniel Barber on 2019/3/17.
@@ -9,7 +9,7 @@
 import Cocoa
 import PromiseKit
 
-extension AlbumArtService {
+extension CoverArtService {
   var coverArtFilenames: [String] {
     return [
       "folder.jpg",
@@ -24,7 +24,7 @@ extension AlbumArtService {
 
   func getArtworkFromFilesystem() -> Promise<NSImage?> {
     return Promise { seal in
-      artworkQueue.async {
+      coverArtQueue.async {
         guard let artworkPath = self.fileSystemArtworkFilePath()
           else { seal.fulfill(nil); return }
 

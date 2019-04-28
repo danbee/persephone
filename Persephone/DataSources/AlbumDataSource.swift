@@ -28,12 +28,12 @@ class AlbumDataSource: NSObject, NSCollectionViewDataSource {
       AppDelegate.mpdClient.getAlbumFirstSong(for: albums[indexPath.item].mpdAlbum) {
         guard let song = $0 else { return }
 
-        AlbumArtService(song: Song(mpdSong: song))
-          .fetchAlbumArt()
+        CoverArtService(song: Song(mpdSong: song))
+          .fetchCoverArt()
           .done { image in
             DispatchQueue.main.async {
               AppDelegate.store.dispatch(
-                UpdateAlbumArt(coverArt: image, albumIndex: indexPath.item)
+                UpdateCoverArt(coverArt: image, albumIndex: indexPath.item)
               )
             }
           }
