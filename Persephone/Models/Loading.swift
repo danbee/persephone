@@ -18,7 +18,7 @@ enum Loading<T> {
 extension Loading: EnumEquatable {
   static func ~= (lhs: Loading<T>, rhs: Loading<T>) -> Bool {
     switch (lhs, rhs) {
-    case (.notLoaded, .notLoaded),
+    case (_, .notLoaded),
          (.loading, .loading),
          (.loaded, .loaded),
          (.error, .error):
