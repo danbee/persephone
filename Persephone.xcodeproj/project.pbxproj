@@ -100,6 +100,10 @@
 		E4B11BB02274F71A0075461B /* EnumEquatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BAF2274F71A0075461B /* EnumEquatable.swift */; };
 		E4B11BB22274F9520075461B /* ResetAlbumListArt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BB12274F9520075461B /* ResetAlbumListArt.swift */; };
 		E4B11BB42275002D0075461B /* UpdateMPDDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BB32275002D0075461B /* UpdateMPDDatabase.swift */; };
+		E4B11BB62275374B0075461B /* UserNotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BB52275374B0075461B /* UserNotificationsController.swift */; };
+		E4B11BB8227538FA0075461B /* CurrentArtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BB7227538FA0075461B /* CurrentArtView.swift */; };
+		E4B11BBA22753BF10075461B /* UpdateCurrentSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BB922753BF10075461B /* UpdateCurrentSong.swift */; };
+		E4B11BBC227541C40075461B /* UpdateCurrentArtwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BBB227541C40075461B /* UpdateCurrentArtwork.swift */; };
 		E4C8B53C22342005009A20F3 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C8B53B22342005009A20F3 /* PreferencesWindowController.swift */; };
 		E4C8B53E22349002009A20F3 /* MPDIdle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C8B53D22349002009A20F3 /* MPDIdle.swift */; };
 		E4E8CC902204EC7F0024217A /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC8F2204EC7F0024217A /* Delegate.swift */; };
@@ -291,6 +295,10 @@
 		E4B11BAF2274F71A0075461B /* EnumEquatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumEquatable.swift; sourceTree = "<group>"; };
 		E4B11BB12274F9520075461B /* ResetAlbumListArt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetAlbumListArt.swift; sourceTree = "<group>"; };
 		E4B11BB32275002D0075461B /* UpdateMPDDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateMPDDatabase.swift; sourceTree = "<group>"; };
+		E4B11BB52275374B0075461B /* UserNotificationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationsController.swift; sourceTree = "<group>"; };
+		E4B11BB7227538FA0075461B /* CurrentArtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentArtView.swift; sourceTree = "<group>"; };
+		E4B11BB922753BF10075461B /* UpdateCurrentSong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCurrentSong.swift; sourceTree = "<group>"; };
+		E4B11BBB227541C40075461B /* UpdateCurrentArtwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCurrentArtwork.swift; sourceTree = "<group>"; };
 		E4C8B53B22342005009A20F3 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
 		E4C8B53D22349002009A20F3 /* MPDIdle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDIdle.swift; sourceTree = "<group>"; };
 		E4E8CC8F2204EC7F0024217A /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
@@ -444,6 +452,7 @@
 			children = (
 				E47E2FD62220720300F747E6 /* AlbumItemView.swift */,
 				E47E2FD222205D2500F747E6 /* MainWindow.swift */,
+				E4B11BB7227538FA0075461B /* CurrentArtView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -622,6 +631,8 @@
 				E4B11BAC2274F2E80075461B /* UpdateAlbumArt.swift */,
 				E4B11BB12274F9520075461B /* ResetAlbumListArt.swift */,
 				E4B11BB32275002D0075461B /* UpdateMPDDatabase.swift */,
+				E4B11BB922753BF10075461B /* UpdateCurrentSong.swift */,
+				E4B11BBB227541C40075461B /* UpdateCurrentArtwork.swift */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -664,6 +675,7 @@
 				E4E8CC932206097F0024217A /* NotificationsController.swift */,
 				E4E8CC912204F4B80024217A /* QueueViewController.swift */,
 				E465049921E94DF500A70F4C /* WindowController.swift */,
+				E4B11BB52275374B0075461B /* UserNotificationsController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -883,6 +895,7 @@
 				E4B11BA92274EDE30075461B /* Loading.swift in Sources */,
 				E408D3C2220E134F0006D9BE /* AlbumViewController.swift in Sources */,
 				E40FE71B221B904300A4223F /* NSEvent.swift in Sources */,
+				E4B11BB62275374B0075461B /* UserNotificationsController.swift in Sources */,
 				E4B11B7B226D34F80075461B /* UpdateAlbumListAction.swift in Sources */,
 				E4B11B6D226A5B180075461B /* UpdateQueueAction.swift in Sources */,
 				E4B11B68226A4FA00075461B /* QueueState.swift in Sources */,
@@ -913,6 +926,7 @@
 				E4A83BF12221FAA00098FED6 /* PreferencesViewController.swift in Sources */,
 				E4B11B61226A4C000075461B /* PlayerReducer.swift in Sources */,
 				E465049A21E94DF500A70F4C /* WindowController.swift in Sources */,
+				E4B11BBA22753BF10075461B /* UpdateCurrentSong.swift in Sources */,
 				E4B11B71226A64E60075461B /* UpdateElapsedTimeAction.swift in Sources */,
 				E41B22C621FB932700D544F6 /* MPDClient.swift in Sources */,
 				E40F41F3221EDE27004B6CB8 /* Preferences.swift in Sources */,
@@ -929,6 +943,7 @@
 				E41E52FF223BF95E00173814 /* MPDClient+Transport.swift in Sources */,
 				E47E2FD322205D2500F747E6 /* MainWindow.swift in Sources */,
 				E47E2FD122205C4600F747E6 /* MainSplitViewController.swift in Sources */,
+				E4B11BB8227538FA0075461B /* CurrentArtView.swift in Sources */,
 				E4E8CC9A22075D370024217A /* MPDSong.swift in Sources */,
 				E41EA46C221636AF0068EF46 /* GeneralPrefsViewController.swift in Sources */,
 				E4E8CC902204EC7F0024217A /* Delegate.swift in Sources */,
@@ -948,6 +963,7 @@
 				E4B11B6A226A4FBC0075461B /* AlbumListState.swift in Sources */,
 				E41E5305223BFB0700173814 /* MPDClient+Error.swift in Sources */,
 				E435E3E2221CD4E200184CFC /* NSFont.swift in Sources */,
+				E4B11BBC227541C40075461B /* UpdateCurrentArtwork.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

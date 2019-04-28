@@ -25,6 +25,32 @@ func playerReducer(action: Action, state: PlayerState?) -> PlayerState {
       AppDelegate.trackTimer.stop(elapsedTimeMs: state.elapsedTimeMs)
     }
 
+  case let action as UpdateCurrentSong:
+    state.currentSong = action.currentSong
+
+    if let currentSong = state.currentSong {
+      let albumArtService = AlbumArtService(song: currentSong)
+
+      albumArtService.fetchBigAlbumArt()
+        .done() { image in
+          DispatchQueue.main.async {
+            if let image = image {
+              AppDelegate.store.dispatch(UpdateCurrentArtwork(coverArt: image))
+            } else {
+              AppDelegate.store.dispatch(UpdateCurrentArtwork(coverArt: .defaultCoverArt))
+            }
+          }
+        }
+        .cauterize()
+    } else {
+      DispatchQueue.main.async {
+        AppDelegate.store.dispatch(UpdateCurrentArtwork(coverArt: .defaultCoverArt))
+      }
+    }
+
+  case let action as UpdateCurrentArtwork:
+    state.currentArtwork = action.coverArt
+
   case let action as UpdateElapsedTimeAction:
     state.elapsedTimeMs = action.elapsedTimeMs
 
@@ -39,14 +65,4 @@ func playerReducer(action: Action, state: PlayerState?) -> PlayerState {
   }
 
   return state
-}
-
-func updateElapsedTime(_ timer: Timer) {
-  guard let userInfo = timer.userInfo as? Dictionary<String, Any>,
-    let elapsedTimeMs = userInfo["elapsedTimeMs"] as? UInt
-    else { return }
-
-  AppDelegate.store.dispatch(
-    UpdateElapsedTimeAction(elapsedTimeMs: elapsedTimeMs)
-  )
 }

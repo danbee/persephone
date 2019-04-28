@@ -6,6 +6,7 @@
 //  Copyright © 2019 Dan Barber. All rights reserved.
 //
 
+import Cocoa
 import ReSwift
 
 func queueReducer(action: Action, state: QueueState?) -> QueueState {
@@ -37,6 +38,12 @@ func queueReducer(action: Action, state: QueueState?) -> QueueState {
       state.queue[newSongRowPos].isPlaying = true
     }
 
+    DispatchQueue.main.async {
+      AppDelegate.store.dispatch(
+        UpdateCurrentSong(currentSong: state.queue[newSongRowPos].song)
+      )
+    }
+    
   default:
     break
   }

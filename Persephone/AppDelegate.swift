@@ -16,6 +16,7 @@ class AppDelegate: NSObject,
                    MediaKeyTapDelegate {
   var preferences = Preferences()
   var mediaKeyTap: MediaKeyTap?
+  var userNotificationsController: UserNotificationsController?
 
   static let mpdClient = MPDClient(
     withDelegate: NotificationsController()
@@ -35,10 +36,10 @@ class AppDelegate: NSObject,
     mediaKeyTap?.start()
 
     AppDelegate.store.subscribe(self) {
-      (subscription: Subscription<AppState>) -> Subscription<PlayerState> in
-
-      subscription.select { state in state.playerState }
+      $0.select { $0.playerState }
     }
+
+    userNotificationsController = UserNotificationsController()
   }
 
   func applicationWillTerminate(_ aNotification: Notification) {

@@ -34,7 +34,7 @@ class AlbumViewItem: NSCollectionViewItem {
 
     switch album.coverArt {
     case .loaded(let coverArt):
-      albumCoverView.image = coverArt
+      albumCoverView.image = coverArt ?? .defaultCoverArt
     default:
       albumCoverView.image = .defaultCoverArt
     }

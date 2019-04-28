@@ -22,9 +22,7 @@ class WindowController: NSWindowController {
     window?.titleVisibility = .hidden
 
     AppDelegate.store.subscribe(self) {
-      (subscription: Subscription<AppState>) -> Subscription<PlayerState> in
-
-      subscription.select { state in state.playerState }
+      $0.select { $0.playerState }
     }
 
     trackProgress.font = .timerFont

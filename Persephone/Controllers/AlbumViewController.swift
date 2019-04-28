@@ -24,9 +24,7 @@ class AlbumViewController: NSViewController,
     super.viewDidLoad()
 
     AppDelegate.store.subscribe(self) {
-      (subscription: Subscription<AppState>) -> Subscription<AlbumListState> in
-
-      subscription.select { state -> AlbumListState in state.albumListState }
+      $0.select { $0.albumListState }
     }
 
     albumScrollView.postsBoundsChangedNotifications = true

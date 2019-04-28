@@ -20,9 +20,7 @@ class QueueViewController: NSViewController,
     super.viewDidLoad()
 
     AppDelegate.store.subscribe(self) {
-      (subscription: Subscription<AppState>) -> Subscription<QueueState> in
-
-      subscription.select { state in state.queueState }
+      $0.select { $0.queueState }
     }
 
     queueView.dataSource = dataSource
@@ -49,38 +47,6 @@ class QueueViewController: NSViewController,
 
     if newQueuePos >= 0 {
       AppDelegate.mpdClient.playTrack(at: newQueuePos)
-    }
-  }
-
-  func notifyTrack(_ state: QueueState) {
-    guard let currentSong = state.currentSong,
-      let status = AppDelegate.mpdClient.status,
-      status.state == .playing
-    else { return }
-
-    SongNotifierService(song: currentSong, image: queueAlbumArtImage.image)
-      .deliver()
-  }
-
-  func updateAlbumArt(_ state: QueueState) {
-    if let playingQueueItem = state.queue.first(
-      where: { $0.isPlaying }
-    ) {
-      let albumArtService = AlbumArtService(song: playingQueueItem.song)
-
-      albumArtService.fetchBigAlbumArt()
-        .done() {
-          if let image = $0 {
-            self.queueAlbumArtImage.image = image
-          } else {
-            self.queueAlbumArtImage.image = NSImage.defaultCoverArt
-          }
-
-          self.notifyTrack(state)
-        }
-        .cauterize()
-    } else {
-      queueAlbumArtImage.image = NSImage.defaultCoverArt
     }
   }
 
@@ -164,6 +130,5 @@ extension QueueViewController: StoreSubscriber {
   func newState(state: StoreSubscriberStateType) {
     dataSource.setQueueIcon()
     queueView.reloadData()
-    updateAlbumArt(state)
   }
 }

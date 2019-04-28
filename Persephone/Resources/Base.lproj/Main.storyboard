@@ -635,7 +635,7 @@
                                 <rect key="frame" x="0.0" y="220" width="328" height="328"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Dw3-M5-tWY">
+                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Dw3-M5-tWY" customClass="CurrentArtView" customModule="Persephone" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="328" height="328"/>
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="blankAlbum" id="IoN-3N-TCb"/>
                                     </imageView>
