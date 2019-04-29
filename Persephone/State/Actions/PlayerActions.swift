@@ -9,11 +9,11 @@
 import Cocoa
 import ReSwift
 
-struct UpdateCurrentCoverArt: Action {
+struct UpdateCurrentCoverArtAction: Action {
   var coverArt: NSImage?
 }
 
-struct UpdateCurrentSong: Action {
+struct UpdateCurrentSongAction: Action {
   var currentSong: Song
 }
 
@@ -25,6 +25,6 @@ struct UpdateStatusAction: Action {
   var status: MPDClient.MPDStatus
 }
 
-struct StartedDatabaseUpdate: Action {}
+struct StartedDatabaseUpdateAction: Action {}
 
-struct FinishedDatabaseUpdate: Action {}
+struct FinishedDatabaseUpdateAction: Action {}

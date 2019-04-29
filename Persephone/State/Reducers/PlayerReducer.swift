@@ -25,7 +25,13 @@ func playerReducer(action: Action, state: PlayerState?) -> PlayerState {
       AppDelegate.trackTimer.stop(elapsedTimeMs: state.elapsedTimeMs)
     }
 
-  case let action as UpdateCurrentSong:
+    DispatchQueue.main.async {
+      AppDelegate.store.dispatch(
+        UpdateQueuePlayerStateAction(state: state.state)
+      )
+    }
+
+  case let action as UpdateCurrentSongAction:
     state.currentSong = action.currentSong
 
     if let currentSong = state.currentSong {
@@ -35,29 +41,29 @@ func playerReducer(action: Action, state: PlayerState?) -> PlayerState {
         .done() { image in
           DispatchQueue.main.async {
             if let image = image {
-              AppDelegate.store.dispatch(UpdateCurrentCoverArt(coverArt: image))
+              AppDelegate.store.dispatch(UpdateCurrentCoverArtAction(coverArt: image))
             } else {
-              AppDelegate.store.dispatch(UpdateCurrentCoverArt(coverArt: .defaultCoverArt))
+              AppDelegate.store.dispatch(UpdateCurrentCoverArtAction(coverArt: .defaultCoverArt))
             }
           }
         }
         .cauterize()
     } else {
       DispatchQueue.main.async {
-        AppDelegate.store.dispatch(UpdateCurrentCoverArt(coverArt: .defaultCoverArt))
+        AppDelegate.store.dispatch(UpdateCurrentCoverArtAction(coverArt: .defaultCoverArt))
       }
     }
 
-  case let action as UpdateCurrentCoverArt:
+  case let action as UpdateCurrentCoverArtAction:
     state.currentArtwork = action.coverArt
 
   case let action as UpdateElapsedTimeAction:
     state.elapsedTimeMs = action.elapsedTimeMs
 
-  case is StartedDatabaseUpdate:
+  case is StartedDatabaseUpdateAction:
     state.databaseUpdating = true
 
-  case is FinishedDatabaseUpdate:
+  case is FinishedDatabaseUpdateAction:
     state.databaseUpdating = false
 
   default:

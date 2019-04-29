@@ -9,9 +9,9 @@
 import Cocoa
 import ReSwift
 
-struct ResetAlbumListCoverArt: Action {}
+struct ResetAlbumListCoverArtAction: Action {}
 
-struct UpdateCoverArt: Action {
+struct UpdateCoverArtAction: Action {
   var coverArt: NSImage?
   var albumIndex: Int
 }

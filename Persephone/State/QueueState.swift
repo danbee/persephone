@@ -11,11 +11,14 @@ import ReSwift
 struct QueueState: StateType {
   var queue: [QueueItem] = []
   var queuePos: Int = -1
+
+  var state: MPDClient.MPDStatus.State?
 }
 
 extension QueueState: Equatable {
   static func == (lhs: QueueState, rhs: QueueState) -> Bool {
     return (lhs.queue == rhs.queue) &&
-      (lhs.queuePos == rhs.queuePos)
+      (lhs.queuePos == rhs.queuePos) &&
+      (lhs.state == rhs.state)
   }
 }

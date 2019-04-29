@@ -27,12 +27,6 @@ class QueueViewController: NSViewController,
     queueView.columnAutoresizingStyle = .sequentialColumnAutoresizingStyle
   }
 
-  override func viewWillDisappear() {
-    super.viewWillDisappear()
-
-    AppDelegate.store.unsubscribe(self)
-  }
-
   override func keyDown(with event: NSEvent) {
     switch event.keyCode {
     case NSEvent.keyCodeSpace:
@@ -128,7 +122,8 @@ extension QueueViewController: StoreSubscriber {
   typealias StoreSubscriberStateType = QueueState
 
   func newState(state: StoreSubscriberStateType) {
-    dataSource.setQueueIcon()
+    dataSource.queue = state.queue
+    dataSource.setQueueIcon(state)
     queueView.reloadData()
   }
 }

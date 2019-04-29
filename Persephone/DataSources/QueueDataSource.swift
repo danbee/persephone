@@ -9,10 +9,11 @@
 import Cocoa
 
 class QueueDataSource: NSObject, NSOutlineViewDataSource {
+  var queue: [QueueItem] = []
   var queueIcon: NSImage? = nil
 
-  func setQueueIcon() {
-    switch AppDelegate.store.state.playerState.state {
+  func setQueueIcon(_ state: QueueState) {
+    switch state.state {
     case .playing?:
       queueIcon = .playIcon
     case .paused?:
@@ -23,7 +24,7 @@ class QueueDataSource: NSObject, NSOutlineViewDataSource {
   }
 
   func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
-    return AppDelegate.store.state.queueState.queue.count + 1
+    return queue.count + 1
   }
 
   func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
@@ -32,7 +33,7 @@ class QueueDataSource: NSObject, NSOutlineViewDataSource {
 
   func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
     if index > 0 {
-      return AppDelegate.store.state.queueState.queue[index - 1]
+      return queue[index - 1]
     } else {
       return false
     }

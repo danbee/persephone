@@ -15,3 +15,7 @@ struct UpdateQueueAction: Action {
 struct UpdateQueuePosAction: Action {
   var queuePos: Int
 }
+
+struct UpdateQueuePlayerStateAction: Action {
+  var state: MPDClient.MPDStatus.State?
+}

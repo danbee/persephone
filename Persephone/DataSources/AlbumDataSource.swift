@@ -33,7 +33,7 @@ class AlbumDataSource: NSObject, NSCollectionViewDataSource {
           .done { image in
             DispatchQueue.main.async {
               AppDelegate.store.dispatch(
-                UpdateCoverArt(coverArt: image, albumIndex: indexPath.item)
+                UpdateCoverArtAction(coverArt: image, albumIndex: indexPath.item)
               )
             }
           }

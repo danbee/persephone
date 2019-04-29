@@ -30,13 +30,13 @@ class NotificationsController: MPDClientDelegate {
 
   func willStartDatabaseUpdate(mpdClient: MPDClient) {
     DispatchQueue.main.async {
-      AppDelegate.store.dispatch(StartedDatabaseUpdate())
+      AppDelegate.store.dispatch(StartedDatabaseUpdateAction())
     }
   }
 
   func didFinishDatabaseUpdate(mpdClient: MPDClient) {
     DispatchQueue.main.async {
-      AppDelegate.store.dispatch(FinishedDatabaseUpdate())
+      AppDelegate.store.dispatch(FinishedDatabaseUpdateAction())
     }
   }
 

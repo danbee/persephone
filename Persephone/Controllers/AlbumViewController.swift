@@ -28,15 +28,6 @@ class AlbumViewController: NSViewController,
     albumScrollView.postsBoundsChangedNotifications = true
 
     albumCollectionView.dataSource = dataSource
-
-//    preferences.addObserver(self, forKeyPath: "mpdLibraryDir")
-//    preferences.addObserver(self, forKeyPath: "fetchMissingArtworkFromInternet")
-  }
-
-  override func viewWillDisappear() {
-    super.viewWillDisappear()
-
-    AppDelegate.store.unsubscribe(self)
   }
 
   override func viewWillLayout() {
@@ -68,7 +59,7 @@ class AlbumViewController: NSViewController,
     case "mpdLibraryDir":
       albumCollectionView.reloadData()
     case "fetchMissingArtworkFromInternet":
-      AppDelegate.store.dispatch(ResetAlbumListCoverArt())
+      AppDelegate.store.dispatch(ResetAlbumListCoverArtAction())
     default:
       break
     }
@@ -82,16 +73,11 @@ extension AlbumViewController: StoreSubscriber {
   typealias StoreSubscriberStateType = AlbumListState
 
   func newState(state: StoreSubscriberStateType) {
-    if dataSource.albums == [] {
-      dataSource.albums = state.albums
-      albumCollectionView.reloadData()
-    } else {
-      let oldAlbums = dataSource.albums
-      dataSource.albums = state.albums
-      albumCollectionView.animateItemChanges(
-        oldData: oldAlbums,
-        newData: dataSource.albums
-      )
-    }
+    let oldAlbums = dataSource.albums
+    dataSource.albums = state.albums
+    albumCollectionView.animateItemChanges(
+      oldData: oldAlbums,
+      newData: dataSource.albums
+    )
   }
 }
