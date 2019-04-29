@@ -6,7 +6,7 @@
 //  Copyright © 2019 Dan Barber. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
 class AlbumItemView: NSView {
   var trackingArea: NSTrackingArea?

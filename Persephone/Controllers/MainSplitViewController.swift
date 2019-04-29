@@ -6,7 +6,7 @@
 //  Copyright © 2019 Dan Barber. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
 class MainSplitViewController: NSSplitViewController {
   override func keyDown(with event: NSEvent) {

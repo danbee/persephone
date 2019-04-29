@@ -6,7 +6,7 @@
 //  Copyright © 2018 Dan Barber. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 import ReSwift
 import MediaKeyTap
 

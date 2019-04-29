@@ -6,7 +6,7 @@
 //  Copyright © 2019 Dan Barber. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
 extension NSFont {
   static let systemFontRegular = systemFont(ofSize: 13, weight: .regular)

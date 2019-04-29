@@ -6,7 +6,7 @@
 //  Copyright © 2019 Dan Barber. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
 extension CGColor {
   static let albumBorderColorLight = NSColor.black.withAlphaComponent(0.15).cgColor
