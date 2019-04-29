@@ -16,12 +16,12 @@ class TrackTimer: NSObject {
   func start(elapsedTimeMs: UInt?) {
     guard let elapsedTimeMs = elapsedTimeMs else { return }
 
-    timer?.invalidate()
-
     startTime = CACurrentMediaTime()
     startElapsed = Double(elapsedTimeMs) / 1000
 
     DispatchQueue.main.async {
+      self.timer?.invalidate()
+
       self.timer = Timer.scheduledTimer(
         withTimeInterval: 0.25,
         repeats: true
@@ -41,9 +41,9 @@ class TrackTimer: NSObject {
   func stop(elapsedTimeMs: UInt?) {
     guard let elapsedTimeMs = elapsedTimeMs else { return }
 
-    timer?.invalidate()
-
     DispatchQueue.main.async {
+      self.timer?.invalidate()
+
       AppDelegate.store.dispatch(
         UpdateElapsedTimeAction(elapsedTimeMs: elapsedTimeMs)
       )
