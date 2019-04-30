@@ -61,7 +61,7 @@ class AppDelegate: NSObject,
       dockMenu.addItem(songItem)
       dockMenu.addItem(albumItem)
       dockMenu.addItem(NSMenuItem.separator())
-   }
+    }
 
     let playPauseMenuItem = NSMenuItem(
       title: state == .playing ? "Pause" : "Play",
