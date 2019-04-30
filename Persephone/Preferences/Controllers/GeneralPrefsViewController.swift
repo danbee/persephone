@@ -13,11 +13,11 @@ class GeneralPrefsViewController: NSViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    if let mpdHost = AppDelegate.store.state.preferencesState.mpdServer.host {
+    if let mpdHost = App.store.state.preferencesState.mpdServer.host {
       mpdHostField.stringValue = mpdHost
     }
 
-    if let mpdPort = AppDelegate.store.state.preferencesState.mpdServer.port {
+    if let mpdPort = App.store.state.preferencesState.mpdServer.port {
       print(mpdPort)
       mpdPortField.stringValue = "\(mpdPort)"
     }
@@ -34,11 +34,11 @@ class GeneralPrefsViewController: NSViewController {
   }
 
   @IBAction func updateMpdHost(_ sender: NSTextField) {
-    AppDelegate.store.dispatch(UpdateServerHost(host: sender.stringValue))
+    App.store.dispatch(UpdateServerHost(host: sender.stringValue))
   }
 
   @IBAction func updateMpdPort(_ sender: NSTextField) {
-    AppDelegate.store.dispatch(UpdateServerPort(port: sender.integerValue))
+    App.store.dispatch(UpdateServerPort(port: sender.integerValue))
   }
 
   @IBOutlet var mpdHostField: NSTextField!

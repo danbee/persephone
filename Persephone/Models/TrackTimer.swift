@@ -31,7 +31,7 @@ class TrackTimer: NSObject {
         let timeDiff = currentTime - self.startTime
         let newElapsedTimeMs = UInt((self.startElapsed + timeDiff) * 1000)
 
-        AppDelegate.store.dispatch(
+        App.store.dispatch(
           UpdateElapsedTimeAction(elapsedTimeMs: newElapsedTimeMs)
         )
       }
@@ -44,7 +44,7 @@ class TrackTimer: NSObject {
     DispatchQueue.main.async {
       self.timer?.invalidate()
 
-      AppDelegate.store.dispatch(
+      App.store.dispatch(
         UpdateElapsedTimeAction(elapsedTimeMs: elapsedTimeMs)
       )
     }

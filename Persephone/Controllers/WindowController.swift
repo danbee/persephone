@@ -21,7 +21,7 @@ class WindowController: NSWindowController {
     super.windowDidLoad()
     window?.titleVisibility = .hidden
 
-    AppDelegate.store.subscribe(self) {
+    App.store.subscribe(self) {
       $0.select { $0.playerState }
     }
 
@@ -32,7 +32,7 @@ class WindowController: NSWindowController {
   override func keyDown(with event: NSEvent) {
     switch event.keyCode {
     case NSEvent.keyCodeSpace:
-      AppDelegate.mpdClient.playPause()
+      App.store.dispatch(MPDPlayPauseAction())
     default:
       nextResponder?.keyDown(with: event)
     }
@@ -112,13 +112,13 @@ class WindowController: NSWindowController {
     case .leftMouseDown:
       trackTimer?.invalidate()
     case .leftMouseDragged:
-      AppDelegate.store.dispatch(
+      App.store.dispatch(
         UpdateElapsedTimeAction(elapsedTimeMs: UInt(sender.integerValue))
       )
     case .leftMouseUp:
       let seekTime = Float(sender.integerValue) / 1000
 
-      AppDelegate.mpdClient.seekCurrentSong(timeInSeconds: seekTime)
+      App.store.dispatch(MPDSeekCurrentSong(timeInSeconds: seekTime))
     default:
       break
     }
@@ -130,13 +130,13 @@ class WindowController: NSWindowController {
 
     switch transportAction {
     case .prevTrack:
-      AppDelegate.mpdClient.prevTrack()
+      App.store.dispatch(MPDPrevTrackAction())
     case .playPause:
-      AppDelegate.mpdClient.playPause()
+      App.store.dispatch(MPDPlayPauseAction())
     case .stop:
-      AppDelegate.mpdClient.stop()
+      App.store.dispatch(MPDStopAction())
     case .nextTrack:
-      AppDelegate.mpdClient.nextTrack()
+      App.store.dispatch(MPDNextTrackAction())
     }
   }
 

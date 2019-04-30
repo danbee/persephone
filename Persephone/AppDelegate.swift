@@ -15,45 +15,35 @@ class AppDelegate: NSObject,
                    NSApplicationDelegate,
                    MediaKeyTapDelegate {
   var mediaKeyTap: MediaKeyTap?
-  var userNotificationsController = UserNotificationsController()
-  var mpdServerController = MPDServerController()
-
-  static let mpdClient = MPDClient(
-    withDelegate: NotificationsController()
-  )
-
-  static let trackTimer = TrackTimer()
-
-  static let store = Store<AppState>(reducer: appReducer, state: nil)
 
   func applicationDidFinishLaunching(_ aNotification: Notification) {
-    mpdServerController.connect()
+    App.mpdServerController.connect()
 
     mediaKeyTap = MediaKeyTap(delegate: self)
     mediaKeyTap?.start()
 
-    AppDelegate.store.subscribe(self) {
+    App.store.subscribe(self) {
       $0.select { $0.playerState.databaseUpdating }
     }
   }
 
   func applicationWillTerminate(_ aNotification: Notification) {
-    mpdServerController.disconnect()
+    App.mpdServerController.disconnect()
   }
 
   func handle(mediaKey: MediaKey, event: KeyEvent) {
     switch mediaKey {
     case .playPause:
-      AppDelegate.mpdClient.playPause()
+      App.store.dispatch(MPDPlayPauseAction())
     case .next, .fastForward:
-      AppDelegate.mpdClient.nextTrack()
+      App.store.dispatch(MPDNextTrackAction())
     case .previous, .rewind:
-      AppDelegate.mpdClient.prevTrack()
+      App.store.dispatch(MPDPrevTrackAction())
     }
   }
 
   @IBAction func updateDatabase(_ sender: NSMenuItem) {
-    AppDelegate.mpdClient.updateDatabase()
+    App.store.dispatch(MPDUpdateDatabaseAction())
   }
 
   @IBOutlet weak var updateDatabaseMenuItem: NSMenuItem!

@@ -11,14 +11,14 @@ import ReSwift
 
 class UserNotificationsController {
   init() {
-    AppDelegate.store.subscribe(self) {
+    App.store.subscribe(self) {
       $0.select { $0.playerState.currentSong }
     }
   }
 
   func notifyTrack(_ state: Song?) {
     guard let currentSong = state,
-      let status = AppDelegate.mpdClient.status,
+      let status = App.mpdClient.status,
       status.state == .playing
       else { return }
 

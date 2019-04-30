@@ -12,11 +12,11 @@ class CoverArtPrefsController: NSViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    if let mpdLibraryDir = AppDelegate.store.state.preferencesState.mpdLibraryDir {
+    if let mpdLibraryDir = App.store.state.preferencesState.mpdLibraryDir {
       mpdLibraryDirField.stringValue = mpdLibraryDir
     }
 
-    if AppDelegate.store.state.preferencesState.fetchMissingArtworkFromInternet {
+    if App.store.state.preferencesState.fetchMissingArtworkFromInternet {
       fetchMissingArtworkFromInternet.state = .on
     } else {
       fetchMissingArtworkFromInternet.state = .off
@@ -34,13 +34,13 @@ class CoverArtPrefsController: NSViewController {
   }
 
   @IBAction func updateMpdLibraryDir(_ sender: NSTextField) {
-    AppDelegate.store.dispatch(UpdateMPDLibraryDir(mpdLibraryDir: sender.stringValue))
+    App.store.dispatch(UpdateMPDLibraryDir(mpdLibraryDir: sender.stringValue))
   }
 
   @IBOutlet var mpdLibraryDirField: NSTextField!
 
   @IBAction func updateFetchMissingArtworkFromInternet(_ sender: NSButton) {
-    AppDelegate.store.dispatch(
+    App.store.dispatch(
       UpdateFetchMissingArtworkFromInternet(
         fetchMissingArtworkFromInternet: sender.state == .on
       )

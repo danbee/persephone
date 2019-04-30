@@ -19,7 +19,7 @@ class QueueViewController: NSViewController,
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    AppDelegate.store.subscribe(self) {
+    App.store.subscribe(self) {
       $0.select { $0.queueState }
     }
 
@@ -40,7 +40,7 @@ class QueueViewController: NSViewController,
     let newQueuePos = queueView.selectedRow - 1
 
     if newQueuePos >= 0 {
-      AppDelegate.mpdClient.playTrack(at: newQueuePos)
+      App.store.dispatch(MPDPlayTrack(queuePos: newQueuePos))
     }
   }
 

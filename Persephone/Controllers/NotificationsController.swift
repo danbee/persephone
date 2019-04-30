@@ -17,44 +17,44 @@ class NotificationsController: MPDClientDelegate {
 
   func willDisconnect(mpdClient: MPDClient) {
     DispatchQueue.main.async {
-      AppDelegate.store.dispatch(UpdateAlbumListAction(albums: []))
+      App.store.dispatch(UpdateAlbumListAction(albums: []))
     }
     sendNotification(name: Notification.willDisconnect)
   }
 
   func didUpdateStatus(mpdClient: MPDClient, status: MPDClient.MPDStatus) {
     DispatchQueue.main.async {
-      AppDelegate.store.dispatch(UpdateStatusAction(status: status))
+      App.store.dispatch(UpdateStatusAction(status: status))
     }
   }
 
   func willStartDatabaseUpdate(mpdClient: MPDClient) {
     DispatchQueue.main.async {
-      AppDelegate.store.dispatch(StartedDatabaseUpdateAction())
+      App.store.dispatch(StartedDatabaseUpdateAction())
     }
   }
 
   func didFinishDatabaseUpdate(mpdClient: MPDClient) {
     DispatchQueue.main.async {
-      AppDelegate.store.dispatch(FinishedDatabaseUpdateAction())
+      App.store.dispatch(FinishedDatabaseUpdateAction())
     }
   }
 
   func didUpdateQueue(mpdClient: MPDClient, queue: [MPDClient.MPDSong]) {
     DispatchQueue.main.async {
-      AppDelegate.store.dispatch(UpdateQueueAction(queue: queue))
+      App.store.dispatch(UpdateQueueAction(queue: queue))
     }
   }
 
   func didUpdateQueuePos(mpdClient: MPDClient, song: Int) {
     DispatchQueue.main.async {
-      AppDelegate.store.dispatch(UpdateQueuePosAction(queuePos: song))
+      App.store.dispatch(UpdateQueuePosAction(queuePos: song))
     }
   }
 
   func didLoadAlbums(mpdClient: MPDClient, albums: [MPDClient.MPDAlbum]) {
     DispatchQueue.main.async {
-      AppDelegate.store.dispatch(UpdateAlbumListAction(albums: albums))
+      App.store.dispatch(UpdateAlbumListAction(albums: albums))
     }
   }
 
@@ -62,7 +62,7 @@ class NotificationsController: MPDClientDelegate {
     self.notificationQueue.async {
       NotificationCenter.default.post(
         name: name,
-        object: AppDelegate.mpdClient,
+        object: App.mpdClient,
         userInfo: userInfo
       )
     }

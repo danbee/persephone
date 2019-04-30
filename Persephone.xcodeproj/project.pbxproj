@@ -39,6 +39,10 @@
 		E435E3E4221CD75D00184CFC /* NSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E435E3E3221CD75D00184CFC /* NSImage.swift */; };
 		E439109822640213002982E9 /* SongNotifierService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439109722640213002982E9 /* SongNotifierService.swift */; };
 		E4405192227644340090CD6F /* MPDServerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4405191227644340090CD6F /* MPDServerController.swift */; };
+		E44051942278765A0090CD6F /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44051932278765A0090CD6F /* App.swift */; };
+		E4405196227879960090CD6F /* MPDActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4405195227879960090CD6F /* MPDActions.swift */; };
+		E440519822787CB40090CD6F /* MPDState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E440519722787CB40090CD6F /* MPDState.swift */; };
+		E440519A22787CF60090CD6F /* MPDReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E440519922787CF60090CD6F /* MPDReducer.swift */; };
 		E450AD7E222620A10091BED3 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450AD7D222620A10091BED3 /* Album.swift */; };
 		E450AD8F22262C620091BED3 /* PromiseKit.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = E450AD8E22262C620091BED3 /* PromiseKit.framework.dSYM */; };
 		E450AD9122262C780091BED3 /* SwiftyJSON.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = E450AD9022262C780091BED3 /* SwiftyJSON.framework.dSYM */; };
@@ -239,6 +243,10 @@
 		E435E3E3221CD75D00184CFC /* NSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImage.swift; sourceTree = "<group>"; };
 		E439109722640213002982E9 /* SongNotifierService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongNotifierService.swift; sourceTree = "<group>"; };
 		E4405191227644340090CD6F /* MPDServerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDServerController.swift; sourceTree = "<group>"; };
+		E44051932278765A0090CD6F /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		E4405195227879960090CD6F /* MPDActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDActions.swift; sourceTree = "<group>"; };
+		E440519722787CB40090CD6F /* MPDState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDState.swift; sourceTree = "<group>"; };
+		E440519922787CF60090CD6F /* MPDReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDReducer.swift; sourceTree = "<group>"; };
 		E450AD7D222620A10091BED3 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		E450AD8522262AE60091BED3 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/Mac/SwiftyJSON.framework; sourceTree = "<group>"; };
 		E450AD8C22262C590091BED3 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/Mac/PromiseKit.framework; sourceTree = "<group>"; };
@@ -370,6 +378,7 @@
 			children = (
 				E4B11BAE2274F7030075461B /* Protocols */,
 				E407861B2110CE6E006887B1 /* AppDelegate.swift */,
+				E44051932278765A0090CD6F /* App.swift */,
 				E407861F2110CE70006887B1 /* Assets.xcassets */,
 				E4D1B597220BA3A20026F233 /* Controllers */,
 				E4F6B45E221E117600ACF42A /* DataSources */,
@@ -598,6 +607,7 @@
 				E4B11B74226CC4D30075461B /* QueueReducer.swift */,
 				E4B11B78226D346B0075461B /* AlbumListReducer.swift */,
 				E4FF718F227601B400D4C412 /* PreferencesReducer.swift */,
+				E440519922787CF60090CD6F /* MPDReducer.swift */,
 			);
 			path = Reducers;
 			sourceTree = "<group>";
@@ -612,6 +622,7 @@
 				E4B11B67226A4FA00075461B /* QueueState.swift */,
 				E4B11B69226A4FBC0075461B /* AlbumListState.swift */,
 				E4FF718D2276010E00D4C412 /* PreferencesState.swift */,
+				E440519722787CB40090CD6F /* MPDState.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -623,6 +634,7 @@
 				E4B11BBD2275EDAA0075461B /* PlayerActions.swift */,
 				E4B11BBF2275EE150075461B /* QueueActions.swift */,
 				E4FF71912276029000D4C412 /* PreferencesActions.swift */,
+				E4405195227879960090CD6F /* MPDActions.swift */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -889,6 +901,7 @@
 				E4B11BB62275374B0075461B /* UserNotificationsController.swift in Sources */,
 				E4B11B68226A4FA00075461B /* QueueState.swift in Sources */,
 				E4928E0B2218D62A001D4BEA /* CGColor.swift in Sources */,
+				E4405196227879960090CD6F /* MPDActions.swift in Sources */,
 				E4405192227644340090CD6F /* MPDServerController.swift in Sources */,
 				E4C8B53E22349002009A20F3 /* MPDIdle.swift in Sources */,
 				E4F6B460221E119B00ACF42A /* QueueDataSource.swift in Sources */,
@@ -897,6 +910,7 @@
 				E41E5307223C019100173814 /* MPDClient+Status.swift in Sources */,
 				E41E5310223EF6CE00173814 /* CoverArtService+Remote.swift in Sources */,
 				E41E530B223C033700173814 /* MPDClient+Album.swift in Sources */,
+				E440519822787CB40090CD6F /* MPDState.swift in Sources */,
 				E42410B62241B956005ED6DF /* MPDClient+Database.swift in Sources */,
 				E4A642DA22090CBE00067D21 /* MPDStatus.swift in Sources */,
 				E4B11BC02275EE150075461B /* QueueActions.swift in Sources */,
@@ -926,6 +940,7 @@
 				E41E5309223C020400173814 /* MPDClient+Command.swift in Sources */,
 				E4B11BB02274F71A0075461B /* EnumEquatable.swift in Sources */,
 				E4B11B73226A6C770075461B /* TrackTimer.swift in Sources */,
+				E44051942278765A0090CD6F /* App.swift in Sources */,
 				E4B11B79226D346B0075461B /* AlbumListReducer.swift in Sources */,
 				E47E2FE52220AA0700F747E6 /* AlbumViewLayout.swift in Sources */,
 				E41E52FF223BF95E00173814 /* MPDClient+Transport.swift in Sources */,
@@ -949,6 +964,7 @@
 				E41E5303223BF9C300173814 /* MPDClient+Idle.swift in Sources */,
 				E4B11B53226928F20075461B /* AppState.swift in Sources */,
 				E435E3E4221CD75D00184CFC /* NSImage.swift in Sources */,
+				E440519A22787CF60090CD6F /* MPDReducer.swift in Sources */,
 				E4B11B6A226A4FBC0075461B /* AlbumListState.swift in Sources */,
 				E41E5305223BFB0700173814 /* MPDClient+Error.swift in Sources */,
 				E435E3E2221CD4E200184CFC /* NSFont.swift in Sources */,

@@ -39,7 +39,7 @@ func queueReducer(action: Action, state: QueueState?) -> QueueState {
     }
 
     DispatchQueue.main.async {
-      AppDelegate.store.dispatch(
+      App.store.dispatch(
         UpdateCurrentSongAction(currentSong: state.queue[newSongRowPos].song)
       )
     }

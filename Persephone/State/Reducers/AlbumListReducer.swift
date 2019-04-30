@@ -19,7 +19,7 @@ func albumListReducer(action: Action, state: AlbumListState?) -> AlbumListState 
     state.albums[action.albumIndex].coverArt = .loaded(action.coverArt)
 
   case is ResetAlbumListCoverArtAction:
-    state.albums = AppDelegate.store.state.albumListState.albums.map {
+    state.albums = App.store.state.albumListState.albums.map {
       var album = $0
       switch album.coverArt {
       case .loaded(let coverArt):

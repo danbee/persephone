@@ -21,7 +21,7 @@ class AlbumViewController: NSViewController,
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    AppDelegate.store.subscribe(self) {
+    App.store.subscribe(self) {
       $0.select { $0.albumListState }
     }
 
@@ -59,7 +59,7 @@ class AlbumViewController: NSViewController,
     case "mpdLibraryDir":
       albumCollectionView.reloadData()
     case "fetchMissingArtworkFromInternet":
-      AppDelegate.store.dispatch(ResetAlbumListCoverArtAction())
+      App.store.dispatch(ResetAlbumListCoverArtAction())
     default:
       break
     }

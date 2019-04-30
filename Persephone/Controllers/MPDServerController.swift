@@ -11,20 +11,22 @@ import ReSwift
 
 class MPDServerController {
   init() {
-    AppDelegate.store.subscribe(self) {
+    App.store.subscribe(self) {
       $0.select { $0.preferencesState.mpdServer }
     }
   }
 
   func connect() {
-    AppDelegate.mpdClient.connect(
-      host: AppDelegate.store.state.preferencesState.mpdServer.hostOrDefault,
-      port: AppDelegate.store.state.preferencesState.mpdServer.portOrDefault
+    App.store.dispatch(
+      MPDConnectAction(
+        host: App.store.state.preferencesState.mpdServer.hostOrDefault,
+        port: App.store.state.preferencesState.mpdServer.portOrDefault
+      )
     )
   }
 
   func disconnect() {
-    AppDelegate.mpdClient.disconnect()
+    App.store.dispatch(MPDDisconnectAction())
   }
 }
 

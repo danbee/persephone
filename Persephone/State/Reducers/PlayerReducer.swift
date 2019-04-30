@@ -20,13 +20,13 @@ func playerReducer(action: Action, state: PlayerState?) -> PlayerState {
     state.elapsedTimeMs = action.status.elapsedTimeMs
 
     if state.state == .playing {
-      AppDelegate.trackTimer.start(elapsedTimeMs: state.elapsedTimeMs)
+      App.trackTimer.start(elapsedTimeMs: state.elapsedTimeMs)
     } else {
-      AppDelegate.trackTimer.stop(elapsedTimeMs: state.elapsedTimeMs)
+      App.trackTimer.stop(elapsedTimeMs: state.elapsedTimeMs)
     }
 
     DispatchQueue.main.async {
-      AppDelegate.store.dispatch(
+      App.store.dispatch(
         UpdateQueuePlayerStateAction(state: state.state)
       )
     }
@@ -41,16 +41,16 @@ func playerReducer(action: Action, state: PlayerState?) -> PlayerState {
         .done() { image in
           DispatchQueue.main.async {
             if let image = image {
-              AppDelegate.store.dispatch(UpdateCurrentCoverArtAction(coverArt: image))
+              App.store.dispatch(UpdateCurrentCoverArtAction(coverArt: image))
             } else {
-              AppDelegate.store.dispatch(UpdateCurrentCoverArtAction(coverArt: .defaultCoverArt))
+              App.store.dispatch(UpdateCurrentCoverArtAction(coverArt: .defaultCoverArt))
             }
           }
         }
         .cauterize()
     } else {
       DispatchQueue.main.async {
-        AppDelegate.store.dispatch(UpdateCurrentCoverArtAction(coverArt: .defaultCoverArt))
+        App.store.dispatch(UpdateCurrentCoverArtAction(coverArt: .defaultCoverArt))
       }
     }
 

@@ -13,7 +13,7 @@ class CurrentCoverArtView: NSImageView {
   required init?(coder: NSCoder) {
     super.init(coder: coder)
 
-    AppDelegate.store.subscribe(self) {
+    App.store.subscribe(self) {
       $0.select { $0.playerState.currentArtwork }
     }
   }

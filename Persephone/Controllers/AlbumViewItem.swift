@@ -53,8 +53,8 @@ class AlbumViewItem: NSCollectionViewItem {
 
   @IBAction func playAlbum(_ sender: Any) {
     guard let album = album else { return }
-    
-    AppDelegate.mpdClient.playAlbum(album.mpdAlbum)
+
+    App.store.dispatch(MPDPlayAlbum(album: album.mpdAlbum))
   }
 
   @IBOutlet var albumCoverView: NSImageView!
