@@ -20,6 +20,7 @@ class WindowController: NSWindowController {
   override func windowDidLoad() {
     super.windowDidLoad()
     window?.titleVisibility = .hidden
+    window?.isExcludedFromWindowsMenu = true
 
     App.store.subscribe(self) {
       $0.select { $0.playerState }
@@ -51,12 +52,6 @@ class WindowController: NSWindowController {
     } else {
       transportControls.setImage(.pauseIcon, forSegment: 1)
     }
-  }
-
-  func setWindowTitle() {
-    guard let status = AppDelegate.mpdClient.status else { return }
-
-    self.window?.title = status.
   }
 
   func setTrackProgressControls(_ playerState: PlayerState) {

@@ -32,6 +32,57 @@ class AppDelegate: NSObject,
     App.mpdServerController.disconnect()
   }
 
+  func applicationDockMenu(_ sender: NSApplication) -> NSMenu? {
+    let dockMenu = NSMenu()
+    dockMenu.autoenablesItems = false
+
+    guard let state = App.store.state.playerState.state else { return nil }
+
+    if let currentSong = App.store.state.playerState.currentSong,
+      state.isOneOf([.playing, .paused]) {
+
+      let nowPlayingItem = NSMenuItem(title: "Now Playing", action: nil, keyEquivalent: "")
+      let songItem = NSMenuItem(title: currentSong.title, action: nil, keyEquivalent: "")
+      let albumItem = NSMenuItem(
+        title: "\(currentSong.artist) — \(currentSong.album.title)",
+        action: nil,
+        keyEquivalent: ""
+      )
+
+      nowPlayingItem.isEnabled = false
+      songItem.indentationLevel = 1
+      songItem.isEnabled = false
+      albumItem.indentationLevel = 1
+      albumItem.isEnabled = false
+
+      dockMenu.addItem(nowPlayingItem)
+      dockMenu.addItem(songItem)
+      dockMenu.addItem(albumItem)
+      dockMenu.addItem(NSMenuItem.separator())
+   }
+
+    let playPauseMenuItem = NSMenuItem(
+      title: state == .playing ? "Pause" : "Play",
+      action: #selector(playPauseMenuAction),
+      keyEquivalent: ""
+    )
+    let stopMenuItem = NSMenuItem(title: "Stop", action: #selector(stopMenuAction), keyEquivalent: "")
+    let nextTrackMenuItem = NSMenuItem(title: "Next", action: #selector(nextTrackMenuAction), keyEquivalent: "")
+    let prevTrackMenuItem = NSMenuItem(title: "Previous", action: #selector(prevTrackMenuAction), keyEquivalent: "")
+
+    playPauseMenuItem.isEnabled = state.isOneOf([.playing, .paused, .stopped])
+    stopMenuItem.isEnabled = state.isOneOf([.playing, .paused])
+    nextTrackMenuItem.isEnabled = state.isOneOf([.playing, .paused])
+    prevTrackMenuItem.isEnabled = state.isOneOf([.playing, .paused])
+
+    dockMenu.addItem(playPauseMenuItem)
+    dockMenu.addItem(stopMenuItem)
+    dockMenu.addItem(nextTrackMenuItem)
+    dockMenu.addItem(prevTrackMenuItem)
+
+    return dockMenu
+  }
+
   func handle(mediaKey: MediaKey, event: KeyEvent) {
     switch mediaKey {
     case .playPause:
@@ -43,46 +94,24 @@ class AppDelegate: NSObject,
     }
   }
 
-  func setDockTransportControlState(_ state: MPDClient.MPDStatus.State) {
-    playPauseMenuItem.isEnabled = state.isOneOf([.playing, .paused, .stopped])
-    stopMenuItem.isEnabled = state.isOneOf([.playing, .paused])
-    nextTrackMenuItem.isEnabled = state.isOneOf([.playing, .paused])
-    prevTrackMenuItem.isEnabled = state.isOneOf([.playing, .paused])
-
-    if state.isOneOf([.paused, .stopped, .unknown]) {
-      playPauseMenuItem.title = "Play"
-    } else {
-      playPauseMenuItem.title = "Pause"
-    }
-  }
-
-  @objc func enableUpdateDatabaseMenuItem() {
-    updateDatabaseMenuItem?.isEnabled = true
-  }
-
   @IBAction func updateDatabase(_ sender: NSMenuItem) {
     App.store.dispatch(MPDUpdateDatabaseAction())
   }
 
   @IBAction func playPauseMenuAction(_ sender: NSMenuItem) {
-    AppDelegate.mpdClient.playPause()
+    App.store.dispatch(MPDPlayPauseAction())
   }
   @IBAction func stopMenuAction(_ sender: NSMenuItem) {
-    AppDelegate.mpdClient.stop()
+    App.store.dispatch(MPDStopAction())
   }
   @IBAction func nextTrackMenuAction(_ sender: NSMenuItem) {
-    AppDelegate.mpdClient.nextTrack()
+    App.store.dispatch(MPDNextTrackAction())
   }
   @IBAction func prevTrackMenuAction(_ sender: Any) {
-    AppDelegate.mpdClient.prevTrack()
+    App.store.dispatch(MPDPrevTrackAction())
   }
 
   @IBOutlet weak var updateDatabaseMenuItem: NSMenuItem!
-
-  @IBOutlet weak var playPauseMenuItem: NSMenuItem!
-  @IBOutlet weak var stopMenuItem: NSMenuItem!
-  @IBOutlet weak var nextTrackMenuItem: NSMenuItem!
-  @IBOutlet weak var prevTrackMenuItem: NSMenuItem!
 }
 
 extension AppDelegate: StoreSubscriber {

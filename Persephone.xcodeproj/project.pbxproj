@@ -661,10 +661,11 @@
 				E408D3C1220E134F0006D9BE /* AlbumViewController.swift */,
 				E47E2FD4222071FD00F747E6 /* AlbumViewItem.swift */,
 				E47E2FD022205C4600F747E6 /* MainSplitViewController.swift */,
-				E4E8CC912204F4B80024217A /* QueueViewController.swift */,
-				E465049921E94DF500A70F4C /* WindowController.swift */,
-				E4B11BB52275374B0075461B /* UserNotificationsController.swift */,
 				E4405191227644340090CD6F /* MPDServerController.swift */,
+				E4E8CC932206097F0024217A /* NotificationsController.swift */,
+				E4E8CC912204F4B80024217A /* QueueViewController.swift */,
+				E4B11BB52275374B0075461B /* UserNotificationsController.swift */,
+				E465049921E94DF500A70F4C /* WindowController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
