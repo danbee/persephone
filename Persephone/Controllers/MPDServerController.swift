@@ -17,12 +17,7 @@ class MPDServerController {
   }
 
   func connect() {
-    App.store.dispatch(
-      MPDConnectAction(
-        host: App.store.state.preferencesState.mpdServer.hostOrDefault,
-        port: App.store.state.preferencesState.mpdServer.portOrDefault
-      )
-    )
+    App.store.dispatch(MPDConnectAction())
   }
 
   func disconnect() {

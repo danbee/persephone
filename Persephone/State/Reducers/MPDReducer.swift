@@ -12,8 +12,12 @@ func mpdReducer(action: Action, state: MPDState?) -> MPDState {
   let state = state ?? MPDState()
 
   switch action {
-  case let action as MPDConnectAction:
-    App.mpdClient.connect(host: action.host, port: action.port)
+  case is MPDConnectAction:
+    let mpdServer = App.store.state.preferencesState.mpdServer
+    App.mpdClient.connect(
+      host: mpdServer.hostOrDefault,
+      port: mpdServer.portOrDefault
+    )
   case is MPDDisconnectAction:
     App.mpdClient.disconnect()
 

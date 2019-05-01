@@ -8,10 +8,7 @@
 
 import ReSwift
 
-struct MPDConnectAction: Action {
-  let host: String
-  let port: Int
-}
+struct MPDConnectAction: Action {}
 struct MPDDisconnectAction: Action {}
 
 struct MPDPlayPauseAction: Action {}
