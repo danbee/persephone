@@ -9,17 +9,12 @@
 import Foundation
 
 class NotificationsController: MPDClientDelegate {
-  let notificationQueue = DispatchQueue.main
-
-  func didConnect(mpdClient: MPDClient) {
-    sendNotification(name: Notification.didConnect)
-  }
+  func didConnect(mpdClient: MPDClient) {}
 
   func willDisconnect(mpdClient: MPDClient) {
     DispatchQueue.main.async {
       App.store.dispatch(UpdateAlbumListAction(albums: []))
     }
-    sendNotification(name: Notification.willDisconnect)
   }
 
   func didUpdateStatus(mpdClient: MPDClient, status: MPDClient.MPDStatus) {
@@ -55,16 +50,6 @@ class NotificationsController: MPDClientDelegate {
   func didLoadAlbums(mpdClient: MPDClient, albums: [MPDClient.MPDAlbum]) {
     DispatchQueue.main.async {
       App.store.dispatch(UpdateAlbumListAction(albums: albums))
-    }
-  }
-
-  private func sendNotification(name: Notification.Name, userInfo: [AnyHashable : Any] = [:]) {
-    self.notificationQueue.async {
-      NotificationCenter.default.post(
-        name: name,
-        object: App.mpdClient,
-        userInfo: userInfo
-      )
     }
   }
 }

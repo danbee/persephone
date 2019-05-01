@@ -10,9 +10,9 @@ import Foundation
 import ReSwift
 
 struct App {
+  static let store = Store<AppState>(reducer: appReducer, state: nil)
+  static let trackTimer = TrackTimer()
+  static let mpdClient = MPDClient(withDelegate: NotificationsController())
   static let userNotificationsController = UserNotificationsController()
   static let mpdServerController = MPDServerController()
-  static let mpdClient = MPDClient(withDelegate: NotificationsController())
-  static let trackTimer = TrackTimer()
-  static let store = Store<AppState>(reducer: appReducer, state: nil)
 }
