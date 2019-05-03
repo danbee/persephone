@@ -23,8 +23,12 @@ class WindowController: NSWindowController {
     window?.isExcludedFromWindowsMenu = true
 
     App.store.subscribe(self) {
-      $0.select { $0.playerState }
+      $0.select {
+        ($0.playerState, $0.uiState)
+      }
     }
+
+    App.store.dispatch(MainWindowDidOpenAction())
 
     trackProgress.font = .timerFont
     trackRemaining.font = .timerFont
@@ -68,20 +72,12 @@ class WindowController: NSWindowController {
     setTimeRemaining(elapsedTimeMs, totalTime * 1000)
   }
 
-  func setDatabaseUpdatingIndicator(_ playerState: PlayerState) {
-    if playerState.databaseUpdating {
-      startDatabaseUpdatingIndicator()
+  func setDatabaseUpdatingIndicator(_ uiState: UIState) {
+    if uiState.databaseUpdating {
+      databaseUpdatingIndicator.startAnimation(self)
     } else {
-      stopDatabaseUpdatingIndicator()
+      databaseUpdatingIndicator.stopAnimation(self)
     }
-  }
-
-  func startDatabaseUpdatingIndicator() {
-    databaseUpdatingIndicator.startAnimation(self)
-  }
-
-  func stopDatabaseUpdatingIndicator() {
-    databaseUpdatingIndicator.stopAnimation(self)
   }
 
   func setTimeElapsed(_ elapsedTimeMs: UInt?) {
@@ -149,16 +145,20 @@ class WindowController: NSWindowController {
   @IBOutlet var databaseUpdatingIndicator: NSProgressIndicator!
 }
 
+extension WindowController: NSWindowDelegate {
+  func windowWillClose(_ notification: Notification) {
+    App.store.dispatch(MainWindowDidCloseAction())
+  }
+}
+
 extension WindowController: StoreSubscriber {
-  typealias StoreSubscriberStateType = PlayerState
+  typealias StoreSubscriberStateType = (playerState: PlayerState, uiState: UIState)
 
-  func newState(state: StoreSubscriberStateType) {
-    self.state = state.state
-
+  func newState(state: (playerState: PlayerState, uiState: UIState)) {
     DispatchQueue.main.async {
-      self.setTransportControlState(state)
-      self.setTrackProgressControls(state)
-      self.setDatabaseUpdatingIndicator(state)
+      self.setTransportControlState(state.playerState)
+      self.setTrackProgressControls(state.playerState)
+      self.setDatabaseUpdatingIndicator(state.uiState)
     }
   }
 }

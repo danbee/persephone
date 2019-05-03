@@ -24,7 +24,3 @@ struct UpdateElapsedTimeAction: Action {
 struct UpdateStatusAction: Action {
   var status: MPDClient.MPDStatus
 }
-
-struct StartedDatabaseUpdateAction: Action {}
-
-struct FinishedDatabaseUpdateAction: Action {}
