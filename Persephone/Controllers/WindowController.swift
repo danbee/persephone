@@ -149,6 +149,14 @@ extension WindowController: NSWindowDelegate {
   func windowWillClose(_ notification: Notification) {
     App.store.dispatch(MainWindowDidCloseAction())
   }
+
+  func windowWillMiniaturize(_ notification: Notification) {
+    App.store.dispatch(MainWindowDidMinimizeAction())
+  }
+
+  func windowDidDeminiaturize(_ notification: Notification) {
+    App.store.dispatch(MainWindowDidOpenAction())
+  }
 }
 
 extension WindowController: StoreSubscriber {

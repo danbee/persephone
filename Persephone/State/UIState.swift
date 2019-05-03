@@ -8,7 +8,13 @@
 
 import ReSwift
 
+enum MainWindowState {
+  case open
+  case closed
+  case minimised
+}
+
 struct UIState: StateType {
-  var mainWindowOpen: Bool = false
+  var mainWindowState: MainWindowState = .closed
   var databaseUpdating: Bool = false
 }
