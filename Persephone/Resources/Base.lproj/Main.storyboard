@@ -26,7 +26,7 @@
                                         <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
                                             <connections>
                                                 <action selector="preferencesItemSelected:" target="Voe-Tx-rLC" id="bxe-zW-cho"/>
-                                                <segue destination="xYu-7w-E5x" kind="show" id="OTW-56-v9E"/>
+                                                <segue destination="xYu-7w-E5x" kind="show" identifier="Preferences" id="OTW-56-v9E"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
@@ -90,8 +90,17 @@
                                                 <action selector="performZoom:" target="Ady-hI-5gd" id="DIl-cC-cCs"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="Close" keyEquivalent="w" id="ahn-71-IzA">
+                                            <connections>
+                                                <action selector="performClose:" target="Ady-hI-5gd" id="ADY-rv-28Y"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="QhP-iz-rRa"/>
-                                        <menuItem title="Persephone" state="on" keyEquivalent="0" id="1Sq-L7-znT"/>
+                                        <menuItem title="Persephone" keyEquivalent="0" id="1Sq-L7-znT">
+                                            <connections>
+                                                <segue destination="B8D-0N-5wS" kind="show" identifier="Main Window" id="D1q-xT-4O8"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="eu3-7i-yIM"/>
                                         <menuItem title="Bring All to Front" id="LE2-aR-0XJ">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -122,6 +131,7 @@
                 </application>
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Persephone" customModuleProvider="target">
                     <connections>
+                        <outlet property="mainWindowMenuItem" destination="1Sq-L7-znT" id="dC6-yY-6Ss"/>
                         <outlet property="updateDatabaseMenuItem" destination="EJg-93-1F6" id="gMf-SQ-lyI"/>
                     </connections>
                 </customObject>
@@ -133,7 +143,7 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" customClass="WindowController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
+                <windowController showSeguePresentationStyle="single" id="B8D-0N-5wS" customClass="WindowController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Persephone" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA" customClass="MainWindow" customModule="Persephone" customModuleProvider="target">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -267,8 +277,8 @@
         <!--Window Controller-->
         <scene sceneID="Rpk-bo-5kf">
             <objects>
-                <windowController id="xYu-7w-E5x" customClass="PreferencesWindowController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="3FN-my-6kU">
+                <windowController showSeguePresentationStyle="single" id="xYu-7w-E5x" customClass="PreferencesWindowController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titleVisibility="hidden" id="3FN-my-6kU">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
                         <rect key="contentRect" x="245" y="301" width="416" height="100"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>

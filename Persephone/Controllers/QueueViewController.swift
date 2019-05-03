@@ -47,7 +47,7 @@ class QueueViewController: NSViewController,
   func outlineView(
     _ outlineView: NSOutlineView,
     selectionIndexesForProposedSelection proposedSelectionIndexes: IndexSet
-    ) -> IndexSet {
+  ) -> IndexSet {
     if proposedSelectionIndexes.contains(0) {
       return IndexSet()
     } else {

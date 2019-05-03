@@ -53,22 +53,6 @@ class AlbumViewController: NSViewController,
     layout.setScrollPosition()
   }
 
-  override func observeValue(
-    forKeyPath keyPath: String?,
-    of object: Any?,
-    change: [NSKeyValueChangeKey : Any]?,
-    context: UnsafeMutableRawPointer?
-    ) {
-    switch keyPath {
-    case "mpdLibraryDir":
-      albumCollectionView.reloadData()
-    case "fetchMissingArtworkFromInternet":
-      App.store.dispatch(ResetAlbumListCoverArtAction())
-    default:
-      break
-    }
-  }
-
   @IBOutlet var albumScrollView: NSScrollView!
   @IBOutlet var albumCollectionView: NSCollectionView!
 }
@@ -78,7 +62,9 @@ extension AlbumViewController: StoreSubscriber {
 
   func newState(state: StoreSubscriberStateType) {
     let oldAlbums = dataSource.albums
+    
     dataSource.albums = state.albums
+
     albumCollectionView.animateItemChanges(
       oldData: oldAlbums,
       newData: dataSource.albums

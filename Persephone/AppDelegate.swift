@@ -24,7 +24,9 @@ class AppDelegate: NSObject,
     mediaKeyTap?.start()
 
     App.store.subscribe(self) {
-      $0.select { $0.playerState.databaseUpdating }
+      $0.select {
+        $0.uiState
+      }
     }
   }
 
@@ -107,17 +109,19 @@ class AppDelegate: NSObject,
   @IBAction func nextTrackMenuAction(_ sender: NSMenuItem) {
     App.store.dispatch(MPDNextTrackAction())
   }
-  @IBAction func prevTrackMenuAction(_ sender: Any) {
+  @IBAction func prevTrackMenuAction(_ sender: NSMenuItem) {
     App.store.dispatch(MPDPrevTrackAction())
   }
 
+  @IBOutlet weak var mainWindowMenuItem: NSMenuItem!
   @IBOutlet weak var updateDatabaseMenuItem: NSMenuItem!
 }
 
 extension AppDelegate: StoreSubscriber {
-  typealias StoreSubscriberStateType = Bool
+  typealias StoreSubscriberStateType = UIState
 
-  func newState(state: Bool) {
-    updateDatabaseMenuItem.isEnabled = !state
+  func newState(state: UIState) {
+    updateDatabaseMenuItem.isEnabled = !state.databaseUpdating
+    mainWindowMenuItem.state = state.mainWindowOpen ? .on : .off
   }
 }

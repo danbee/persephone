@@ -55,13 +55,13 @@ extension MPDServerController: MPDClientDelegate {
 
   func willStartDatabaseUpdate(mpdClient: MPDClient) {
     DispatchQueue.main.async {
-      App.store.dispatch(StartedDatabaseUpdateAction())
+      App.store.dispatch(DatabaseUpdateStartedAction())
     }
   }
 
   func didFinishDatabaseUpdate(mpdClient: MPDClient) {
     DispatchQueue.main.async {
-      App.store.dispatch(FinishedDatabaseUpdateAction())
+      App.store.dispatch(DatabaseUpdateFinishedAction())
     }
   }
 
