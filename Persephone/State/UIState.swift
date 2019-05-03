@@ -16,5 +16,6 @@ enum MainWindowState {
 
 struct UIState: StateType {
   var mainWindowState: MainWindowState = .closed
+
   var databaseUpdating: Bool = false
 }
