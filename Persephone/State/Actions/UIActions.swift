@@ -12,6 +12,8 @@ struct MainWindowDidOpenAction: Action {}
 
 struct MainWindowDidCloseAction: Action {}
 
+struct MainWindowDidMinimizeAction: Action {}
+
 struct DatabaseUpdateStartedAction: Action {}
 
 struct DatabaseUpdateFinishedAction: Action {}

@@ -85,6 +85,14 @@ class AppDelegate: NSObject,
     return dockMenu
   }
 
+  func setMainWindowStateMenuItem(state: MainWindowState) {
+    switch state {
+    case .open: mainWindowMenuItem.state = .on
+    case .closed: mainWindowMenuItem.state = .off
+    case .minimised: mainWindowMenuItem.state = .mixed
+    }
+  }
+
   func handle(mediaKey: MediaKey, event: KeyEvent) {
     switch mediaKey {
     case .playPause:
@@ -122,6 +130,6 @@ extension AppDelegate: StoreSubscriber {
 
   func newState(state: UIState) {
     updateDatabaseMenuItem.isEnabled = !state.databaseUpdating
-    mainWindowMenuItem.state = state.mainWindowOpen ? .on : .off
+    setMainWindowStateMenuItem(state: state.mainWindowState)
   }
 }

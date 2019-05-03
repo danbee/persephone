@@ -13,10 +13,13 @@ func uiReducer(action: Action, state: UIState?) -> UIState {
 
   switch action {
   case is MainWindowDidOpenAction:
-    state.mainWindowOpen = true
+    state.mainWindowState = .open
 
   case is MainWindowDidCloseAction:
-    state.mainWindowOpen = false
+    state.mainWindowState = .closed
+
+  case is MainWindowDidMinimizeAction:
+    state.mainWindowState = .minimised
 
   case is DatabaseUpdateStartedAction:
     state.databaseUpdating = true
