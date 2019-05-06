@@ -97,6 +97,7 @@
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="QhP-iz-rRa"/>
                                         <menuItem title="Persephone" keyEquivalent="0" id="1Sq-L7-znT">
+                                            <attributedString key="attributedTitle"/>
                                             <connections>
                                                 <segue destination="B8D-0N-5wS" kind="show" identifier="Main Window" id="D1q-xT-4O8"/>
                                             </connections>
@@ -278,7 +279,7 @@
         <scene sceneID="Rpk-bo-5kf">
             <objects>
                 <windowController showSeguePresentationStyle="single" id="xYu-7w-E5x" customClass="PreferencesWindowController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="3FN-my-6kU">
+                    <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" tabbingMode="disallowed" id="3FN-my-6kU">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
                         <rect key="contentRect" x="245" y="301" width="416" height="100"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
