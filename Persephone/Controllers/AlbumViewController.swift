@@ -30,6 +30,10 @@ class AlbumViewController: NSViewController,
     albumCollectionView.dataSource = dataSource
   }
 
+  deinit {
+    App.store.unsubscribe(self)
+  }
+
   override func viewWillLayout() {
     super.viewWillLayout()
 
