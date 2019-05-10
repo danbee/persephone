@@ -36,12 +36,18 @@ func queueReducer(action: Action, state: QueueState?) -> QueueState {
     }
     if newSongRowPos >= 0 {
       state.queue[newSongRowPos].isPlaying = true
-    }
 
-    DispatchQueue.main.async {
-      App.store.dispatch(
-        UpdateCurrentSongAction(currentSong: state.queue[newSongRowPos].song)
-      )
+      DispatchQueue.main.async {
+        App.store.dispatch(
+          UpdateCurrentSongAction(currentSong: state.queue[newSongRowPos].song)
+        )
+      }
+    } else {
+      DispatchQueue.main.async {
+        App.store.dispatch(
+          UpdateCurrentSongAction(currentSong: nil)
+        )
+      }
     }
 
   case let action as UpdateQueuePlayerStateAction:

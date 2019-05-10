@@ -14,7 +14,7 @@ struct UpdateCurrentCoverArtAction: Action {
 }
 
 struct UpdateCurrentSongAction: Action {
-  var currentSong: Song
+  var currentSong: Song?
 }
 
 struct UpdateElapsedTimeAction: Action {
