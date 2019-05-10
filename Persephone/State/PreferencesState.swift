@@ -9,7 +9,7 @@
 import Foundation
 import ReSwift
 
-struct PreferencesState: StateType {
+struct PreferencesState: StateType, Equatable {
   let preferences = UserDefaults.standard
 
   var mpdServer: MPDServer

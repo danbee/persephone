@@ -8,12 +8,6 @@
 
 import ReSwift
 
-struct AlbumListState: StateType {
+struct AlbumListState: StateType, Equatable {
   var albums: [Album] = []
-}
-
-extension AlbumListState: Equatable {
-  static func == (lhs: AlbumListState, rhs: AlbumListState) -> Bool {
-    return lhs.albums == rhs.albums
-  }
 }

@@ -13,9 +13,7 @@ enum Loading<T> {
   case loading
   case loaded(T)
   case error(Error)
-}
 
-extension Loading: EnumEquatable {
   static func ~= (lhs: Loading<T>, rhs: Loading<T>) -> Bool {
     switch (lhs, rhs) {
     case (_, .notLoaded),

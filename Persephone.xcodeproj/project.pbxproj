@@ -95,7 +95,6 @@
 		E4B11BA62274E44A0075461B /* libmpdclient.2.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E41B22BF21FB6BBA00D544F6 /* libmpdclient.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		E4B11BA72274E4500075461B /* libmpdclient.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E41B22BF21FB6BBA00D544F6 /* libmpdclient.2.dylib */; };
 		E4B11BA92274EDE30075461B /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BA82274EDE30075461B /* Loading.swift */; };
-		E4B11BB02274F71A0075461B /* EnumEquatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BAF2274F71A0075461B /* EnumEquatable.swift */; };
 		E4B11BB62275374B0075461B /* UserNotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BB52275374B0075461B /* UserNotificationsController.swift */; };
 		E4B11BB8227538FA0075461B /* CurrentCoverArtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BB7227538FA0075461B /* CurrentCoverArtView.swift */; };
 		E4B11BBE2275EDAA0075461B /* PlayerActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BBD2275EDAA0075461B /* PlayerActions.swift */; };
@@ -105,7 +104,6 @@
 		E4C8B53E22349002009A20F3 /* MPDIdle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C8B53D22349002009A20F3 /* MPDIdle.swift */; };
 		E4E8CC902204EC7F0024217A /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC8F2204EC7F0024217A /* Delegate.swift */; };
 		E4E8CC922204F4B80024217A /* QueueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC912204F4B80024217A /* QueueViewController.swift */; };
-		E4E8CC942206097F0024217A /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC932206097F0024217A /* NotificationsController.swift */; };
 		E4E8CC9A22075D370024217A /* MPDSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC9922075D370024217A /* MPDSong.swift */; };
 		E4EB2379220F10B8008C70C0 /* MPDPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB2378220F10B8008C70C0 /* MPDPair.swift */; };
 		E4EB237B220F7CF1008C70C0 /* MPDAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB237A220F7CF1008C70C0 /* MPDAlbum.swift */; };
@@ -291,7 +289,6 @@
 		E4B11B7C2274E36D0075461B /* Differ.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Differ.framework.dSYM; path = Carthage/Build/Mac/Differ.framework.dSYM; sourceTree = "<group>"; };
 		E4B11B7D2274E36D0075461B /* Differ.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Differ.framework; path = Carthage/Build/Mac/Differ.framework; sourceTree = "<group>"; };
 		E4B11BA82274EDE30075461B /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
-		E4B11BAF2274F71A0075461B /* EnumEquatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumEquatable.swift; sourceTree = "<group>"; };
 		E4B11BB52275374B0075461B /* UserNotificationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationsController.swift; sourceTree = "<group>"; };
 		E4B11BB7227538FA0075461B /* CurrentCoverArtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentCoverArtView.swift; sourceTree = "<group>"; };
 		E4B11BBD2275EDAA0075461B /* PlayerActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerActions.swift; sourceTree = "<group>"; };
@@ -301,7 +298,6 @@
 		E4C8B53D22349002009A20F3 /* MPDIdle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDIdle.swift; sourceTree = "<group>"; };
 		E4E8CC8F2204EC7F0024217A /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
 		E4E8CC912204F4B80024217A /* QueueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueViewController.swift; sourceTree = "<group>"; };
-		E4E8CC932206097F0024217A /* NotificationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
 		E4E8CC9922075D370024217A /* MPDSong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDSong.swift; sourceTree = "<group>"; };
 		E4EB2378220F10B8008C70C0 /* MPDPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDPair.swift; sourceTree = "<group>"; };
 		E4EB237A220F7CF1008C70C0 /* MPDAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDAlbum.swift; sourceTree = "<group>"; };
@@ -376,7 +372,6 @@
 		E407861A2110CE6E006887B1 /* Persephone */ = {
 			isa = PBXGroup;
 			children = (
-				E4B11BAE2274F7030075461B /* Protocols */,
 				E407861B2110CE6E006887B1 /* AppDelegate.swift */,
 				E44051932278765A0090CD6F /* App.swift */,
 				E407861F2110CE70006887B1 /* Assets.xcassets */,
@@ -639,14 +634,6 @@
 			path = Actions;
 			sourceTree = "<group>";
 		};
-		E4B11BAE2274F7030075461B /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				E4B11BAF2274F71A0075461B /* EnumEquatable.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
 		E4D1B594220BA2490026F233 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -674,7 +661,6 @@
 				E408D3C1220E134F0006D9BE /* AlbumViewController.swift */,
 				E47E2FD4222071FD00F747E6 /* AlbumViewItem.swift */,
 				E47E2FD022205C4600F747E6 /* MainSplitViewController.swift */,
-				E4E8CC932206097F0024217A /* NotificationsController.swift */,
 				E4E8CC912204F4B80024217A /* QueueViewController.swift */,
 				E465049921E94DF500A70F4C /* WindowController.swift */,
 				E4B11BB52275374B0075461B /* UserNotificationsController.swift */,
@@ -918,7 +904,6 @@
 				E450AD9522262DF10091BED3 /* CoverArtQueue.swift in Sources */,
 				E41E52FD223BF87300173814 /* MPDClient+Connection.swift in Sources */,
 				E450AD7E222620A10091BED3 /* Album.swift in Sources */,
-				E4E8CC942206097F0024217A /* NotificationsController.swift in Sources */,
 				E408D3B6220DD8970006D9BE /* Notification.swift in Sources */,
 				E45962C62241A78500FC1A1E /* MPDCommand.swift in Sources */,
 				E408D3B9220DE98F0006D9BE /* NSUserInterfaceItemIdentifier.swift in Sources */,
@@ -938,7 +923,6 @@
 				E407861C2110CE6E006887B1 /* AppDelegate.swift in Sources */,
 				E4B11B75226CC4D30075461B /* QueueReducer.swift in Sources */,
 				E41E5309223C020400173814 /* MPDClient+Command.swift in Sources */,
-				E4B11BB02274F71A0075461B /* EnumEquatable.swift in Sources */,
 				E4B11B73226A6C770075461B /* TrackTimer.swift in Sources */,
 				E44051942278765A0090CD6F /* App.swift in Sources */,
 				E4B11B79226D346B0075461B /* AlbumListReducer.swift in Sources */,

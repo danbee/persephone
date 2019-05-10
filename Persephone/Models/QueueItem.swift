@@ -8,16 +8,8 @@
 
 import Foundation
 
-struct QueueItem {
+struct QueueItem: Equatable {
   var song: Song
   var queuePos: Int
   var isPlaying: Bool
-}
-
-extension QueueItem: Equatable {
-  static func == (lhs: QueueItem, rhs: QueueItem) -> Bool {
-    return (lhs.song == rhs.song) &&
-      (lhs.queuePos == rhs.queuePos) &&
-      (lhs.isPlaying == rhs.isPlaying)
-  }
 }

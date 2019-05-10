@@ -32,8 +32,7 @@ struct Album {
 
 extension Album: Equatable {
   static func == (lhs: Album, rhs: Album) -> Bool {
-    return (lhs.artist == rhs.artist) &&
-      (lhs.title == rhs.title) &&
+    return (lhs.mpdAlbum == rhs.mpdAlbum) &&
       (lhs.coverArt ~= rhs.coverArt)
   }
 }
