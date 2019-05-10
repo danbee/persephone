@@ -25,10 +25,10 @@ class AlbumDataSource: NSObject, NSCollectionViewDataSource {
 
     switch albums[indexPath.item].coverArt {
     case .notLoaded:
-      App.mpdClient.getAlbumFirstSong(for: albums[indexPath.item].mpdAlbum) {
-        guard let song = $0 else { return }
+      App.mpdClient.getAlbumFirstSong(for: albums[indexPath.item].mpdAlbum) { mpdSong in
+        guard let mpdSong = mpdSong else { return }
 
-        CoverArtService(song: Song(mpdSong: song))
+        CoverArtService(song: Song(mpdSong: mpdSong))
           .fetchCoverArt()
           .done { image in
             DispatchQueue.main.async {
