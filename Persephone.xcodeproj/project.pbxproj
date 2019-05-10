@@ -32,6 +32,7 @@
 		E41E5310223EF6CE00173814 /* CoverArtService+Remote.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41E530F223EF6CE00173814 /* CoverArtService+Remote.swift */; };
 		E41E5312223EF74A00173814 /* CoverArtService+Filesystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41E5311223EF74A00173814 /* CoverArtService+Filesystem.swift */; };
 		E41EA46C221636AF0068EF46 /* GeneralPrefsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41EA46B221636AF0068EF46 /* GeneralPrefsViewController.swift */; };
+		E4235640228623D2001216D6 /* QueueSongTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423563F228623D2001216D6 /* QueueSongTitleView.swift */; };
 		E42410B62241B956005ED6DF /* MPDClient+Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42410B52241B956005ED6DF /* MPDClient+Database.swift */; };
 		E42A8F3B22176D6400A13ED9 /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = E42A8F3922176D6400A13ED9 /* LICENSE.md */; };
 		E42A8F3C22176D6400A13ED9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E42A8F3A22176D6400A13ED9 /* README.md */; };
@@ -237,6 +238,7 @@
 		E41E5311223EF74A00173814 /* CoverArtService+Filesystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoverArtService+Filesystem.swift"; sourceTree = "<group>"; };
 		E41EA46B221636AF0068EF46 /* GeneralPrefsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralPrefsViewController.swift; sourceTree = "<group>"; };
 		E421ACA1221F73B8008B2449 /* MediaKeyTap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaKeyTap.framework; path = Carthage/Build/Mac/MediaKeyTap.framework; sourceTree = "<group>"; };
+		E423563F228623D2001216D6 /* QueueSongTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueSongTitleView.swift; sourceTree = "<group>"; };
 		E42410B52241B956005ED6DF /* MPDClient+Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MPDClient+Database.swift"; sourceTree = "<group>"; };
 		E42A8F3922176D6400A13ED9 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		E42A8F3A22176D6400A13ED9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -455,6 +457,7 @@
 				E47E2FD62220720300F747E6 /* AlbumItemView.swift */,
 				E47E2FD222205D2500F747E6 /* MainWindow.swift */,
 				E4B11BB7227538FA0075461B /* CurrentCoverArtView.swift */,
+				E423563F228623D2001216D6 /* QueueSongTitleView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -671,7 +674,6 @@
 				E47E2FD4222071FD00F747E6 /* AlbumViewItem.swift */,
 				E47E2FD022205C4600F747E6 /* MainSplitViewController.swift */,
 				E4405191227644340090CD6F /* MPDServerController.swift */,
-				E4E8CC932206097F0024217A /* NotificationsController.swift */,
 				E4E8CC912204F4B80024217A /* QueueViewController.swift */,
 				E4B11BB52275374B0075461B /* UserNotificationsController.swift */,
 				E465049921E94DF500A70F4C /* WindowController.swift */,
@@ -908,6 +910,7 @@
 				E41E530B223C033700173814 /* MPDClient+Album.swift in Sources */,
 				E440519822787CB40090CD6F /* MPDState.swift in Sources */,
 				E42410B62241B956005ED6DF /* MPDClient+Database.swift in Sources */,
+				E4235640228623D2001216D6 /* QueueSongTitleView.swift in Sources */,
 				E4A642DA22090CBE00067D21 /* MPDStatus.swift in Sources */,
 				E4B11BC02275EE150075461B /* QueueActions.swift in Sources */,
 				E47E2FD72220720300F747E6 /* AlbumItemView.swift in Sources */,

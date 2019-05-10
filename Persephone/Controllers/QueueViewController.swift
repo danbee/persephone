@@ -72,19 +72,21 @@ class QueueViewController: NSViewController,
     }
   }
 
-func cellForSongTitle(_ outlineView: NSOutlineView, with queueItem: QueueItem) -> NSView {
+  func cellForSongTitle(_ outlineView: NSOutlineView, with queueItem: QueueItem) -> NSView {
     let cellView = outlineView.makeView(
       withIdentifier: .queueSongTitle,
       owner: self
-    ) as! NSTableCellView
+    ) as! QueueSongTitleView
 
     cellView.textField?.stringValue = queueItem.song.title
     if queueItem.isPlaying {
-      cellView.textField?.font = .systemFontBold
-      cellView.imageView?.image = dataSource.queueIcon
+      cellView.queueSongTitle?.font = .systemFontBold
+      cellView.queuePlayerStateImage?.image = dataSource.queueIcon
+      cellView.queuePosition?.stringValue = ""
     } else {
-      cellView.textField?.font = .systemFontRegular
-      cellView.imageView?.image = nil
+      cellView.queueSongTitle?.font = .systemFontRegular
+      cellView.queuePlayerStateImage?.image = nil
+      cellView.queuePosition?.stringValue = "\(queueItem.queuePos + 1)."
     }
 
     return cellView
