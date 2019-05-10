@@ -569,7 +569,7 @@
                                                                     </textFieldCell>
                                                                 </textField>
                                                                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="i0h-bn-auJ" userLabel="Song Title View">
-                                                                    <rect key="frame" x="37" y="0.0" width="163" height="17"/>
+                                                                    <rect key="frame" x="40" y="0.0" width="160" height="17"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="ei8-1e-ErK">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -578,7 +578,7 @@
                                                                 </textField>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="i0h-bn-auJ" firstAttribute="leading" secondItem="o8i-cz-hIP" secondAttribute="trailing" constant="19" id="68y-un-94T"/>
+                                                                <constraint firstItem="i0h-bn-auJ" firstAttribute="leading" secondItem="o8i-cz-hIP" secondAttribute="trailing" constant="22" id="68y-un-94T"/>
                                                                 <constraint firstItem="mc4-Xr-oUl" firstAttribute="centerY" secondItem="5rR-Gz-AcP" secondAttribute="centerY" id="ELP-WE-eIm"/>
                                                                 <constraint firstItem="o8i-cz-hIP" firstAttribute="leading" secondItem="5rR-Gz-AcP" secondAttribute="leading" constant="3" id="SkK-PE-YOL"/>
                                                                 <constraint firstAttribute="trailing" secondItem="i0h-bn-auJ" secondAttribute="trailing" constant="2" id="XQG-u9-wiY"/>

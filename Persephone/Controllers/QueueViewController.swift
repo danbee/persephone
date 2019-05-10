@@ -78,16 +78,7 @@ class QueueViewController: NSViewController,
       owner: self
     ) as! QueueSongTitleView
 
-    cellView.textField?.stringValue = queueItem.song.title
-    if queueItem.isPlaying {
-      cellView.queueSongTitle?.font = .systemFontBold
-      cellView.queuePlayerStateImage?.image = dataSource.queueIcon
-      cellView.queuePosition?.stringValue = ""
-    } else {
-      cellView.queueSongTitle?.font = .systemFontRegular
-      cellView.queuePlayerStateImage?.image = nil
-      cellView.queuePosition?.stringValue = "\(queueItem.queuePos + 1)."
-    }
+    cellView.setQueueSong(queueItem, queueIcon: dataSource.queueIcon)
 
     return cellView
   }
