@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.12.0-alpha - 2019-05-18
+
+### Added
+
+- Now Playing information and transport controls in the dock menu
+- Queue position numbers in the queue
+- Shuffle/repeat mode buttons
+
+### Changed
+
+- BIG refactor using unidirectional dataflow
+
 ## 0.11.2-alpha - 2019-04-09
 
 ### Changed
