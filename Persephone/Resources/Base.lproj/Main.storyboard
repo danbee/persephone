@@ -569,8 +569,8 @@
                                                             <rect key="frame" x="1" y="1" width="200" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xgd-Cz-np3">
-                                                                    <rect key="frame" x="0.0" y="1" width="329" height="14"/>
+                                                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xgd-Cz-np3">
+                                                                    <rect key="frame" x="0.0" y="2" width="447" height="14"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="443" id="mkA-ng-q8a"/>
                                                                     </constraints>
@@ -597,8 +597,8 @@
                                                                     </constraints>
                                                                     <imageCell key="cell" refusesFirstResponder="YES" imageScaling="proportionallyDown" image="playButton" id="ckK-gW-Vhx"/>
                                                                 </imageView>
-                                                                <textField identifier="queuePosition" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mc4-Xr-oUl" userLabel="Queue Position View">
-                                                                    <rect key="frame" x="4" y="0.0" width="32" height="17"/>
+                                                                <textField identifier="queuePosition" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mc4-Xr-oUl" userLabel="Queue Position View">
+                                                                    <rect key="frame" x="4" y="0.0" width="33" height="17"/>
                                                                     <textFieldCell key="cell" lineBreakMode="clipping" title="888." id="wpZ-1t-Do7">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="tertiaryLabelColor" catalog="System" colorSpace="catalog"/>

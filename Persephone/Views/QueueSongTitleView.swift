@@ -17,7 +17,7 @@ class QueueSongTitleView: NSTableCellView {
     queuePosition?.font = .timerFont
     queueSongTitle?.stringValue = queueItem.song.title
 
-    if queueItem.isPlaying {
+    if queueItem.isPlaying && queueIcon != nil {
       queueSongTitle?.font = .systemFontBold
       queuePlayerStateImage?.image = queueIcon
       queuePosition?.stringValue = ""
