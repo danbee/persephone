@@ -15,6 +15,8 @@ struct PlayerState: StateType {
   var currentArtwork: NSImage?
 
   var state: MPDClient.MPDStatus.State?
+  var shuffleState: Bool = false
+  var repeatState: Bool = false
 
   var totalTime: UInt?
   var elapsedTimeMs: UInt?
@@ -24,6 +26,8 @@ extension PlayerState: Equatable {
   static func == (lhs: PlayerState, rhs: PlayerState) -> Bool {
     return (lhs.state == rhs.state) &&
       (lhs.totalTime == rhs.totalTime) &&
-      (lhs.elapsedTimeMs == rhs.elapsedTimeMs)
+      (lhs.elapsedTimeMs == rhs.elapsedTimeMs) &&
+      (lhs.shuffleState == rhs.shuffleState) &&
+      (lhs.repeatState == rhs.repeatState)
   }
 }

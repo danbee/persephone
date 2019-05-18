@@ -29,3 +29,11 @@ struct MPDSeekCurrentSong: Action {
 }
 
 struct MPDUpdateDatabaseAction: Action {}
+
+struct MPDSetShuffleAction: Action {
+  let shuffleState: Bool
+}
+
+struct MPDSetRepeatAction: Action {
+  let repeatState: Bool
+}

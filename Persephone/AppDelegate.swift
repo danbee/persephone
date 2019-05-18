@@ -18,7 +18,7 @@ class AppDelegate: NSObject,
 
   func applicationDidFinishLaunching(_ aNotification: Notification) {
     App.mpdServerController.connect()
-    _ = App.userNotificationsController
+    instantiateUserNotificationsController()
 
     mediaKeyTap = MediaKeyTap(delegate: self)
     mediaKeyTap?.start()
@@ -28,6 +28,10 @@ class AppDelegate: NSObject,
         $0.uiState
       }
     }
+  }
+
+  func instantiateUserNotificationsController() {
+    _ = App.userNotificationsController
   }
 
   func applicationWillTerminate(_ aNotification: Notification) {

@@ -60,6 +60,12 @@ func playerReducer(action: Action, state: PlayerState?) -> PlayerState {
   case let action as UpdateElapsedTimeAction:
     state.elapsedTimeMs = action.elapsedTimeMs
 
+  case let action as UpdateShuffleAction:
+    state.shuffleState = action.shuffleState
+
+  case let action as UpdateRepeatAction:
+    state.repeatState = action.repeatState
+
   default:
     break
   }

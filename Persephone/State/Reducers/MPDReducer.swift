@@ -39,6 +39,12 @@ func mpdReducer(action: Action, state: MPDState?) -> MPDState {
   case let action as MPDSeekCurrentSong:
     App.mpdClient.seekCurrentSong(timeInSeconds: action.timeInSeconds)
 
+  case let action as MPDSetShuffleAction:
+    App.mpdClient.setShuffleState(shuffleState: action.shuffleState)
+
+  case let action as MPDSetRepeatAction:
+    App.mpdClient.setRepeatState(repeatState: action.repeatState)
+
   case is MPDUpdateDatabaseAction:
     App.mpdClient.updateDatabase()
 

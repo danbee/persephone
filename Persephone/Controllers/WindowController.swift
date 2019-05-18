@@ -17,6 +17,16 @@ class WindowController: NSWindowController {
   var state: MPDClient.MPDStatus.State?
   var trackTimer: Timer?
 
+  @IBOutlet var transportControls: NSSegmentedCell!
+
+  @IBOutlet var trackProgress: NSTextField!
+  @IBOutlet var trackProgressBar: NSSlider!
+  @IBOutlet var trackRemaining: NSTextField!
+  @IBOutlet var databaseUpdatingIndicator: NSProgressIndicator!
+
+  @IBOutlet var shuffleState: NSButton!
+  @IBOutlet var repeatState: NSButton!
+
   override func windowDidLoad() {
     super.windowDidLoad()
     window?.titleVisibility = .hidden
@@ -137,12 +147,14 @@ class WindowController: NSWindowController {
     }
   }
 
-  @IBOutlet var transportControls: NSSegmentedCell!
-  
-  @IBOutlet var trackProgress: NSTextField!
-  @IBOutlet var trackProgressBar: NSSlider!
-  @IBOutlet var trackRemaining: NSTextField!
-  @IBOutlet var databaseUpdatingIndicator: NSProgressIndicator!
+  @IBAction func handleShuffleButton(_ sender: NSButton) {
+    App.store.dispatch(MPDSetShuffleAction(shuffleState: sender.state == .on))
+  }
+
+  @IBAction func handleRepeatButton(_ sender: NSButton) {
+    App.store.dispatch(MPDSetRepeatAction(repeatState: sender.state == .on))
+  }
+
 }
 
 extension WindowController: NSWindowDelegate {

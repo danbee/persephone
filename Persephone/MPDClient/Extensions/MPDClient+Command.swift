@@ -29,6 +29,16 @@ extension MPDClient {
         else { return }
       sendSeekCurrentSong(timeInSeconds: timeInSeconds)
 
+    case .setShuffleState:
+      guard let shuffleState = userData["shuffleState"] as? Bool
+        else { return }
+      sendShuffleState(shuffleState: shuffleState)
+
+    case .setRepeatState:
+      guard let repeatState = userData["repeatState"] as? Bool
+        else { return }
+      sendRepeatState(repeatState: repeatState)
+
     // Database commands
     case .updateDatabase:
       sendUpdateDatabase()

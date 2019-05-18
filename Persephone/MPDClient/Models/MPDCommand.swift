@@ -17,6 +17,9 @@ extension MPDClient {
     case stop
     case seekCurrentSong
 
+    case setShuffleState
+    case setRepeatState
+
     // Database commands
     case updateDatabase
 

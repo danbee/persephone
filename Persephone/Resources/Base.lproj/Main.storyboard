@@ -222,9 +222,44 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     </progressIndicator>
                                 </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="A07933B6-4770-4B28-856B-B98DB5C6EB55" label="" paletteLabel="Shuffle" image="shuffleButton" selectable="YES" id="gF4-mh-Nzd">
+                                    <nil key="toolTip"/>
+                                    <size key="minSize" width="42" height="24"/>
+                                    <size key="maxSize" width="42" height="24"/>
+                                    <button key="view" verticalHuggingPriority="750" id="E8L-uK-XT0">
+                                        <rect key="frame" x="2" y="14" width="42" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="shuffleButton" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" inset="2" id="YNb-hd-ax8">
+                                            <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="handleShuffleButton:" target="B8D-0N-5wS" id="THd-0g-fmb"/>
+                                        </connections>
+                                    </button>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="4B55BD96-797D-4F30-B582-2D917823879F" label="" paletteLabel="Repeat" image="repeatButton" id="MwO-i4-shF">
+                                    <nil key="toolTip"/>
+                                    <size key="minSize" width="42" height="25"/>
+                                    <size key="maxSize" width="42" height="25"/>
+                                    <button key="view" verticalHuggingPriority="750" id="OqH-lV-sAg">
+                                        <rect key="frame" x="1" y="14" width="42" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="repeatButton" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" inset="2" id="1bu-vK-3Hb">
+                                            <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="handleRepeatButton:" target="B8D-0N-5wS" id="EN2-u4-DNl"/>
+                                        </connections>
+                                    </button>
+                                </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
                                 <toolbarItem reference="p3r-ty-Pxf"/>
+                                <toolbarItem reference="mhg-16-CNM"/>
+                                <toolbarItem reference="gF4-mh-Nzd"/>
+                                <toolbarItem reference="MwO-i4-shF"/>
                                 <toolbarItem reference="fw4-Lp-bWJ"/>
                                 <toolbarItem reference="9ol-aR-mzv"/>
                                 <toolbarItem reference="n52-8S-6kR"/>
@@ -239,6 +274,8 @@
                     </window>
                     <connections>
                         <outlet property="databaseUpdatingIndicator" destination="LpV-iM-o6t" id="y0T-eR-ygY"/>
+                        <outlet property="repeatState" destination="OqH-lV-sAg" id="DPC-Ff-Srr"/>
+                        <outlet property="shuffleState" destination="E8L-uK-XT0" id="dCF-hm-dBs"/>
                         <outlet property="trackProgress" destination="kx6-xm-TAN" id="XDv-Th-Agj"/>
                         <outlet property="trackProgressBar" destination="KMy-xf-rmN" id="a67-JU-cyQ"/>
                         <outlet property="trackRemaining" destination="9WZ-ij-lrb" id="0pH-d7-wvD"/>
@@ -749,6 +786,8 @@
         <image name="nextTrackButton" width="17" height="17"/>
         <image name="playButton" width="17" height="17"/>
         <image name="prevTrackButton" width="17" height="17"/>
+        <image name="repeatButton" width="17" height="17"/>
+        <image name="shuffleButton" width="17" height="17"/>
         <image name="stopButton" width="17" height="17"/>
     </resources>
 </document>

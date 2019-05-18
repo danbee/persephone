@@ -33,6 +33,20 @@ extension MPDClient {
     )
   }
 
+  func setShuffleState(shuffleState: Bool) {
+    enqueueCommand(
+      command: .setShuffleState,
+      userData: ["shuffleState": shuffleState]
+    )
+  }
+
+  func setRepeatState(repeatState: Bool) {
+    enqueueCommand(
+      command: .setRepeatState,
+      userData: ["repeatState": repeatState]
+    )
+  }
+
   func sendNextTrack() {
     guard let state = status?.state,
       state.isOneOf([.playing, .paused])
@@ -63,5 +77,13 @@ extension MPDClient {
 
   func sendSeekCurrentSong(timeInSeconds: Float) {
     mpd_run_seek_current(self.connection, timeInSeconds, false)
+  }
+
+  func sendShuffleState(shuffleState: Bool) {
+    mpd_run_random(self.connection, shuffleState)
+  }
+
+  func sendRepeatState(repeatState: Bool) {
+    mpd_run_repeat(self.connection, repeatState)
   }
 }

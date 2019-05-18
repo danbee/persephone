@@ -24,3 +24,11 @@ struct UpdateElapsedTimeAction: Action {
 struct UpdateStatusAction: Action {
   var status: MPDClient.MPDStatus
 }
+
+struct UpdateShuffleAction: Action {
+  var shuffleState: Bool
+}
+
+struct UpdateRepeatAction: Action {
+  var repeatState: Bool
+}
