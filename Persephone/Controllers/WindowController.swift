@@ -68,6 +68,11 @@ class WindowController: NSWindowController {
     }
   }
 
+  func setShuffleRepeatState(_ state: PlayerState) {
+    shuffleState.state = state.shuffleState ? .on : .off
+    repeatState.state = state.repeatState ? .on : .off
+  }
+
   func setTrackProgressControls(_ playerState: PlayerState) {
     guard let state = playerState.state,
       let totalTime = playerState.totalTime,
@@ -177,6 +182,7 @@ extension WindowController: StoreSubscriber {
   func newState(state: (playerState: PlayerState, uiState: UIState)) {
     DispatchQueue.main.async {
       self.setTransportControlState(state.playerState)
+      self.setShuffleRepeatState(state.playerState)
       self.setTrackProgressControls(state.playerState)
       self.setDatabaseUpdatingIndicator(state.uiState)
     }

@@ -50,6 +50,14 @@ extension MPDClient {
       return Int(mpd_status_get_song_pos(status))
     }
 
+    var shuffleState: Bool {
+      return mpd_status_get_random(status)
+    }
+
+    var repeatState: Bool {
+      return mpd_status_get_repeat(status)
+    }
+
     var updating: Bool {
       let updating = mpd_status_get_update_id(status)
 

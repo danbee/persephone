@@ -18,6 +18,8 @@ func playerReducer(action: Action, state: PlayerState?) -> PlayerState {
     state.state = action.status.state
     state.totalTime = action.status.totalTime
     state.elapsedTimeMs = action.status.elapsedTimeMs
+    state.shuffleState = action.status.shuffleState
+    state.repeatState = action.status.repeatState
 
     if state.state == .playing {
       App.trackTimer.start(elapsedTimeMs: state.elapsedTimeMs)
@@ -59,12 +61,6 @@ func playerReducer(action: Action, state: PlayerState?) -> PlayerState {
 
   case let action as UpdateElapsedTimeAction:
     state.elapsedTimeMs = action.elapsedTimeMs
-
-  case let action as UpdateShuffleAction:
-    state.shuffleState = action.shuffleState
-
-  case let action as UpdateRepeatAction:
-    state.repeatState = action.repeatState
 
   default:
     break
