@@ -54,6 +54,10 @@ extension MPDClient {
       guard let queuePos = userData["queuePos"] as? Int
         else { return }
       sendPlayTrack(at: queuePos)
+    case .replaceQueue:
+      guard let songs = userData["songs"] as? [MPDSong]
+        else { return }
+      sendReplaceQueue(songs)
 
     // Album commands
     case .fetchAllAlbums:
@@ -67,6 +71,13 @@ extension MPDClient {
         else { return }
 
       albumFirstSong(for: album, callback: callback)
+
+    case .getAlbumSongs:
+      guard let album = userData["album"] as? MPDAlbum,
+        let callback = userData["callback"] as? ([MPDSong]) -> Void
+        else { return }
+
+      albumSongs(for: album, callback: callback)
     }
   }
 

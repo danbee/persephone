@@ -51,13 +51,29 @@ class AlbumViewItem: NSCollectionViewItem {
     }
   }
 
-  @IBAction func playAlbum(_ sender: Any) {
+  @IBAction func playAlbum(_ sender: NSButton) {
     guard let album = album else { return }
 
     App.store.dispatch(MPDPlayAlbum(album: album.mpdAlbum))
   }
 
-  @IBOutlet var albumCoverView: NSImageView!
+  @IBAction func showAlbumDetail(_ sender: NSButton) {
+    guard let album = album else { return }
+    let detailViewController = AlbumDetailView()
+
+    detailViewController.setAlbum(album)
+
+    let popoverView = NSPopover()
+    popoverView.contentViewController = detailViewController
+    popoverView.behavior = .transient
+    popoverView.show(
+      relativeTo: sender.bounds,
+      of: sender,
+      preferredEdge: .maxY
+    )
+  }
+
+  @IBOutlet var albumCoverView: NSButton!
   @IBOutlet var albumTitle: NSTextField!
   @IBOutlet var albumArtist: NSTextField!
 }

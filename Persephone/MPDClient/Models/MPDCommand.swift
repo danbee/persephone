@@ -29,10 +29,12 @@ extension MPDClient {
     // Queue commands
     case fetchQueue
     case playTrack
+    case replaceQueue
 
     // Album commands
     case fetchAllAlbums
     case playAlbum
     case getAlbumFirstSong
+    case getAlbumSongs
   }
 }

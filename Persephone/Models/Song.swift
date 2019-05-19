@@ -11,6 +11,10 @@ import Foundation
 struct Song {
   var mpdSong: MPDClient.MPDSong
 
+  var trackNumber: String {
+    return mpdSong.getTag(.track)
+  }
+
   var title: String {
     return mpdSong.getTag(.title)
   }

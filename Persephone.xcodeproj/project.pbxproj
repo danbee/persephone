@@ -39,6 +39,9 @@
 		E435E3E2221CD4E200184CFC /* NSFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = E435E3E1221CD4E200184CFC /* NSFont.swift */; };
 		E435E3E4221CD75D00184CFC /* NSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E435E3E3221CD75D00184CFC /* NSImage.swift */; };
 		E439109822640213002982E9 /* SongNotifierService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439109722640213002982E9 /* SongNotifierService.swift */; };
+		E43B67AA22909793007DCF55 /* AlbumDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B67A822909793007DCF55 /* AlbumDetailView.swift */; };
+		E43B67AB22909793007DCF55 /* AlbumDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E43B67A922909793007DCF55 /* AlbumDetailView.xib */; };
+		E43B67AD229194CD007DCF55 /* AlbumTracksDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B67AC229194CD007DCF55 /* AlbumTracksDataSource.swift */; };
 		E4405192227644340090CD6F /* MPDServerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4405191227644340090CD6F /* MPDServerController.swift */; };
 		E44051942278765A0090CD6F /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44051932278765A0090CD6F /* App.swift */; };
 		E4405196227879960090CD6F /* MPDActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4405195227879960090CD6F /* MPDActions.swift */; };
@@ -245,6 +248,9 @@
 		E435E3E1221CD4E200184CFC /* NSFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSFont.swift; sourceTree = "<group>"; };
 		E435E3E3221CD75D00184CFC /* NSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImage.swift; sourceTree = "<group>"; };
 		E439109722640213002982E9 /* SongNotifierService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongNotifierService.swift; sourceTree = "<group>"; };
+		E43B67A822909793007DCF55 /* AlbumDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailView.swift; sourceTree = "<group>"; };
+		E43B67A922909793007DCF55 /* AlbumDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumDetailView.xib; sourceTree = "<group>"; };
+		E43B67AC229194CD007DCF55 /* AlbumTracksDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTracksDataSource.swift; sourceTree = "<group>"; };
 		E4405191227644340090CD6F /* MPDServerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDServerController.swift; sourceTree = "<group>"; };
 		E44051932278765A0090CD6F /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		E4405195227879960090CD6F /* MPDActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDActions.swift; sourceTree = "<group>"; };
@@ -670,6 +676,7 @@
 		E4D1B597220BA3A20026F233 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E43B67A822909793007DCF55 /* AlbumDetailView.swift */,
 				E408D3C1220E134F0006D9BE /* AlbumViewController.swift */,
 				E47E2FD4222071FD00F747E6 /* AlbumViewItem.swift */,
 				E47E2FD022205C4600F747E6 /* MainSplitViewController.swift */,
@@ -685,6 +692,7 @@
 			isa = PBXGroup;
 			children = (
 				E40786212110CE70006887B1 /* Main.storyboard */,
+				E43B67A922909793007DCF55 /* AlbumDetailView.xib */,
 				E408D3C9220E341D0006D9BE /* AlbumViewItem.xib */,
 			);
 			path = Resources;
@@ -695,6 +703,7 @@
 			children = (
 				E4F6B466221E233200ACF42A /* AlbumDataSource.swift */,
 				E4F6B45F221E119B00ACF42A /* QueueDataSource.swift */,
+				E43B67AC229194CD007DCF55 /* AlbumTracksDataSource.swift */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";
@@ -835,6 +844,7 @@
 				E450AD9122262C780091BED3 /* SwiftyJSON.framework.dSYM in Resources */,
 				E42A8F3B22176D6400A13ED9 /* LICENSE.md in Resources */,
 				E45E4FDA22515D87004B537F /* CHANGELOG.md in Resources */,
+				E43B67AB22909793007DCF55 /* AlbumDetailView.xib in Resources */,
 				E45E4FDC22515D87004B537F /* Cartfile in Resources */,
 				E450AD98222633920091BED3 /* Alamofire.framework.dSYM in Resources */,
 				E40786202110CE70006887B1 /* Assets.xcassets in Resources */,
@@ -915,6 +925,7 @@
 				E4B11BC02275EE150075461B /* QueueActions.swift in Sources */,
 				E47E2FD72220720300F747E6 /* AlbumItemView.swift in Sources */,
 				E450AD9522262DF10091BED3 /* CoverArtQueue.swift in Sources */,
+				E43B67AD229194CD007DCF55 /* AlbumTracksDataSource.swift in Sources */,
 				E41E52FD223BF87300173814 /* MPDClient+Connection.swift in Sources */,
 				E450AD7E222620A10091BED3 /* Album.swift in Sources */,
 				E408D3B6220DD8970006D9BE /* Notification.swift in Sources */,
@@ -922,6 +933,7 @@
 				E408D3B9220DE98F0006D9BE /* NSUserInterfaceItemIdentifier.swift in Sources */,
 				E4EB2379220F10B8008C70C0 /* MPDPair.swift in Sources */,
 				E440519E227BB0720090CD6F /* UIReducer.swift in Sources */,
+				E43B67AA22909793007DCF55 /* AlbumDetailView.swift in Sources */,
 				E4FF7190227601B400D4C412 /* PreferencesReducer.swift in Sources */,
 				E4F6B463221E125900ACF42A /* QueueItem.swift in Sources */,
 				E4A83BF12221FAA00098FED6 /* PreferencesViewController.swift in Sources */,

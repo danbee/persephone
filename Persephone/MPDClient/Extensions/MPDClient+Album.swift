@@ -26,21 +26,27 @@ extension MPDClient {
     )
   }
 
-  func sendPlayAlbum(_ album: MPDAlbum) {
-    var songs: [MPDSong] = []
+  func getAlbumSongs(for album: MPDAlbum, callback: @escaping ([MPDSong]) -> Void) {
+    enqueueCommand(
+      command: .getAlbumSongs,
+      priority: .normal,
+      userData: ["album": album, "callback": callback]
+    )
+  }
 
-    mpd_run_clear(self.connection)
-    mpd_search_db_songs(self.connection, true)
-    mpd_search_add_tag_constraint(self.connection, MPD_OPERATOR_DEFAULT, MPD_TAG_ALBUM, album.title)
-    mpd_search_add_tag_constraint(self.connection, MPD_OPERATOR_DEFAULT, MPD_TAG_ALBUM_ARTIST, album.artist)
-    mpd_search_commit(self.connection)
-    while let song = mpd_recv_song(self.connection) {
-      songs.append(MPDSong(song))
+  func sendPlayAlbum(_ album: MPDAlbum) {
+    getAlbumSongs(for: album) { songs in
+      self.enqueueCommand(
+        command: .replaceQueue,
+        priority: .normal,
+        userData: ["songs": songs]
+      )
+      self.enqueueCommand(
+        command: .playTrack,
+        priority: .normal,
+        userData: ["queuePos": 0]
+      )
     }
-    for song in songs {
-      mpd_run_add(self.connection, song.uri)
-    }
-    mpd_run_play_pos(self.connection, 0)
   }
 
   func allAlbums() {
@@ -90,5 +96,22 @@ extension MPDClient {
     }
 
     callback(firstSong)
+  }
+
+  func albumSongs(for album: MPDAlbum, callback: ([MPDSong]) -> Void) {
+    guard isConnected else { return }
+
+    var songs: [MPDSong] = []
+
+    mpd_search_db_songs(self.connection, true)
+    mpd_search_add_tag_constraint(self.connection, MPD_OPERATOR_DEFAULT, MPD_TAG_ALBUM, album.title)
+    mpd_search_add_tag_constraint(self.connection, MPD_OPERATOR_DEFAULT, MPD_TAG_ALBUM_ARTIST, album.artist)
+    mpd_search_commit(self.connection)
+
+    while let song = mpd_recv_song(self.connection) {
+      songs.append(MPDSong(song))
+    }
+
+    callback(songs)
   }
 }

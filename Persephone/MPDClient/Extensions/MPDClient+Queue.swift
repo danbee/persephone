@@ -31,4 +31,13 @@ extension MPDClient {
       self.queue.append(song)
     }
   }
+
+  func sendReplaceQueue(_ songs: [MPDSong]) {
+    mpd_run_clear(self.connection)
+    
+    for song in songs {
+      mpd_run_add(self.connection, song.uri)
+    }
+    mpd_run_play_pos(self.connection, 0)
+  }
 }
