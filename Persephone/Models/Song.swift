@@ -23,6 +23,10 @@ struct Song {
     return mpdSong.getTag(.artist)
   }
 
+  var duration: Time {
+    return Time(timeInSeconds: mpdSong.duration)
+  }
+
   var album: Album {
     return Album(mpdAlbum: mpdSong.album)
   }

@@ -57,13 +57,13 @@
                     </buttonCell>
                 </button>
                 <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOb-Lr-10M">
-                    <rect key="frame" x="359" y="20" width="444" height="436"/>
+                    <rect key="frame" x="359" y="30" width="444" height="426"/>
                     <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="9QN-UB-b4l">
-                        <rect key="frame" x="0.0" y="0.0" width="444" height="436"/>
+                        <rect key="frame" x="0.0" y="0.0" width="444" height="426"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="none" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="ehr-qh-87Q">
-                                <rect key="frame" x="0.0" y="0.0" width="444" height="436"/>
+                                <rect key="frame" x="0.0" y="0.0" width="444" height="426"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <size key="intercellSpacing" width="3" height="2"/>
                                 <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -88,7 +88,7 @@
                                                 <subviews>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="6eU-Jx-HDR">
                                                         <rect key="frame" x="0.0" y="0.0" width="40" height="17"/>
-                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="1." id="Z5y-oS-Qm8">
+                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" title="1." id="Z5y-oS-Qm8">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -106,7 +106,7 @@
                                             </tableCellView>
                                         </prototypeCellViews>
                                     </tableColumn>
-                                    <tableColumn identifier="trackTitleColumn" width="325" minWidth="40" maxWidth="1000" id="7yp-QQ-EzC">
+                                    <tableColumn identifier="trackTitleColumn" width="353" minWidth="40" maxWidth="1000" id="7yp-QQ-EzC">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Song Title">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -120,12 +120,12 @@
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
                                             <tableCellView identifier="songTitleCell" id="41U-5i-Oot">
-                                                <rect key="frame" x="44" y="1" width="325" height="17"/>
+                                                <rect key="frame" x="44" y="1" width="353" height="17"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="R8t-bV-9LI">
-                                                        <rect key="frame" x="0.0" y="0.0" width="325" height="17"/>
-                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="My Song Title" id="Sdi-jJ-EOM">
+                                                        <rect key="frame" x="0.0" y="0.0" width="353" height="17"/>
+                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" title="My Song Title" id="Sdi-jJ-EOM">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -143,7 +143,7 @@
                                             </tableCellView>
                                         </prototypeCellViews>
                                     </tableColumn>
-                                    <tableColumn identifier="trackDurationColumn" width="70" minWidth="40" maxWidth="1000" id="ha5-ff-2az">
+                                    <tableColumn identifier="trackDurationColumn" width="42" minWidth="40" maxWidth="1000" id="ha5-ff-2az">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Duration">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -156,12 +156,12 @@
                                         </textFieldCell>
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
-                                            <tableCellView id="Lbx-5u-OFw">
-                                                <rect key="frame" x="372" y="1" width="70" height="17"/>
+                                            <tableCellView identifier="songDurationCell" id="Lbx-5u-OFw">
+                                                <rect key="frame" x="400" y="1" width="42" height="17"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="pCr-f1-wNs">
-                                                        <rect key="frame" x="0.0" y="0.0" width="70" height="17"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="42" height="17"/>
                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="right" title="0:00" id="Qe2-WO-eXr">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -196,7 +196,7 @@
                 </scrollView>
             </subviews>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="BOb-Lr-10M" secondAttribute="bottom" constant="20" symbolic="YES" id="AaR-Nq-vZD"/>
+                <constraint firstAttribute="bottom" secondItem="BOb-Lr-10M" secondAttribute="bottom" constant="30" id="AaR-Nq-vZD"/>
                 <constraint firstItem="4Jx-I5-Nkv" firstAttribute="top" secondItem="m2v-pR-e9v" secondAttribute="bottom" constant="8" symbolic="YES" id="P10-cj-Iaz"/>
                 <constraint firstItem="m2v-pR-e9v" firstAttribute="leading" secondItem="4Jx-I5-Nkv" secondAttribute="leading" id="PVJ-Rk-9K5"/>
                 <constraint firstItem="m2v-pR-e9v" firstAttribute="trailing" secondItem="4Jx-I5-Nkv" secondAttribute="trailing" id="PlO-jD-clF"/>

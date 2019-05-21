@@ -11,6 +11,7 @@ import AppKit
 class AlbumViewItem: NSCollectionViewItem {
   var observer: NSKeyValueObservation?
   var album: Album?
+  var detailPopover: NSPopover?
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -25,6 +26,12 @@ class AlbumViewItem: NSCollectionViewItem {
         self.setAppearance()
       }
     }
+  }
+
+  override func prepareForReuse() {
+    super.prepareForReuse()
+
+    detailPopover?.close()
   }
 
   func setAlbum(_ album: Album) {
@@ -63,10 +70,10 @@ class AlbumViewItem: NSCollectionViewItem {
 
     detailViewController.setAlbum(album)
 
-    let popoverView = NSPopover()
-    popoverView.contentViewController = detailViewController
-    popoverView.behavior = .transient
-    popoverView.show(
+    detailPopover = NSPopover()
+    detailPopover?.contentViewController = detailViewController
+    detailPopover?.behavior = .transient
+    detailPopover?.show(
       relativeTo: sender.bounds,
       of: sender,
       preferredEdge: .maxY

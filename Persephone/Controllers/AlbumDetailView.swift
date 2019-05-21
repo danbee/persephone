@@ -22,6 +22,8 @@ class AlbumDetailView: NSViewController {
 
     albumTracksView.dataSource = dataSource
     albumTracksView.delegate = self
+    albumTracksView.intercellSpacing = CGSize(width: 0, height: 13)
+    albumTracksView.gridStyleMask = .solidHorizontalGridLineMask
 
     albumCoverView.wantsLayer = true
     albumCoverView.layer?.cornerRadius = 5
@@ -80,9 +82,17 @@ extension AlbumDetailView: NSTableViewDelegate {
       return cellForTrackNumber(tableView, with: song)
     case "trackTitleColumn":
       return cellForSongTitle(tableView, with: song)
+    case "trackDurationColumn":
+      return cellForSongDuration(tableView, with: song)
     default:
       return nil
     }
+  }
+
+  func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
+    let view = NSTableRowView()
+
+    return view
   }
 
   func cellForTrackNumber(_ tableView: NSTableView, with song: Song) -> NSView {
@@ -103,6 +113,18 @@ extension AlbumDetailView: NSTableViewDelegate {
     ) as! NSTableCellView
 
     cellView.textField?.stringValue = song.title
+
+    return cellView
+  }
+
+  func cellForSongDuration(_ tableView: NSTableView, with song: Song) -> NSView {
+    let cellView = tableView.makeView(
+      withIdentifier: .songDuration,
+      owner: self
+      ) as! NSTableCellView
+
+    cellView.textField?.font = .timerFont
+    cellView.textField?.stringValue = song.duration.formattedTime
 
     return cellView
   }

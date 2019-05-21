@@ -49,6 +49,10 @@ extension MPDClient {
       return String(cString: uri)
     }
 
+    var duration: Int {
+      return Int(mpd_song_get_duration(song))
+    }
+
     var album: MPDAlbum {
       return MPDAlbum(
         title: getTag(.album),
