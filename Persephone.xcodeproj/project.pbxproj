@@ -56,6 +56,7 @@
 		E450AD9522262DF10091BED3 /* CoverArtQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450AD9422262DF10091BED3 /* CoverArtQueue.swift */; };
 		E450AD98222633920091BED3 /* Alamofire.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = E450AD96222633920091BED3 /* Alamofire.framework.dSYM */; };
 		E450ADA12229E7C90091BED3 /* PMKFoundation.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = E450AD9F2229E7C90091BED3 /* PMKFoundation.framework.dSYM */; };
+		E45878382296173C00586A1C /* AlbumDetailSongRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45878372296173C00586A1C /* AlbumDetailSongRowView.swift */; };
 		E45962C62241A78500FC1A1E /* MPDCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45962C52241A78500FC1A1E /* MPDCommand.swift */; };
 		E45E4FDA22515D87004B537F /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = E45E4FD722515D87004B537F /* CHANGELOG.md */; };
 		E45E4FDB22515D87004B537F /* Brewfile in Resources */ = {isa = PBXBuildFile; fileRef = E45E4FD822515D87004B537F /* Brewfile */; };
@@ -70,6 +71,7 @@
 		E47E2FDD2220A6D100F747E6 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E2FDC2220A6D100F747E6 /* Time.swift */; };
 		E47E2FE52220AA0700F747E6 /* AlbumViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E2FE42220AA0700F747E6 /* AlbumViewLayout.swift */; };
 		E4928E0B2218D62A001D4BEA /* CGColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4928E0A2218D62A001D4BEA /* CGColor.swift */; };
+		E4A3A6A122A457B600EA2C40 /* AlbumDetailSongListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A3A6A022A457B600EA2C40 /* AlbumDetailSongListView.swift */; };
 		E4A642DA22090CBE00067D21 /* MPDStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A642D922090CBE00067D21 /* MPDStatus.swift */; };
 		E4A83BEF2221F8CF0098FED6 /* CoverArtPrefsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A83BEE2221F8CF0098FED6 /* CoverArtPrefsController.swift */; };
 		E4A83BF12221FAA00098FED6 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A83BF02221FAA00098FED6 /* PreferencesViewController.swift */; };
@@ -270,6 +272,7 @@
 		E450AD9E2229B9BC0091BED3 /* PersephoneBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersephoneBridgingHeader.h; sourceTree = "<group>"; };
 		E450AD9F2229E7C90091BED3 /* PMKFoundation.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = PMKFoundation.framework.dSYM; path = Carthage/Build/Mac/PMKFoundation.framework.dSYM; sourceTree = "<group>"; };
 		E450ADA02229E7C90091BED3 /* PMKFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PMKFoundation.framework; path = Carthage/Build/Mac/PMKFoundation.framework; sourceTree = "<group>"; };
+		E45878372296173C00586A1C /* AlbumDetailSongRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailSongRowView.swift; sourceTree = "<group>"; };
 		E45962C52241A78500FC1A1E /* MPDCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDCommand.swift; sourceTree = "<group>"; };
 		E45E4FD722515D87004B537F /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = SOURCE_ROOT; };
 		E45E4FD822515D87004B537F /* Brewfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Brewfile; sourceTree = SOURCE_ROOT; };
@@ -285,6 +288,7 @@
 		E47E2FDC2220A6D100F747E6 /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		E47E2FE42220AA0700F747E6 /* AlbumViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumViewLayout.swift; sourceTree = "<group>"; };
 		E4928E0A2218D62A001D4BEA /* CGColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGColor.swift; sourceTree = "<group>"; };
+		E4A3A6A022A457B600EA2C40 /* AlbumDetailSongListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailSongListView.swift; sourceTree = "<group>"; };
 		E4A642D922090CBE00067D21 /* MPDStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDStatus.swift; sourceTree = "<group>"; };
 		E4A83BEE2221F8CF0098FED6 /* CoverArtPrefsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverArtPrefsController.swift; sourceTree = "<group>"; };
 		E4A83BF02221FAA00098FED6 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
@@ -464,6 +468,8 @@
 				E47E2FD222205D2500F747E6 /* MainWindow.swift */,
 				E4B11BB7227538FA0075461B /* CurrentCoverArtView.swift */,
 				E423563F228623D2001216D6 /* QueueSongTitleView.swift */,
+				E45878372296173C00586A1C /* AlbumDetailSongRowView.swift */,
+				E4A3A6A022A457B600EA2C40 /* AlbumDetailSongListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -970,10 +976,12 @@
 				E41E530E223EF4CF00173814 /* CoverArtService+Caching.swift in Sources */,
 				E4E8CC922204F4B80024217A /* QueueViewController.swift in Sources */,
 				E440519C227BAF2E0090CD6F /* UIActions.swift in Sources */,
+				E45878382296173C00586A1C /* AlbumDetailSongRowView.swift in Sources */,
 				E41E5312223EF74A00173814 /* CoverArtService+Filesystem.swift in Sources */,
 				E41E5301223BF99300173814 /* MPDClient+Queue.swift in Sources */,
 				E4EB237B220F7CF1008C70C0 /* MPDAlbum.swift in Sources */,
 				E41E5303223BF9C300173814 /* MPDClient+Idle.swift in Sources */,
+				E4A3A6A122A457B600EA2C40 /* AlbumDetailSongListView.swift in Sources */,
 				E4B11B53226928F20075461B /* AppState.swift in Sources */,
 				E435E3E4221CD75D00184CFC /* NSImage.swift in Sources */,
 				E440519A22787CF60090CD6F /* MPDReducer.swift in Sources */,

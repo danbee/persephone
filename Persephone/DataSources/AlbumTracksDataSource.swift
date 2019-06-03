@@ -9,9 +9,37 @@
 import AppKit
 
 class AlbumTracksDataSource: NSObject, NSTableViewDataSource {
-  var albumTracks: [Song] = []
+  struct AlbumSongItem {
+    let disc: String?
+    let song: Song?
+
+    init(song: Song) {
+      self.disc = nil
+      self.song = song
+    }
+
+    init(disc: String) {
+      self.disc = disc
+      self.song = nil
+    }
+  }
+
+  var albumSongs: [AlbumSongItem] = []
+
+  func setAlbumSongs(_ songs: [Song]) {
+    var disc: String? = ""
+
+    songs.forEach { song in
+      if song.disc != disc {
+        disc = song.disc
+        albumSongs.append(AlbumSongItem(disc: song.disc))
+      }
+
+      albumSongs.append(AlbumSongItem(song: song))
+    }
+  }
 
   func numberOfRows(in tableView: NSTableView) -> Int {
-    return albumTracks.count
+    return albumSongs.count
   }
 }

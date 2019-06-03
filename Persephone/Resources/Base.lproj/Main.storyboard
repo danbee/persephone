@@ -569,8 +569,8 @@
                                                             <rect key="frame" x="1" y="1" width="200" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xgd-Cz-np3">
-                                                                    <rect key="frame" x="0.0" y="2" width="447" height="14"/>
+                                                                <textField verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xgd-Cz-np3">
+                                                                    <rect key="frame" x="0.0" y="2" width="322" height="14"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="443" id="mkA-ng-q8a"/>
                                                                     </constraints>
