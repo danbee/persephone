@@ -46,15 +46,15 @@ class AlbumDetailView: NSViewController {
   }
 
   func getAlbumSongs(for album: Album) {
-    App.mpdClient.getAlbumSongs(for: album.mpdAlbum) { (mpdSongs: [MPDClient.MPDSong]) in
-      self.dataSource.setAlbumSongs(
+    App.mpdClient.getAlbumSongs(for: album.mpdAlbum) { [weak self] (mpdSongs: [MPDClient.MPDSong]) in
+      self?.dataSource.setAlbumSongs(
         mpdSongs.map { Song(mpdSong: $0) }
       )
 
-      self.getBigCoverArt(song: self.dataSource.albumSongs.first!.song ?? self.dataSource.albumSongs[1].song!)
+      //self?.getBigCoverArt(song: self?.dataSource.albumSongs.first!.song ?? self?.dataSource.albumSongs[1].song!)
 
       DispatchQueue.main.async {
-        self.albumTracksView.reloadData()
+        self?.albumTracksView.reloadData()
       }
     }
   }
@@ -63,10 +63,10 @@ class AlbumDetailView: NSViewController {
     let coverArtService = CoverArtService(song: song)
 
     coverArtService.fetchBigCoverArt()
-      .done() { image in
+      .done() { [weak self] image in
         DispatchQueue.main.async {
           if let image = image {
-            self.albumCoverView.image = image
+            self?.albumCoverView.image = image
           }
         }
       }
