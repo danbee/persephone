@@ -12,6 +12,9 @@ class AlbumDetailView: NSViewController {
   var album: Album?
   var dataSource = AlbumTracksDataSource()
 
+  static let shared = AlbumDetailView()
+  static let popover = NSPopover()
+
   @IBOutlet var albumTracksView: NSTableView!
   @IBOutlet var albumTitle: NSTextField!
   @IBOutlet var albumArtist: NSTextField!
@@ -30,6 +33,9 @@ class AlbumDetailView: NSViewController {
     albumCoverView.layer?.borderWidth = 1
     setAppearance()
 
+  }
+
+  override func viewWillAppear() {
     guard let album = album else { return }
 
     getAlbumSongs(for: album)
@@ -43,6 +49,16 @@ class AlbumDetailView: NSViewController {
     default:
       albumCoverView.image = .defaultCoverArt
     }
+
+    super.viewWillAppear()
+  }
+
+  override func viewWillDisappear() {
+    dataSource.albumSongs = []
+    albumTracksView.reloadData()
+    albumTitle.stringValue = ""
+    albumArtist.stringValue = ""
+    albumCoverView.image = .defaultCoverArt
   }
 
   func getAlbumSongs(for album: Album) {
@@ -51,7 +67,7 @@ class AlbumDetailView: NSViewController {
         mpdSongs.map { Song(mpdSong: $0) }
       )
 
-      //self?.getBigCoverArt(song: self?.dataSource.albumSongs.first!.song ?? self?.dataSource.albumSongs[1].song!)
+      self?.getBigCoverArt(song: self?.dataSource.albumSongs.first!.song ?? (self?.dataSource.albumSongs[1].song!)!)
 
       DispatchQueue.main.async {
         self?.albumTracksView.reloadData()

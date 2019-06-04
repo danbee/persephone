@@ -66,14 +66,12 @@ class AlbumViewItem: NSCollectionViewItem {
 
   @IBAction func showAlbumDetail(_ sender: NSButton) {
     guard let album = album else { return }
-    let detailViewController = AlbumDetailView()
 
-    detailViewController.setAlbum(album)
+    AlbumDetailView.shared.setAlbum(album)
 
-    detailPopover = NSPopover()
-    detailPopover?.contentViewController = detailViewController
-    detailPopover?.behavior = .transient
-    detailPopover?.show(
+    AlbumDetailView.popover.contentViewController = AlbumDetailView.shared
+    AlbumDetailView.popover.behavior = .transient
+    AlbumDetailView.popover.show(
       relativeTo: sender.bounds,
       of: sender,
       preferredEdge: .maxY
