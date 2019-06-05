@@ -51,20 +51,6 @@
                         <action selector="showAlbumDetail:" target="-2" id="nO1-4H-LHS"/>
                     </connections>
                 </button>
-                <button hidden="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="n8W-do-HyG">
-                    <rect key="frame" x="43" y="81" width="42" height="43"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="42" id="XXC-YE-Ego"/>
-                        <constraint firstAttribute="width" constant="42" id="zcR-GT-zym"/>
-                    </constraints>
-                    <buttonCell key="cell" type="inline" bezelStyle="inline" image="playButtonLarge" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="T1p-LZ-RpJ">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="smallSystemBold"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="playAlbum:" target="-2" id="gNt-Rn-kte"/>
-                    </connections>
-                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="x5e-56-uVO" firstAttribute="leading" secondItem="Kfb-8f-ean" secondAttribute="leading" id="1Hi-Uk-rkL"/>
@@ -73,7 +59,6 @@
                 <constraint firstItem="x5e-56-uVO" firstAttribute="trailing" secondItem="Kfb-8f-ean" secondAttribute="trailing" id="BYd-Fg-DVb"/>
                 <constraint firstItem="Kfb-8f-ean" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="JMi-4i-dgs"/>
                 <constraint firstAttribute="trailing" secondItem="Kfb-8f-ean" secondAttribute="trailing" id="KQC-Wz-Bsg"/>
-                <constraint firstItem="n8W-do-HyG" firstAttribute="centerX" secondItem="Kfb-8f-ean" secondAttribute="centerX" id="Kf1-ws-d4q"/>
                 <constraint firstItem="5Uu-j1-qyT" firstAttribute="leading" secondItem="KEh-NL-c2W" secondAttribute="leading" id="MUo-0i-fX9"/>
                 <constraint firstItem="Kfb-8f-ean" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="Qbk-jx-zAi"/>
                 <constraint firstItem="KEh-NL-c2W" firstAttribute="trailing" secondItem="Kfb-8f-ean" secondAttribute="trailing" id="U0w-G4-ggX"/>
@@ -81,12 +66,10 @@
                 <constraint firstAttribute="bottom" secondItem="5Uu-j1-qyT" secondAttribute="bottom" id="gci-4h-pDZ"/>
                 <constraint firstItem="x5e-56-uVO" firstAttribute="top" secondItem="Kfb-8f-ean" secondAttribute="top" id="hw2-ik-6VW"/>
                 <constraint firstItem="x5e-56-uVO" firstAttribute="bottom" secondItem="Kfb-8f-ean" secondAttribute="bottom" id="iVQ-Vn-dSV"/>
-                <constraint firstItem="n8W-do-HyG" firstAttribute="centerY" secondItem="Kfb-8f-ean" secondAttribute="centerY" id="pgP-oA-Nxa"/>
                 <constraint firstAttribute="bottom" secondItem="Kfb-8f-ean" secondAttribute="bottom" constant="39" id="sid-zJ-YMA"/>
             </constraints>
             <connections>
                 <outlet property="imageView" destination="Kfb-8f-ean" id="T7Z-En-dU3"/>
-                <outlet property="playButton" destination="n8W-do-HyG" id="Xw0-iI-svx"/>
             </connections>
             <point key="canvasLocation" x="-22" y="125.5"/>
         </customView>
@@ -94,6 +77,5 @@
     </objects>
     <resources>
         <image name="defaultCoverArt" width="128" height="128"/>
-        <image name="playButtonLarge" width="22" height="22"/>
     </resources>
 </document>

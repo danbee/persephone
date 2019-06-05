@@ -58,12 +58,6 @@ class AlbumViewItem: NSCollectionViewItem {
     }
   }
 
-  @IBAction func playAlbum(_ sender: NSButton) {
-    guard let album = album else { return }
-
-    App.store.dispatch(MPDPlayAlbum(album: album.mpdAlbum))
-  }
-
   @IBAction func showAlbumDetail(_ sender: NSButton) {
     guard let album = album else { return }
 

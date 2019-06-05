@@ -18,6 +18,10 @@ extension MPDClient {
     enqueueCommand(command: .playTrack, userData: ["queuePos": queuePos])
   }
 
+  func appendSong(_ song: MPDSong) {
+    enqueueCommand(command: .appendSong, userData: ["song": song])
+  }
+
   func sendPlayTrack(at queuePos: Int) {
     mpd_run_play_pos(self.connection, UInt32(queuePos))
   }
@@ -39,5 +43,9 @@ extension MPDClient {
       mpd_run_add(self.connection, song.uri)
     }
     mpd_run_play_pos(self.connection, 0)
+  }
+
+  func sendAppendSong(_ song: MPDSong) {
+    mpd_run_add(self.connection, song.uri)
   }
 }

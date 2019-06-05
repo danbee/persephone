@@ -61,6 +61,21 @@ class AlbumDetailView: NSViewController {
     albumCoverView.image = .defaultCoverArt
   }
 
+  @IBAction func playAlbum(_ sender: NSButton) {
+    guard let album = album else { return }
+
+    App.store.dispatch(MPDPlayAlbum(album: album.mpdAlbum))
+  }
+
+  @IBAction func playSong(_ sender: AlbumDetailSongListView) {
+    guard let song = dataSource.albumSongs[sender.selectedRow].song
+      else { return }
+
+    let queueLength = App.store.state.queueState.queue.count
+    App.store.dispatch(MPDAppendTrack(song: song.mpdSong))
+    App.store.dispatch(MPDPlayTrack(queuePos: queueLength))
+  }
+
   func getAlbumSongs(for album: Album) {
     App.mpdClient.getAlbumSongs(for: album.mpdAlbum) { [weak self] (mpdSongs: [MPDClient.MPDSong]) in
       self?.dataSource.setAlbumSongs(
@@ -133,6 +148,10 @@ extension AlbumDetailView: NSTableViewDelegate {
     let view = AlbumDetailSongRowView()
 
     return view
+  }
+
+  func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
+    return dataSource.albumSongs[row].disc == nil
   }
 
   func cellForDiscNumber(_ tableView: NSTableView, with disc: String) -> NSView {
