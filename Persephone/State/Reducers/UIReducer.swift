@@ -27,6 +27,9 @@ func uiReducer(action: Action, state: UIState?) -> UIState {
   case is DatabaseUpdateFinishedAction:
     state.databaseUpdating = false
 
+  case let action as SetSelectedSong:
+    state.selectedSong = action.selectedSong
+
   default:
     break
   }

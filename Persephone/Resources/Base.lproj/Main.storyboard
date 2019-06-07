@@ -75,6 +75,24 @@
                                     </items>
                                 </menu>
                             </menuItem>
+                            <menuItem title="Song" id="elk-xW-VXb">
+                                <menu key="submenu" title="Song" autoenablesItems="NO" id="RuT-kk-xTu">
+                                    <items>
+                                        <menuItem title="Play selected song" enabled="NO" id="dyT-9E-DRY">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="playSelectedSongAction:" target="Voe-Tx-rLC" id="jIo-ux-Mhr"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Add selected song to queue" enabled="NO" id="JFH-jT-sBp">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="addSelectedSongToQueueAction:" target="Voe-Tx-rLC" id="9j9-Xd-g0D"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
                             <menuItem title="Window" id="aUF-d1-5bR">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Window" systemMenu="window" id="Td7-aD-5lo">
@@ -132,7 +150,9 @@
                 </application>
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Persephone" customModuleProvider="target">
                     <connections>
+                        <outlet property="addSelectedSongToQueueMenuItem" destination="JFH-jT-sBp" id="9dy-sJ-XYS"/>
                         <outlet property="mainWindowMenuItem" destination="1Sq-L7-znT" id="dC6-yY-6Ss"/>
+                        <outlet property="playSelectedSongMenuItem" destination="dyT-9E-DRY" id="UY2-SN-YMF"/>
                         <outlet property="updateDatabaseMenuItem" destination="EJg-93-1F6" id="gMf-SQ-lyI"/>
                     </connections>
                 </customObject>

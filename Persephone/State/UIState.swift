@@ -18,4 +18,6 @@ struct UIState: StateType {
   var mainWindowState: MainWindowState = .closed
 
   var databaseUpdating: Bool = false
+
+  var selectedSong: Song?
 }

@@ -17,3 +17,7 @@ struct MainWindowDidMinimizeAction: Action {}
 struct DatabaseUpdateStartedAction: Action {}
 
 struct DatabaseUpdateFinishedAction: Action {}
+
+struct SetSelectedSong: Action {
+  let selectedSong: Song?
+}

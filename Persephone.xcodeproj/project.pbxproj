@@ -111,6 +111,7 @@
 		E4B11BC22275EE410075461B /* AlbumListActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BC12275EE410075461B /* AlbumListActions.swift */; };
 		E4C8B53C22342005009A20F3 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C8B53B22342005009A20F3 /* PreferencesWindowController.swift */; };
 		E4C8B53E22349002009A20F3 /* MPDIdle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C8B53D22349002009A20F3 /* MPDIdle.swift */; };
+		E4E7A6AD22AAAF98006D566C /* AlbumDetailView+NSTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E7A6AC22AAAF98006D566C /* AlbumDetailView+NSTableViewDelegate.swift */; };
 		E4E8CC902204EC7F0024217A /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC8F2204EC7F0024217A /* Delegate.swift */; };
 		E4E8CC922204F4B80024217A /* QueueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC912204F4B80024217A /* QueueViewController.swift */; };
 		E4E8CC9A22075D370024217A /* MPDSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC9922075D370024217A /* MPDSong.swift */; };
@@ -314,6 +315,7 @@
 		E4B11BC12275EE410075461B /* AlbumListActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListActions.swift; sourceTree = "<group>"; };
 		E4C8B53B22342005009A20F3 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
 		E4C8B53D22349002009A20F3 /* MPDIdle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDIdle.swift; sourceTree = "<group>"; };
+		E4E7A6AC22AAAF98006D566C /* AlbumDetailView+NSTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlbumDetailView+NSTableViewDelegate.swift"; sourceTree = "<group>"; };
 		E4E8CC8F2204EC7F0024217A /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
 		E4E8CC912204F4B80024217A /* QueueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueViewController.swift; sourceTree = "<group>"; };
 		E4E8CC9922075D370024217A /* MPDSong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDSong.swift; sourceTree = "<group>"; };
@@ -683,6 +685,7 @@
 			isa = PBXGroup;
 			children = (
 				E43B67A822909793007DCF55 /* AlbumDetailView.swift */,
+				E4E7A6AC22AAAF98006D566C /* AlbumDetailView+NSTableViewDelegate.swift */,
 				E408D3C1220E134F0006D9BE /* AlbumViewController.swift */,
 				E47E2FD4222071FD00F747E6 /* AlbumViewItem.swift */,
 				E47E2FD022205C4600F747E6 /* MainSplitViewController.swift */,
@@ -940,6 +943,7 @@
 				E4EB2379220F10B8008C70C0 /* MPDPair.swift in Sources */,
 				E440519E227BB0720090CD6F /* UIReducer.swift in Sources */,
 				E43B67AA22909793007DCF55 /* AlbumDetailView.swift in Sources */,
+				E4E7A6AD22AAAF98006D566C /* AlbumDetailView+NSTableViewDelegate.swift in Sources */,
 				E4FF7190227601B400D4C412 /* PreferencesReducer.swift in Sources */,
 				E4F6B463221E125900ACF42A /* QueueItem.swift in Sources */,
 				E4A83BF12221FAA00098FED6 /* PreferencesViewController.swift in Sources */,

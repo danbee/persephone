@@ -16,6 +16,11 @@ class AppDelegate: NSObject,
                    MediaKeyTapDelegate {
   var mediaKeyTap: MediaKeyTap?
 
+  @IBOutlet weak var mainWindowMenuItem: NSMenuItem!
+  @IBOutlet weak var updateDatabaseMenuItem: NSMenuItem!
+  @IBOutlet weak var playSelectedSongMenuItem: NSMenuItem!
+  @IBOutlet weak var addSelectedSongToQueueMenuItem: NSMenuItem!
+
   func applicationDidFinishLaunching(_ aNotification: Notification) {
     App.mpdServerController.connect()
     instantiateUserNotificationsController()
@@ -97,6 +102,11 @@ class AppDelegate: NSObject,
     }
   }
 
+  func setSongMenuItemsState(selectedSong: Song?) {
+    playSelectedSongMenuItem.isEnabled = selectedSong != nil
+    addSelectedSongToQueueMenuItem.isEnabled = selectedSong != nil
+  }
+
   func handle(mediaKey: MediaKey, event: KeyEvent) {
     switch mediaKey {
     case .playPause:
@@ -125,8 +135,20 @@ class AppDelegate: NSObject,
     App.store.dispatch(MPDPrevTrackAction())
   }
 
-  @IBOutlet weak var mainWindowMenuItem: NSMenuItem!
-  @IBOutlet weak var updateDatabaseMenuItem: NSMenuItem!
+  @IBAction func playSelectedSongAction(_ sender: NSMenuItem) {
+    guard let song = App.store.state.uiState.selectedSong
+      else { return }
+
+    let queueLength = App.store.state.queueState.queue.count
+    App.store.dispatch(MPDAppendTrack(song: song.mpdSong))
+    App.store.dispatch(MPDPlayTrack(queuePos: queueLength))
+  }
+  @IBAction func addSelectedSongToQueueAction(_ sender: NSMenuItem) {
+    guard let song = App.store.state.uiState.selectedSong
+      else { return }
+
+    App.store.dispatch(MPDAppendTrack(song: song.mpdSong))
+  }
 }
 
 extension AppDelegate: StoreSubscriber {
@@ -135,5 +157,6 @@ extension AppDelegate: StoreSubscriber {
   func newState(state: UIState) {
     updateDatabaseMenuItem.isEnabled = !state.databaseUpdating
     setMainWindowStateMenuItem(state: state.mainWindowState)
+    setSongMenuItemsState(selectedSong: state.selectedSong)
   }
 }
