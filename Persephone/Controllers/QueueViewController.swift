@@ -31,6 +31,12 @@ class QueueViewController: NSViewController,
     switch event.keyCode {
     case NSEvent.keyCodeSpace:
       nextResponder?.keyDown(with: event)
+    case NSEvent.keyCodeBS:
+      let queuePos = queueView.selectedRow - 1
+
+      if queuePos >= 0 {
+        App.store.dispatch(MPDRemoveTrack(queuePos: queuePos))
+      }
     default:
       super.keyDown(with: event)
     }
@@ -45,9 +51,11 @@ class QueueViewController: NSViewController,
   }
   
   @IBAction func removeSongMenuAction(_ sender: NSMenuItem) {
-    let row = queueView.clickedRow
+    let queuePos = queueView.clickedRow - 1
 
-    App.store.dispatch(MPDRemoveTrack(queuePos: row - 1))
+    if queuePos >= 0 {
+      App.store.dispatch(MPDRemoveTrack(queuePos: queuePos))
+    }
   }
 
   func outlineView(

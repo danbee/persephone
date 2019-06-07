@@ -10,4 +10,5 @@ import AppKit
 
 extension NSEvent {
   static let keyCodeSpace: UInt16 = 49
+  static let keyCodeBS: UInt16 = 51
 }
