@@ -27,6 +27,7 @@ class AlbumDetailView: NSViewController {
     albumTracksView.delegate = self
     albumTracksView.intercellSpacing = CGSize(width: 0, height: 18)
     albumTracksView.floatsGroupRows = false
+    albumTracksView.columnAutoresizingStyle = .sequentialColumnAutoresizingStyle
 
     albumCoverView.wantsLayer = true
     albumCoverView.layer?.cornerRadius = 5
@@ -74,6 +75,22 @@ class AlbumDetailView: NSViewController {
     let queueLength = App.store.state.queueState.queue.count
     App.store.dispatch(MPDAppendTrack(song: song.mpdSong))
     App.store.dispatch(MPDPlayTrack(queuePos: queueLength))
+  }
+
+  @IBAction func menuActionPlaySong(_ sender: NSMenuItem) {
+    guard let song = dataSource.albumSongs[albumTracksView.clickedRow].song
+      else { return }
+
+    let queueLength = App.store.state.queueState.queue.count
+    App.store.dispatch(MPDAppendTrack(song: song.mpdSong))
+    App.store.dispatch(MPDPlayTrack(queuePos: queueLength))
+  }
+
+  @IBAction func menuActionAppendSong(_ sender: NSMenuItem) {
+    guard let song = dataSource.albumSongs[albumTracksView.clickedRow].song
+      else { return }
+
+    App.store.dispatch(MPDAppendTrack(song: song.mpdSong))
   }
 
   func getAlbumSongs(for album: Album) {
