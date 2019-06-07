@@ -75,6 +75,16 @@
                                     </items>
                                 </menu>
                             </menuItem>
+                            <menuItem title="Queue" id="zZL-2K-acp">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Queue" id="CWM-rf-Ozu">
+                                    <items>
+                                        <menuItem title="Remove song" id="x9q-fx-zaQ">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
                             <menuItem title="Song" id="elk-xW-VXb">
                                 <menu key="submenu" title="Song" autoenablesItems="NO" id="RuT-kk-xTu">
                                     <items>
@@ -694,6 +704,7 @@
                                             <connections>
                                                 <action trigger="doubleAction" selector="playTrack:" target="KIP-rq-4dM" id="opa-6G-OW0"/>
                                                 <outlet property="delegate" destination="KIP-rq-4dM" id="60F-6x-bUE"/>
+                                                <outlet property="menu" destination="dYA-Jm-eOa" id="9s2-7K-tVx"/>
                                             </connections>
                                         </outlineView>
                                     </subviews>
@@ -744,8 +755,18 @@
                     </connections>
                 </viewController>
                 <customObject id="du4-e9-TfX" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <menu id="dYA-Jm-eOa">
+                    <items>
+                        <menuItem title="Remove" id="GaJ-qk-Cg4">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="removeSongMenuAction:" target="KIP-rq-4dM" id="0Oc-Z3-4OD"/>
+                            </connections>
+                        </menuItem>
+                    </items>
+                </menu>
             </objects>
-            <point key="canvasLocation" x="820" y="749"/>
+            <point key="canvasLocation" x="796" y="848"/>
         </scene>
         <!--Album View Controller-->
         <scene sceneID="7Ua-Hj-zWt">

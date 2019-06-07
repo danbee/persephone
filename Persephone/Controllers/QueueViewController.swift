@@ -43,6 +43,12 @@ class QueueViewController: NSViewController,
       App.store.dispatch(MPDPlayTrack(queuePos: newQueuePos))
     }
   }
+  
+  @IBAction func removeSongMenuAction(_ sender: NSMenuItem) {
+    let row = queueView.clickedRow
+
+    App.store.dispatch(MPDRemoveTrack(queuePos: row - 1))
+  }
 
   func outlineView(
     _ outlineView: NSOutlineView,

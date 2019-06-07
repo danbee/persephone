@@ -20,6 +20,10 @@ struct MPDAppendTrack: Action {
   let song: MPDClient.MPDSong
 }
 
+struct MPDRemoveTrack: Action {
+  let queuePos: Int
+}
+
 struct MPDPlayTrack: Action {
   let queuePos: Int
 }

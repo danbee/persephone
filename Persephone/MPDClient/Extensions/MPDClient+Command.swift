@@ -62,6 +62,10 @@ extension MPDClient {
       guard let song = userData["song"] as? MPDSong
         else { return }
       sendAppendSong(song)
+    case .removeSong:
+      guard let queuePos = userData["queuePos"] as? Int
+        else { return }
+      sendRemoveSong(at: queuePos)
 
     // Album commands
     case .fetchAllAlbums:
