@@ -43,13 +43,20 @@ class QueueViewController: NSViewController,
   }
 
   @IBAction func playTrack(_ sender: Any) {
-    let newQueuePos = queueView.selectedRow - 1
+    let queuePos = queueView.selectedRow - 1
 
-    if newQueuePos >= 0 {
-      App.store.dispatch(MPDPlayTrack(queuePos: newQueuePos))
+    if queuePos >= 0 {
+      App.store.dispatch(MPDPlayTrack(queuePos: queuePos))
     }
   }
   
+  @IBAction func playSongMenuAction(_ sender: NSMenuItem) {
+    let queuePos = queueView.clickedRow - 1
+
+    if queuePos >= 0 {
+      App.store.dispatch(MPDPlayTrack(queuePos: queuePos))
+    }
+  }
   @IBAction func removeSongMenuAction(_ sender: NSMenuItem) {
     let queuePos = queueView.clickedRow - 1
 

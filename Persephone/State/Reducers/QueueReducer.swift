@@ -14,7 +14,9 @@ func queueReducer(action: Action, state: QueueState?) -> QueueState {
 
   switch action {
   case let action as UpdateQueueAction:
-    state.queuePos = -1
+    if state.queuePos >= action.queue.count {
+      state.queuePos = -1
+    }
 
     state.queue = action.queue.enumerated().map { index, mpdSong in
       let song = Song(mpdSong: mpdSong)
