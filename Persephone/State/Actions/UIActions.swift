@@ -18,6 +18,10 @@ struct DatabaseUpdateStartedAction: Action {}
 
 struct DatabaseUpdateFinishedAction: Action {}
 
+struct SetSelectedQueueItem: Action {
+  let selectedQueueItem: QueueItem?
+}
+
 struct SetSelectedSong: Action {
   let selectedSong: Song?
 }

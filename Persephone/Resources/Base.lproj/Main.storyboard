@@ -79,8 +79,18 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Queue" id="CWM-rf-Ozu">
                                     <items>
-                                        <menuItem title="Remove song" id="x9q-fx-zaQ">
+                                        <menuItem title="Remove Song" id="x9q-fx-zaQ">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="removeQueueSongMenuAction:" target="Voe-Tx-rLC" id="stm-VC-mfp"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="MG8-dW-RM9"/>
+                                        <menuItem title="Clear…" id="x6w-87-3xV">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="clearQueueMenuAction:" target="Voe-Tx-rLC" id="q00-ts-Swv"/>
+                                            </connections>
                                         </menuItem>
                                     </items>
                                 </menu>
@@ -88,13 +98,13 @@
                             <menuItem title="Song" id="elk-xW-VXb">
                                 <menu key="submenu" title="Song" autoenablesItems="NO" id="RuT-kk-xTu">
                                     <items>
-                                        <menuItem title="Play selected song" enabled="NO" id="dyT-9E-DRY">
+                                        <menuItem title="Play Selected Song" enabled="NO" id="dyT-9E-DRY">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="playSelectedSongAction:" target="Voe-Tx-rLC" id="jIo-ux-Mhr"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Add selected song to queue" enabled="NO" id="JFH-jT-sBp">
+                                        <menuItem title="Add Selected Song to Queue" enabled="NO" id="JFH-jT-sBp">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="addSelectedSongToQueueAction:" target="Voe-Tx-rLC" id="9j9-Xd-g0D"/>
@@ -575,7 +585,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="328" height="219"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="16" outlineTableColumn="0Co-uF-CCB" id="jEJ-jg-fll" customClass="QueueView" customModule="Persephone" customModuleProvider="target">
+                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="16" outlineTableColumn="0Co-uF-CCB" id="jEJ-jg-fll">
                                             <rect key="frame" x="0.0" y="0.0" width="328" height="219"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
@@ -795,6 +805,7 @@
                                             <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <connections>
                                                 <outlet property="delegate" destination="gPn-fP-LFc" id="LQ2-Vl-r08"/>
+                                                <outlet property="menu" destination="Rif-KP-4xb" id="f7w-Ot-TKf"/>
                                             </connections>
                                         </collectionView>
                                     </subviews>
@@ -822,8 +833,18 @@
                     </connections>
                 </viewController>
                 <customObject id="uex-Ws-5X4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <menu id="Rif-KP-4xb">
+                    <items>
+                        <menuItem title="Play album" id="Cuu-eF-cPb">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                        <menuItem title="Add album to queue" id="pUA-0C-zhs">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                    </items>
+                </menu>
             </objects>
-            <point key="canvasLocation" x="531" y="1358"/>
+            <point key="canvasLocation" x="329" y="1370"/>
         </scene>
     </scenes>
     <resources>

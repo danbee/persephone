@@ -93,6 +93,16 @@ class QueueViewController: NSViewController,
     }
   }
 
+  func outlineViewSelectionDidChange(_ notification: Notification) {
+    if queueView.selectedRow >= 1 {
+      let queueItem = dataSource.queue[queueView.selectedRow - 1]
+
+      App.store.dispatch(SetSelectedQueueItem(selectedQueueItem: queueItem))
+    } else {
+      App.store.dispatch(SetSelectedQueueItem(selectedQueueItem: nil))
+    }
+  }
+
   func cellForSongTitle(_ outlineView: NSOutlineView, with queueItem: QueueItem) -> NSView {
     let cellView = outlineView.makeView(
       withIdentifier: .queueSongTitle,

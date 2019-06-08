@@ -20,4 +20,6 @@ struct UIState: StateType {
   var databaseUpdating: Bool = false
 
   var selectedSong: Song?
+
+  var selectedQueueItem: QueueItem?
 }

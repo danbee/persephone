@@ -30,6 +30,9 @@ func uiReducer(action: Action, state: UIState?) -> UIState {
   case let action as SetSelectedSong:
     state.selectedSong = action.selectedSong
 
+  case let action as SetSelectedQueueItem:
+    state.selectedQueueItem = action.selectedQueueItem
+
   default:
     break
   }
