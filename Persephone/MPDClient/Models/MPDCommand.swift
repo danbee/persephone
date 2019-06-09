@@ -29,6 +29,7 @@ extension MPDClient {
     // Queue commands
     case fetchQueue
     case playTrack
+    case clearQueue
     case replaceQueue
     case appendSong
     case removeSong

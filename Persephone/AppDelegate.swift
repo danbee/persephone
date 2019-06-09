@@ -140,19 +140,20 @@ class AppDelegate: NSObject,
       else { return }
 
     App.store.dispatch(MPDRemoveTrack(queuePos: queueItem.queuePos))
+    App.store.dispatch(SetSelectedQueueItem(selectedQueueItem: nil))
   }
   @IBAction func clearQueueMenuAction(_ sender: NSMenuItem) {
     let alert = NSAlert()
-    alert.alertStyle = .informational
+    alert.alertStyle = .warning
     alert.messageText = "Are you sure you want to clear the queue?"
     alert.informativeText = "You can’t undo this action."
-    alert.addButton(withTitle: "Clear")
+    alert.addButton(withTitle: "Clear Queue")
     alert.addButton(withTitle: "Cancel")
 
     let result = alert.runModal()
 
     if result == .alertFirstButtonReturn {
-      App.store.dispatch(UpdateQueueAction(queue: []))
+      App.store.dispatch(MPDClearQueue())
     }
   }
 

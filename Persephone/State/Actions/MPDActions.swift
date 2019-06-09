@@ -16,6 +16,8 @@ struct MPDStopAction: Action {}
 struct MPDNextTrackAction: Action {}
 struct MPDPrevTrackAction: Action {}
 
+struct MPDClearQueue: Action {}
+
 struct MPDAppendTrack: Action {
   let song: MPDClient.MPDSong
 }

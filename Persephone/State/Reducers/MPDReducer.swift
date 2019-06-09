@@ -30,6 +30,9 @@ func mpdReducer(action: Action, state: MPDState?) -> MPDState {
   case is MPDPrevTrackAction:
     App.mpdClient.prevTrack()
 
+  case is MPDClearQueue:
+    App.mpdClient.clearQueue()
+
   case let action as MPDAppendTrack:
     App.mpdClient.appendSong(action.song)
 

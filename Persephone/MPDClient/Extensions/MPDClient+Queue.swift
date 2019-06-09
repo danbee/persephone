@@ -14,6 +14,10 @@ extension MPDClient {
     sendCommand(command: .fetchQueue)
   }
 
+  func clearQueue() {
+    enqueueCommand(command: .clearQueue)
+  }
+
   func playTrack(at queuePos: Int) {
     enqueueCommand(command: .playTrack, userData: ["queuePos": queuePos])
   }
@@ -38,6 +42,10 @@ extension MPDClient {
       let song = MPDSong(mpdSong)
       self.queue.append(song)
     }
+  }
+
+  func sendClearQueue() {
+    mpd_run_clear(self.connection)
   }
 
   func sendReplaceQueue(_ songs: [MPDSong]) {

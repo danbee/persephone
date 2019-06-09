@@ -54,6 +54,8 @@ extension MPDClient {
       guard let queuePos = userData["queuePos"] as? Int
         else { return }
       sendPlayTrack(at: queuePos)
+    case .clearQueue:
+      sendClearQueue()
     case .replaceQueue:
       guard let songs = userData["songs"] as? [MPDSong]
         else { return }
