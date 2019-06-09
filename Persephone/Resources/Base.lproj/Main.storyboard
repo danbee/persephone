@@ -585,7 +585,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="328" height="219"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="16" outlineTableColumn="0Co-uF-CCB" id="jEJ-jg-fll">
+                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="16" outlineTableColumn="0Co-uF-CCB" id="jEJ-jg-fll" customClass="QueueView" customModule="Persephone" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="328" height="219"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
@@ -765,7 +765,7 @@
                     </connections>
                 </viewController>
                 <customObject id="du4-e9-TfX" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <menu id="dYA-Jm-eOa">
+                <menu identifier="queueViewMenu" id="dYA-Jm-eOa">
                     <items>
                         <menuItem title="Play" id="kp1-XJ-9CL">
                             <modifierMask key="keyEquivalentModifierMask"/>
