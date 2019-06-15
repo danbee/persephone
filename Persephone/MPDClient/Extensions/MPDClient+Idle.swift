@@ -37,7 +37,12 @@ extension MPDClient {
     }
     if mpdIdle.contains(.queue) {
       self.fetchQueue()
+      self.fetchStatus()
+
       self.delegate?.didUpdateQueue(mpdClient: self, queue: self.queue)
+      if let status = self.status {
+        self.delegate?.didUpdateQueuePos(mpdClient: self, song: status.song)
+      }
     }
     if mpdIdle.contains(.player) || mpdIdle.contains(.options) {
       self.fetchStatus()
