@@ -22,7 +22,6 @@ class QueueViewController: NSViewController {
       $0.select { $0.queueState }
     }
 
-//    queueView.dataSource = dataSource
     queueView.columnAutoresizingStyle = .sequentialColumnAutoresizingStyle
     queueView.registerForDraggedTypes([REORDER_PASTEBOARD_TYPE])
     queueView.draggingDestinationFeedbackStyle = .regular

@@ -45,17 +45,26 @@ class QueueDataSource: NSObject, NSOutlineViewDataSource {
     guard let queueItem = item as? QueueItem
       else { return nil }
 
-    let pbItem = NSPasteboardItem()
+    let pasteboardItem = NSPasteboardItem()
 
-    pbItem.setPropertyList(["queuePos": queueItem.queuePos], forType: REORDER_PASTEBOARD_TYPE)
+    pasteboardItem.setPropertyList(["queuePos": queueItem.queuePos], forType: REORDER_PASTEBOARD_TYPE)
 
-    return pbItem
+    return pasteboardItem
   }
 
   func outlineView(_ outlineView: NSOutlineView, validateDrop info: NSDraggingInfo, proposedItem item: Any?, proposedChildIndex index: Int) -> NSDragOperation {
+    var newQueuePos = index - 1
+
     guard let draggingTypes = info.draggingPasteboard.types,
       draggingTypes.contains(REORDER_PASTEBOARD_TYPE),
-      index >= 0
+      let payload = info.draggingPasteboard.propertyList(forType: REORDER_PASTEBOARD_TYPE) as? [String: Int],
+      let queuePos = payload["queuePos"],
+      newQueuePos >= 0
+      else { return [] }
+
+    if newQueuePos > queuePos { newQueuePos -= 1 }
+
+    guard queuePos != newQueuePos
       else { return [] }
 
     return .move
@@ -70,7 +79,8 @@ class QueueDataSource: NSObject, NSOutlineViewDataSource {
 
     if newQueuePos > queuePos { newQueuePos -= 1 }
 
-    guard queuePos != newQueuePos else { return false }
+    guard queuePos != newQueuePos
+      else { return false }
 
     App.store.dispatch(MPDMoveSongInQueue(oldQueuePos: queuePos, newQueuePos: newQueuePos))
 
