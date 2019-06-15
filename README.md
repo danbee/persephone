@@ -2,6 +2,8 @@
 
 An MPD client for macOS, written in Swift.
 
+<img src="Resources/export/appIcon256@2x.png" width="256" height="256">
+
 ## MP... what?
 
 From the [website](https://www.musicpd.org):
