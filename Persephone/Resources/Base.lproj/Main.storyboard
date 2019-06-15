@@ -574,7 +574,7 @@
         <scene sceneID="QcX-dC-cTZ">
             <objects>
                 <viewController id="KIP-rq-4dM" customClass="QueueViewController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
-                    <splitView key="view" wantsLayer="YES" dividerStyle="thin" id="84I-w3-Mxl">
+                    <splitView key="view" dividerStyle="thin" id="84I-w3-Mxl">
                         <rect key="frame" x="0.0" y="0.0" width="328" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
@@ -713,6 +713,7 @@
                                             </tableColumns>
                                             <connections>
                                                 <action trigger="doubleAction" selector="playTrack:" target="KIP-rq-4dM" id="opa-6G-OW0"/>
+                                                <outlet property="dataSource" destination="KIP-rq-4dM" id="AL2-j1-SVE"/>
                                                 <outlet property="delegate" destination="KIP-rq-4dM" id="60F-6x-bUE"/>
                                                 <outlet property="menu" destination="dYA-Jm-eOa" id="9s2-7K-tVx"/>
                                             </connections>

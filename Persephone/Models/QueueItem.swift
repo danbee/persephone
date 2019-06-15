@@ -6,7 +6,7 @@
 //  Copyright © 2019 Dan Barber. All rights reserved.
 //
 
-import Foundation
+import AppKit
 
 struct QueueItem: Equatable {
   var song: Song

@@ -112,6 +112,7 @@
 		E4B11BC22275EE410075461B /* AlbumListActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BC12275EE410075461B /* AlbumListActions.swift */; };
 		E4C8B53C22342005009A20F3 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C8B53B22342005009A20F3 /* PreferencesWindowController.swift */; };
 		E4C8B53E22349002009A20F3 /* MPDIdle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C8B53D22349002009A20F3 /* MPDIdle.swift */; };
+		E4D3BFA622B419C000C56F48 /* QueueViewController+NSOutlineViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D3BFA522B419C000C56F48 /* QueueViewController+NSOutlineViewDelegate.swift */; };
 		E4E7A6AD22AAAF98006D566C /* AlbumDetailView+NSTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E7A6AC22AAAF98006D566C /* AlbumDetailView+NSTableViewDelegate.swift */; };
 		E4E8CC902204EC7F0024217A /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC8F2204EC7F0024217A /* Delegate.swift */; };
 		E4E8CC922204F4B80024217A /* QueueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC912204F4B80024217A /* QueueViewController.swift */; };
@@ -317,6 +318,7 @@
 		E4B11BC12275EE410075461B /* AlbumListActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListActions.swift; sourceTree = "<group>"; };
 		E4C8B53B22342005009A20F3 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
 		E4C8B53D22349002009A20F3 /* MPDIdle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDIdle.swift; sourceTree = "<group>"; };
+		E4D3BFA522B419C000C56F48 /* QueueViewController+NSOutlineViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QueueViewController+NSOutlineViewDelegate.swift"; sourceTree = "<group>"; };
 		E4E7A6AC22AAAF98006D566C /* AlbumDetailView+NSTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlbumDetailView+NSTableViewDelegate.swift"; sourceTree = "<group>"; };
 		E4E8CC8F2204EC7F0024217A /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
 		E4E8CC912204F4B80024217A /* QueueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueViewController.swift; sourceTree = "<group>"; };
@@ -694,6 +696,7 @@
 				E47E2FD022205C4600F747E6 /* MainSplitViewController.swift */,
 				E4405191227644340090CD6F /* MPDServerController.swift */,
 				E4E8CC912204F4B80024217A /* QueueViewController.swift */,
+				E4D3BFA522B419C000C56F48 /* QueueViewController+NSOutlineViewDelegate.swift */,
 				E4B11BB52275374B0075461B /* UserNotificationsController.swift */,
 				E465049921E94DF500A70F4C /* WindowController.swift */,
 			);
@@ -921,6 +924,7 @@
 				E4B11BB62275374B0075461B /* UserNotificationsController.swift in Sources */,
 				E4B11B68226A4FA00075461B /* QueueState.swift in Sources */,
 				E4928E0B2218D62A001D4BEA /* CGColor.swift in Sources */,
+				E4D3BFA622B419C000C56F48 /* QueueViewController+NSOutlineViewDelegate.swift in Sources */,
 				E4405196227879960090CD6F /* MPDActions.swift in Sources */,
 				E4405192227644340090CD6F /* MPDServerController.swift in Sources */,
 				E4C8B53E22349002009A20F3 /* MPDIdle.swift in Sources */,

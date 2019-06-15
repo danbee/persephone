@@ -18,6 +18,11 @@ struct MPDPrevTrackAction: Action {}
 
 struct MPDClearQueue: Action {}
 
+struct MPDMoveSongInQueue: Action {
+  let oldQueuePos: Int
+  let newQueuePos: Int
+}
+
 struct MPDAppendTrack: Action {
   let song: MPDClient.MPDSong
 }

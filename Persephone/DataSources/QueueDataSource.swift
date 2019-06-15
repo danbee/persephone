@@ -8,6 +8,8 @@
 
 import AppKit
 
+let REORDER_PASTEBOARD_TYPE = NSPasteboard.PasteboardType("me.danbarber.persephone")
+
 class QueueDataSource: NSObject, NSOutlineViewDataSource {
   var queue: [QueueItem] = []
   var queueIcon: NSImage? = nil
@@ -35,7 +37,43 @@ class QueueDataSource: NSObject, NSOutlineViewDataSource {
     if index > 0 {
       return queue[index - 1]
     } else {
-      return false
+      return ""
     }
+  }
+
+  func outlineView(_ outlineView: NSOutlineView, pasteboardWriterForItem item: Any) -> NSPasteboardWriting? {
+    guard let queueItem = item as? QueueItem
+      else { return nil }
+
+    let pbItem = NSPasteboardItem()
+
+    pbItem.setPropertyList(["queuePos": queueItem.queuePos], forType: REORDER_PASTEBOARD_TYPE)
+
+    return pbItem
+  }
+
+  func outlineView(_ outlineView: NSOutlineView, validateDrop info: NSDraggingInfo, proposedItem item: Any?, proposedChildIndex index: Int) -> NSDragOperation {
+    guard let draggingTypes = info.draggingPasteboard.types,
+      draggingTypes.contains(REORDER_PASTEBOARD_TYPE),
+      index >= 0
+      else { return [] }
+
+    return .move
+  }
+
+  func outlineView(_ outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item: Any?, childIndex index: Int) -> Bool {
+    var newQueuePos = index - 1
+
+    guard let payload = info.draggingPasteboard.propertyList(forType: REORDER_PASTEBOARD_TYPE) as? [String: Int],
+      let queuePos = payload["queuePos"]
+      else { return false }
+
+    if newQueuePos > queuePos { newQueuePos -= 1 }
+
+    guard queuePos != newQueuePos else { return false }
+
+    App.store.dispatch(MPDMoveSongInQueue(oldQueuePos: queuePos, newQueuePos: newQueuePos))
+
+    return true
   }
 }

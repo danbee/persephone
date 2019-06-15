@@ -9,8 +9,7 @@
 import AppKit
 import ReSwift
 
-class QueueViewController: NSViewController,
-                           NSOutlineViewDelegate {
+class QueueViewController: NSViewController {
   var dataSource = QueueDataSource()
 
   @IBOutlet var queueView: NSOutlineView!
@@ -23,8 +22,10 @@ class QueueViewController: NSViewController,
       $0.select { $0.queueState }
     }
 
-    queueView.dataSource = dataSource
+//    queueView.dataSource = dataSource
     queueView.columnAutoresizingStyle = .sequentialColumnAutoresizingStyle
+    queueView.registerForDraggedTypes([REORDER_PASTEBOARD_TYPE])
+    queueView.draggingDestinationFeedbackStyle = .regular
   }
 
   override func keyDown(with event: NSEvent) {
@@ -64,81 +65,31 @@ class QueueViewController: NSViewController,
       App.store.dispatch(MPDRemoveTrack(queuePos: queuePos))
     }
   }
+}
 
-  func outlineView(
-    _ outlineView: NSOutlineView,
-    selectionIndexesForProposedSelection proposedSelectionIndexes: IndexSet
-  ) -> IndexSet {
-    if proposedSelectionIndexes.contains(0) {
-      return IndexSet()
-    } else {
-      return proposedSelectionIndexes
-    }
+extension QueueViewController: NSOutlineViewDataSource {
+  func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
+    return dataSource.outlineView(outlineView, numberOfChildrenOfItem: item)
   }
 
-  func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
-    if let queueItem = item as? QueueItem {
-      switch tableColumn?.identifier.rawValue {
-      case "songTitleColumn":
-        return cellForSongTitle(outlineView, with: queueItem)
-      case "songArtistColumn":
-        return cellForSongArtist(outlineView, with: queueItem)
-      default:
-        return nil
-      }
-    } else if tableColumn?.identifier.rawValue == "songTitleColumn" {
-      return cellForQueueHeading(outlineView)
-    } else {
-      return nil
-    }
+  func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
+    return dataSource.outlineView(outlineView, isItemExpandable: item)
   }
 
-  func outlineViewSelectionDidChange(_ notification: Notification) {
-    if queueView.selectedRow >= 1 {
-      let queueItem = dataSource.queue[queueView.selectedRow - 1]
-
-      App.store.dispatch(SetSelectedQueueItem(selectedQueueItem: queueItem))
-    } else {
-      App.store.dispatch(SetSelectedQueueItem(selectedQueueItem: nil))
-    }
+  func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
+    return dataSource.outlineView(outlineView, child: index, ofItem: item)
   }
 
-  func cellForSongTitle(_ outlineView: NSOutlineView, with queueItem: QueueItem) -> NSView {
-    let cellView = outlineView.makeView(
-      withIdentifier: .queueSongTitle,
-      owner: self
-    ) as! QueueSongTitleView
-
-    cellView.setQueueSong(queueItem, queueIcon: dataSource.queueIcon)
-
-    return cellView
+  func outlineView(_ outlineView: NSOutlineView, pasteboardWriterForItem item: Any) -> NSPasteboardWriting? {
+    return dataSource.outlineView(outlineView, pasteboardWriterForItem: item)
   }
 
-  func cellForSongArtist(_ outlineView: NSOutlineView, with queueItem: QueueItem) -> NSView {
-    let cellView = outlineView.makeView(
-      withIdentifier: .queueSongArtist,
-      owner: self
-    ) as! NSTableCellView
-
-    cellView.textField?.stringValue = queueItem.song.artist
-    if queueItem.isPlaying {
-      cellView.textField?.font = .systemFontBold
-    } else {
-      cellView.textField?.font = .systemFontRegular
-    }
-
-    return cellView
+  func outlineView(_ outlineView: NSOutlineView, validateDrop info: NSDraggingInfo, proposedItem item: Any?, proposedChildIndex index: Int) -> NSDragOperation {
+    return dataSource.outlineView(outlineView, validateDrop: info, proposedItem: item, proposedChildIndex: index)
   }
 
-  func cellForQueueHeading(_ outlineView: NSOutlineView) -> NSView {
-    let cellView = outlineView.makeView(
-      withIdentifier: .queueHeading,
-      owner: self
-    ) as! NSTableCellView
-
-    cellView.textField?.stringValue = "QUEUE"
-
-    return cellView
+  func outlineView(_ outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item: Any?, childIndex index: Int) -> Bool {
+    return dataSource.outlineView(outlineView, acceptDrop: info, item: item, childIndex: index)
   }
 }
 
