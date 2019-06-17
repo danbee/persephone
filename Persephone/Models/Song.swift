@@ -47,6 +47,7 @@ extension Song: Equatable {
 extension Song: Hashable {
   func hash(into hasher: inout Hasher) {
     hasher.combine(mpdSong.uriString)
+    hasher.combine(disc)
     hasher.combine(trackNumber)
     hasher.combine(title)
     hasher.combine(artist)

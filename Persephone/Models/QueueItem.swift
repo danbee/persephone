@@ -12,10 +12,4 @@ struct QueueItem: Hashable {
   var song: Song
   var queuePos: Int
   var isPlaying: Bool
-
-  func hash(into hasher: inout Hasher) {
-    hasher.combine(song)
-    hasher.combine(queuePos)
-    hasher.combine(isPlaying)
-  }
 }
