@@ -23,6 +23,11 @@ struct MPDMoveSongInQueue: Action {
   let newQueuePos: Int
 }
 
+struct MPDAddSongToQueue: Action {
+  let songUri: String
+  let queuePos: Int
+}
+
 struct MPDAppendTrack: Action {
   let song: MPDClient.MPDSong
 }

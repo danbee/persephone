@@ -75,6 +75,12 @@ extension MPDClient {
         else { return }
       sendMoveSongInQueue(at: oldQueuePos, to: newQueuePos)
 
+    case .addSongToQueue:
+      guard let songUri = userData["uri"] as? String,
+        let queuePos = userData["queuePos"] as? Int
+        else { return }
+      sendAddSongToQueue(uri: songUri, at: queuePos)
+
     // Album commands
     case .fetchAllAlbums:
       allAlbums()

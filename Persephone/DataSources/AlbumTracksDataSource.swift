@@ -39,6 +39,16 @@ class AlbumTracksDataSource: NSObject, NSTableViewDataSource {
     }
   }
 
+  func tableView(_ tableView: NSTableView, pasteboardWriterForRow row: Int) -> NSPasteboardWriting? {
+    let item = albumSongs[row]
+
+    let pasteboardItem = NSPasteboardItem()
+
+    pasteboardItem.setPropertyList(["songUri": item.song?.mpdSong.uriString], forType: .songPasteboardType)
+
+    return pasteboardItem
+  }
+
   func numberOfRows(in tableView: NSTableView) -> Int {
     return albumSongs.count
   }

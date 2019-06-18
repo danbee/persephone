@@ -8,8 +8,6 @@
 
 import AppKit
 
-let REORDER_PASTEBOARD_TYPE = NSPasteboard.PasteboardType("me.danbarber.persephone")
-
 class QueueDataSource: NSObject, NSOutlineViewDataSource {
   var queue: [QueueItem] = []
   var queueIcon: NSImage? = nil
@@ -47,7 +45,7 @@ class QueueDataSource: NSObject, NSOutlineViewDataSource {
 
     let pasteboardItem = NSPasteboardItem()
 
-    pasteboardItem.setPropertyList(["queuePos": queueItem.queuePos], forType: REORDER_PASTEBOARD_TYPE)
+    pasteboardItem.setPropertyList(["queuePos": queueItem.queuePos], forType: .songPasteboardType)
 
     return pasteboardItem
   }
@@ -56,34 +54,50 @@ class QueueDataSource: NSObject, NSOutlineViewDataSource {
     var newQueuePos = index - 1
 
     guard let draggingTypes = info.draggingPasteboard.types,
-      draggingTypes.contains(REORDER_PASTEBOARD_TYPE),
-      let payload = info.draggingPasteboard.propertyList(forType: REORDER_PASTEBOARD_TYPE) as? [String: Int],
+      draggingTypes.contains(.songPasteboardType)
+      else { return [] }
+
+    if let payload = info.draggingPasteboard.propertyList(forType: .songPasteboardType) as? [String: Int],
       let queuePos = payload["queuePos"],
-      newQueuePos >= 0
-      else { return [] }
+      newQueuePos >= 0 {
 
-    if newQueuePos > queuePos { newQueuePos -= 1 }
+      if newQueuePos > queuePos { newQueuePos -= 1 }
 
-    guard queuePos != newQueuePos
-      else { return [] }
+      guard queuePos != newQueuePos
+        else { return [] }
 
-    return .move
+      return .move
+    } else if let payload = info.draggingPasteboard.propertyList(forType: .songPasteboardType) as? [String: String],
+      let _ = payload["songUri"],
+      newQueuePos >= 0 {
+      return .copy
+    }
+
+    return []
   }
 
   func outlineView(_ outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item: Any?, childIndex index: Int) -> Bool {
     var newQueuePos = index - 1
 
-    guard let payload = info.draggingPasteboard.propertyList(forType: REORDER_PASTEBOARD_TYPE) as? [String: Int],
-      let queuePos = payload["queuePos"]
-      else { return false }
+    if let payload = info.draggingPasteboard.propertyList(forType: .songPasteboardType) as? [String: Int],
+      let queuePos = payload["queuePos"] {
 
-    if newQueuePos > queuePos { newQueuePos -= 1 }
+      if newQueuePos > queuePos { newQueuePos -= 1 }
 
-    guard queuePos != newQueuePos
-      else { return false }
+      guard queuePos != newQueuePos
+        else { return false }
 
-    App.store.dispatch(MPDMoveSongInQueue(oldQueuePos: queuePos, newQueuePos: newQueuePos))
+      App.store.dispatch(MPDMoveSongInQueue(oldQueuePos: queuePos, newQueuePos: newQueuePos))
 
-    return true
+      return true
+    } else if let payload = info.draggingPasteboard.propertyList(forType: .songPasteboardType) as? [String: String],
+      let songUri = payload["songUri"] {
+
+      App.store.dispatch(MPDAddSongToQueue(songUri: songUri, queuePos: newQueuePos))
+
+      return true
+    }
+
+    return false
   }
 }

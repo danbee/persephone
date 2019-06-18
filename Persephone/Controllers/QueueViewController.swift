@@ -23,7 +23,7 @@ class QueueViewController: NSViewController {
     }
 
     queueView.columnAutoresizingStyle = .sequentialColumnAutoresizingStyle
-    queueView.registerForDraggedTypes([REORDER_PASTEBOARD_TYPE])
+    queueView.registerForDraggedTypes([.songPasteboardType])
     queueView.draggingDestinationFeedbackStyle = .regular
   }
 

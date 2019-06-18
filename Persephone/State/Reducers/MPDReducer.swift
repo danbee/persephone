@@ -36,6 +36,9 @@ func mpdReducer(action: Action, state: MPDState?) -> MPDState {
   case let action as MPDMoveSongInQueue:
     App.mpdClient.moveSongInQueue(at: action.oldQueuePos, to: action.newQueuePos)
 
+  case let action as MPDAddSongToQueue:
+    App.mpdClient.addSongToQueue(songUri: action.songUri, at: action.queuePos)
+
   case let action as MPDAppendTrack:
     App.mpdClient.appendSong(action.song)
 

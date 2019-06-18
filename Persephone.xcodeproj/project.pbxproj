@@ -71,6 +71,7 @@
 		E47E2FD72220720300F747E6 /* AlbumItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E2FD62220720300F747E6 /* AlbumItemView.swift */; };
 		E47E2FDD2220A6D100F747E6 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E2FDC2220A6D100F747E6 /* Time.swift */; };
 		E47E2FE52220AA0700F747E6 /* AlbumViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E2FE42220AA0700F747E6 /* AlbumViewLayout.swift */; };
+		E489E39922B85D0400CA8CBD /* NSPasteboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E489E39822B85D0400CA8CBD /* NSPasteboard.swift */; };
 		E4928E0B2218D62A001D4BEA /* CGColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4928E0A2218D62A001D4BEA /* CGColor.swift */; };
 		E4A3A6A122A457B600EA2C40 /* AlbumDetailSongListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A3A6A022A457B600EA2C40 /* AlbumDetailSongListView.swift */; };
 		E4A642DA22090CBE00067D21 /* MPDStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A642D922090CBE00067D21 /* MPDStatus.swift */; };
@@ -291,6 +292,7 @@
 		E47E2FD62220720300F747E6 /* AlbumItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumItemView.swift; sourceTree = "<group>"; };
 		E47E2FDC2220A6D100F747E6 /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		E47E2FE42220AA0700F747E6 /* AlbumViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumViewLayout.swift; sourceTree = "<group>"; };
+		E489E39822B85D0400CA8CBD /* NSPasteboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPasteboard.swift; sourceTree = "<group>"; };
 		E4928E0A2218D62A001D4BEA /* CGColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGColor.swift; sourceTree = "<group>"; };
 		E4A3A6A022A457B600EA2C40 /* AlbumDetailSongListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailSongListView.swift; sourceTree = "<group>"; };
 		E4A642D922090CBE00067D21 /* MPDStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDStatus.swift; sourceTree = "<group>"; };
@@ -446,6 +448,7 @@
 				E435E3E1221CD4E200184CFC /* NSFont.swift */,
 				E435E3E3221CD75D00184CFC /* NSImage.swift */,
 				E408D3B8220DE98F0006D9BE /* NSUserInterfaceItemIdentifier.swift */,
+				E489E39822B85D0400CA8CBD /* NSPasteboard.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -957,6 +960,7 @@
 				E4B11BC22275EE410075461B /* AlbumListActions.swift in Sources */,
 				E4B11B61226A4C000075461B /* PlayerReducer.swift in Sources */,
 				E4FF71922276029000D4C412 /* PreferencesActions.swift in Sources */,
+				E489E39922B85D0400CA8CBD /* NSPasteboard.swift in Sources */,
 				E465049A21E94DF500A70F4C /* WindowController.swift in Sources */,
 				E41B22C621FB932700D544F6 /* MPDClient.swift in Sources */,
 				E47E2FDD2220A6D100F747E6 /* Time.swift in Sources */,
