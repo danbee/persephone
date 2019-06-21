@@ -10,6 +10,7 @@ import Cocoa
 
 class DraggedSongView: NSViewController {
   @IBOutlet var titleLabel: NSTextField!
+  @IBOutlet var artistLabel: NSTextField!
 
   private let songTitle: String
   private let songArtist: String
@@ -27,5 +28,6 @@ class DraggedSongView: NSViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     titleLabel.stringValue = songTitle
+    artistLabel.stringValue = songArtist
   }
 }

@@ -3,50 +3,90 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
-        <capability name="System colors introduced in macOS 10.14" minToolsVersion="10.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="DraggedSongView" customModule="Persephone" customModuleProvider="target">
             <connections>
+                <outlet property="artistLabel" destination="egC-YO-gnV" id="g0f-FI-cGF"/>
                 <outlet property="titleLabel" destination="tsD-ub-h7I" id="EVO-Z7-tZY"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="Wf9-hm-E7M"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="181" height="27"/>
+        <customView misplaced="YES" id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="121" height="22"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <box boxType="custom" borderType="line" cornerRadius="4" translatesAutoresizingMaskIntoConstraints="NO" id="G2x-p5-RM6">
-                    <rect key="frame" x="0.0" y="0.0" width="181" height="27"/>
+                    <rect key="frame" x="0.0" y="0.0" width="121" height="22"/>
                     <view key="contentView" id="qbG-wn-N4h">
-                        <rect key="frame" x="1" y="1" width="179" height="25"/>
+                        <rect key="frame" x="1" y="1" width="119" height="20"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tsD-ub-h7I">
-                                <rect key="frame" x="11" y="4" width="156" height="17"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Title" id="rMn-D0-PG7">
-                                    <font key="font" usesAppearanceFont="YES"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
+                            <stackView distribution="fillProportionally" orientation="horizontal" alignment="centerY" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rlT-HP-okZ">
+                                <rect key="frame" x="0.0" y="0.0" width="119" height="20"/>
+                                <subviews>
+                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Go5-Lk-qgA">
+                                        <rect key="frame" x="8" y="2" width="17" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="17" id="DKw-m3-Lne"/>
+                                            <constraint firstAttribute="width" constant="17" id="k19-kI-PmI"/>
+                                        </constraints>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="songIcon" id="KDX-a9-N4B"/>
+                                    </imageView>
+                                    <textField horizontalHuggingPriority="1000" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tsD-ub-h7I">
+                                        <rect key="frame" x="35" y="2" width="32" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" title="Title" usesSingleLineMode="YES" id="rMn-D0-PG7">
+                                            <font key="font" metaFont="systemMedium" size="13"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="1000" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="egC-YO-gnV">
+                                        <rect key="frame" x="75" y="2" width="38" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" alignment="left" title="Artist" usesSingleLineMode="YES" id="m15-pn-bdW">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <edgeInsets key="edgeInsets" left="8" right="8" top="1" bottom="1"/>
+                                <visibilityPriorities>
+                                    <real value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="rlT-HP-okZ" secondAttribute="trailing" id="3dK-4q-G3z"/>
+                            <constraint firstAttribute="bottom" secondItem="rlT-HP-okZ" secondAttribute="bottom" id="6bV-EI-Qk5"/>
+                            <constraint firstItem="rlT-HP-okZ" firstAttribute="leading" secondItem="qbG-wn-N4h" secondAttribute="leading" id="d0B-7v-cmT"/>
+                            <constraint firstItem="rlT-HP-okZ" firstAttribute="top" secondItem="qbG-wn-N4h" secondAttribute="top" id="mvZ-UP-tHf"/>
+                        </constraints>
                     </view>
                     <color key="borderColor" name="tertiaryLabelColor" catalog="System" colorSpace="catalog"/>
-                    <color key="fillColor" name="unemphasizedSelectedContentBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    <color key="fillColor" red="0.27450980392156865" green="0.27450980392156865" blue="0.27450980392156865" alpha="0.65297645246478875" colorSpace="custom" customColorSpace="sRGB"/>
                 </box>
             </subviews>
             <constraints>
-                <constraint firstItem="G2x-p5-RM6" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="Gcj-M0-oDt"/>
-                <constraint firstAttribute="bottom" secondItem="G2x-p5-RM6" secondAttribute="bottom" id="Tmu-AD-yFM"/>
-                <constraint firstItem="G2x-p5-RM6" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="gF3-y6-cc5"/>
-                <constraint firstAttribute="trailing" secondItem="G2x-p5-RM6" secondAttribute="trailing" id="rax-yO-zz2"/>
+                <constraint firstItem="G2x-p5-RM6" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="A72-wi-zNE"/>
+                <constraint firstItem="G2x-p5-RM6" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="ENp-3t-AXT"/>
+                <constraint firstAttribute="trailing" secondItem="G2x-p5-RM6" secondAttribute="trailing" id="MbJ-MP-4HG"/>
+                <constraint firstAttribute="bottom" secondItem="G2x-p5-RM6" secondAttribute="bottom" id="Nzd-OC-f1V"/>
             </constraints>
-            <point key="canvasLocation" x="-10.5" y="31.5"/>
+            <point key="canvasLocation" x="50.5" y="14"/>
         </customView>
     </objects>
+    <resources>
+        <image name="songIcon" width="17" height="17"/>
+    </resources>
 </document>

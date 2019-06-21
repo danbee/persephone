@@ -104,8 +104,6 @@ class QueueDataSource: NSObject, NSOutlineViewDataSource {
       App.store.dispatch(MPDAddSongToQueue(songUri: uri, queuePos: newQueuePos))
       return true
     }
-
-    return false
   }
 
   func outlineView(_ outlineView: NSOutlineView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forItems draggedItems: [Any]) {
@@ -125,8 +123,10 @@ class QueueDataSource: NSObject, NSOutlineViewDataSource {
         let component = NSDraggingImageComponent(key: NSDraggingItem.ImageComponentKey.icon)
         let draggedSongView = DraggedSongView(title: title, artist: artist)
 
-        component.contents = draggedSongView.view.image()
-        component.frame = NSRect(origin: CGPoint(), size: draggedSongView.view.image().size)
+        let view = draggedSongView.view
+        let image = view.image()
+        component.contents = image
+        component.frame = NSRect(origin: CGPoint(), size: view.frame.size)
         return [component]
       }
     }

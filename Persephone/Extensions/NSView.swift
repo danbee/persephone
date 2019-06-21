@@ -10,8 +10,9 @@ import AppKit
 
 extension NSView {
   func image() -> NSImage {
-    let imageRepresentation = bitmapImageRepForCachingDisplay(in: bounds)!
-    cacheDisplay(in: bounds, to: imageRepresentation)
-    return NSImage(cgImage: imageRepresentation.cgImage!, size: bounds.size)
+    layoutSubtreeIfNeeded()
+    let imageRepresentation = bitmapImageRepForCachingDisplay(in: frame)!
+    cacheDisplay(in: frame, to: imageRepresentation)
+    return NSImage(cgImage: imageRepresentation.cgImage!, size: frame.size)
   }
 }
