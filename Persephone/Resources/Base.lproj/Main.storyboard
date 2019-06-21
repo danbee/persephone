@@ -578,14 +578,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="328" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
-                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="22" horizontalPageScroll="10" verticalLineScroll="22" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="S3o-nF-NN7">
+                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="17" horizontalPageScroll="10" verticalLineScroll="17" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="S3o-nF-NN7">
                                 <rect key="frame" x="0.0" y="0.0" width="328" height="219"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" drawsBackground="NO" id="WI8-Pw-03L">
                                     <rect key="frame" x="0.0" y="0.0" width="328" height="219"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowHeight="22" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="14" outlineTableColumn="0Co-uF-CCB" id="jEJ-jg-fll" customClass="QueueView" customModule="Persephone" customModuleProvider="target">
+                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="14" outlineTableColumn="0Co-uF-CCB" id="jEJ-jg-fll" customClass="QueueView" customModule="Persephone" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="328" height="219"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="0.0"/>
@@ -713,7 +713,6 @@
                                             </tableColumns>
                                             <connections>
                                                 <action trigger="doubleAction" selector="playTrack:" target="KIP-rq-4dM" id="opa-6G-OW0"/>
-                                                <outlet property="dataSource" destination="KIP-rq-4dM" id="AL2-j1-SVE"/>
                                                 <outlet property="delegate" destination="KIP-rq-4dM" id="60F-6x-bUE"/>
                                                 <outlet property="menu" destination="dYA-Jm-eOa" id="9s2-7K-tVx"/>
                                             </connections>

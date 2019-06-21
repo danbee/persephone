@@ -22,6 +22,7 @@ class QueueViewController: NSViewController {
       $0.select { $0.queueState }
     }
 
+    queueView.dataSource = dataSource
     queueView.columnAutoresizingStyle = .sequentialColumnAutoresizingStyle
     queueView.registerForDraggedTypes([.songPasteboardType])
     queueView.draggingDestinationFeedbackStyle = .regular
@@ -63,32 +64,6 @@ class QueueViewController: NSViewController {
     if queuePos >= 0 {
       App.store.dispatch(MPDRemoveTrack(queuePos: queuePos))
     }
-  }
-}
-
-extension QueueViewController: NSOutlineViewDataSource {
-  func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
-    return dataSource.outlineView(outlineView, numberOfChildrenOfItem: item)
-  }
-
-  func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
-    return dataSource.outlineView(outlineView, isItemExpandable: item)
-  }
-
-  func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
-    return dataSource.outlineView(outlineView, child: index, ofItem: item)
-  }
-
-  func outlineView(_ outlineView: NSOutlineView, pasteboardWriterForItem item: Any) -> NSPasteboardWriting? {
-    return dataSource.outlineView(outlineView, pasteboardWriterForItem: item)
-  }
-
-  func outlineView(_ outlineView: NSOutlineView, validateDrop info: NSDraggingInfo, proposedItem item: Any?, proposedChildIndex index: Int) -> NSDragOperation {
-    return dataSource.outlineView(outlineView, validateDrop: info, proposedItem: item, proposedChildIndex: index)
-  }
-
-  func outlineView(_ outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item: Any?, childIndex index: Int) -> Bool {
-    return dataSource.outlineView(outlineView, acceptDrop: info, item: item, childIndex: index)
   }
 }
 

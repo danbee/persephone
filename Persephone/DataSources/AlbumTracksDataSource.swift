@@ -40,16 +40,52 @@ class AlbumTracksDataSource: NSObject, NSTableViewDataSource {
   }
 
   func tableView(_ tableView: NSTableView, pasteboardWriterForRow row: Int) -> NSPasteboardWriting? {
-    let item = albumSongs[row]
+    let albumSongItem = albumSongs[row]
+
+    guard let song = albumSongItem.song
+      else { return nil }
 
     let pasteboardItem = NSPasteboardItem()
 
-    pasteboardItem.setPropertyList(["songUri": item.song?.mpdSong.uriString], forType: .songPasteboardType)
+    let draggedSong = DraggedSong(
+      type: .albumSongItem(song.mpdSong.uriString),
+      title: song.title,
+      artist: song.artist
+    )
+
+    let encoder = PropertyListEncoder()
+    let data = try! encoder.encode(draggedSong)
+
+    pasteboardItem.setData(data, forType: .songPasteboardType)
 
     return pasteboardItem
   }
 
   func numberOfRows(in tableView: NSTableView) -> Int {
     return albumSongs.count
+  }
+
+  func tableView(_ tableView: NSTableView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forRowIndexes rowIndexes: IndexSet) {
+    session.enumerateDraggingItems(
+      options: [],
+      for: tableView,
+      classes: [NSPasteboardItem.self],
+      searchOptions: [:]
+    ) { draggingItem, index, stop in
+      guard let item = draggingItem.item as? NSPasteboardItem,
+        let data = item.data(forType: .songPasteboardType),
+        let draggedSong = try? PropertyListDecoder().decode(DraggedSong.self, from: data),
+        case let (title?, artist?) = (draggedSong.title, draggedSong.artist)
+        else { return }
+
+      draggingItem.imageComponentsProvider = {
+        let component = NSDraggingImageComponent(key: NSDraggingItem.ImageComponentKey.icon)
+        let draggedSongView = DraggedSongView(title: title, artist: artist)
+
+        component.contents = draggedSongView.view.image()
+        component.frame = NSRect(origin: CGPoint(), size: draggedSongView.view.image().size)
+        return [component]
+      }
+    }
   }
 }

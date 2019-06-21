@@ -45,7 +45,16 @@ class QueueDataSource: NSObject, NSOutlineViewDataSource {
 
     let pasteboardItem = NSPasteboardItem()
 
-    pasteboardItem.setPropertyList(["queuePos": queueItem.queuePos], forType: .songPasteboardType)
+    let draggedSong = DraggedSong(
+      type: .queueItem(queueItem.queuePos),
+      title: queueItem.song.title,
+      artist: queueItem.song.artist
+    )
+
+    let encoder = PropertyListEncoder()
+    let data = try! encoder.encode(draggedSong)
+
+    pasteboardItem.setData(data, forType: .songPasteboardType)
 
     return pasteboardItem
   }
@@ -53,51 +62,74 @@ class QueueDataSource: NSObject, NSOutlineViewDataSource {
   func outlineView(_ outlineView: NSOutlineView, validateDrop info: NSDraggingInfo, proposedItem item: Any?, proposedChildIndex index: Int) -> NSDragOperation {
     var newQueuePos = index - 1
 
-    guard let draggingTypes = info.draggingPasteboard.types,
-      draggingTypes.contains(.songPasteboardType)
+    guard newQueuePos >= 0,
+      let draggingTypes = info.draggingPasteboard.types,
+      draggingTypes.contains(.songPasteboardType),
+      let data = info.draggingPasteboard.data(forType: .songPasteboardType),
+      let draggedSong = try? PropertyListDecoder().decode(DraggedSong.self, from: data)
       else { return [] }
 
-    if let payload = info.draggingPasteboard.propertyList(forType: .songPasteboardType) as? [String: Int],
-      let queuePos = payload["queuePos"],
-      newQueuePos >= 0 {
-
+    switch draggedSong.type {
+    case let .queueItem(queuePos):
       if newQueuePos > queuePos { newQueuePos -= 1 }
 
       guard queuePos != newQueuePos
         else { return [] }
 
       return .move
-    } else if let payload = info.draggingPasteboard.propertyList(forType: .songPasteboardType) as? [String: String],
-      let _ = payload["songUri"],
-      newQueuePos >= 0 {
+    case .albumSongItem:
       return .copy
     }
-
-    return []
   }
 
   func outlineView(_ outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item: Any?, childIndex index: Int) -> Bool {
     var newQueuePos = index - 1
 
-    if let payload = info.draggingPasteboard.propertyList(forType: .songPasteboardType) as? [String: Int],
-      let queuePos = payload["queuePos"] {
+    guard let draggingTypes = info.draggingPasteboard.types,
+      draggingTypes.contains(.songPasteboardType),
+      let data = info.draggingPasteboard.data(forType: .songPasteboardType),
+      let draggedSong = try? PropertyListDecoder().decode(DraggedSong.self, from: data)
+      else { return false }
 
+    switch draggedSong.type {
+    case let .queueItem(queuePos):
       if newQueuePos > queuePos { newQueuePos -= 1 }
 
       guard queuePos != newQueuePos
         else { return false }
 
       App.store.dispatch(MPDMoveSongInQueue(oldQueuePos: queuePos, newQueuePos: newQueuePos))
-
       return true
-    } else if let payload = info.draggingPasteboard.propertyList(forType: .songPasteboardType) as? [String: String],
-      let songUri = payload["songUri"] {
-
-      App.store.dispatch(MPDAddSongToQueue(songUri: songUri, queuePos: newQueuePos))
-
+    case let .albumSongItem(uri):
+      App.store.dispatch(MPDAddSongToQueue(songUri: uri, queuePos: newQueuePos))
       return true
     }
 
     return false
   }
+
+  func outlineView(_ outlineView: NSOutlineView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forItems draggedItems: [Any]) {
+    session.enumerateDraggingItems(
+      options: [],
+      for: outlineView,
+      classes: [NSPasteboardItem.self],
+      searchOptions: [:]
+    ) { draggingItem, index, stop in
+      guard let item = draggingItem.item as? NSPasteboardItem,
+        let data = item.data(forType: .songPasteboardType),
+        let draggedSong = try? PropertyListDecoder().decode(DraggedSong.self, from: data),
+        case let (title?, artist?) = (draggedSong.title, draggedSong.artist)
+        else { return }
+
+      draggingItem.imageComponentsProvider = {
+        let component = NSDraggingImageComponent(key: NSDraggingItem.ImageComponentKey.icon)
+        let draggedSongView = DraggedSongView(title: title, artist: artist)
+
+        component.contents = draggedSongView.view.image()
+        component.frame = NSRect(origin: CGPoint(), size: draggedSongView.view.image().size)
+        return [component]
+      }
+    }
+  }
+
 }
