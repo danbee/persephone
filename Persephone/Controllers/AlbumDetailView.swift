@@ -88,6 +88,17 @@ class AlbumDetailView: NSViewController {
     App.store.dispatch(MPDPlayTrack(queuePos: queueLength))
   }
 
+  @IBAction func menuActionPlayNext(_ sender: Any) {
+    guard let song = dataSource.albumSongs[albumTracksView.clickedRow].song
+      else { return }
+
+    let queuePos = App.store.state.queueState.queuePos
+
+    if queuePos > -1 {
+      App.store.dispatch(MPDAddSongToQueue(songUri: song.mpdSong.uriString, queuePos: queuePos + 1))
+    }
+  }
+
   @IBAction func menuActionAppendSong(_ sender: NSMenuItem) {
     guard let song = dataSource.albumSongs[albumTracksView.clickedRow].song
       else { return }

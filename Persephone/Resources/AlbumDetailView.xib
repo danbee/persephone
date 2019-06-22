@@ -250,12 +250,19 @@
         </customView>
         <menu id="qbK-4f-3fG">
             <items>
-                <menuItem title="Play Song" id="poo-OI-Kwi">
+                <menuItem title="Play Now" id="poo-OI-Kwi">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="menuActionPlaySong:" target="-2" id="ZB9-dq-reF"/>
                     </connections>
                 </menuItem>
+                <menuItem title="Play Next" id="78G-Sy-J8P">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="menuActionPlayNext:" target="-2" id="hMo-gT-IcI"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="Hk6-In-qd2"/>
                 <menuItem title="Add Song to Queue" id="PdP-4s-xfR">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
