@@ -51,8 +51,7 @@ class QueueDataSource: NSObject, NSOutlineViewDataSource {
       artist: queueItem.song.artist
     )
 
-    let encoder = PropertyListEncoder()
-    let data = try! encoder.encode(draggedSong)
+    let data = try! PropertyListEncoder().encode(draggedSong)
 
     pasteboardItem.setData(data, forType: .songPasteboardType)
 
