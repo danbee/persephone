@@ -19,6 +19,7 @@ class AppDelegate: NSObject,
   @IBOutlet weak var mainWindowMenuItem: NSMenuItem!
   @IBOutlet weak var updateDatabaseMenuItem: NSMenuItem!
   @IBOutlet weak var playSelectedSongMenuItem: NSMenuItem!
+  @IBOutlet weak var playSelectedSongNextMenuItem: NSMenuItem!
   @IBOutlet weak var addSelectedSongToQueueMenuItem: NSMenuItem!
 
   func applicationDidFinishLaunching(_ aNotification: Notification) {
@@ -104,6 +105,7 @@ class AppDelegate: NSObject,
 
   func setSongMenuItemsState(selectedSong: Song?) {
     playSelectedSongMenuItem.isEnabled = selectedSong != nil
+    playSelectedSongNextMenuItem.isEnabled = selectedSong != nil
     addSelectedSongToQueueMenuItem.isEnabled = selectedSong != nil
   }
 
@@ -164,6 +166,17 @@ class AppDelegate: NSObject,
     let queueLength = App.store.state.queueState.queue.count
     App.store.dispatch(MPDAppendTrack(song: song.mpdSong))
     App.store.dispatch(MPDPlayTrack(queuePos: queueLength))
+  }
+  @IBAction func playSelectedSongNextAction(_ sender: NSMenuItem) {
+    let queuePos = App.store.state.queueState.queuePos
+
+    guard let song = App.store.state.uiState.selectedSong,
+      queuePos > -1
+      else { return }
+
+    App.store.dispatch(
+      MPDAddSongToQueue(songUri: song.mpdSong.uriString, queuePos: queuePos + 1)
+    )
   }
   @IBAction func addSelectedSongToQueueAction(_ sender: NSMenuItem) {
     guard let song = App.store.state.uiState.selectedSong

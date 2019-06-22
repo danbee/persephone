@@ -98,13 +98,20 @@
                             <menuItem title="Song" id="elk-xW-VXb">
                                 <menu key="submenu" title="Song" autoenablesItems="NO" id="RuT-kk-xTu">
                                     <items>
-                                        <menuItem title="Play Selected Song" enabled="NO" id="dyT-9E-DRY">
+                                        <menuItem title="Play Now" enabled="NO" id="dyT-9E-DRY">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="playSelectedSongAction:" target="Voe-Tx-rLC" id="jIo-ux-Mhr"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Add Selected Song to Queue" enabled="NO" id="JFH-jT-sBp">
+                                        <menuItem title="Play Next" id="Q8j-jr-IOp">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="playSelectedSongNextAction:" target="Voe-Tx-rLC" id="HQR-6p-8g7"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="ml8-jV-bZq"/>
+                                        <menuItem title="Add to Queue" enabled="NO" id="JFH-jT-sBp">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="addSelectedSongToQueueAction:" target="Voe-Tx-rLC" id="9j9-Xd-g0D"/>
@@ -173,6 +180,7 @@
                         <outlet property="addSelectedSongToQueueMenuItem" destination="JFH-jT-sBp" id="9dy-sJ-XYS"/>
                         <outlet property="mainWindowMenuItem" destination="1Sq-L7-znT" id="dC6-yY-6Ss"/>
                         <outlet property="playSelectedSongMenuItem" destination="dyT-9E-DRY" id="UY2-SN-YMF"/>
+                        <outlet property="playSelectedSongNextMenuItem" destination="Q8j-jr-IOp" id="Jqh-ia-sMK"/>
                         <outlet property="updateDatabaseMenuItem" destination="EJg-93-1F6" id="gMf-SQ-lyI"/>
                     </connections>
                 </customObject>
