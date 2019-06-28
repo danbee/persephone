@@ -43,19 +43,14 @@ class QueueDataSource: NSObject, NSOutlineViewDataSource {
     guard let queueItem = item as? QueueItem
       else { return nil }
 
-    let pasteboardItem = NSPasteboardItem()
-
-    let draggedSong = DraggedSong(
-      type: .queueItem(queueItem.queuePos),
-      title: queueItem.song.title,
-      artist: queueItem.song.artist
+    return NSPasteboardItem(
+      draggedSong: DraggedSong(
+        type: .queueItem(queueItem.queuePos),
+        title: queueItem.song.title,
+        artist: queueItem.song.artist
+      ),
+      ofType: .songPasteboardType
     )
-
-    let data = try! PropertyListEncoder().encode(draggedSong)
-
-    pasteboardItem.setData(data, forType: .songPasteboardType)
-
-    return pasteboardItem
   }
 
   func outlineView(_ outlineView: NSOutlineView, validateDrop info: NSDraggingInfo, proposedItem item: Any?, proposedChildIndex index: Int) -> NSDragOperation {
@@ -64,8 +59,8 @@ class QueueDataSource: NSObject, NSOutlineViewDataSource {
     guard newQueuePos >= 0,
       let draggingTypes = info.draggingPasteboard.types,
       draggingTypes.contains(.songPasteboardType),
-      let data = info.draggingPasteboard.data(forType: .songPasteboardType),
-      let draggedSong = try? PropertyListDecoder().decode(DraggedSong.self, from: data)
+      let pasteboardItem = info.draggingPasteboard.pasteboardItems?.first,
+      let draggedSong = pasteboardItem.draggedSong(forType: .songPasteboardType)
       else { return [] }
 
     switch draggedSong.type {

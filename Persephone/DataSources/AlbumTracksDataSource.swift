@@ -45,20 +45,14 @@ class AlbumTracksDataSource: NSObject, NSTableViewDataSource {
     guard let song = albumSongItem.song
       else { return nil }
 
-    let pasteboardItem = NSPasteboardItem()
-
-    let draggedSong = DraggedSong(
-      type: .albumSongItem(song.mpdSong.uriString),
-      title: song.title,
-      artist: song.artist
+    return NSPasteboardItem(
+      draggedSong: DraggedSong(
+        type: .albumSongItem(song.mpdSong.uriString),
+        title: song.title,
+        artist: song.artist
+      ),
+      ofType: .songPasteboardType
     )
-
-    let encoder = PropertyListEncoder()
-    let data = try! encoder.encode(draggedSong)
-
-    pasteboardItem.setData(data, forType: .songPasteboardType)
-
-    return pasteboardItem
   }
 
   func numberOfRows(in tableView: NSTableView) -> Int {
@@ -73,8 +67,7 @@ class AlbumTracksDataSource: NSObject, NSTableViewDataSource {
       searchOptions: [:]
     ) { draggingItem, index, stop in
       guard let item = draggingItem.item as? NSPasteboardItem,
-        let data = item.data(forType: .songPasteboardType),
-        let draggedSong = try? PropertyListDecoder().decode(DraggedSong.self, from: data),
+        let draggedSong = item.draggedSong(forType: .songPasteboardType),
         case let (title?, artist?) = (draggedSong.title, draggedSong.artist)
         else { return }
 
