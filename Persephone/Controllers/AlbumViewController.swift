@@ -11,11 +11,7 @@ import ReSwift
 import Differ
 
 class AlbumViewController: NSViewController,
-                           NSCollectionViewDelegate,
                            NSCollectionViewDelegateFlowLayout {
-  let paddingWidth: CGFloat = 40
-  let gutterWidth: CGFloat = 20
-
   var dataSource = AlbumDataSource()
 
   override func viewDidLoad() {
@@ -28,6 +24,8 @@ class AlbumViewController: NSViewController,
     albumScrollView.postsBoundsChangedNotifications = true
 
     albumCollectionView.dataSource = dataSource
+
+    registerForDragAndDrop(albumCollectionView)
   }
 
   deinit {

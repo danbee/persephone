@@ -9,5 +9,6 @@
 import AppKit
 
 extension NSPasteboard.PasteboardType {
-  static let songPasteboardType = NSPasteboard.PasteboardType("me.danbarber.persephone")
+  static let songPasteboardType = NSPasteboard.PasteboardType("me.danbarber.persephone.song")
+  static let albumPasteboardType = NSPasteboard.PasteboardType("me.danbarber.persephone.album")
 }

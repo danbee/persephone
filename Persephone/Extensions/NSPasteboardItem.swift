@@ -14,8 +14,19 @@ extension NSPasteboardItem {
     self.setDraggedSong(draggedSong, forType: type)
   }
 
+  convenience init(draggedAlbum: DraggedAlbum, ofType type: NSPasteboard.PasteboardType) {
+    self.init()
+    self.setDraggedAlbum(draggedAlbum, forType: type)
+  }
+
   func setDraggedSong(_ draggedSong: DraggedSong, forType type: NSPasteboard.PasteboardType) {
     let data = try! PropertyListEncoder().encode(draggedSong)
+
+    setData(data, forType: type)
+  }
+
+  func setDraggedAlbum(_ draggedAlbum: DraggedAlbum, forType type: NSPasteboard.PasteboardType) {
+    let data = try! PropertyListEncoder().encode(draggedAlbum)
 
     setData(data, forType: type)
   }

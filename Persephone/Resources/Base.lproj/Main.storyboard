@@ -757,9 +757,6 @@
                                     <constraint firstAttribute="width" secondItem="iUb-eV-Qws" secondAttribute="height" multiplier="1:1" id="f4L-V4-5x2"/>
                                     <constraint firstItem="Dw3-M5-tWY" firstAttribute="top" secondItem="iUb-eV-Qws" secondAttribute="top" id="ue4-Gb-CaX"/>
                                 </constraints>
-                                <shadow key="shadow">
-                                    <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </shadow>
                             </customView>
                         </subviews>
                         <holdingPriorities>
@@ -806,7 +803,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <collectionView identifier="albumCollectionView" id="lfq-AB-epE">
+                                        <collectionView identifier="albumCollectionView" selectable="YES" id="lfq-AB-epE">
                                             <rect key="frame" x="0.0" y="0.0" width="450" height="158"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                             <collectionViewLayout key="collectionViewLayout" id="YE8-sD-l5P" customClass="AlbumViewLayout" customModule="Persephone" customModuleProvider="target"/>

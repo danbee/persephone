@@ -41,6 +41,8 @@
 		E435E3E4221CD75D00184CFC /* NSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E435E3E3221CD75D00184CFC /* NSImage.swift */; };
 		E439109822640213002982E9 /* SongNotifierService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439109722640213002982E9 /* SongNotifierService.swift */; };
 		E43AC1F122C68E6A001E483C /* NSPasteboardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43AC1F022C68E6A001E483C /* NSPasteboardItem.swift */; };
+		E43AC1F522C6A4F4001E483C /* DraggedAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43AC1F422C6A4F4001E483C /* DraggedAlbum.swift */; };
+		E43AC1F622C6AD0B001E483C /* AlbumViewController+NSCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43AC1F222C6A439001E483C /* AlbumViewController+NSCollectionViewDelegate.swift */; };
 		E43B67AA22909793007DCF55 /* AlbumDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B67A822909793007DCF55 /* AlbumDetailView.swift */; };
 		E43B67AB22909793007DCF55 /* AlbumDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E43B67A922909793007DCF55 /* AlbumDetailView.xib */; };
 		E43B67AD229194CD007DCF55 /* AlbumTracksDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B67AC229194CD007DCF55 /* AlbumTracksDataSource.swift */; };
@@ -236,6 +238,8 @@
 		E435E3E3221CD75D00184CFC /* NSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImage.swift; sourceTree = "<group>"; };
 		E439109722640213002982E9 /* SongNotifierService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongNotifierService.swift; sourceTree = "<group>"; };
 		E43AC1F022C68E6A001E483C /* NSPasteboardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPasteboardItem.swift; sourceTree = "<group>"; };
+		E43AC1F222C6A439001E483C /* AlbumViewController+NSCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlbumViewController+NSCollectionViewDelegate.swift"; sourceTree = "<group>"; };
+		E43AC1F422C6A4F4001E483C /* DraggedAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggedAlbum.swift; sourceTree = "<group>"; };
 		E43B67A822909793007DCF55 /* AlbumDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailView.swift; sourceTree = "<group>"; };
 		E43B67A922909793007DCF55 /* AlbumDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumDetailView.xib; sourceTree = "<group>"; };
 		E43B67AC229194CD007DCF55 /* AlbumTracksDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTracksDataSource.swift; sourceTree = "<group>"; };
@@ -646,6 +650,7 @@
 				E43B67A822909793007DCF55 /* AlbumDetailView.swift */,
 				E4E7A6AC22AAAF98006D566C /* AlbumDetailView+NSTableViewDelegate.swift */,
 				E408D3C1220E134F0006D9BE /* AlbumViewController.swift */,
+				E43AC1F222C6A439001E483C /* AlbumViewController+NSCollectionViewDelegate.swift */,
 				E47E2FD4222071FD00F747E6 /* AlbumViewItem.swift */,
 				E47E2FD022205C4600F747E6 /* MainSplitViewController.swift */,
 				E4405191227644340090CD6F /* MPDServerController.swift */,
@@ -691,6 +696,7 @@
 				E4B11B72226A6C770075461B /* TrackTimer.swift */,
 				E451E36A22BD214D008BE9B2 /* DraggedSongType.swift */,
 				E451E36C22BD23DB008BE9B2 /* DraggedSong.swift */,
+				E43AC1F422C6A4F4001E483C /* DraggedAlbum.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -888,8 +894,10 @@
 				E4F6B467221E233200ACF42A /* AlbumDataSource.swift in Sources */,
 				E4B11BA92274EDE30075461B /* Loading.swift in Sources */,
 				E408D3C2220E134F0006D9BE /* AlbumViewController.swift in Sources */,
+				E43AC1F522C6A4F4001E483C /* DraggedAlbum.swift in Sources */,
 				E40FE71B221B904300A4223F /* NSEvent.swift in Sources */,
 				E4B11BB62275374B0075461B /* UserNotificationsController.swift in Sources */,
+				E43AC1F622C6AD0B001E483C /* AlbumViewController+NSCollectionViewDelegate.swift in Sources */,
 				E4B11B68226A4FA00075461B /* QueueState.swift in Sources */,
 				E4928E0B2218D62A001D4BEA /* CGColor.swift in Sources */,
 				E4D3BFA622B419C000C56F48 /* QueueViewController+NSOutlineViewDelegate.swift in Sources */,

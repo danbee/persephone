@@ -125,5 +125,4 @@ class QueueDataSource: NSObject, NSOutlineViewDataSource {
       }
     }
   }
-
 }

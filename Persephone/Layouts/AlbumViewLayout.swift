@@ -9,20 +9,20 @@
 import AppKit
 
 class AlbumViewLayout: NSCollectionViewFlowLayout {
-  let maxItemWidth: CGFloat = 180
-  let albumInfoHeight: CGFloat = 39
+  let maxItemWidth: CGFloat = 200
+  let albumInfoHeight: CGFloat = 44
   var scrollPosition: CGFloat = 0
 
   required init?(coder aDecoder: NSCoder) {
     super.init()
 
-    minimumLineSpacing = 20
-    minimumInteritemSpacing = 20
+    minimumLineSpacing = 0
+    minimumInteritemSpacing = 0
     sectionInset = NSEdgeInsets(
-      top: 20,
-      left: 40,
-      bottom: 60,
-      right: 40
+      top: 10,
+      left: 30,
+      bottom: 50,
+      right: 30
     )
   }
 
