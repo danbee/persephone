@@ -43,6 +43,7 @@
 		E43AC1F122C68E6A001E483C /* NSPasteboardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43AC1F022C68E6A001E483C /* NSPasteboardItem.swift */; };
 		E43AC1F522C6A4F4001E483C /* DraggedAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43AC1F422C6A4F4001E483C /* DraggedAlbum.swift */; };
 		E43AC1F622C6AD0B001E483C /* AlbumViewController+NSCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43AC1F222C6A439001E483C /* AlbumViewController+NSCollectionViewDelegate.swift */; };
+		E43AC1F822C7065A001E483C /* AlbumCoverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43AC1F722C7065A001E483C /* AlbumCoverButton.swift */; };
 		E43B67AA22909793007DCF55 /* AlbumDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B67A822909793007DCF55 /* AlbumDetailView.swift */; };
 		E43B67AB22909793007DCF55 /* AlbumDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E43B67A922909793007DCF55 /* AlbumDetailView.xib */; };
 		E43B67AD229194CD007DCF55 /* AlbumTracksDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B67AC229194CD007DCF55 /* AlbumTracksDataSource.swift */; };
@@ -240,6 +241,7 @@
 		E43AC1F022C68E6A001E483C /* NSPasteboardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPasteboardItem.swift; sourceTree = "<group>"; };
 		E43AC1F222C6A439001E483C /* AlbumViewController+NSCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlbumViewController+NSCollectionViewDelegate.swift"; sourceTree = "<group>"; };
 		E43AC1F422C6A4F4001E483C /* DraggedAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggedAlbum.swift; sourceTree = "<group>"; };
+		E43AC1F722C7065A001E483C /* AlbumCoverButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCoverButton.swift; sourceTree = "<group>"; };
 		E43B67A822909793007DCF55 /* AlbumDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailView.swift; sourceTree = "<group>"; };
 		E43B67A922909793007DCF55 /* AlbumDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumDetailView.xib; sourceTree = "<group>"; };
 		E43B67AC229194CD007DCF55 /* AlbumTracksDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTracksDataSource.swift; sourceTree = "<group>"; };
@@ -454,6 +456,7 @@
 				E47E2FD222205D2500F747E6 /* MainWindow.swift */,
 				E423563F228623D2001216D6 /* QueueSongTitleView.swift */,
 				E4120D6B22AD8139004CB1F8 /* QueueView.swift */,
+				E43AC1F722C7065A001E483C /* AlbumCoverButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -920,6 +923,7 @@
 				E41E52FD223BF87300173814 /* MPDClient+Connection.swift in Sources */,
 				E450AD7E222620A10091BED3 /* Album.swift in Sources */,
 				E408D3B6220DD8970006D9BE /* Notification.swift in Sources */,
+				E43AC1F822C7065A001E483C /* AlbumCoverButton.swift in Sources */,
 				E45962C62241A78500FC1A1E /* MPDCommand.swift in Sources */,
 				E408D3B9220DE98F0006D9BE /* NSUserInterfaceItemIdentifier.swift in Sources */,
 				E4EB2379220F10B8008C70C0 /* MPDPair.swift in Sources */,

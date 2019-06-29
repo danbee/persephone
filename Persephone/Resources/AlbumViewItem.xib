@@ -27,13 +27,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="148" height="138"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="juD-33-Glf">
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="juD-33-Glf" customClass="AlbumCoverButton" customModule="Persephone" customModuleProvider="target">
                                 <rect key="frame" x="5" y="5" width="138" height="128"/>
                                 <shadow key="shadow" blurRadius="4">
                                     <size key="offset" width="0.0" height="2"/>
                                     <color key="color" white="0.0" alpha="0.34603323063380281" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </shadow>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="defaultCoverArt" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" transparent="YES" imageScaling="proportionallyUpOrDown" inset="2" id="t8A-Hz-L38">
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="defaultCoverArt" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" refusesFirstResponder="YES" state="on" transparent="YES" imageScaling="proportionallyUpOrDown" inset="2" id="t8A-Hz-L38">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
