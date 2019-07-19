@@ -14,8 +14,8 @@ extension AlbumViewController: NSCollectionViewDelegate {
     collectionView.setDraggingSourceOperationMask(.copy, forLocal: true)
   }
 
-  func collectionView(_ collectionView: NSCollectionView, pasteboardWriterForItemAt index: Int) -> NSPasteboardWriting? {
-    let album = dataSource.albums[index]
+  func collectionView(_ collectionView: NSCollectionView, pasteboardWriterForItemAt indexPath: IndexPath) -> NSPasteboardWriting? {
+    let album = dataSource.albums[indexPath.item]
 
     return NSPasteboardItem(
       draggedAlbum: DraggedAlbum(
@@ -26,7 +26,7 @@ extension AlbumViewController: NSCollectionViewDelegate {
     )
   }
 
-  func collectionView(_ collectionView: NSCollectionView, canDragItemsAt indexes: IndexSet, with event: NSEvent) -> Bool {
+  func collectionView(_ collectionView: NSCollectionView, canDragItemsAt indexPaths: Set<IndexPath>, with event: NSEvent) -> Bool {
     return true
   }
 }
