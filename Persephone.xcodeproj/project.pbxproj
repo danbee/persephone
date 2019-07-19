@@ -35,6 +35,8 @@
 		E41EA46C221636AF0068EF46 /* GeneralPrefsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41EA46B221636AF0068EF46 /* GeneralPrefsViewController.swift */; };
 		E4235640228623D2001216D6 /* QueueSongTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423563F228623D2001216D6 /* QueueSongTitleView.swift */; };
 		E42410B62241B956005ED6DF /* MPDClient+Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42410B52241B956005ED6DF /* MPDClient+Database.swift */; };
+		E42A4D4F22E20D7D001C6CAD /* MPDTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42A4D4E22E20D7D001C6CAD /* MPDTag.swift */; };
+		E42A4D5122E2167E001C6CAD /* MPDClient+Songs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42A4D5022E2167E001C6CAD /* MPDClient+Songs.swift */; };
 		E42A8F3B22176D6400A13ED9 /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = E42A8F3922176D6400A13ED9 /* LICENSE.md */; };
 		E42A8F3C22176D6400A13ED9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E42A8F3A22176D6400A13ED9 /* README.md */; };
 		E435E3E2221CD4E200184CFC /* NSFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = E435E3E1221CD4E200184CFC /* NSFont.swift */; };
@@ -233,6 +235,8 @@
 		E41EA46B221636AF0068EF46 /* GeneralPrefsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralPrefsViewController.swift; sourceTree = "<group>"; };
 		E423563F228623D2001216D6 /* QueueSongTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueSongTitleView.swift; sourceTree = "<group>"; };
 		E42410B52241B956005ED6DF /* MPDClient+Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MPDClient+Database.swift"; sourceTree = "<group>"; };
+		E42A4D4E22E20D7D001C6CAD /* MPDTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDTag.swift; sourceTree = "<group>"; };
+		E42A4D5022E2167E001C6CAD /* MPDClient+Songs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MPDClient+Songs.swift"; sourceTree = "<group>"; };
 		E42A8F3922176D6400A13ED9 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		E42A8F3A22176D6400A13ED9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E435E3E1221CD4E200184CFC /* NSFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSFont.swift; sourceTree = "<group>"; };
@@ -438,6 +442,7 @@
 				E41E5304223BFB0700173814 /* MPDClient+Error.swift */,
 				E41E5302223BF9C300173814 /* MPDClient+Idle.swift */,
 				E41E5300223BF99300173814 /* MPDClient+Queue.swift */,
+				E42A4D5022E2167E001C6CAD /* MPDClient+Songs.swift */,
 				E41E5306223C019100173814 /* MPDClient+Status.swift */,
 				E41E52FE223BF95E00173814 /* MPDClient+Transport.swift */,
 				E408D3BD220E03EE0006D9BE /* RawRepresentable.swift */,
@@ -635,6 +640,7 @@
 				E4EB2378220F10B8008C70C0 /* MPDPair.swift */,
 				E4E8CC9922075D370024217A /* MPDSong.swift */,
 				E4A642D922090CBE00067D21 /* MPDStatus.swift */,
+				E42A4D4E22E20D7D001C6CAD /* MPDTag.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -897,6 +903,7 @@
 				E4F6B467221E233200ACF42A /* AlbumDataSource.swift in Sources */,
 				E4B11BA92274EDE30075461B /* Loading.swift in Sources */,
 				E408D3C2220E134F0006D9BE /* AlbumViewController.swift in Sources */,
+				E42A4D4F22E20D7D001C6CAD /* MPDTag.swift in Sources */,
 				E43AC1F522C6A4F4001E483C /* DraggedAlbum.swift in Sources */,
 				E40FE71B221B904300A4223F /* NSEvent.swift in Sources */,
 				E4B11BB62275374B0075461B /* UserNotificationsController.swift in Sources */,
@@ -984,6 +991,7 @@
 				E41E5305223BFB0700173814 /* MPDClient+Error.swift in Sources */,
 				E435E3E2221CD4E200184CFC /* NSFont.swift in Sources */,
 				E489E39D22B9CF0000CA8CBD /* NSView.swift in Sources */,
+				E42A4D5122E2167E001C6CAD /* MPDClient+Songs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

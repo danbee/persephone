@@ -12,26 +12,6 @@ import mpdclient
 extension MPDClient {
   class MPDSong {
     let song: OpaquePointer
-    
-    enum TagType: Int {
-      case unknown = -1
-      case artist, album, albumArtist, title, track, name,
-        genre, date, composer, performer, comment, disc
-
-      case musicBrainzArtistId
-      case musicBrainzAlbumId
-      case musicBrainzAlbumArtistId
-      case musicBrainzTrackId
-      case musicBrainzReleaseTrackId
-
-      case originalDate
-
-      case artistSort
-      case albumArtistSort
-      case albumSort
-
-      case tagCount
-    }
 
     init(_ song: OpaquePointer) {
       self.song = song
@@ -68,10 +48,8 @@ extension MPDClient {
       }
     }
 
-    func getTag(_ tagType: TagType) -> String {
-      let mpdTagType = mpd_tag_type(rawValue: Int32(tagType.rawValue))
-
-      guard let tag = mpd_song_get_tag(song, mpdTagType, 0)
+    func getTag(_ tagType: MPDTag) -> String {
+      guard let tag = mpd_song_get_tag(song, tagType.mpdTag(), 0)
         else { return "" }
       
       return String(cString: tag)

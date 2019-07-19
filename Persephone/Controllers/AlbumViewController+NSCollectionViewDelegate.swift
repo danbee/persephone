@@ -11,7 +11,7 @@ import AppKit
 extension AlbumViewController: NSCollectionViewDelegate {
   func registerForDragAndDrop(_ collectionView: NSCollectionView) {
     collectionView.registerForDraggedTypes([.albumPasteboardType])
-    collectionView.setDraggingSourceOperationMask(.every, forLocal: true)
+    collectionView.setDraggingSourceOperationMask(.copy, forLocal: true)
   }
 
   func collectionView(_ collectionView: NSCollectionView, pasteboardWriterForItemAt index: Int) -> NSPasteboardWriting? {

@@ -101,16 +101,7 @@ extension MPDClient {
   func albumSongs(for album: MPDAlbum, callback: ([MPDSong]) -> Void) {
     guard isConnected else { return }
 
-    var songs: [MPDSong] = []
-
-    mpd_search_db_songs(self.connection, true)
-    mpd_search_add_tag_constraint(self.connection, MPD_OPERATOR_DEFAULT, MPD_TAG_ALBUM, album.title)
-    mpd_search_add_tag_constraint(self.connection, MPD_OPERATOR_DEFAULT, MPD_TAG_ALBUM_ARTIST, album.artist)
-    mpd_search_commit(self.connection)
-
-    while let song = mpd_recv_song(self.connection) {
-      songs.append(MPDSong(song))
-    }
+    let songs = searchSongs([MPDTag.album: album.title, MPDTag.artist: album.artist])
 
     callback(songs)
   }

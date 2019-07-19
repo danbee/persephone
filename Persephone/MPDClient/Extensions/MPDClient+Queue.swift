@@ -38,6 +38,10 @@ extension MPDClient {
     enqueueCommand(command: .addSongToQueue, userData: ["uri": songUri, "queuePos": queuePos])
   }
 
+  func addAlbumToQueue(album: MPDAlbum, at queuePos: Int) {
+    enqueueCommand(command: .addAlbumToQueue, userData: ["album": album, "queuePos": queuePos])
+  }
+
   func sendPlayTrack(at queuePos: Int) {
     mpd_run_play_pos(self.connection, UInt32(queuePos))
   }
@@ -79,5 +83,17 @@ extension MPDClient {
 
   func sendAddSongToQueue(uri: String, at queuePos: Int) {
     mpd_run_add_id_to(self.connection, uri, UInt32(queuePos))
+  }
+
+  func sendAddAlbumToQueue(album: MPDAlbum, at queuePos: Int) {
+    let songs = searchSongs([MPDTag.album: album.title, MPDTag.artist: album.artist])
+
+    var insertPos = UInt32(queuePos)
+
+    for song in songs {
+      mpd_run_add_id_to(self.connection, song.uri, insertPos)
+
+      insertPos += 1
+    }
   }
 }

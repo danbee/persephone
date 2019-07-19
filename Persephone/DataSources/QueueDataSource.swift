@@ -57,47 +57,68 @@ class QueueDataSource: NSObject, NSOutlineViewDataSource {
     var newQueuePos = index - 1
 
     guard newQueuePos >= 0,
-      let draggingTypes = info.draggingPasteboard.types,
-      draggingTypes.contains(.songPasteboardType),
-      let pasteboardItem = info.draggingPasteboard.pasteboardItems?.first,
-      let draggedSong = pasteboardItem.draggedSong(forType: .songPasteboardType)
+      let draggingTypes = info.draggingPasteboard.types
       else { return [] }
 
-    switch draggedSong.type {
-    case let .queueItem(queuePos):
-      if newQueuePos > queuePos { newQueuePos -= 1 }
-
-      guard queuePos != newQueuePos
+    if draggingTypes.contains(.songPasteboardType) {
+      guard let pasteboardItem = info.draggingPasteboard.pasteboardItems?.first,
+        let draggedSong = pasteboardItem.draggedSong(forType: .songPasteboardType)
         else { return [] }
 
-      return .move
-    case .albumSongItem:
+      switch draggedSong.type {
+      case let .queueItem(queuePos):
+        if newQueuePos > queuePos { newQueuePos -= 1 }
+
+        guard queuePos != newQueuePos
+          else { return [] }
+
+        return .move
+      case .albumSongItem:
+        return .copy
+      }
+    } else if draggingTypes.contains(.albumPasteboardType) {
       return .copy
     }
+
+    return []
   }
 
   func outlineView(_ outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item: Any?, childIndex index: Int) -> Bool {
     var newQueuePos = index - 1
 
-    guard let draggingTypes = info.draggingPasteboard.types,
-      draggingTypes.contains(.songPasteboardType),
-      let data = info.draggingPasteboard.data(forType: .songPasteboardType),
-      let draggedSong = try? PropertyListDecoder().decode(DraggedSong.self, from: data)
+    guard let draggingTypes = info.draggingPasteboard.types
       else { return false }
 
-    switch draggedSong.type {
-    case let .queueItem(queuePos):
-      if newQueuePos > queuePos { newQueuePos -= 1 }
-
-      guard queuePos != newQueuePos
+    if draggingTypes.contains(.songPasteboardType) {
+      guard let data = info.draggingPasteboard.data(forType: .songPasteboardType),
+        let draggedSong = try? PropertyListDecoder().decode(DraggedSong.self, from: data)
         else { return false }
 
-      App.mpdClient.moveSongInQueue(at: queuePos, to: newQueuePos)
-      return true
-    case let .albumSongItem(uri):
-      App.mpdClient.addSongToQueue(songUri: uri, at: newQueuePos)
+      switch draggedSong.type {
+      case let .queueItem(queuePos):
+        if newQueuePos > queuePos { newQueuePos -= 1 }
+
+        guard queuePos != newQueuePos
+          else { return false }
+
+        App.mpdClient.moveSongInQueue(at: queuePos, to: newQueuePos)
+        return true
+      case let .albumSongItem(uri):
+        App.mpdClient.addSongToQueue(songUri: uri, at: newQueuePos)
+        return true
+      }
+    } else if draggingTypes.contains(.albumPasteboardType) {
+      guard let data = info.draggingPasteboard.data(forType: .albumPasteboardType),
+        let draggedAlbum = try? PropertyListDecoder().decode(DraggedAlbum.self, from: data)
+        else { return false }
+
+      let mpdAlbum = MPDClient.MPDAlbum(title: draggedAlbum.title, artist: draggedAlbum.artist)
+
+      App.mpdClient.addAlbumToQueue(album: mpdAlbum, at: newQueuePos)
       return true
     }
+
+    return false
   }
 
   func outlineView(_ outlineView: NSOutlineView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forItems draggedItems: [Any]) {
