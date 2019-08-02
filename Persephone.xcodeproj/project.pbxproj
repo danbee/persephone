@@ -56,7 +56,6 @@
 		E450AD8F22262C620091BED3 /* PromiseKit.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = E450AD8E22262C620091BED3 /* PromiseKit.framework.dSYM */; };
 		E450AD9122262C780091BED3 /* SwiftyJSON.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = E450AD9022262C780091BED3 /* SwiftyJSON.framework.dSYM */; };
 		E450AD9522262DF10091BED3 /* CoverArtQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450AD9422262DF10091BED3 /* CoverArtQueue.swift */; };
-		E450AD98222633920091BED3 /* Alamofire.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = E450AD96222633920091BED3 /* Alamofire.framework.dSYM */; };
 		E450ADA12229E7C90091BED3 /* PMKFoundation.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = E450AD9F2229E7C90091BED3 /* PMKFoundation.framework.dSYM */; };
 		E451E36B22BD214D008BE9B2 /* DraggedSongType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E451E36A22BD214D008BE9B2 /* DraggedSongType.swift */; };
 		E451E36E22BD2501008BE9B2 /* DraggedSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = E451E36C22BD23DB008BE9B2 /* DraggedSong.swift */; };
@@ -882,7 +881,6 @@
 				E45E4FDA22515D87004B537F /* CHANGELOG.md in Resources */,
 				E43B67AB22909793007DCF55 /* AlbumDetailView.xib in Resources */,
 				E45E4FDC22515D87004B537F /* Cartfile in Resources */,
-				E450AD98222633920091BED3 /* Alamofire.framework.dSYM in Resources */,
 				E489E3A522B9D31800CA8CBD /* DraggedSongView.xib in Resources */,
 				E40786202110CE70006887B1 /* Assets.xcassets in Resources */,
 				E45E4FDF225168DA004B537F /* CryptoSwift.framework.dSYM in Resources */,
