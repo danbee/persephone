@@ -13,6 +13,8 @@ let mpdClientMiddleware: Middleware<AppState> = { dispatch, getState in
         return { action in
             next(action)
 
+            guard let state = getState() else { return }
+
             switch action {
             case is MPDConnectAction:
                 let mpdServer = App.store.state.preferencesState.mpdServer
