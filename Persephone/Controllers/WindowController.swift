@@ -47,7 +47,7 @@ class WindowController: NSWindowController {
   override func keyDown(with event: NSEvent) {
     switch event.keyCode {
     case NSEvent.keyCodeSpace:
-      App.store.dispatch(MPDPlayPauseAction())
+      App.mpdClient.playPause()
     default:
       nextResponder?.keyDown(with: event)
     }
@@ -130,7 +130,7 @@ class WindowController: NSWindowController {
     case .leftMouseUp:
       let seekTime = Float(sender.integerValue) / 1000
 
-      App.store.dispatch(MPDSeekCurrentSong(timeInSeconds: seekTime))
+      App.mpdClient.seekCurrentSong(timeInSeconds: seekTime)
     default:
       break
     }
@@ -142,22 +142,22 @@ class WindowController: NSWindowController {
 
     switch transportAction {
     case .prevTrack:
-      App.store.dispatch(MPDPrevTrackAction())
+      App.mpdClient.prevTrack()
     case .playPause:
-      App.store.dispatch(MPDPlayPauseAction())
+      App.mpdClient.playPause()
     case .stop:
-      App.store.dispatch(MPDStopAction())
+      App.mpdClient.stop()
     case .nextTrack:
-      App.store.dispatch(MPDNextTrackAction())
+      App.mpdClient.nextTrack()
     }
   }
 
   @IBAction func handleShuffleButton(_ sender: NSButton) {
-    App.store.dispatch(MPDSetShuffleAction(shuffleState: sender.state == .on))
+    App.mpdClient.setShuffleState(shuffleState: sender.state == .on)
   }
 
   @IBAction func handleRepeatButton(_ sender: NSButton) {
-    App.store.dispatch(MPDSetRepeatAction(repeatState: sender.state == .on))
+    App.mpdClient.setRepeatState(repeatState: sender.state == .on)
   }
 
 }

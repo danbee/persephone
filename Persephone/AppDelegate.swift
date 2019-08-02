@@ -23,7 +23,7 @@ class AppDelegate: NSObject,
   @IBOutlet weak var addSelectedSongToQueueMenuItem: NSMenuItem!
 
   func applicationDidFinishLaunching(_ aNotification: Notification) {
-    App.mpdServerController.connect()
+    connectToMPDServer()
     instantiateUserNotificationsController()
 
     mediaKeyTap = MediaKeyTap(delegate: self)
@@ -36,12 +36,22 @@ class AppDelegate: NSObject,
     }
   }
 
+  func connectToMPDServer() {
+    let mpdServer = App.store.state.preferencesState.mpdServer
+
+    App.mpdClient.connect(
+      host: mpdServer.hostOrDefault,
+      port: mpdServer.portOrDefault
+    )
+  }
+
   func instantiateUserNotificationsController() {
+    _ = App.mpdServerController
     _ = App.userNotificationsController
   }
 
   func applicationWillTerminate(_ aNotification: Notification) {
-    App.mpdServerController.disconnect()
+    App.mpdClient.disconnect()
   }
 
   func applicationDockMenu(_ sender: NSApplication) -> NSMenu? {
@@ -112,36 +122,36 @@ class AppDelegate: NSObject,
   func handle(mediaKey: MediaKey, event: KeyEvent) {
     switch mediaKey {
     case .playPause:
-      App.store.dispatch(MPDPlayPauseAction())
+      App.mpdClient.playPause()
     case .next, .fastForward:
-      App.store.dispatch(MPDNextTrackAction())
+      App.mpdClient.nextTrack()
     case .previous, .rewind:
-      App.store.dispatch(MPDPrevTrackAction())
+      App.mpdClient.prevTrack()
     }
   }
 
   @IBAction func updateDatabase(_ sender: NSMenuItem) {
-    App.store.dispatch(MPDUpdateDatabaseAction())
+    App.mpdClient.updateDatabase()
   }
 
   @IBAction func playPauseMenuAction(_ sender: NSMenuItem) {
-    App.store.dispatch(MPDPlayPauseAction())
+    App.mpdClient.playPause()
   }
   @IBAction func stopMenuAction(_ sender: NSMenuItem) {
-    App.store.dispatch(MPDStopAction())
+    App.mpdClient.stop()
   }
   @IBAction func nextTrackMenuAction(_ sender: NSMenuItem) {
-    App.store.dispatch(MPDNextTrackAction())
+    App.mpdClient.nextTrack()
   }
   @IBAction func prevTrackMenuAction(_ sender: NSMenuItem) {
-    App.store.dispatch(MPDPrevTrackAction())
+    App.mpdClient.prevTrack()
   }
 
   @IBAction func removeQueueSongMenuAction(_ sender: NSMenuItem) {
     guard let queueItem = App.store.state.uiState.selectedQueueItem
       else { return }
 
-    App.store.dispatch(MPDRemoveTrack(queuePos: queueItem.queuePos))
+    App.mpdClient.removeSong(at: queueItem.queuePos)
     App.store.dispatch(SetSelectedQueueItem(selectedQueueItem: nil))
   }
   @IBAction func clearQueueMenuAction(_ sender: NSMenuItem) {
@@ -155,7 +165,7 @@ class AppDelegate: NSObject,
     let result = alert.runModal()
 
     if result == .alertFirstButtonReturn {
-      App.store.dispatch(MPDClearQueue())
+      App.mpdClient.clearQueue()
     }
   }
 
@@ -164,8 +174,8 @@ class AppDelegate: NSObject,
       else { return }
 
     let queueLength = App.store.state.queueState.queue.count
-    App.store.dispatch(MPDAppendTrack(song: song.mpdSong))
-    App.store.dispatch(MPDPlayTrack(queuePos: queueLength))
+    App.mpdClient.appendSong(song.mpdSong)
+    App.mpdClient.playTrack(at: queueLength)
   }
   @IBAction func playSelectedSongNextAction(_ sender: NSMenuItem) {
     let queuePos = App.store.state.queueState.queuePos
@@ -174,15 +184,13 @@ class AppDelegate: NSObject,
       queuePos > -1
       else { return }
 
-    App.store.dispatch(
-      MPDAddSongToQueue(songUri: song.mpdSong.uriString, queuePos: queuePos + 1)
-    )
+    App.mpdClient.addSongToQueue(songUri: song.mpdSong.uriString, at: queuePos + 1)
   }
   @IBAction func addSelectedSongToQueueAction(_ sender: NSMenuItem) {
     guard let song = App.store.state.uiState.selectedSong
       else { return }
 
-    App.store.dispatch(MPDAppendTrack(song: song.mpdSong))
+    App.mpdClient.appendSong(song.mpdSong)
   }
 }
 

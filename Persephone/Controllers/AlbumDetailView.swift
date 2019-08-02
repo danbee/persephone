@@ -67,7 +67,7 @@ class AlbumDetailView: NSViewController {
   @IBAction func playAlbum(_ sender: NSButton) {
     guard let album = album else { return }
 
-    App.store.dispatch(MPDPlayAlbum(album: album.mpdAlbum))
+    App.mpdClient.playAlbum(album.mpdAlbum)
   }
 
   @IBAction func playSong(_ sender: AlbumDetailSongListView) {
@@ -75,8 +75,8 @@ class AlbumDetailView: NSViewController {
       else { return }
 
     let queueLength = App.store.state.queueState.queue.count
-    App.store.dispatch(MPDAppendTrack(song: song.mpdSong))
-    App.store.dispatch(MPDPlayTrack(queuePos: queueLength))
+    App.mpdClient.appendSong(song.mpdSong)
+    App.mpdClient.playTrack(at: queueLength)
   }
 
   @IBAction func menuActionPlaySong(_ sender: NSMenuItem) {
@@ -84,8 +84,8 @@ class AlbumDetailView: NSViewController {
       else { return }
 
     let queueLength = App.store.state.queueState.queue.count
-    App.store.dispatch(MPDAppendTrack(song: song.mpdSong))
-    App.store.dispatch(MPDPlayTrack(queuePos: queueLength))
+    App.mpdClient.appendSong(song.mpdSong)
+    App.mpdClient.playTrack(at: queueLength)
   }
 
   @IBAction func menuActionPlayNext(_ sender: Any) {
@@ -95,7 +95,7 @@ class AlbumDetailView: NSViewController {
     let queuePos = App.store.state.queueState.queuePos
 
     if queuePos > -1 {
-      App.store.dispatch(MPDAddSongToQueue(songUri: song.mpdSong.uriString, queuePos: queuePos + 1))
+      App.mpdClient.addSongToQueue(songUri: song.mpdSong.uriString, at: queuePos + 1)
     }
   }
 
@@ -103,7 +103,7 @@ class AlbumDetailView: NSViewController {
     guard let song = dataSource.albumSongs[albumTracksView.clickedRow].song
       else { return }
 
-    App.store.dispatch(MPDAppendTrack(song: song.mpdSong))
+    App.mpdClient.appendSong(song.mpdSong)
   }
 
   func getAlbumSongs(for album: Album) {

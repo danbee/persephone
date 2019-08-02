@@ -92,10 +92,10 @@ class QueueDataSource: NSObject, NSOutlineViewDataSource {
       guard queuePos != newQueuePos
         else { return false }
 
-      App.store.dispatch(MPDMoveSongInQueue(oldQueuePos: queuePos, newQueuePos: newQueuePos))
+      App.mpdClient.moveSongInQueue(at: queuePos, to: newQueuePos)
       return true
     case let .albumSongItem(uri):
-      App.store.dispatch(MPDAddSongToQueue(songUri: uri, queuePos: newQueuePos))
+      App.mpdClient.addSongToQueue(songUri: uri, at: newQueuePos)
       return true
     }
   }
