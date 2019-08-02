@@ -24,7 +24,7 @@ class AppDelegate: NSObject,
 
   func applicationDidFinishLaunching(_ aNotification: Notification) {
     connectToMPDServer()
-    instantiateUserNotificationsController()
+    instantiateControllers()
 
     mediaKeyTap = MediaKeyTap(delegate: self)
     mediaKeyTap?.start()
@@ -45,7 +45,7 @@ class AppDelegate: NSObject,
     )
   }
 
-  func instantiateUserNotificationsController() {
+  func instantiateControllers() {
     _ = App.mpdServerController
     _ = App.userNotificationsController
   }
