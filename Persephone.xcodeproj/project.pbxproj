@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50F87A9722F4B7B90064BEFA /* MPDClientMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F87A9622F4B7B90064BEFA /* MPDClientMiddleware.swift */; };
 		E407861C2110CE6E006887B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E407861B2110CE6E006887B1 /* AppDelegate.swift */; };
 		E40786202110CE70006887B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E407861F2110CE70006887B1 /* Assets.xcassets */; };
 		E40786232110CE70006887B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E40786212110CE70006887B1 /* Main.storyboard */; };
@@ -47,8 +48,6 @@
 		E4405192227644340090CD6F /* MPDServerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4405191227644340090CD6F /* MPDServerController.swift */; };
 		E44051942278765A0090CD6F /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44051932278765A0090CD6F /* App.swift */; };
 		E4405196227879960090CD6F /* MPDActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4405195227879960090CD6F /* MPDActions.swift */; };
-		E440519822787CB40090CD6F /* MPDState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E440519722787CB40090CD6F /* MPDState.swift */; };
-		E440519A22787CF60090CD6F /* MPDReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E440519922787CF60090CD6F /* MPDReducer.swift */; };
 		E440519C227BAF2E0090CD6F /* UIActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E440519B227BAF2E0090CD6F /* UIActions.swift */; };
 		E440519E227BB0720090CD6F /* UIReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E440519D227BB0720090CD6F /* UIReducer.swift */; };
 		E44051A0227BB0AB0090CD6F /* UIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E440519F227BB0AB0090CD6F /* UIState.swift */; };
@@ -183,6 +182,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		50F87A9622F4B7B90064BEFA /* MPDClientMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDClientMiddleware.swift; sourceTree = "<group>"; };
 		E40786182110CE6E006887B1 /* Persephone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Persephone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E407861B2110CE6E006887B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E407861F2110CE70006887B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -268,8 +268,6 @@
 		E4405191227644340090CD6F /* MPDServerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDServerController.swift; sourceTree = "<group>"; };
 		E44051932278765A0090CD6F /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		E4405195227879960090CD6F /* MPDActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDActions.swift; sourceTree = "<group>"; };
-		E440519722787CB40090CD6F /* MPDState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDState.swift; sourceTree = "<group>"; };
-		E440519922787CF60090CD6F /* MPDReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDReducer.swift; sourceTree = "<group>"; };
 		E440519B227BAF2E0090CD6F /* UIActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActions.swift; sourceTree = "<group>"; };
 		E440519D227BB0720090CD6F /* UIReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIReducer.swift; sourceTree = "<group>"; };
 		E440519F227BB0AB0090CD6F /* UIState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIState.swift; sourceTree = "<group>"; };
@@ -381,6 +379,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		50F87A9522F4B7AA0064BEFA /* Middleware */ = {
+			isa = PBXGroup;
+			children = (
+				50F87A9622F4B7B90064BEFA /* MPDClientMiddleware.swift */,
+			);
+			path = Middleware;
+			sourceTree = "<group>";
+		};
 		E407860F2110CE6E006887B1 = {
 			isa = PBXGroup;
 			children = (
@@ -648,7 +654,6 @@
 				E4B11B74226CC4D30075461B /* QueueReducer.swift */,
 				E4B11B78226D346B0075461B /* AlbumListReducer.swift */,
 				E4FF718F227601B400D4C412 /* PreferencesReducer.swift */,
-				E440519922787CF60090CD6F /* MPDReducer.swift */,
 				E440519D227BB0720090CD6F /* UIReducer.swift */,
 			);
 			path = Reducers;
@@ -659,13 +664,13 @@
 			children = (
 				E4B11B6B226A5AF50075461B /* Actions */,
 				E4B11B5F226A4BED0075461B /* Reducers */,
+				50F87A9522F4B7AA0064BEFA /* Middleware */,
 				E4B11B52226928F20075461B /* AppState.swift */,
 				E440519F227BB0AB0090CD6F /* UIState.swift */,
 				E4B11B65226A4F830075461B /* PlayerState.swift */,
 				E4B11B67226A4FA00075461B /* QueueState.swift */,
 				E4B11B69226A4FBC0075461B /* AlbumListState.swift */,
 				E4FF718D2276010E00D4C412 /* PreferencesState.swift */,
-				E440519722787CB40090CD6F /* MPDState.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -956,7 +961,6 @@
 				E41E5307223C019100173814 /* MPDClient+Status.swift in Sources */,
 				E41E5310223EF6CE00173814 /* CoverArtService+Remote.swift in Sources */,
 				E41E530B223C033700173814 /* MPDClient+Album.swift in Sources */,
-				E440519822787CB40090CD6F /* MPDState.swift in Sources */,
 				E42410B62241B956005ED6DF /* MPDClient+Database.swift in Sources */,
 				E4235640228623D2001216D6 /* QueueSongTitleView.swift in Sources */,
 				E451E36E22BD2501008BE9B2 /* DraggedSong.swift in Sources */,
@@ -977,6 +981,7 @@
 				E4E7A6AD22AAAF98006D566C /* AlbumDetailView+NSTableViewDelegate.swift in Sources */,
 				E4FF7190227601B400D4C412 /* PreferencesReducer.swift in Sources */,
 				E4F6B463221E125900ACF42A /* QueueItem.swift in Sources */,
+				50F87A9722F4B7B90064BEFA /* MPDClientMiddleware.swift in Sources */,
 				E4A83BF12221FAA00098FED6 /* PreferencesViewController.swift in Sources */,
 				E4B11BC22275EE410075461B /* AlbumListActions.swift in Sources */,
 				E4B11B61226A4C000075461B /* PlayerReducer.swift in Sources */,
@@ -1023,7 +1028,6 @@
 				E4A3A6A122A457B600EA2C40 /* AlbumDetailSongListView.swift in Sources */,
 				E4B11B53226928F20075461B /* AppState.swift in Sources */,
 				E435E3E4221CD75D00184CFC /* NSImage.swift in Sources */,
-				E440519A22787CF60090CD6F /* MPDReducer.swift in Sources */,
 				E4B11B6A226A4FBC0075461B /* AlbumListState.swift in Sources */,
 				E41E5305223BFB0700173814 /* MPDClient+Error.swift in Sources */,
 				E435E3E2221CD4E200184CFC /* NSFont.swift in Sources */,
