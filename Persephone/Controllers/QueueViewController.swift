@@ -36,7 +36,7 @@ class QueueViewController: NSViewController {
       let queuePos = queueView.selectedRow - 1
 
       if queuePos >= 0 {
-        App.store.dispatch(MPDRemoveTrack(queuePos: queuePos))
+        App.mpdClient.removeSong(at: queuePos)
       }
     default:
       super.keyDown(with: event)
@@ -47,7 +47,7 @@ class QueueViewController: NSViewController {
     let queuePos = queueView.selectedRow - 1
 
     if queuePos >= 0 {
-      App.store.dispatch(MPDPlayTrack(queuePos: queuePos))
+      App.mpdClient.playTrack(at: queuePos)
     }
   }
   
@@ -55,14 +55,14 @@ class QueueViewController: NSViewController {
     let queuePos = queueView.clickedRow - 1
 
     if queuePos >= 0 {
-      App.store.dispatch(MPDPlayTrack(queuePos: queuePos))
+      App.mpdClient.playTrack(at: queuePos)
     }
   }
   @IBAction func removeSongMenuAction(_ sender: NSMenuItem) {
     let queuePos = queueView.clickedRow - 1
 
     if queuePos >= 0 {
-      App.store.dispatch(MPDRemoveTrack(queuePos: queuePos))
+      App.mpdClient.removeSong(at: queuePos)
     }
   }
 }

@@ -14,5 +14,6 @@ struct App {
   static let trackTimer = TrackTimer()
   static let userNotificationsController = UserNotificationsController()
   static let mpdServerController = MPDServerController()
-  static let mpdClient = MPDClient(withDelegate: mpdServerController)
+  static let mpdServerDelegate = MPDServerDelegate()
+  static let mpdClient = MPDClient(withDelegate: mpdServerDelegate)
 }
