@@ -10,13 +10,19 @@ import AppKit
 
 class AlbumCoverButton: NSButton {
   var dragging = false
+  var deltaX: CGFloat = 0
+  var deltaY: CGFloat = 0
 
   override func mouseDown(with event: NSEvent) {
     nextResponder?.mouseDown(with: event)
   }
 
   override func mouseDragged(with event: NSEvent) {
-    dragging = true
+    deltaX = deltaX + event.deltaX
+    deltaY = deltaY + event.deltaY
+    if (deltaX > 5 || deltaX < -5 || deltaY > 5 || deltaY < -5) {
+      dragging = true
+    }
     nextResponder?.mouseDragged(with: event)
   }
 
