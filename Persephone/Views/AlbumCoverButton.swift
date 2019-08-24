@@ -20,13 +20,18 @@ class AlbumCoverButton: NSButton {
   override func mouseDragged(with event: NSEvent) {
     deltaX = deltaX + event.deltaX
     deltaY = deltaY + event.deltaY
+
     if (deltaX > 5 || deltaX < -5 || deltaY > 5 || deltaY < -5) {
       dragging = true
     }
+    
     nextResponder?.mouseDragged(with: event)
   }
 
   override func mouseUp(with event: NSEvent) {
+    deltaX = 0
+    deltaY = 0
+
     if dragging {
       dragging = false
       nextResponder?.mouseUp(with: event)
