@@ -7,26 +7,24 @@
 //
 
 import AppKit
+import ReSwift
 
 class BrowseController: NSViewController {
-  @IBOutlet var artistsButton: NSButton!
-  @IBOutlet var albumsButton: NSButton!
-
   @IBOutlet var browseTabView: NSTabView!
 
-  @IBAction func switchToTab(_ sender: NSButton) {
-    artistsButton.state = .off
-    albumsButton.state = .off
+  override func viewDidLoad() {
+    super.viewDidLoad()
 
-    switch sender.identifier?.rawValue {
-    case "artists":
-      artistsButton.state = .on
-      browseTabView.selectTabViewItem(at: 0)
-    case "albums":
-      albumsButton.state = .on
-      browseTabView.selectTabViewItem(at: 1)
-    default:
-      return
+    App.store.subscribe(self) {
+      $0.select { $0.uiState }
     }
+  }
+}
+
+extension BrowseController: StoreSubscriber {
+  typealias BrowseSubscriberStateType = UIState
+
+  func newState(state: BrowseSubscriberStateType) {
+    browseTabView.selectTabViewItem(at: state.browseViewState.rawValue)
   }
 }

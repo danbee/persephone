@@ -18,6 +18,10 @@ struct DatabaseUpdateStartedAction: Action {}
 
 struct DatabaseUpdateFinishedAction: Action {}
 
+struct SetVisibleBrowseView: Action {
+  let browseViewState: BrowseViewState
+}
+
 struct SetSelectedQueueItem: Action {
   let selectedQueueItem: QueueItem?
 }

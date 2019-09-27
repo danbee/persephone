@@ -14,8 +14,14 @@ enum MainWindowState {
   case minimised
 }
 
+enum BrowseViewState: Int {
+  case artists = 0
+  case albums = 1
+}
+
 struct UIState: StateType {
   var mainWindowState: MainWindowState = .closed
+  var browseViewState: BrowseViewState = .albums
 
   var databaseUpdating: Bool = false
 

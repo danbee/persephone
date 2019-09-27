@@ -27,6 +27,8 @@ class WindowController: NSWindowController {
   @IBOutlet var shuffleState: NSButton!
   @IBOutlet var repeatState: NSButton!
 
+  @IBOutlet var browseViewControls: NSSegmentedControl!
+
   override func windowDidLoad() {
     super.windowDidLoad()
     window?.titleVisibility = .hidden
@@ -37,6 +39,8 @@ class WindowController: NSWindowController {
         ($0.playerState, $0.uiState)
       }
     }
+
+    browseViewControls.setSelected(true, forSegment: App.store.state.uiState.browseViewState.rawValue)
 
     App.store.dispatch(MainWindowDidOpenAction())
 
@@ -160,6 +164,12 @@ class WindowController: NSWindowController {
     App.mpdClient.setRepeatState(repeatState: sender.state == .on)
   }
 
+  @IBAction func setBrowseViewState(_ sender: NSSegmentedControl) {
+    guard let browseViewState = BrowseViewState(rawValue: sender.selectedSegment)
+      else { return }
+
+    App.store.dispatch(SetVisibleBrowseView(browseViewState: browseViewState))
+  }
 }
 
 extension WindowController: NSWindowDelegate {

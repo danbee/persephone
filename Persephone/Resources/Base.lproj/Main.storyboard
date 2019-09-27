@@ -302,6 +302,23 @@
                                         </connections>
                                     </button>
                                 </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="D1F09BC1-069E-4734-AFB1-C8E4542D0F75" label="Browse View" paletteLabel="Browse View" sizingBehavior="auto" id="CDA-Tu-0RJ">
+                                    <nil key="toolTip"/>
+                                    <segmentedControl key="view" verticalHuggingPriority="750" id="F8b-3l-HcP">
+                                        <rect key="frame" x="0.0" y="14" width="141" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectOne" id="iXx-16-jmI">
+                                            <font key="font" metaFont="system"/>
+                                            <segments>
+                                                <segment label="Artists"/>
+                                                <segment label="Albums"/>
+                                            </segments>
+                                        </segmentedCell>
+                                        <connections>
+                                            <action selector="setBrowseViewState:" target="B8D-0N-5wS" id="fVP-WG-uOi"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
                                 <toolbarItem reference="p3r-ty-Pxf"/>
@@ -314,6 +331,7 @@
                                 <toolbarItem reference="s1h-EC-nvL"/>
                                 <toolbarItem reference="5U7-UV-xn2"/>
                                 <toolbarItem reference="9ol-aR-mzv"/>
+                                <toolbarItem reference="CDA-Tu-0RJ"/>
                             </defaultToolbarItems>
                         </toolbar>
                         <connections>
@@ -321,6 +339,8 @@
                         </connections>
                     </window>
                     <connections>
+                        <outlet property="browseViewControl" destination="F8b-3l-HcP" id="a4B-dd-NDE"/>
+                        <outlet property="browseViewControls" destination="F8b-3l-HcP" id="AMQ-6B-8Zd"/>
                         <outlet property="databaseUpdatingIndicator" destination="LpV-iM-o6t" id="y0T-eR-ygY"/>
                         <outlet property="repeatState" destination="OqH-lV-sAg" id="DPC-Ff-Srr"/>
                         <outlet property="shuffleState" destination="E8L-uK-XT0" id="dCF-hm-dBs"/>
@@ -505,123 +525,64 @@
             <objects>
                 <viewController id="SjO-VS-1bb" customClass="BrowseController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="BRY-0R-F3u">
-                        <rect key="frame" x="0.0" y="0.0" width="478" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="478" height="558"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="35G-X1-hrz">
-                                <rect key="frame" x="0.0" y="0.0" width="478" height="536"/>
-                                <subviews>
-                                    <stackView distribution="equalCentering" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LBv-o9-2Ya">
-                                        <rect key="frame" x="181" y="498" width="116" height="38"/>
-                                        <subviews>
-                                            <button identifier="artists" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SFs-nF-qQx" customClass="BrowseViewButton" customModule="Persephone" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="9" width="54" height="19"/>
-                                                <buttonCell key="cell" type="recessed" title="Artists" bezelStyle="recessed" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wYx-jY-G52">
-                                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                                                    <font key="font" metaFont="system"/>
-                                                </buttonCell>
-                                                <connections>
-                                                    <action selector="switchToTab:" target="SjO-VS-1bb" id="wPl-Ga-LZU"/>
-                                                </connections>
-                                            </button>
-                                            <button identifier="albums" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OnP-F2-wY0" customClass="BrowseViewButton" customModule="Persephone" customModuleProvider="target">
-                                                <rect key="frame" x="56" y="9" width="60" height="19"/>
-                                                <buttonCell key="cell" type="recessed" title="Albums" bezelStyle="recessed" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7XB-MN-6Ms">
-                                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                                                    <font key="font" metaFont="system"/>
-                                                </buttonCell>
-                                                <connections>
-                                                    <action selector="switchToTab:" target="SjO-VS-1bb" id="rql-oa-9AB"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <edgeInsets key="edgeInsets" left="0.0" right="0.0" top="8" bottom="8"/>
-                                        <constraints>
-                                            <constraint firstItem="OnP-F2-wY0" firstAttribute="top" secondItem="LBv-o9-2Ya" secondAttribute="top" constant="10" id="6XX-6Q-E1u"/>
-                                            <constraint firstItem="OnP-F2-wY0" firstAttribute="leading" secondItem="SFs-nF-qQx" secondAttribute="trailing" constant="2" id="tBi-h3-VCC"/>
-                                        </constraints>
-                                        <visibilityPriorities>
-                                            <integer value="1000"/>
-                                            <integer value="1000"/>
-                                        </visibilityPriorities>
-                                        <customSpacing>
-                                            <real value="3.4028234663852886e+38"/>
-                                            <real value="3.4028234663852886e+38"/>
-                                        </customSpacing>
-                                    </stackView>
-                                    <tabView type="noTabsNoBorder" initialItem="XgS-cX-SDH" translatesAutoresizingMaskIntoConstraints="NO" id="ARv-cj-xlz">
-                                        <rect key="frame" x="0.0" y="0.0" width="478" height="496"/>
-                                        <font key="font" metaFont="system"/>
-                                        <tabViewItems>
-                                            <tabViewItem label="Artists" identifier="" id="bV1-g9-37C">
-                                                <view key="view" id="5Ye-bM-Ifl">
-                                                    <rect key="frame" x="0.0" y="0.0" width="478" height="496"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    <subviews>
-                                                        <containerView translatesAutoresizingMaskIntoConstraints="NO" id="EBh-Di-UhX">
-                                                            <rect key="frame" x="0.0" y="0.0" width="478" height="496"/>
-                                                            <connections>
-                                                                <segue destination="LpS-90-tby" kind="embed" id="00m-3s-fzb"/>
-                                                            </connections>
-                                                        </containerView>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="EBh-Di-UhX" firstAttribute="leading" secondItem="5Ye-bM-Ifl" secondAttribute="leading" id="SR7-0Y-U4Q"/>
-                                                        <constraint firstItem="EBh-Di-UhX" firstAttribute="top" secondItem="5Ye-bM-Ifl" secondAttribute="top" id="bcN-6r-OFW"/>
-                                                        <constraint firstAttribute="bottom" secondItem="EBh-Di-UhX" secondAttribute="bottom" id="kOK-UG-b31"/>
-                                                        <constraint firstAttribute="trailing" secondItem="EBh-Di-UhX" secondAttribute="trailing" id="vB5-SX-6iT"/>
-                                                    </constraints>
-                                                </view>
-                                            </tabViewItem>
-                                            <tabViewItem label="Albums" identifier="" id="XgS-cX-SDH">
-                                                <view key="view" id="hB7-hN-SbB">
-                                                    <rect key="frame" x="0.0" y="0.0" width="478" height="496"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    <subviews>
-                                                        <containerView translatesAutoresizingMaskIntoConstraints="NO" id="moE-bb-Zvg">
-                                                            <rect key="frame" x="-3" y="-3" width="481" height="499"/>
-                                                            <connections>
-                                                                <segue destination="gPn-fP-LFc" kind="embed" id="2iB-9y-I9h"/>
-                                                            </connections>
-                                                        </containerView>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="moE-bb-Zvg" firstAttribute="top" secondItem="hB7-hN-SbB" secondAttribute="top" id="DUI-jy-8D7"/>
-                                                        <constraint firstItem="moE-bb-Zvg" firstAttribute="leading" secondItem="hB7-hN-SbB" secondAttribute="leading" constant="-3" id="dCS-Kx-2UP"/>
-                                                        <constraint firstAttribute="trailing" secondItem="moE-bb-Zvg" secondAttribute="trailing" id="qey-4e-xfu"/>
-                                                        <constraint firstAttribute="bottom" secondItem="moE-bb-Zvg" secondAttribute="bottom" constant="-3" id="ziA-Xh-dlz"/>
-                                                    </constraints>
-                                                </view>
-                                            </tabViewItem>
-                                        </tabViewItems>
-                                    </tabView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="ARv-cj-xlz" secondAttribute="trailing" id="4XJ-un-DRm"/>
-                                    <constraint firstItem="LBv-o9-2Ya" firstAttribute="top" secondItem="35G-X1-hrz" secondAttribute="top" id="wk2-ZY-TMz"/>
-                                    <constraint firstItem="LBv-o9-2Ya" firstAttribute="centerX" secondItem="35G-X1-hrz" secondAttribute="centerX" id="xAR-qw-hiL"/>
-                                    <constraint firstItem="ARv-cj-xlz" firstAttribute="leading" secondItem="35G-X1-hrz" secondAttribute="leading" id="yL8-Gq-8bT"/>
-                                </constraints>
-                                <visibilityPriorities>
-                                    <integer value="1000"/>
-                                    <integer value="1000"/>
-                                </visibilityPriorities>
-                                <customSpacing>
-                                    <real value="3.4028234663852886e+38"/>
-                                    <real value="3.4028234663852886e+38"/>
-                                </customSpacing>
-                            </stackView>
+                            <tabView type="noTabsNoBorder" initialItem="XgS-cX-SDH" translatesAutoresizingMaskIntoConstraints="NO" id="ARv-cj-xlz">
+                                <rect key="frame" x="0.0" y="0.0" width="478" height="558"/>
+                                <font key="font" metaFont="system"/>
+                                <tabViewItems>
+                                    <tabViewItem label="Artists" identifier="" id="bV1-g9-37C">
+                                        <view key="view" id="5Ye-bM-Ifl">
+                                            <rect key="frame" x="0.0" y="0.0" width="478" height="558"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <containerView translatesAutoresizingMaskIntoConstraints="NO" id="EBh-Di-UhX">
+                                                    <rect key="frame" x="0.0" y="0.0" width="478" height="558"/>
+                                                    <connections>
+                                                        <segue destination="LpS-90-tby" kind="embed" id="00m-3s-fzb"/>
+                                                    </connections>
+                                                </containerView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="EBh-Di-UhX" firstAttribute="leading" secondItem="5Ye-bM-Ifl" secondAttribute="leading" id="SR7-0Y-U4Q"/>
+                                                <constraint firstItem="EBh-Di-UhX" firstAttribute="top" secondItem="5Ye-bM-Ifl" secondAttribute="top" id="bcN-6r-OFW"/>
+                                                <constraint firstAttribute="bottom" secondItem="EBh-Di-UhX" secondAttribute="bottom" id="kOK-UG-b31"/>
+                                                <constraint firstAttribute="trailing" secondItem="EBh-Di-UhX" secondAttribute="trailing" id="vB5-SX-6iT"/>
+                                            </constraints>
+                                        </view>
+                                    </tabViewItem>
+                                    <tabViewItem label="Albums" identifier="" id="XgS-cX-SDH">
+                                        <view key="view" id="hB7-hN-SbB">
+                                            <rect key="frame" x="0.0" y="0.0" width="478" height="558"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <containerView translatesAutoresizingMaskIntoConstraints="NO" id="moE-bb-Zvg">
+                                                    <rect key="frame" x="-3" y="-3" width="481" height="561"/>
+                                                    <connections>
+                                                        <segue destination="gPn-fP-LFc" kind="embed" id="2iB-9y-I9h"/>
+                                                    </connections>
+                                                </containerView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="moE-bb-Zvg" firstAttribute="top" secondItem="hB7-hN-SbB" secondAttribute="top" id="DUI-jy-8D7"/>
+                                                <constraint firstItem="moE-bb-Zvg" firstAttribute="leading" secondItem="hB7-hN-SbB" secondAttribute="leading" constant="-3" id="dCS-Kx-2UP"/>
+                                                <constraint firstAttribute="trailing" secondItem="moE-bb-Zvg" secondAttribute="trailing" id="qey-4e-xfu"/>
+                                                <constraint firstAttribute="bottom" secondItem="moE-bb-Zvg" secondAttribute="bottom" constant="-3" id="ziA-Xh-dlz"/>
+                                            </constraints>
+                                        </view>
+                                    </tabViewItem>
+                                </tabViewItems>
+                            </tabView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="35G-X1-hrz" secondAttribute="trailing" id="GmC-07-TZ9"/>
-                            <constraint firstAttribute="bottom" secondItem="35G-X1-hrz" secondAttribute="bottom" id="QLO-5f-nea"/>
-                            <constraint firstItem="35G-X1-hrz" firstAttribute="leading" secondItem="BRY-0R-F3u" secondAttribute="leading" id="T5b-dY-ac0"/>
-                            <constraint firstItem="35G-X1-hrz" firstAttribute="top" secondItem="BRY-0R-F3u" secondAttribute="top" id="dCC-1m-Dc6"/>
+                            <constraint firstAttribute="trailing" secondItem="ARv-cj-xlz" secondAttribute="trailing" id="nXk-bi-ua4"/>
+                            <constraint firstAttribute="bottom" secondItem="ARv-cj-xlz" secondAttribute="bottom" id="nzf-Jw-Bpk"/>
+                            <constraint firstItem="ARv-cj-xlz" firstAttribute="top" secondItem="BRY-0R-F3u" secondAttribute="top" id="v6W-0L-kQ1"/>
+                            <constraint firstItem="ARv-cj-xlz" firstAttribute="leading" secondItem="BRY-0R-F3u" secondAttribute="leading" id="w2Z-xv-Fwz"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="albumsButton" destination="OnP-F2-wY0" id="Ft9-h6-5MU"/>
-                        <outlet property="artistsButton" destination="SFs-nF-qQx" id="Khk-Wu-ZIs"/>
                         <outlet property="browseTabView" destination="ARv-cj-xlz" id="h93-fi-yY7"/>
                     </connections>
                 </viewController>

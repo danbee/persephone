@@ -14,10 +14,5 @@ class BrowseViewButton: NSButton {
     // Drawing code here.
     self.layer?.cornerRadius = 4
     self.layer?.masksToBounds = true
-    if #available(OSX 10.14, *) {
-      self.layer?.backgroundColor = NSColor.controlAccentColor.cgColor
-    } else {
-      // Fallback on earlier versions
-    }
   }
 }
