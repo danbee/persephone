@@ -103,6 +103,12 @@
 		E4B11BC02275EE150075461B /* QueueActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BBF2275EE150075461B /* QueueActions.swift */; };
 		E4B11BC22275EE410075461B /* AlbumListActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BC12275EE410075461B /* AlbumListActions.swift */; };
 		E4B5AE7E22F4C49600CCEC65 /* MPDServerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B5AE7D22F4C49600CCEC65 /* MPDServerDelegate.swift */; };
+		E4BBD2E923356DC100702C16 /* BrowseViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BBD2E823356DC100702C16 /* BrowseViewButton.swift */; };
+		E4BBD2EB2335735500702C16 /* BrowseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BBD2EA2335735500702C16 /* BrowseController.swift */; };
+		E4BBD2ED2335798E00702C16 /* ArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BBD2EC2335798E00702C16 /* ArtistViewController.swift */; };
+		E4BBD2F0233579EF00702C16 /* ArtistViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BBD2EE233579EF00702C16 /* ArtistViewItem.swift */; };
+		E4BBD2F1233579EF00702C16 /* ArtistViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4BBD2EF233579EF00702C16 /* ArtistViewItem.xib */; };
+		E4BBD2F323357C0700702C16 /* ArtistListState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BBD2F223357C0700702C16 /* ArtistListState.swift */; };
 		E4C8B53C22342005009A20F3 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C8B53B22342005009A20F3 /* PreferencesWindowController.swift */; };
 		E4C8B53E22349002009A20F3 /* MPDIdle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C8B53D22349002009A20F3 /* MPDIdle.swift */; };
 		E4D3BFA622B419C000C56F48 /* QueueViewController+NSOutlineViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D3BFA522B419C000C56F48 /* QueueViewController+NSOutlineViewDelegate.swift */; };
@@ -296,6 +302,12 @@
 		E4B11BBF2275EE150075461B /* QueueActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueActions.swift; sourceTree = "<group>"; };
 		E4B11BC12275EE410075461B /* AlbumListActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListActions.swift; sourceTree = "<group>"; };
 		E4B5AE7D22F4C49600CCEC65 /* MPDServerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDServerDelegate.swift; sourceTree = "<group>"; };
+		E4BBD2E823356DC100702C16 /* BrowseViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseViewButton.swift; sourceTree = "<group>"; };
+		E4BBD2EA2335735500702C16 /* BrowseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseController.swift; sourceTree = "<group>"; };
+		E4BBD2EC2335798E00702C16 /* ArtistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistViewController.swift; sourceTree = "<group>"; };
+		E4BBD2EE233579EF00702C16 /* ArtistViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistViewItem.swift; sourceTree = "<group>"; };
+		E4BBD2EF233579EF00702C16 /* ArtistViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistViewItem.xib; sourceTree = "<group>"; };
+		E4BBD2F223357C0700702C16 /* ArtistListState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListState.swift; sourceTree = "<group>"; };
 		E4C8B53B22342005009A20F3 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
 		E4C8B53D22349002009A20F3 /* MPDIdle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDIdle.swift; sourceTree = "<group>"; };
 		E4D3BFA522B419C000C56F48 /* QueueViewController+NSOutlineViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QueueViewController+NSOutlineViewDelegate.swift"; sourceTree = "<group>"; };
@@ -462,6 +474,7 @@
 				E423563F228623D2001216D6 /* QueueSongTitleView.swift */,
 				E4120D6B22AD8139004CB1F8 /* QueueView.swift */,
 				E43AC1F722C7065A001E483C /* AlbumCoverButton.swift */,
+				E4BBD2E823356DC100702C16 /* BrowseViewButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -615,6 +628,7 @@
 				E4B11B67226A4FA00075461B /* QueueState.swift */,
 				E4B11B69226A4FBC0075461B /* AlbumListState.swift */,
 				E4FF718D2276010E00D4C412 /* PreferencesState.swift */,
+				E4BBD2F223357C0700702C16 /* ArtistListState.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -661,6 +675,9 @@
 				E408D3C1220E134F0006D9BE /* AlbumViewController.swift */,
 				E43AC1F222C6A439001E483C /* AlbumViewController+NSCollectionViewDelegate.swift */,
 				E47E2FD4222071FD00F747E6 /* AlbumViewItem.swift */,
+				E4BBD2EC2335798E00702C16 /* ArtistViewController.swift */,
+				E4BBD2EE233579EF00702C16 /* ArtistViewItem.swift */,
+				E4BBD2EA2335735500702C16 /* BrowseController.swift */,
 				E47E2FD022205C4600F747E6 /* MainSplitViewController.swift */,
 				E4405191227644340090CD6F /* MPDServerController.swift */,
 				E4B5AE7D22F4C49600CCEC65 /* MPDServerDelegate.swift */,
@@ -675,6 +692,7 @@
 		E4D1B598220BA3C90026F233 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E4BBD2EF233579EF00702C16 /* ArtistViewItem.xib */,
 				E43B67A922909793007DCF55 /* AlbumDetailView.xib */,
 				E408D3C9220E341D0006D9BE /* AlbumViewItem.xib */,
 				E489E3A322B9D31800CA8CBD /* DraggedSongView.xib */,
@@ -854,6 +872,7 @@
 				E40786202110CE70006887B1 /* Assets.xcassets in Resources */,
 				E42A8F3C22176D6400A13ED9 /* README.md in Resources */,
 				E408D3CB220E341D0006D9BE /* AlbumViewItem.xib in Resources */,
+				E4BBD2F1233579EF00702C16 /* ArtistViewItem.xib in Resources */,
 				E40786232110CE70006887B1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -910,12 +929,14 @@
 				E43AC1F622C6AD0B001E483C /* AlbumViewController+NSCollectionViewDelegate.swift in Sources */,
 				E4B11B68226A4FA00075461B /* QueueState.swift in Sources */,
 				E4928E0B2218D62A001D4BEA /* CGColor.swift in Sources */,
+				E4BBD2ED2335798E00702C16 /* ArtistViewController.swift in Sources */,
 				E4D3BFA622B419C000C56F48 /* QueueViewController+NSOutlineViewDelegate.swift in Sources */,
 				E4405192227644340090CD6F /* MPDServerController.swift in Sources */,
 				E4C8B53E22349002009A20F3 /* MPDIdle.swift in Sources */,
 				E4F6B460221E119B00ACF42A /* QueueDataSource.swift in Sources */,
 				E4C8B53C22342005009A20F3 /* PreferencesWindowController.swift in Sources */,
 				E4B11B63226A4C510075461B /* AppReducer.swift in Sources */,
+				E4BBD2F0233579EF00702C16 /* ArtistViewItem.swift in Sources */,
 				E41E5307223C019100173814 /* MPDClient+Status.swift in Sources */,
 				E41E5310223EF6CE00173814 /* CoverArtService+Remote.swift in Sources */,
 				E41E530B223C033700173814 /* MPDClient+Album.swift in Sources */,
@@ -951,13 +972,16 @@
 				E47E2FDD2220A6D100F747E6 /* Time.swift in Sources */,
 				E419E2872249B96600216A8C /* Song.swift in Sources */,
 				E451E36B22BD214D008BE9B2 /* DraggedSongType.swift in Sources */,
+				E4BBD2F323357C0700702C16 /* ArtistListState.swift in Sources */,
 				E44051A0227BB0AB0090CD6F /* UIState.swift in Sources */,
 				E4FF718E2276010E00D4C412 /* PreferencesState.swift in Sources */,
 				E439109822640213002982E9 /* SongNotifierService.swift in Sources */,
 				E407861C2110CE6E006887B1 /* AppDelegate.swift in Sources */,
 				E4B11B75226CC4D30075461B /* QueueReducer.swift in Sources */,
 				E41E5309223C020400173814 /* MPDClient+Command.swift in Sources */,
+				E4BBD2E923356DC100702C16 /* BrowseViewButton.swift in Sources */,
 				E4B11B73226A6C770075461B /* TrackTimer.swift in Sources */,
+				E4BBD2EB2335735500702C16 /* BrowseController.swift in Sources */,
 				E44051942278765A0090CD6F /* App.swift in Sources */,
 				E4B11B79226D346B0075461B /* AlbumListReducer.swift in Sources */,
 				E47E2FE52220AA0700F747E6 /* AlbumViewLayout.swift in Sources */,
