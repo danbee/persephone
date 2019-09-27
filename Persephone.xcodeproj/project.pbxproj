@@ -50,19 +50,15 @@
 		E440519E227BB0720090CD6F /* UIReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E440519D227BB0720090CD6F /* UIReducer.swift */; };
 		E44051A0227BB0AB0090CD6F /* UIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E440519F227BB0AB0090CD6F /* UIState.swift */; };
 		E450AD7E222620A10091BED3 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450AD7D222620A10091BED3 /* Album.swift */; };
-		E450AD9122262C780091BED3 /* SwiftyJSON.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = E450AD9022262C780091BED3 /* SwiftyJSON.framework.dSYM */; };
 		E450AD9522262DF10091BED3 /* CoverArtQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450AD9422262DF10091BED3 /* CoverArtQueue.swift */; };
-		E450ADA12229E7C90091BED3 /* PMKFoundation.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = E450AD9F2229E7C90091BED3 /* PMKFoundation.framework.dSYM */; };
 		E451E36B22BD214D008BE9B2 /* DraggedSongType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E451E36A22BD214D008BE9B2 /* DraggedSongType.swift */; };
 		E451E36E22BD2501008BE9B2 /* DraggedSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = E451E36C22BD23DB008BE9B2 /* DraggedSong.swift */; };
 		E45878382296173C00586A1C /* AlbumDetailSongRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45878372296173C00586A1C /* AlbumDetailSongRowView.swift */; };
 		E45962C62241A78500FC1A1E /* MPDCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45962C52241A78500FC1A1E /* MPDCommand.swift */; };
 		E45E4FDA22515D87004B537F /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = E45E4FD722515D87004B537F /* CHANGELOG.md */; };
 		E45E4FDB22515D87004B537F /* Brewfile in Resources */ = {isa = PBXBuildFile; fileRef = E45E4FD822515D87004B537F /* Brewfile */; };
-		E45E4FDC22515D87004B537F /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = E45E4FD922515D87004B537F /* Cartfile */; };
-		E45E4FDF225168DA004B537F /* CryptoSwift.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = E45E4FDD225168DA004B537F /* CryptoSwift.framework.dSYM */; };
 		E465049A21E94DF500A70F4C /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E465049921E94DF500A70F4C /* WindowController.swift */; };
-		E47E2FCC2220573500F747E6 /* MediaKeyTap.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = E47E2FCB2220573500F747E6 /* MediaKeyTap.framework.dSYM */; };
+		E4677C48233E60E70041474F /* MediaKeyTap in Frameworks */ = {isa = PBXBuildFile; productRef = E4677C47233E60E70041474F /* MediaKeyTap */; };
 		E47E2FD122205C4600F747E6 /* MainSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E2FD022205C4600F747E6 /* MainSplitViewController.swift */; };
 		E47E2FD322205D2500F747E6 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E2FD222205D2500F747E6 /* MainWindow.swift */; };
 		E47E2FD5222071FD00F747E6 /* AlbumViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E2FD4222071FD00F747E6 /* AlbumViewItem.swift */; };
@@ -75,13 +71,16 @@
 		E489E3A522B9D31800CA8CBD /* DraggedSongView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E489E3A322B9D31800CA8CBD /* DraggedSongView.xib */; };
 		E4928E0B2218D62A001D4BEA /* CGColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4928E0A2218D62A001D4BEA /* CGColor.swift */; };
 		E49A5482233E580800EED353 /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = E49A5481233E580800EED353 /* PromiseKit */; };
+		E49A5485233E5ADC00EED353 /* Differ in Frameworks */ = {isa = PBXBuildFile; productRef = E49A5484233E5ADC00EED353 /* Differ */; };
+		E49A5488233E5B0000EED353 /* ReSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E49A5487233E5B0000EED353 /* ReSwift */; };
+		E49A548B233E5B2D00EED353 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E49A548A233E5B2D00EED353 /* CryptoSwift */; };
+		E49A548E233E5B6000EED353 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = E49A548D233E5B6000EED353 /* SwiftyJSON */; };
 		E4A3A6A122A457B600EA2C40 /* AlbumDetailSongListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A3A6A022A457B600EA2C40 /* AlbumDetailSongListView.swift */; };
 		E4A642DA22090CBE00067D21 /* MPDStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A642D922090CBE00067D21 /* MPDStatus.swift */; };
 		E4A83BEF2221F8CF0098FED6 /* CoverArtPrefsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A83BEE2221F8CF0098FED6 /* CoverArtPrefsController.swift */; };
 		E4A83BF12221FAA00098FED6 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A83BF02221FAA00098FED6 /* PreferencesViewController.swift */; };
 		E4A83BF4222207D50098FED6 /* CoverArtService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A83BF3222207D50098FED6 /* CoverArtService.swift */; };
 		E4B11B53226928F20075461B /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11B52226928F20075461B /* AppState.swift */; };
-		E4B11B5A2269296C0075461B /* ReSwift.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = E4B11B582269296C0075461B /* ReSwift.framework.dSYM */; };
 		E4B11B61226A4C000075461B /* PlayerReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11B60226A4BFF0075461B /* PlayerReducer.swift */; };
 		E4B11B63226A4C510075461B /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11B62226A4C510075461B /* AppReducer.swift */; };
 		E4B11B66226A4F830075461B /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11B65226A4F830075461B /* PlayerState.swift */; };
@@ -90,19 +89,6 @@
 		E4B11B73226A6C770075461B /* TrackTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11B72226A6C770075461B /* TrackTimer.swift */; };
 		E4B11B75226CC4D30075461B /* QueueReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11B74226CC4D30075461B /* QueueReducer.swift */; };
 		E4B11B79226D346B0075461B /* AlbumListReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11B78226D346B0075461B /* AlbumListReducer.swift */; };
-		E4B11B7E2274E36D0075461B /* Differ.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = E4B11B7C2274E36D0075461B /* Differ.framework.dSYM */; };
-		E4B11B962274E43B0075461B /* Differ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4B11B7D2274E36D0075461B /* Differ.framework */; };
-		E4B11B972274E43B0075461B /* Differ.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E4B11B7D2274E36D0075461B /* Differ.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E4B11B982274E43B0075461B /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4B11B572269296C0075461B /* ReSwift.framework */; };
-		E4B11B992274E43B0075461B /* ReSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E4B11B572269296C0075461B /* ReSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E4B11B9A2274E43B0075461B /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45E4FDE225168DA004B537F /* CryptoSwift.framework */; };
-		E4B11B9B2274E43B0075461B /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E45E4FDE225168DA004B537F /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E4B11B9C2274E43B0075461B /* PMKFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E450ADA02229E7C90091BED3 /* PMKFoundation.framework */; };
-		E4B11B9D2274E43B0075461B /* PMKFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E450ADA02229E7C90091BED3 /* PMKFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E4B11BA02274E43B0075461B /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E450AD8522262AE60091BED3 /* SwiftyJSON.framework */; };
-		E4B11BA12274E43B0075461B /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E450AD8522262AE60091BED3 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E4B11BA22274E43B0075461B /* MediaKeyTap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E421ACA1221F73B8008B2449 /* MediaKeyTap.framework */; };
-		E4B11BA32274E43B0075461B /* MediaKeyTap.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E421ACA1221F73B8008B2449 /* MediaKeyTap.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E4B11BA62274E44A0075461B /* libmpdclient.2.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E41B22BF21FB6BBA00D544F6 /* libmpdclient.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		E4B11BA72274E4500075461B /* libmpdclient.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E41B22BF21FB6BBA00D544F6 /* libmpdclient.2.dylib */; };
 		E4B11BA92274EDE30075461B /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BA82274EDE30075461B /* Loading.swift */; };
@@ -119,6 +105,7 @@
 		E4E8CC902204EC7F0024217A /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC8F2204EC7F0024217A /* Delegate.swift */; };
 		E4E8CC922204F4B80024217A /* QueueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC912204F4B80024217A /* QueueViewController.swift */; };
 		E4E8CC9A22075D370024217A /* MPDSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC9922075D370024217A /* MPDSong.swift */; };
+		E4E96D13233E630800AFD36F /* PMKFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = E4E96D12233E630800AFD36F /* PMKFoundation */; };
 		E4EB2379220F10B8008C70C0 /* MPDPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB2378220F10B8008C70C0 /* MPDPair.swift */; };
 		E4EB237B220F7CF1008C70C0 /* MPDAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB237A220F7CF1008C70C0 /* MPDAlbum.swift */; };
 		E4F6B460221E119B00ACF42A /* QueueDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6B45F221E119B00ACF42A /* QueueDataSource.swift */; };
@@ -163,13 +150,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E4B11B9B2274E43B0075461B /* CryptoSwift.framework in Embed Frameworks */,
-				E4B11B972274E43B0075461B /* Differ.framework in Embed Frameworks */,
-				E4B11BA12274E43B0075461B /* SwiftyJSON.framework in Embed Frameworks */,
-				E4B11B9D2274E43B0075461B /* PMKFoundation.framework in Embed Frameworks */,
 				E4B11BA62274E44A0075461B /* libmpdclient.2.dylib in Embed Frameworks */,
-				E4B11BA32274E43B0075461B /* MediaKeyTap.framework in Embed Frameworks */,
-				E4B11B992274E43B0075461B /* ReSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -247,7 +228,6 @@
 		E41E530F223EF6CE00173814 /* CoverArtService+Remote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoverArtService+Remote.swift"; sourceTree = "<group>"; };
 		E41E5311223EF74A00173814 /* CoverArtService+Filesystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoverArtService+Filesystem.swift"; sourceTree = "<group>"; };
 		E41EA46B221636AF0068EF46 /* GeneralPrefsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralPrefsViewController.swift; sourceTree = "<group>"; };
-		E421ACA1221F73B8008B2449 /* MediaKeyTap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaKeyTap.framework; path = Carthage/Build/Mac/MediaKeyTap.framework; sourceTree = "<group>"; };
 		E423563F228623D2001216D6 /* QueueSongTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueSongTitleView.swift; sourceTree = "<group>"; };
 		E42410B52241B956005ED6DF /* MPDClient+Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MPDClient+Database.swift"; sourceTree = "<group>"; };
 		E42A8F3922176D6400A13ED9 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
@@ -265,23 +245,15 @@
 		E440519D227BB0720090CD6F /* UIReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIReducer.swift; sourceTree = "<group>"; };
 		E440519F227BB0AB0090CD6F /* UIState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIState.swift; sourceTree = "<group>"; };
 		E450AD7D222620A10091BED3 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
-		E450AD8522262AE60091BED3 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/Mac/SwiftyJSON.framework; sourceTree = "<group>"; };
-		E450AD9022262C780091BED3 /* SwiftyJSON.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftyJSON.framework.dSYM; path = Carthage/Build/Mac/SwiftyJSON.framework.dSYM; sourceTree = "<group>"; };
 		E450AD9422262DF10091BED3 /* CoverArtQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverArtQueue.swift; sourceTree = "<group>"; };
 		E450AD9E2229B9BC0091BED3 /* PersephoneBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersephoneBridgingHeader.h; sourceTree = "<group>"; };
-		E450AD9F2229E7C90091BED3 /* PMKFoundation.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = PMKFoundation.framework.dSYM; path = Carthage/Build/Mac/PMKFoundation.framework.dSYM; sourceTree = "<group>"; };
-		E450ADA02229E7C90091BED3 /* PMKFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PMKFoundation.framework; path = Carthage/Build/Mac/PMKFoundation.framework; sourceTree = "<group>"; };
 		E451E36A22BD214D008BE9B2 /* DraggedSongType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggedSongType.swift; sourceTree = "<group>"; };
 		E451E36C22BD23DB008BE9B2 /* DraggedSong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggedSong.swift; sourceTree = "<group>"; };
 		E45878372296173C00586A1C /* AlbumDetailSongRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailSongRowView.swift; sourceTree = "<group>"; };
 		E45962C52241A78500FC1A1E /* MPDCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDCommand.swift; sourceTree = "<group>"; };
 		E45E4FD722515D87004B537F /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = SOURCE_ROOT; };
 		E45E4FD822515D87004B537F /* Brewfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Brewfile; sourceTree = SOURCE_ROOT; };
-		E45E4FD922515D87004B537F /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
-		E45E4FDD225168DA004B537F /* CryptoSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = CryptoSwift.framework.dSYM; path = Carthage/Build/Mac/CryptoSwift.framework.dSYM; sourceTree = "<group>"; };
-		E45E4FDE225168DA004B537F /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/Mac/CryptoSwift.framework; sourceTree = "<group>"; };
 		E465049921E94DF500A70F4C /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
-		E47E2FCB2220573500F747E6 /* MediaKeyTap.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = MediaKeyTap.framework.dSYM; path = Carthage/Build/Mac/MediaKeyTap.framework.dSYM; sourceTree = "<group>"; };
 		E47E2FD022205C4600F747E6 /* MainSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSplitViewController.swift; sourceTree = "<group>"; };
 		E47E2FD222205D2500F747E6 /* MainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
 		E47E2FD4222071FD00F747E6 /* AlbumViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumViewItem.swift; sourceTree = "<group>"; };
@@ -299,8 +271,6 @@
 		E4A83BF02221FAA00098FED6 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		E4A83BF3222207D50098FED6 /* CoverArtService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverArtService.swift; sourceTree = "<group>"; };
 		E4B11B52226928F20075461B /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		E4B11B572269296C0075461B /* ReSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReSwift.framework; path = Carthage/Build/Mac/ReSwift.framework; sourceTree = "<group>"; };
-		E4B11B582269296C0075461B /* ReSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = ReSwift.framework.dSYM; path = Carthage/Build/Mac/ReSwift.framework.dSYM; sourceTree = "<group>"; };
 		E4B11B60226A4BFF0075461B /* PlayerReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerReducer.swift; sourceTree = "<group>"; };
 		E4B11B62226A4C510075461B /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
 		E4B11B65226A4F830075461B /* PlayerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerState.swift; sourceTree = "<group>"; };
@@ -309,8 +279,6 @@
 		E4B11B72226A6C770075461B /* TrackTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTimer.swift; sourceTree = "<group>"; };
 		E4B11B74226CC4D30075461B /* QueueReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueReducer.swift; sourceTree = "<group>"; };
 		E4B11B78226D346B0075461B /* AlbumListReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListReducer.swift; sourceTree = "<group>"; };
-		E4B11B7C2274E36D0075461B /* Differ.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Differ.framework.dSYM; path = Carthage/Build/Mac/Differ.framework.dSYM; sourceTree = "<group>"; };
-		E4B11B7D2274E36D0075461B /* Differ.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Differ.framework; path = Carthage/Build/Mac/Differ.framework; sourceTree = "<group>"; };
 		E4B11BA82274EDE30075461B /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		E4B11BB52275374B0075461B /* UserNotificationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationsController.swift; sourceTree = "<group>"; };
 		E4B11BB7227538FA0075461B /* CurrentCoverArtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentCoverArtView.swift; sourceTree = "<group>"; };
@@ -342,13 +310,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4B11BA72274E4500075461B /* libmpdclient.2.dylib in Frameworks */,
+				E49A5485233E5ADC00EED353 /* Differ in Frameworks */,
+				E4677C48233E60E70041474F /* MediaKeyTap in Frameworks */,
+				E49A548E233E5B6000EED353 /* SwiftyJSON in Frameworks */,
+				E4E96D13233E630800AFD36F /* PMKFoundation in Frameworks */,
 				E49A5482233E580800EED353 /* PromiseKit in Frameworks */,
-				E4B11B9A2274E43B0075461B /* CryptoSwift.framework in Frameworks */,
-				E4B11B962274E43B0075461B /* Differ.framework in Frameworks */,
-				E4B11BA02274E43B0075461B /* SwiftyJSON.framework in Frameworks */,
-				E4B11B9C2274E43B0075461B /* PMKFoundation.framework in Frameworks */,
-				E4B11BA22274E43B0075461B /* MediaKeyTap.framework in Frameworks */,
-				E4B11B982274E43B0075461B /* ReSwift.framework in Frameworks */,
+				E49A548B233E5B2D00EED353 /* CryptoSwift in Frameworks */,
+				E49A5488233E5B0000EED353 /* ReSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,7 +346,6 @@
 				E40786382110CE70006887B1 /* PersephoneUITests */,
 				E40786192110CE6E006887B1 /* Products */,
 				E45E4FD822515D87004B537F /* Brewfile */,
-				E45E4FD922515D87004B537F /* Cartfile */,
 				E45E4FD722515D87004B537F /* CHANGELOG.md */,
 				E42A8F3922176D6400A13ED9 /* LICENSE.md */,
 				E42A8F3A22176D6400A13ED9 /* README.md */,
@@ -490,18 +457,6 @@
 		E41B22BE21FB6B3300D544F6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E4B11B7D2274E36D0075461B /* Differ.framework */,
-				E4B11B7C2274E36D0075461B /* Differ.framework.dSYM */,
-				E4B11B572269296C0075461B /* ReSwift.framework */,
-				E4B11B582269296C0075461B /* ReSwift.framework.dSYM */,
-				E45E4FDE225168DA004B537F /* CryptoSwift.framework */,
-				E45E4FDD225168DA004B537F /* CryptoSwift.framework.dSYM */,
-				E450ADA02229E7C90091BED3 /* PMKFoundation.framework */,
-				E450AD9F2229E7C90091BED3 /* PMKFoundation.framework.dSYM */,
-				E450AD8522262AE60091BED3 /* SwiftyJSON.framework */,
-				E450AD9022262C780091BED3 /* SwiftyJSON.framework.dSYM */,
-				E421ACA1221F73B8008B2449 /* MediaKeyTap.framework */,
-				E47E2FCB2220573500F747E6 /* MediaKeyTap.framework.dSYM */,
 				E41B22BF21FB6BBA00D544F6 /* libmpdclient.2.dylib */,
 			);
 			name = Frameworks;
@@ -761,6 +716,12 @@
 			name = Persephone;
 			packageProductDependencies = (
 				E49A5481233E580800EED353 /* PromiseKit */,
+				E49A5484233E5ADC00EED353 /* Differ */,
+				E49A5487233E5B0000EED353 /* ReSwift */,
+				E49A548A233E5B2D00EED353 /* CryptoSwift */,
+				E49A548D233E5B6000EED353 /* SwiftyJSON */,
+				E4677C47233E60E70041474F /* MediaKeyTap */,
+				E4E96D12233E630800AFD36F /* PMKFoundation */,
 			);
 			productName = Persephone;
 			productReference = E40786182110CE6E006887B1 /* Persephone.app */;
@@ -847,6 +808,12 @@
 			mainGroup = E407860F2110CE6E006887B1;
 			packageReferences = (
 				E49A5480233E580800EED353 /* XCRemoteSwiftPackageReference "PromiseKit" */,
+				E49A5483233E5ADC00EED353 /* XCRemoteSwiftPackageReference "Differ" */,
+				E49A5486233E5B0000EED353 /* XCRemoteSwiftPackageReference "ReSwift" */,
+				E49A5489233E5B2D00EED353 /* XCRemoteSwiftPackageReference "CryptoSwift" */,
+				E49A548C233E5B6000EED353 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				E4A9BEF9233E5F9000457785 /* XCRemoteSwiftPackageReference "MediaKeyTap" */,
+				E4E96D11233E630800AFD36F /* XCRemoteSwiftPackageReference "Foundation" */,
 			);
 			productRefGroup = E40786192110CE6E006887B1 /* Products */;
 			projectDirPath = "";
@@ -865,21 +832,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E45E4FDB22515D87004B537F /* Brewfile in Resources */,
-				E450AD9122262C780091BED3 /* SwiftyJSON.framework.dSYM in Resources */,
 				E42A8F3B22176D6400A13ED9 /* LICENSE.md in Resources */,
 				E45E4FDA22515D87004B537F /* CHANGELOG.md in Resources */,
 				E43B67AB22909793007DCF55 /* AlbumDetailView.xib in Resources */,
-				E45E4FDC22515D87004B537F /* Cartfile in Resources */,
 				E489E3A522B9D31800CA8CBD /* DraggedSongView.xib in Resources */,
 				E40786202110CE70006887B1 /* Assets.xcassets in Resources */,
-				E45E4FDF225168DA004B537F /* CryptoSwift.framework.dSYM in Resources */,
 				E42A8F3C22176D6400A13ED9 /* README.md in Resources */,
 				E408D3CB220E341D0006D9BE /* AlbumViewItem.xib in Resources */,
-				E4B11B5A2269296C0075461B /* ReSwift.framework.dSYM in Resources */,
-				E4B11B7E2274E36D0075461B /* Differ.framework.dSYM in Resources */,
 				E40786232110CE70006887B1 /* Main.storyboard in Resources */,
-				E450ADA12229E7C90091BED3 /* PMKFoundation.framework.dSYM in Resources */,
-				E47E2FCC2220573500F747E6 /* MediaKeyTap.framework.dSYM in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1387,13 +1347,91 @@
 				minimumVersion = 6.11.0;
 			};
 		};
+		E49A5483233E5ADC00EED353 /* XCRemoteSwiftPackageReference "Differ" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tonyarnold/Differ";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.3;
+			};
+		};
+		E49A5486233E5B0000EED353 /* XCRemoteSwiftPackageReference "ReSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReSwift/ReSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		E49A5489233E5B2D00EED353 /* XCRemoteSwiftPackageReference "CryptoSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		E49A548C233E5B6000EED353 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		E4A9BEF9233E5F9000457785 /* XCRemoteSwiftPackageReference "MediaKeyTap" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danbee/MediaKeyTap";
+			requirement = {
+				branch = "add-package-swift";
+				kind = branch;
+			};
+		};
+		E4E96D11233E630800AFD36F /* XCRemoteSwiftPackageReference "Foundation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/PromiseKit/Foundation";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.3.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E4677C47233E60E70041474F /* MediaKeyTap */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E4A9BEF9233E5F9000457785 /* XCRemoteSwiftPackageReference "MediaKeyTap" */;
+			productName = MediaKeyTap;
+		};
 		E49A5481233E580800EED353 /* PromiseKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E49A5480233E580800EED353 /* XCRemoteSwiftPackageReference "PromiseKit" */;
 			productName = PromiseKit;
+		};
+		E49A5484233E5ADC00EED353 /* Differ */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E49A5483233E5ADC00EED353 /* XCRemoteSwiftPackageReference "Differ" */;
+			productName = Differ;
+		};
+		E49A5487233E5B0000EED353 /* ReSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E49A5486233E5B0000EED353 /* XCRemoteSwiftPackageReference "ReSwift" */;
+			productName = ReSwift;
+		};
+		E49A548A233E5B2D00EED353 /* CryptoSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E49A5489233E5B2D00EED353 /* XCRemoteSwiftPackageReference "CryptoSwift" */;
+			productName = CryptoSwift;
+		};
+		E49A548D233E5B6000EED353 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E49A548C233E5B6000EED353 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		E4E96D12233E630800AFD36F /* PMKFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E4E96D11233E630800AFD36F /* XCRemoteSwiftPackageReference "Foundation" */;
+			productName = PMKFoundation;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -1,3 +1,6 @@
 [submodule "libmpdclient"]
 	path = libmpdclient
-	url = https://github.com/MusicPlayerDaemon/libmpdclient
+	url = git@github.com:MusicPlayerDaemon/libmpdclient.git
+[submodule "Packages/MediaKeyTap"]
+	path = Packages/MediaKeyTap
+	url = git@github.com:danbee/MediaKeyTap.git

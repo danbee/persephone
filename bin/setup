@@ -1,8 +1,6 @@
 #!/bin/sh
 
-git submodule update --init
-
-carthage update
+git submodule update --init --recursive
 
 cd libmpdclient && \
   meson . output && \
