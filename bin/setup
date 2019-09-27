@@ -1,6 +1,8 @@
 #!/bin/sh
 
-git submodule update --init --recursive
+brew install meson
+
+git submodule update --init
 
 cd libmpdclient && \
   meson . output && \
