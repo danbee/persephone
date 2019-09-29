@@ -11,7 +11,7 @@ import mpdclient
 
 extension MPDClient {
   func fetchQueue() {
-    sendCommand(command: .fetchQueue)
+    enqueueCommand(command: .fetchQueue)
   }
 
   func clearQueue() {
@@ -54,6 +54,8 @@ extension MPDClient {
       let song = MPDSong(mpdSong)
       self.queue.append(song)
     }
+
+    self.delegate?.didUpdateQueue(mpdClient: self, queue: self.queue)
   }
 
   func sendClearQueue() {

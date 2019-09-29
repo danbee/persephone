@@ -9,12 +9,12 @@
 import Foundation
 
 class MPDServerDelegate: MPDClientDelegate {
-  func didConnect(mpdClient: MPDClient) {}
+  func didConnect(mpdClient: MPDClient) {
+    NotificationCenter.default.post(name: .didConnect, object: nil)
+  }
 
   func willDisconnect(mpdClient: MPDClient) {
-    DispatchQueue.main.async {
-      App.store.dispatch(UpdateAlbumListAction(albums: []))
-    }
+    NotificationCenter.default.post(name: .willDisconnect, object: nil)
   }
 
   func didUpdateStatus(mpdClient: MPDClient, status: MPDClient.MPDStatus) {
@@ -50,6 +50,12 @@ class MPDServerDelegate: MPDClientDelegate {
   func didLoadAlbums(mpdClient: MPDClient, albums: [MPDClient.MPDAlbum]) {
     DispatchQueue.main.async {
       App.store.dispatch(UpdateAlbumListAction(albums: albums))
+    }
+  }
+
+  func didLoadArtists(mpdClient: MPDClient, artists: [String]) {
+    DispatchQueue.main.async {
+      App.store.dispatch(UpdateArtistListAction(artists: artists))
     }
   }
 }

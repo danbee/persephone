@@ -8,14 +8,13 @@
 
 import Cocoa
 
-class ArtistViewItem: NSViewController {
+class ArtistViewItem: NSCollectionViewItem {
   var artist: String?
 
   @IBOutlet var artistName: NSTextField!
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do view setup here.
   }
 
   func setArtist(_ artist: String) {

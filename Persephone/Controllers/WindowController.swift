@@ -189,7 +189,7 @@ extension WindowController: NSWindowDelegate {
 extension WindowController: StoreSubscriber {
   typealias StoreSubscriberStateType = (playerState: PlayerState, uiState: UIState)
 
-  func newState(state: (playerState: PlayerState, uiState: UIState)) {
+  func newState(state: StoreSubscriberStateType) {
     DispatchQueue.main.async {
       self.setTransportControlState(state.playerState)
       self.setShuffleRepeatState(state.playerState)

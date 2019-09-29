@@ -15,5 +15,5 @@ struct App {
   static let userNotificationsController = UserNotificationsController()
   static let mpdServerController = MPDServerController()
   static let mpdServerDelegate = MPDServerDelegate()
-  static let mpdClient = MPDClient(withDelegate: mpdServerDelegate)
+  static var mpdClient: MPDClient!
 }

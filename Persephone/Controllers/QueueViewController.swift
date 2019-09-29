@@ -22,10 +22,17 @@ class QueueViewController: NSViewController {
       $0.select { $0.queueState }
     }
 
+    NotificationCenter.default.addObserver(self, selector: #selector(didConnect), name: .didConnect, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(willDisconnect), name: .willDisconnect, object: nil)
+
     queueView.dataSource = dataSource
     queueView.columnAutoresizingStyle = .sequentialColumnAutoresizingStyle
     queueView.registerForDraggedTypes([.songPasteboardType, .albumPasteboardType])
     queueView.draggingDestinationFeedbackStyle = .regular
+  }
+
+  deinit {
+    App.store.unsubscribe(self)
   }
 
   override func keyDown(with event: NSEvent) {
@@ -40,6 +47,17 @@ class QueueViewController: NSViewController {
       }
     default:
       super.keyDown(with: event)
+    }
+  }
+
+  @objc func didConnect() {
+    App.mpdClient.fetchQueue()
+  }
+
+  @objc func willDisconnect() {
+    DispatchQueue.main.async {
+      App.store.dispatch(UpdateQueuePosAction(queuePos: -1))
+      App.store.dispatch(UpdateQueueAction(queue: []))
     }
   }
 

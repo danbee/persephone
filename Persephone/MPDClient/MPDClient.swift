@@ -10,6 +10,8 @@ import Foundation
 import mpdclient
 
 class MPDClient {
+  var connectionOperation: BlockOperation!
+
   var delegate: MPDClientDelegate?
 
   var connection: OpaquePointer?
@@ -20,8 +22,9 @@ class MPDClient {
 
   let commandQueue = OperationQueue()
 
-  init(withDelegate delegate: MPDClientDelegate?) {
+  init(host: String, port: Int, withDelegate delegate: MPDClientDelegate?) {
     commandQueue.maxConcurrentOperationCount = 1
     self.delegate = delegate
+    self.connectionOperation = makeConnectionOperation(host: host, port: port)
   }
 }

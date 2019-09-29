@@ -39,10 +39,13 @@ class AppDelegate: NSObject,
   func connectToMPDServer() {
     let mpdServer = App.store.state.preferencesState.mpdServer
 
-    App.mpdClient.connect(
+    App.mpdClient = MPDClient(
       host: mpdServer.hostOrDefault,
-      port: mpdServer.portOrDefault
+      port: mpdServer.portOrDefault,
+      withDelegate: App.mpdServerDelegate
     )
+
+    App.mpdClient.connect()
   }
 
   func instantiateControllers() {

@@ -10,8 +10,8 @@ import Foundation
 import mpdclient
 
 extension MPDClient {
-  func connect(host: String, port: Int) {
-    commandQueue.addOperation { [unowned self] in
+  func makeConnectionOperation(host: String, port: Int) -> BlockOperation {
+    BlockOperation { [unowned self] in
       guard let connection = mpd_connection_new(host, UInt32(port), 10000),
         mpd_connection_get_error(connection) == MPD_ERROR_SUCCESS
         else { return }
@@ -24,15 +24,15 @@ extension MPDClient {
       self.connection = connection
       self.status = MPDStatus(status)
 
-      self.fetchQueue()
-      self.fetchAllAlbums()
-      self.idle()
-
       self.delegate?.didConnect(mpdClient: self)
       self.delegate?.didUpdateStatus(mpdClient: self, status: self.status!)
-      self.delegate?.didUpdateQueue(mpdClient: self, queue: self.queue)
-      self.delegate?.didUpdateQueuePos(mpdClient: self, song: self.status!.song)
+
+      self.idle()
     }
+  }
+
+  func connect() {
+    commandQueue.addOperation(connectionOperation)
   }
 
   func disconnect() {

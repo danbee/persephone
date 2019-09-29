@@ -11,9 +11,9 @@ import ReSwift
 
 class MPDServerController {
   init() {
-    App.store.subscribe(self) {
-      $0.select { $0.preferencesState.mpdServer }
-    }
+//    App.store.subscribe(self) {
+//      $0.select { $0.preferencesState.mpdServer }
+//    }
   }
 }
 
@@ -22,9 +22,6 @@ extension MPDServerController: StoreSubscriber {
 
   func newState(state: MPDServer) {
     App.mpdClient.disconnect()
-    App.mpdClient.connect(
-      host: state.hostOrDefault,
-      port: state.portOrDefault
-    )
+    App.mpdClient.connect()
   }
 }

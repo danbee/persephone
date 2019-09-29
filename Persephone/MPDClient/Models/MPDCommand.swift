@@ -37,6 +37,9 @@ extension MPDClient {
     case addSongToQueue
     case addAlbumToQueue
 
+    // Artist commands
+    case fetchAllArtists
+
     // Album commands
     case fetchAllAlbums
     case playAlbum

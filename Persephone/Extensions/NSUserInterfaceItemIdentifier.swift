@@ -17,6 +17,7 @@ extension NSUserInterfaceItemIdentifier {
   static let queueSongTitle = NSUserInterfaceItemIdentifier("songTitleCell")
 
   static let albumViewItem = NSUserInterfaceItemIdentifier("AlbumViewItem")
+  static let artistViewItem = NSUserInterfaceItemIdentifier("ArtistViewItem")
 
   static let discNumber = NSUserInterfaceItemIdentifier("discNumberCell")
   static let trackNumber = NSUserInterfaceItemIdentifier("trackNumberCell")

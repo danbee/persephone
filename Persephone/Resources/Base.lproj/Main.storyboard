@@ -339,7 +339,6 @@
                         </connections>
                     </window>
                     <connections>
-                        <outlet property="browseViewControl" destination="F8b-3l-HcP" id="a4B-dd-NDE"/>
                         <outlet property="browseViewControls" destination="F8b-3l-HcP" id="AMQ-6B-8Zd"/>
                         <outlet property="databaseUpdatingIndicator" destination="LpV-iM-o6t" id="y0T-eR-ygY"/>
                         <outlet property="repeatState" destination="OqH-lV-sAg" id="DPC-Ff-Srr"/>
@@ -882,7 +881,7 @@
         <!--Artist View Controller-->
         <scene sceneID="SZb-JU-J7O">
             <objects>
-                <viewController id="LpS-90-tby" customClass="ArtistViewController" sceneMemberID="viewController">
+                <viewController id="LpS-90-tby" customClass="ArtistViewController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="vxO-fC-BpZ">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -896,9 +895,7 @@
                                         <collectionView id="8MP-vD-0zS">
                                             <rect key="frame" x="0.0" y="0.0" width="450" height="158"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="0jX-3t-OLG">
-                                                <size key="itemSize" width="50" height="50"/>
-                                            </collectionViewFlowLayout>
+                                            <collectionViewLayout key="collectionViewLayout" id="Xgs-hh-JPN" customClass="ArtistViewLayout" customModule="Persephone" customModuleProvider="target"/>
                                             <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </collectionView>
                                     </subviews>
@@ -920,6 +917,9 @@
                             <constraint firstAttribute="bottom" secondItem="Hef-8H-doh" secondAttribute="bottom" id="puR-GX-c6y"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="artistCollectionView" destination="8MP-vD-0zS" id="Bb1-07-sRH"/>
+                    </connections>
                 </viewController>
                 <customObject id="Ras-zf-6qF" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

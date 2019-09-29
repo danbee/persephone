@@ -21,6 +21,9 @@ class AlbumViewController: NSViewController,
       $0.select { $0.albumListState }
     }
 
+    NotificationCenter.default.addObserver(self, selector: #selector(didConnect), name: .didConnect, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(willDisconnect), name: .willDisconnect, object: nil)
+
     albumScrollView.postsBoundsChangedNotifications = true
 
     albumCollectionView.dataSource = dataSource
@@ -49,6 +52,16 @@ class AlbumViewController: NSViewController,
       else { return }
 
     layout.setScrollPosition()
+  }
+
+  @objc func didConnect() {
+    App.mpdClient.fetchAllAlbums()
+  }
+
+  @objc func willDisconnect() {
+    DispatchQueue.main.async {
+      App.store.dispatch(UpdateAlbumListAction(albums: []))
+    }
   }
 
   @IBOutlet var albumScrollView: NSScrollView!

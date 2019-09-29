@@ -21,4 +21,6 @@ protocol MPDClientDelegate {
   func didUpdateQueuePos(mpdClient: MPDClient, song: Int)
   
   func didLoadAlbums(mpdClient: MPDClient, albums: [MPDClient.MPDAlbum])
+
+  func didLoadArtists(mpdClient: MPDClient, artists: [String])
 }

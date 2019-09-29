@@ -87,6 +87,10 @@ extension MPDClient {
         else { return }
       sendAddAlbumToQueue(album: album, at: queuePos)
 
+    // Artist commands
+    case .fetchAllArtists:
+      allArtists()
+
     // Album commands
     case .fetchAllAlbums:
       allAlbums()
@@ -107,6 +111,7 @@ extension MPDClient {
 
       albumSongs(for: album, callback: callback)
     }
+    
   }
 
   func enqueueCommand(
