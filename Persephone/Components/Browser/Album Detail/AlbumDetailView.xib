@@ -10,6 +10,7 @@
             <connections>
                 <outlet property="albumArtist" destination="4Jx-I5-Nkv" id="mct-x3-yYC"/>
                 <outlet property="albumCoverView" destination="FWd-vZ-5CT" id="aHh-Bz-XQW"/>
+                <outlet property="albumMetadata" destination="ztJ-4E-qvI" id="YGK-TG-RPt"/>
                 <outlet property="albumTitle" destination="m2v-pR-e9v" id="M5i-u6-Nev"/>
                 <outlet property="albumTracksView" destination="ehr-qh-87Q" id="fSa-Di-CqI"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
@@ -34,7 +35,7 @@
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4Jx-I5-Nkv">
                     <rect key="frame" x="357" y="488" width="448" height="19"/>
-                    <textFieldCell key="cell" title="Artist Name" id="ztJ-4E-qvI">
+                    <textFieldCell key="cell" title="Metadata" id="ztJ-4E-qvI">
                         <font key="font" metaFont="system" size="16"/>
                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -219,15 +220,15 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
-                <button verticalHuggingPriority="750" misplaced="YES" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jMU-bv-TNF">
-                    <rect key="frame" x="31" y="32" width="119" height="35"/>
+                <button verticalHuggingPriority="750" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jMU-bv-TNF">
+                    <rect key="frame" x="31" y="184" width="119" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="33" id="2uQ-mC-4QY"/>
                         <constraint firstAttribute="width" constant="119" id="h2n-ZB-Ufr"/>
                     </constraints>
                     <buttonCell key="cell" type="smallSquare" title="Play Album" bezelStyle="smallSquare" image="playButton" imagePosition="left" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Rtg-Zd-JYc">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
+                        <font key="font" metaFont="systemMedium" size="13"/>
                     </buttonCell>
                     <connections>
                         <action selector="playAlbum:" target="-2" id="LTw-Lg-yH2"/>
@@ -235,20 +236,20 @@
                 </button>
             </subviews>
             <constraints>
+                <constraint firstItem="BOb-Lr-10M" firstAttribute="top" secondItem="4Jx-I5-Nkv" secondAttribute="bottom" constant="29" id="1ty-6R-dGL"/>
                 <constraint firstItem="FWd-vZ-5CT" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="31" id="694-aS-G4N"/>
                 <constraint firstItem="jMU-bv-TNF" firstAttribute="leading" secondItem="FWd-vZ-5CT" secondAttribute="leading" id="AwZ-M4-fep"/>
-                <constraint firstItem="BOb-Lr-10M" firstAttribute="leading" secondItem="4Jx-I5-Nkv" secondAttribute="leading" id="GEK-R3-Sw6"/>
-                <constraint firstItem="BOb-Lr-10M" firstAttribute="top" secondItem="4Jx-I5-Nkv" secondAttribute="bottom" constant="29" id="K5g-Kd-iHK"/>
-                <constraint firstAttribute="bottom" secondItem="BOb-Lr-10M" secondAttribute="bottom" constant="33" id="MZ6-81-2qe"/>
                 <constraint firstItem="4Jx-I5-Nkv" firstAttribute="leading" secondItem="m2v-pR-e9v" secondAttribute="leading" id="NaJ-VT-uln"/>
+                <constraint firstAttribute="bottom" secondItem="BOb-Lr-10M" secondAttribute="bottom" constant="33" id="Q1M-yZ-LHD"/>
                 <constraint firstItem="FWd-vZ-5CT" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="25" id="QA9-xn-fzY"/>
                 <constraint firstItem="m2v-pR-e9v" firstAttribute="top" secondItem="FWd-vZ-5CT" secondAttribute="top" id="bqi-HD-KZW"/>
                 <constraint firstItem="jMU-bv-TNF" firstAttribute="top" secondItem="FWd-vZ-5CT" secondAttribute="bottom" constant="25" id="dd1-6b-TEN"/>
                 <constraint firstItem="4Jx-I5-Nkv" firstAttribute="trailing" secondItem="m2v-pR-e9v" secondAttribute="trailing" id="dmh-TC-Ncr"/>
                 <constraint firstItem="m2v-pR-e9v" firstAttribute="leading" secondItem="FWd-vZ-5CT" secondAttribute="trailing" constant="28" id="icS-vq-PkK"/>
                 <constraint firstItem="4Jx-I5-Nkv" firstAttribute="top" secondItem="m2v-pR-e9v" secondAttribute="bottom" constant="8" symbolic="YES" id="nTZ-Ew-sDQ"/>
+                <constraint firstItem="BOb-Lr-10M" firstAttribute="leading" secondItem="4Jx-I5-Nkv" secondAttribute="leading" id="pXJ-Jl-uAG"/>
                 <constraint firstAttribute="trailing" secondItem="m2v-pR-e9v" secondAttribute="trailing" constant="20" symbolic="YES" id="qyi-X9-6B9"/>
-                <constraint firstItem="BOb-Lr-10M" firstAttribute="trailing" secondItem="4Jx-I5-Nkv" secondAttribute="trailing" id="sPx-cY-MeX"/>
+                <constraint firstItem="BOb-Lr-10M" firstAttribute="trailing" secondItem="4Jx-I5-Nkv" secondAttribute="trailing" id="zOM-i7-cog"/>
             </constraints>
             <point key="canvasLocation" x="262.5" y="121"/>
         </customView>

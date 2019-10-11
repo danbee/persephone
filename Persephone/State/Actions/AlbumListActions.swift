@@ -16,6 +16,11 @@ struct UpdateCoverArtAction: Action {
   var albumIndex: Int
 }
 
+struct UpdateAlbumMetaData: Action {
+  var metadata: Metadata
+  var albumIndex: Int
+}
+
 struct UpdateAlbumListAction: Action {
   var albums: [MPDClient.MPDAlbum]
 }
