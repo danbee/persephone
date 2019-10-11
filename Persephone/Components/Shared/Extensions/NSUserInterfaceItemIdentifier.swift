@@ -23,4 +23,6 @@ extension NSUserInterfaceItemIdentifier {
   static let trackNumber = NSUserInterfaceItemIdentifier("trackNumberCell")
   static let songTitle = NSUserInterfaceItemIdentifier("songTitleCell")
   static let songDuration = NSUserInterfaceItemIdentifier("songDurationCell")
+
+  static let artistListName = NSUserInterfaceItemIdentifier("artistCell")
 }

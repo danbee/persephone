@@ -13,7 +13,7 @@ func artistListReducer(action: Action, state: ArtistListState?) -> ArtistListSta
 
   switch action {
   case let action as UpdateArtistListAction:
-    state.artists = action.artists
+    state.artists = action.artists.map { Artist(name: $0) }
     
   default:
     break

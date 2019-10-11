@@ -18,7 +18,6 @@ class GeneralPrefsViewController: NSViewController {
     }
 
     if let mpdPort = App.store.state.preferencesState.mpdServer.port {
-      print(mpdPort)
       mpdPortField.stringValue = "\(mpdPort)"
     }
 

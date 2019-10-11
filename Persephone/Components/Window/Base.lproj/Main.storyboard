@@ -886,39 +886,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hef-8H-doh">
+                            <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lkE-Eh-ZKl">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                                <clipView key="contentView" id="NYM-zm-wx1">
+                                <clipView key="contentView" id="W3C-r7-oJL">
                                     <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <collectionView id="8MP-vD-0zS">
+                                        <collectionView id="bg7-32-4Jl">
                                             <rect key="frame" x="0.0" y="0.0" width="450" height="158"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                            <collectionViewLayout key="collectionViewLayout" id="Xgs-hh-JPN" customClass="ArtistViewLayout" customModule="Persephone" customModuleProvider="target"/>
+                                            <collectionViewLayout key="collectionViewLayout" id="48h-7k-nVB" customClass="FlexibleGridViewLayout" customModule="Persephone" customModuleProvider="target"/>
                                             <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </collectionView>
                                     </subviews>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="AK9-5R-0F5">
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="aW3-Xd-iIz">
                                     <rect key="frame" x="1" y="144" width="233" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="f89-z2-LIY">
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="DhO-CB-eX0">
                                     <rect key="frame" x="234" y="1" width="15" height="143"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="Hef-8H-doh" firstAttribute="leading" secondItem="vxO-fC-BpZ" secondAttribute="leading" id="9Jt-Aa-9B9"/>
-                            <constraint firstAttribute="trailing" secondItem="Hef-8H-doh" secondAttribute="trailing" id="Znr-1M-fxs"/>
-                            <constraint firstItem="Hef-8H-doh" firstAttribute="top" secondItem="vxO-fC-BpZ" secondAttribute="top" id="mpB-KM-RZw"/>
-                            <constraint firstAttribute="bottom" secondItem="Hef-8H-doh" secondAttribute="bottom" id="puR-GX-c6y"/>
+                            <constraint firstAttribute="trailing" secondItem="lkE-Eh-ZKl" secondAttribute="trailing" id="HPW-OE-lpd"/>
+                            <constraint firstItem="lkE-Eh-ZKl" firstAttribute="leading" secondItem="vxO-fC-BpZ" secondAttribute="leading" id="LnL-RZ-Lcm"/>
+                            <constraint firstItem="lkE-Eh-ZKl" firstAttribute="top" secondItem="vxO-fC-BpZ" secondAttribute="top" id="ZyG-hn-fPw"/>
+                            <constraint firstAttribute="bottom" secondItem="lkE-Eh-ZKl" secondAttribute="bottom" id="l4W-l0-fZS"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="artistCollectionView" destination="8MP-vD-0zS" id="Bb1-07-sRH"/>
+                        <outlet property="artistCollectionView" destination="bg7-32-4Jl" id="g9V-jO-2wj"/>
                     </connections>
                 </viewController>
                 <customObject id="Ras-zf-6qF" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -942,7 +942,7 @@
                                         <collectionView identifier="albumCollectionView" selectable="YES" id="lfq-AB-epE">
                                             <rect key="frame" x="0.0" y="0.0" width="450" height="158"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                            <collectionViewLayout key="collectionViewLayout" id="YE8-sD-l5P" customClass="AlbumViewLayout" customModule="Persephone" customModuleProvider="target"/>
+                                            <collectionViewLayout key="collectionViewLayout" id="YE8-sD-l5P" customClass="FlexibleGridViewLayout" customModule="Persephone" customModuleProvider="target"/>
                                             <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <connections>
                                                 <outlet property="delegate" destination="gPn-fP-LFc" id="LQ2-Vl-r08"/>

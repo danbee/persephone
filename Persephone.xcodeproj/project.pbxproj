@@ -54,6 +54,9 @@
 		E440519C227BAF2E0090CD6F /* UIActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E440519B227BAF2E0090CD6F /* UIActions.swift */; };
 		E440519E227BB0720090CD6F /* UIReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E440519D227BB0720090CD6F /* UIReducer.swift */; };
 		E44051A0227BB0AB0090CD6F /* UIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E440519F227BB0AB0090CD6F /* UIState.swift */; };
+		E442CCCD2347E73C00004E0C /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E442CCCC2347E73C00004E0C /* Artist.swift */; };
+		E442CCCF2347E90800004E0C /* ArtistViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = E442CCCE2347E90800004E0C /* ArtistViewItem.xib */; };
+		E442CCD12347EAEB00004E0C /* ArtistViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E442CCD02347EAEB00004E0C /* ArtistViewItem.swift */; };
 		E450AD7E222620A10091BED3 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450AD7D222620A10091BED3 /* Album.swift */; };
 		E450AD9522262DF10091BED3 /* CoverArtQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450AD9422262DF10091BED3 /* CoverArtQueue.swift */; };
 		E451E36B22BD214D008BE9B2 /* DraggedSongType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E451E36A22BD214D008BE9B2 /* DraggedSongType.swift */; };
@@ -67,9 +70,8 @@
 		E47E2FD122205C4600F747E6 /* MainSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E2FD022205C4600F747E6 /* MainSplitViewController.swift */; };
 		E47E2FD322205D2500F747E6 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E2FD222205D2500F747E6 /* MainWindow.swift */; };
 		E47E2FD5222071FD00F747E6 /* AlbumViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E2FD4222071FD00F747E6 /* AlbumViewItem.swift */; };
-		E47E2FD72220720300F747E6 /* AlbumItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E2FD62220720300F747E6 /* AlbumItemView.swift */; };
 		E47E2FDD2220A6D100F747E6 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E2FDC2220A6D100F747E6 /* Time.swift */; };
-		E47E2FE52220AA0700F747E6 /* AlbumViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E2FE42220AA0700F747E6 /* AlbumViewLayout.swift */; };
+		E47E2FE52220AA0700F747E6 /* FlexibleGridViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E2FE42220AA0700F747E6 /* FlexibleGridViewLayout.swift */; };
 		E489E39922B85D0400CA8CBD /* NSPasteboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E489E39822B85D0400CA8CBD /* NSPasteboard.swift */; };
 		E489E39D22B9CF0000CA8CBD /* NSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E489E39C22B9CF0000CA8CBD /* NSView.swift */; };
 		E489E3A422B9D31800CA8CBD /* DraggedSongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E489E3A222B9D31800CA8CBD /* DraggedSongView.swift */; };
@@ -103,11 +105,8 @@
 		E4B11BC02275EE150075461B /* QueueActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BBF2275EE150075461B /* QueueActions.swift */; };
 		E4B11BC22275EE410075461B /* AlbumListActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BC12275EE410075461B /* AlbumListActions.swift */; };
 		E4B5AE7E22F4C49600CCEC65 /* MPDServerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B5AE7D22F4C49600CCEC65 /* MPDServerDelegate.swift */; };
-		E4BBD2E923356DC100702C16 /* BrowseViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BBD2E823356DC100702C16 /* BrowseViewButton.swift */; };
 		E4BBD2EB2335735500702C16 /* BrowseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BBD2EA2335735500702C16 /* BrowseController.swift */; };
 		E4BBD2ED2335798E00702C16 /* ArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BBD2EC2335798E00702C16 /* ArtistViewController.swift */; };
-		E4BBD2F0233579EF00702C16 /* ArtistViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BBD2EE233579EF00702C16 /* ArtistViewItem.swift */; };
-		E4BBD2F1233579EF00702C16 /* ArtistViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4BBD2EF233579EF00702C16 /* ArtistViewItem.xib */; };
 		E4BBD2F323357C0700702C16 /* ArtistListState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BBD2F223357C0700702C16 /* ArtistListState.swift */; };
 		E4C8B53C22342005009A20F3 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C8B53B22342005009A20F3 /* PreferencesWindowController.swift */; };
 		E4C8B53E22349002009A20F3 /* MPDIdle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C8B53D22349002009A20F3 /* MPDIdle.swift */; };
@@ -120,11 +119,9 @@
 		E4EB2379220F10B8008C70C0 /* MPDPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB2378220F10B8008C70C0 /* MPDPair.swift */; };
 		E4EB237B220F7CF1008C70C0 /* MPDAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB237A220F7CF1008C70C0 /* MPDAlbum.swift */; };
 		E4F26F732341166200D45FF9 /* ArtistDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F26F722341166200D45FF9 /* ArtistDataSource.swift */; };
-		E4F26F75234117D600D45FF9 /* ArtistItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F26F74234117D600D45FF9 /* ArtistItemView.swift */; };
 		E4F26F7723411AE300D45FF9 /* ArtistListActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F26F7623411AE300D45FF9 /* ArtistListActions.swift */; };
 		E4F26F7923411B1500D45FF9 /* ArtistReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F26F7823411B1500D45FF9 /* ArtistReducer.swift */; };
 		E4F26F7B23411D5400D45FF9 /* MPDClient+Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F26F7A23411D5400D45FF9 /* MPDClient+Artist.swift */; };
-		E4F26F7D2341441C00D45FF9 /* ArtistViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F26F7C2341441C00D45FF9 /* ArtistViewLayout.swift */; };
 		E4F6B460221E119B00ACF42A /* QueueDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6B45F221E119B00ACF42A /* QueueDataSource.swift */; };
 		E4F6B463221E125900ACF42A /* QueueItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6B462221E125900ACF42A /* QueueItem.swift */; };
 		E4F6B467221E233200ACF42A /* AlbumDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6B466221E233200ACF42A /* AlbumDataSource.swift */; };
@@ -266,6 +263,9 @@
 		E440519B227BAF2E0090CD6F /* UIActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActions.swift; sourceTree = "<group>"; };
 		E440519D227BB0720090CD6F /* UIReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIReducer.swift; sourceTree = "<group>"; };
 		E440519F227BB0AB0090CD6F /* UIState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIState.swift; sourceTree = "<group>"; };
+		E442CCCC2347E73C00004E0C /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		E442CCCE2347E90800004E0C /* ArtistViewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ArtistViewItem.xib; path = "Persephone/Components/Browser/Artist Browser/ArtistViewItem.xib"; sourceTree = SOURCE_ROOT; };
+		E442CCD02347EAEB00004E0C /* ArtistViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArtistViewItem.swift; path = "Persephone/Components/Browser/Artist Browser/ArtistViewItem.swift"; sourceTree = SOURCE_ROOT; };
 		E450AD7D222620A10091BED3 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		E450AD9422262DF10091BED3 /* CoverArtQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverArtQueue.swift; sourceTree = "<group>"; };
 		E450AD9E2229B9BC0091BED3 /* PersephoneBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersephoneBridgingHeader.h; sourceTree = "<group>"; };
@@ -279,9 +279,8 @@
 		E47E2FD022205C4600F747E6 /* MainSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSplitViewController.swift; sourceTree = "<group>"; };
 		E47E2FD222205D2500F747E6 /* MainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
 		E47E2FD4222071FD00F747E6 /* AlbumViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumViewItem.swift; sourceTree = "<group>"; };
-		E47E2FD62220720300F747E6 /* AlbumItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumItemView.swift; sourceTree = "<group>"; };
 		E47E2FDC2220A6D100F747E6 /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
-		E47E2FE42220AA0700F747E6 /* AlbumViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumViewLayout.swift; sourceTree = "<group>"; };
+		E47E2FE42220AA0700F747E6 /* FlexibleGridViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexibleGridViewLayout.swift; sourceTree = "<group>"; };
 		E489E39822B85D0400CA8CBD /* NSPasteboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPasteboard.swift; sourceTree = "<group>"; };
 		E489E39C22B9CF0000CA8CBD /* NSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSView.swift; sourceTree = "<group>"; };
 		E489E3A222B9D31800CA8CBD /* DraggedSongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggedSongView.swift; sourceTree = "<group>"; };
@@ -308,11 +307,8 @@
 		E4B11BBF2275EE150075461B /* QueueActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueActions.swift; sourceTree = "<group>"; };
 		E4B11BC12275EE410075461B /* AlbumListActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListActions.swift; sourceTree = "<group>"; };
 		E4B5AE7D22F4C49600CCEC65 /* MPDServerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDServerDelegate.swift; sourceTree = "<group>"; };
-		E4BBD2E823356DC100702C16 /* BrowseViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseViewButton.swift; sourceTree = "<group>"; };
 		E4BBD2EA2335735500702C16 /* BrowseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseController.swift; sourceTree = "<group>"; };
 		E4BBD2EC2335798E00702C16 /* ArtistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistViewController.swift; sourceTree = "<group>"; };
-		E4BBD2EE233579EF00702C16 /* ArtistViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistViewItem.swift; sourceTree = "<group>"; };
-		E4BBD2EF233579EF00702C16 /* ArtistViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistViewItem.xib; sourceTree = "<group>"; };
 		E4BBD2F223357C0700702C16 /* ArtistListState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListState.swift; sourceTree = "<group>"; };
 		E4C8B53B22342005009A20F3 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
 		E4C8B53D22349002009A20F3 /* MPDIdle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDIdle.swift; sourceTree = "<group>"; };
@@ -324,11 +320,9 @@
 		E4EB2378220F10B8008C70C0 /* MPDPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDPair.swift; sourceTree = "<group>"; };
 		E4EB237A220F7CF1008C70C0 /* MPDAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDAlbum.swift; sourceTree = "<group>"; };
 		E4F26F722341166200D45FF9 /* ArtistDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDataSource.swift; sourceTree = "<group>"; };
-		E4F26F74234117D600D45FF9 /* ArtistItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistItemView.swift; sourceTree = "<group>"; };
 		E4F26F7623411AE300D45FF9 /* ArtistListActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListActions.swift; sourceTree = "<group>"; };
 		E4F26F7823411B1500D45FF9 /* ArtistReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistReducer.swift; sourceTree = "<group>"; };
 		E4F26F7A23411D5400D45FF9 /* MPDClient+Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MPDClient+Artist.swift"; sourceTree = "<group>"; };
-		E4F26F7C2341441C00D45FF9 /* ArtistViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistViewLayout.swift; sourceTree = "<group>"; };
 		E4F6B45F221E119B00ACF42A /* QueueDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueDataSource.swift; sourceTree = "<group>"; };
 		E4F6B462221E125900ACF42A /* QueueItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueItem.swift; sourceTree = "<group>"; };
 		E4F6B466221E233200ACF42A /* AlbumDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDataSource.swift; sourceTree = "<group>"; };
@@ -399,25 +393,19 @@
 		E407861A2110CE6E006887B1 /* Persephone */ = {
 			isa = PBXGroup;
 			children = (
-				E407861B2110CE6E006887B1 /* AppDelegate.swift */,
 				E44051932278765A0090CD6F /* App.swift */,
+				E407861B2110CE6E006887B1 /* AppDelegate.swift */,
 				E407861F2110CE70006887B1 /* Assets.xcassets */,
-				E4D1B597220BA3A20026F233 /* Controllers */,
-				E4F6B45E221E117600ACF42A /* DataSources */,
-				E408D3B7220DE8CC0006D9BE /* Extensions */,
+				E442CCC42347D5B900004E0C /* Components */,
 				E41B22C721FB966C00D544F6 /* include */,
 				E40786242110CE70006887B1 /* Info.plist */,
-				E47E2FE32220AA0700F747E6 /* Layouts */,
 				E4F6B461221E124700ACF42A /* Models */,
 				E4A642DB220912FA00067D21 /* MPDClient */,
 				E450AD8922262B420091BED3 /* Operations */,
 				E40786252110CE70006887B1 /* Persephone.entitlements */,
 				E450AD9E2229B9BC0091BED3 /* PersephoneBridgingHeader.h */,
-				E4A83BEC2221F5DD0098FED6 /* Preferences */,
-				E4D1B598220BA3C90026F233 /* Resources */,
 				E4A83BF2222207BE0098FED6 /* Services */,
 				E4B11B64226A4F460075461B /* State */,
-				E408D3C3220E138B0006D9BE /* Views */,
 			);
 			path = Persephone;
 			sourceTree = "<group>";
@@ -473,24 +461,6 @@
 				E408D3BD220E03EE0006D9BE /* RawRepresentable.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		E408D3C3220E138B0006D9BE /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				E43AC1F722C7065A001E483C /* AlbumCoverButton.swift */,
-				E4A3A6A022A457B600EA2C40 /* AlbumDetailSongListView.swift */,
-				E45878372296173C00586A1C /* AlbumDetailSongRowView.swift */,
-				E47E2FD62220720300F747E6 /* AlbumItemView.swift */,
-				E4F26F74234117D600D45FF9 /* ArtistItemView.swift */,
-				E4BBD2E823356DC100702C16 /* BrowseViewButton.swift */,
-				E4B11BB7227538FA0075461B /* CurrentCoverArtView.swift */,
-				E489E3A222B9D31800CA8CBD /* DraggedSongView.swift */,
-				E47E2FD222205D2500F747E6 /* MainWindow.swift */,
-				E423563F228623D2001216D6 /* QueueSongTitleView.swift */,
-				E4120D6B22AD8139004CB1F8 /* QueueView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		E41B22BE21FB6B3300D544F6 /* Frameworks */ = {
@@ -562,21 +532,110 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		E442CCC42347D5B900004E0C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E442CCCB2347D77A00004E0C /* Browser */,
+				E4A83BEC2221F5DD0098FED6 /* Preferences */,
+				E442CCC62347D5E700004E0C /* Queue */,
+				E442CCC92347D6FD00004E0C /* Shared */,
+				E442CCC52347D5CA00004E0C /* Window */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E442CCC52347D5CA00004E0C /* Window */ = {
+			isa = PBXGroup;
+			children = (
+				E40786212110CE70006887B1 /* Main.storyboard */,
+				E47E2FD022205C4600F747E6 /* MainSplitViewController.swift */,
+				E47E2FD222205D2500F747E6 /* MainWindow.swift */,
+				E465049921E94DF500A70F4C /* WindowController.swift */,
+			);
+			path = Window;
+			sourceTree = "<group>";
+		};
+		E442CCC62347D5E700004E0C /* Queue */ = {
+			isa = PBXGroup;
+			children = (
+				E4B11BB7227538FA0075461B /* CurrentCoverArtView.swift */,
+				E4F6B45F221E119B00ACF42A /* QueueDataSource.swift */,
+				E423563F228623D2001216D6 /* QueueSongTitleView.swift */,
+				E4120D6B22AD8139004CB1F8 /* QueueView.swift */,
+				E4E8CC912204F4B80024217A /* QueueViewController.swift */,
+				E4D3BFA522B419C000C56F48 /* QueueViewController+NSOutlineViewDelegate.swift */,
+			);
+			path = Queue;
+			sourceTree = "<group>";
+		};
+		E442CCC72347D62F00004E0C /* Album Browser */ = {
+			isa = PBXGroup;
+			children = (
+				E408D3C9220E341D0006D9BE /* AlbumViewItem.xib */,
+				E43AC1F722C7065A001E483C /* AlbumCoverButton.swift */,
+				E4F6B466221E233200ACF42A /* AlbumDataSource.swift */,
+				E408D3C1220E134F0006D9BE /* AlbumViewController.swift */,
+				E43AC1F222C6A439001E483C /* AlbumViewController+NSCollectionViewDelegate.swift */,
+				E47E2FD4222071FD00F747E6 /* AlbumViewItem.swift */,
+			);
+			path = "Album Browser";
+			sourceTree = "<group>";
+		};
+		E442CCC82347D65300004E0C /* Album Detail */ = {
+			isa = PBXGroup;
+			children = (
+				E43B67A922909793007DCF55 /* AlbumDetailView.xib */,
+				E4A3A6A022A457B600EA2C40 /* AlbumDetailSongListView.swift */,
+				E45878372296173C00586A1C /* AlbumDetailSongRowView.swift */,
+				E43B67A822909793007DCF55 /* AlbumDetailView.swift */,
+				E4E7A6AC22AAAF98006D566C /* AlbumDetailView+NSTableViewDelegate.swift */,
+				E43B67AC229194CD007DCF55 /* AlbumTracksDataSource.swift */,
+			);
+			path = "Album Detail";
+			sourceTree = "<group>";
+		};
+		E442CCC92347D6FD00004E0C /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				E4E13C2C2350D8CB00092A6E /* Layouts */,
+				E408D3B7220DE8CC0006D9BE /* Extensions */,
+				E489E3A222B9D31800CA8CBD /* DraggedSongView.swift */,
+				E489E3A322B9D31800CA8CBD /* DraggedSongView.xib */,
+				E4405191227644340090CD6F /* MPDServerController.swift */,
+				E4B5AE7D22F4C49600CCEC65 /* MPDServerDelegate.swift */,
+				E4B11BB52275374B0075461B /* UserNotificationsController.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		E442CCCA2347D74B00004E0C /* Artist Browser */ = {
+			isa = PBXGroup;
+			children = (
+				E442CCCE2347E90800004E0C /* ArtistViewItem.xib */,
+				E4F26F722341166200D45FF9 /* ArtistDataSource.swift */,
+				E442CCD02347EAEB00004E0C /* ArtistViewItem.swift */,
+				E4BBD2EC2335798E00702C16 /* ArtistViewController.swift */,
+			);
+			path = "Artist Browser";
+			sourceTree = "<group>";
+		};
+		E442CCCB2347D77A00004E0C /* Browser */ = {
+			isa = PBXGroup;
+			children = (
+				E442CCC82347D65300004E0C /* Album Detail */,
+				E442CCC72347D62F00004E0C /* Album Browser */,
+				E442CCCA2347D74B00004E0C /* Artist Browser */,
+				E4BBD2EA2335735500702C16 /* BrowseController.swift */,
+			);
+			path = Browser;
+			sourceTree = "<group>";
+		};
 		E450AD8922262B420091BED3 /* Operations */ = {
 			isa = PBXGroup;
 			children = (
 				E450AD9422262DF10091BED3 /* CoverArtQueue.swift */,
 			);
 			path = Operations;
-			sourceTree = "<group>";
-		};
-		E47E2FE32220AA0700F747E6 /* Layouts */ = {
-			isa = PBXGroup;
-			children = (
-				E47E2FE42220AA0700F747E6 /* AlbumViewLayout.swift */,
-				E4F26F7C2341441C00D45FF9 /* ArtistViewLayout.swift */,
-			);
-			path = Layouts;
 			sourceTree = "<group>";
 		};
 		E4A642DB220912FA00067D21 /* MPDClient */ = {
@@ -593,28 +652,20 @@
 		E4A83BEC2221F5DD0098FED6 /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
-				E4A83BED2221F5E60098FED6 /* Controllers */,
-			);
-			path = Preferences;
-			sourceTree = "<group>";
-		};
-		E4A83BED2221F5E60098FED6 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
 				E4A83BEE2221F8CF0098FED6 /* CoverArtPrefsController.swift */,
 				E41EA46B221636AF0068EF46 /* GeneralPrefsViewController.swift */,
 				E4A83BF02221FAA00098FED6 /* PreferencesViewController.swift */,
 				E4C8B53B22342005009A20F3 /* PreferencesWindowController.swift */,
 			);
-			path = Controllers;
+			path = Preferences;
 			sourceTree = "<group>";
 		};
 		E4A83BF2222207BE0098FED6 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E41E530C223EF4BA00173814 /* Extensions */,
 				E4A83BF3222207D50098FED6 /* CoverArtService.swift */,
 				E439109722640213002982E9 /* SongNotifierService.swift */,
-				E41E530C223EF4BA00173814 /* Extensions */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -637,13 +688,13 @@
 			isa = PBXGroup;
 			children = (
 				E4B11B6B226A5AF50075461B /* Actions */,
+				E4B11B5F226A4BED0075461B /* Reducers */,
 				E4B11B69226A4FBC0075461B /* AlbumListState.swift */,
 				E4B11B52226928F20075461B /* AppState.swift */,
 				E4BBD2F223357C0700702C16 /* ArtistListState.swift */,
 				E4B11B65226A4F830075461B /* PlayerState.swift */,
 				E4FF718D2276010E00D4C412 /* PreferencesState.swift */,
 				E4B11B67226A4FA00075461B /* QueueState.swift */,
-				E4B11B5F226A4BED0075461B /* Reducers */,
 				E440519F227BB0AB0090CD6F /* UIState.swift */,
 			);
 			path = State;
@@ -684,64 +735,28 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		E4D1B597220BA3A20026F233 /* Controllers */ = {
+		E4E13C2C2350D8CB00092A6E /* Layouts */ = {
 			isa = PBXGroup;
 			children = (
-				E43B67A822909793007DCF55 /* AlbumDetailView.swift */,
-				E4E7A6AC22AAAF98006D566C /* AlbumDetailView+NSTableViewDelegate.swift */,
-				E408D3C1220E134F0006D9BE /* AlbumViewController.swift */,
-				E43AC1F222C6A439001E483C /* AlbumViewController+NSCollectionViewDelegate.swift */,
-				E47E2FD4222071FD00F747E6 /* AlbumViewItem.swift */,
-				E4BBD2EC2335798E00702C16 /* ArtistViewController.swift */,
-				E4BBD2EE233579EF00702C16 /* ArtistViewItem.swift */,
-				E4BBD2EA2335735500702C16 /* BrowseController.swift */,
-				E47E2FD022205C4600F747E6 /* MainSplitViewController.swift */,
-				E4405191227644340090CD6F /* MPDServerController.swift */,
-				E4B5AE7D22F4C49600CCEC65 /* MPDServerDelegate.swift */,
-				E4E8CC912204F4B80024217A /* QueueViewController.swift */,
-				E4D3BFA522B419C000C56F48 /* QueueViewController+NSOutlineViewDelegate.swift */,
-				E4B11BB52275374B0075461B /* UserNotificationsController.swift */,
-				E465049921E94DF500A70F4C /* WindowController.swift */,
+				E47E2FE42220AA0700F747E6 /* FlexibleGridViewLayout.swift */,
 			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		E4D1B598220BA3C90026F233 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				E4BBD2EF233579EF00702C16 /* ArtistViewItem.xib */,
-				E43B67A922909793007DCF55 /* AlbumDetailView.xib */,
-				E408D3C9220E341D0006D9BE /* AlbumViewItem.xib */,
-				E489E3A322B9D31800CA8CBD /* DraggedSongView.xib */,
-				E40786212110CE70006887B1 /* Main.storyboard */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		E4F6B45E221E117600ACF42A /* DataSources */ = {
-			isa = PBXGroup;
-			children = (
-				E4F6B466221E233200ACF42A /* AlbumDataSource.swift */,
-				E4F6B45F221E119B00ACF42A /* QueueDataSource.swift */,
-				E43B67AC229194CD007DCF55 /* AlbumTracksDataSource.swift */,
-				E4F26F722341166200D45FF9 /* ArtistDataSource.swift */,
-			);
-			path = DataSources;
+			path = Layouts;
 			sourceTree = "<group>";
 		};
 		E4F6B461221E124700ACF42A /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				E450AD7D222620A10091BED3 /* Album.swift */,
+				E442CCCC2347E73C00004E0C /* Artist.swift */,
+				E43AC1F422C6A4F4001E483C /* DraggedAlbum.swift */,
+				E451E36C22BD23DB008BE9B2 /* DraggedSong.swift */,
+				E451E36A22BD214D008BE9B2 /* DraggedSongType.swift */,
 				E4B11BA82274EDE30075461B /* Loading.swift */,
 				E4FF71932276043A00D4C412 /* MPDServer.swift */,
 				E4F6B462221E125900ACF42A /* QueueItem.swift */,
 				E419E2862249B96600216A8C /* Song.swift */,
 				E47E2FDC2220A6D100F747E6 /* Time.swift */,
 				E4B11B72226A6C770075461B /* TrackTimer.swift */,
-				E451E36A22BD214D008BE9B2 /* DraggedSongType.swift */,
-				E451E36C22BD23DB008BE9B2 /* DraggedSong.swift */,
-				E43AC1F422C6A4F4001E483C /* DraggedAlbum.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -890,7 +905,7 @@
 				E40786202110CE70006887B1 /* Assets.xcassets in Resources */,
 				E42A8F3C22176D6400A13ED9 /* README.md in Resources */,
 				E408D3CB220E341D0006D9BE /* AlbumViewItem.xib in Resources */,
-				E4BBD2F1233579EF00702C16 /* ArtistViewItem.xib in Resources */,
+				E442CCCF2347E90800004E0C /* ArtistViewItem.xib in Resources */,
 				E40786232110CE70006887B1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -955,21 +970,19 @@
 				E4F6B460221E119B00ACF42A /* QueueDataSource.swift in Sources */,
 				E4C8B53C22342005009A20F3 /* PreferencesWindowController.swift in Sources */,
 				E4B11B63226A4C510075461B /* AppReducer.swift in Sources */,
-				E4BBD2F0233579EF00702C16 /* ArtistViewItem.swift in Sources */,
 				E41E5307223C019100173814 /* MPDClient+Status.swift in Sources */,
 				E41E5310223EF6CE00173814 /* CoverArtService+Remote.swift in Sources */,
+				E442CCCD2347E73C00004E0C /* Artist.swift in Sources */,
 				E41E530B223C033700173814 /* MPDClient+Album.swift in Sources */,
 				E42410B62241B956005ED6DF /* MPDClient+Database.swift in Sources */,
 				E4235640228623D2001216D6 /* QueueSongTitleView.swift in Sources */,
 				E451E36E22BD2501008BE9B2 /* DraggedSong.swift in Sources */,
 				E4A642DA22090CBE00067D21 /* MPDStatus.swift in Sources */,
 				E4B11BC02275EE150075461B /* QueueActions.swift in Sources */,
-				E47E2FD72220720300F747E6 /* AlbumItemView.swift in Sources */,
 				E450AD9522262DF10091BED3 /* CoverArtQueue.swift in Sources */,
 				E43B67AD229194CD007DCF55 /* AlbumTracksDataSource.swift in Sources */,
 				E41E52FD223BF87300173814 /* MPDClient+Connection.swift in Sources */,
 				E450AD7E222620A10091BED3 /* Album.swift in Sources */,
-				E4F26F7D2341441C00D45FF9 /* ArtistViewLayout.swift in Sources */,
 				E408D3B6220DD8970006D9BE /* Notification.swift in Sources */,
 				E43AC1F822C7065A001E483C /* AlbumCoverButton.swift in Sources */,
 				E45962C62241A78500FC1A1E /* MPDCommand.swift in Sources */,
@@ -1000,14 +1013,12 @@
 				E407861C2110CE6E006887B1 /* AppDelegate.swift in Sources */,
 				E4B11B75226CC4D30075461B /* QueueReducer.swift in Sources */,
 				E41E5309223C020400173814 /* MPDClient+Command.swift in Sources */,
-				E4BBD2E923356DC100702C16 /* BrowseViewButton.swift in Sources */,
 				E4F26F7923411B1500D45FF9 /* ArtistReducer.swift in Sources */,
 				E4B11B73226A6C770075461B /* TrackTimer.swift in Sources */,
 				E4BBD2EB2335735500702C16 /* BrowseController.swift in Sources */,
 				E44051942278765A0090CD6F /* App.swift in Sources */,
 				E4B11B79226D346B0075461B /* AlbumListReducer.swift in Sources */,
-				E47E2FE52220AA0700F747E6 /* AlbumViewLayout.swift in Sources */,
-				E4F26F75234117D600D45FF9 /* ArtistItemView.swift in Sources */,
+				E47E2FE52220AA0700F747E6 /* FlexibleGridViewLayout.swift in Sources */,
 				E41E52FF223BF95E00173814 /* MPDClient+Transport.swift in Sources */,
 				E47E2FD322205D2500F747E6 /* MainWindow.swift in Sources */,
 				E47E2FD122205C4600F747E6 /* MainSplitViewController.swift in Sources */,
@@ -1024,6 +1035,7 @@
 				E4B11BBE2275EDAA0075461B /* PlayerActions.swift in Sources */,
 				E4F26F7723411AE300D45FF9 /* ArtistListActions.swift in Sources */,
 				E4FF71942276043A00D4C412 /* MPDServer.swift in Sources */,
+				E442CCD12347EAEB00004E0C /* ArtistViewItem.swift in Sources */,
 				E41E530E223EF4CF00173814 /* CoverArtService+Caching.swift in Sources */,
 				E4E8CC922204F4B80024217A /* QueueViewController.swift in Sources */,
 				E440519C227BAF2E0090CD6F /* UIActions.swift in Sources */,

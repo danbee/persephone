@@ -8,9 +8,9 @@
 
 import AppKit
 
-class AlbumViewLayout: NSCollectionViewFlowLayout {
+class FlexibleGridViewLayout: NSCollectionViewFlowLayout {
   let maxItemWidth: CGFloat = 200
-  let albumInfoHeight: CGFloat = 44
+  var extraHeight: CGFloat = 0
   var scrollPosition: CGFloat = 0
 
   required init?(coder aDecoder: NSCoder) {
@@ -43,7 +43,7 @@ class AlbumViewLayout: NSCollectionViewFlowLayout {
       divider = divider + 1
     } while itemWidth > maxItemWidth
 
-    let itemHeight = itemWidth + albumInfoHeight
+    let itemHeight = itemWidth + extraHeight
 
     itemSize = NSSize(width: itemWidth, height: itemHeight)
   }

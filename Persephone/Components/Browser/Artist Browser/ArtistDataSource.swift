@@ -9,7 +9,7 @@
 import AppKit
 
 class ArtistDataSource: NSObject, NSCollectionViewDataSource {
-  var artists: [String] = []
+  var artists: [Artist] = []
 
   func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
     return artists.count
@@ -17,9 +17,9 @@ class ArtistDataSource: NSObject, NSCollectionViewDataSource {
 
   func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
     let item = collectionView.makeItem(withIdentifier: .artistViewItem, for: indexPath)
-    guard let artistViewItem = item as? ArtistViewItem
-      else { return item }
+    guard let artistViewItem = item as? ArtistViewItem else { return item }
 
+    artistViewItem.view.wantsLayer = true
     artistViewItem.setArtist(artists[indexPath.item])
 
     return artistViewItem

@@ -13,6 +13,7 @@ import Differ
 class AlbumViewController: NSViewController,
                            NSCollectionViewDelegateFlowLayout {
   var dataSource = AlbumDataSource()
+  let layout = FlexibleGridViewLayout(coder: NSCoder())
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -27,6 +28,8 @@ class AlbumViewController: NSViewController,
     albumScrollView.postsBoundsChangedNotifications = true
 
     albumCollectionView.dataSource = dataSource
+    layout?.extraHeight = 44
+    albumCollectionView.collectionViewLayout = layout
 
     registerForDragAndDrop(albumCollectionView)
   }
@@ -38,7 +41,7 @@ class AlbumViewController: NSViewController,
   override func viewWillLayout() {
     super.viewWillLayout()
 
-    if let layout = albumCollectionView.collectionViewLayout as? AlbumViewLayout {
+    if let layout = albumCollectionView.collectionViewLayout as? FlexibleGridViewLayout {
       layout.saveScrollPosition()
     }
 
@@ -48,7 +51,7 @@ class AlbumViewController: NSViewController,
   override func viewDidLayout() {
     super.viewDidLayout()
 
-    guard let layout = albumCollectionView.collectionViewLayout as? AlbumViewLayout
+    guard let layout = albumCollectionView.collectionViewLayout as? FlexibleGridViewLayout
       else { return }
 
     layout.setScrollPosition()
@@ -73,7 +76,7 @@ extension AlbumViewController: StoreSubscriber {
 
   func newState(state: StoreSubscriberStateType) {
     let oldAlbums = dataSource.albums
-    
+
     dataSource.albums = state.albums
 
     albumCollectionView.animateItemChanges(

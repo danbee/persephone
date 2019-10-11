@@ -9,5 +9,5 @@
 import ReSwift
 
 struct ArtistListState: StateType, Equatable {
-  var artists: [String] = []
+  var artists: [Artist] = []
 }

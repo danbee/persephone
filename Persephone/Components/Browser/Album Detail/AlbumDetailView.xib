@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14868" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14868"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="m2v-pR-e9v">
-                    <rect key="frame" x="357" y="514" width="448" height="29"/>
+                    <rect key="frame" x="357" y="515" width="448" height="28"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="444" id="erC-QS-9hc"/>
                     </constraints>
@@ -33,7 +33,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4Jx-I5-Nkv">
-                    <rect key="frame" x="357" y="487" width="448" height="19"/>
+                    <rect key="frame" x="357" y="488" width="448" height="19"/>
                     <textFieldCell key="cell" title="Artist Name" id="ztJ-4E-qvI">
                         <font key="font" metaFont="system" size="16"/>
                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -53,28 +53,14 @@
                     </shadow>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="defaultCoverArt" id="scE-kj-gex"/>
                 </imageView>
-                <button verticalHuggingPriority="750" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jMU-bv-TNF">
-                    <rect key="frame" x="31" y="184" width="119" height="35"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="33" id="2uQ-mC-4QY"/>
-                        <constraint firstAttribute="width" constant="119" id="h2n-ZB-Ufr"/>
-                    </constraints>
-                    <buttonCell key="cell" type="smallSquare" title="Play Album" bezelStyle="smallSquare" image="playButton" imagePosition="left" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Rtg-Zd-JYc">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="playAlbum:" target="-2" id="LTw-Lg-yH2"/>
-                    </connections>
-                </button>
                 <scrollView horizontalCompressionResistancePriority="250" borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" horizontalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="BOb-Lr-10M">
-                    <rect key="frame" x="359" y="33" width="444" height="425"/>
+                    <rect key="frame" x="359" y="33" width="444" height="426"/>
                     <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="9QN-UB-b4l">
-                        <rect key="frame" x="0.0" y="0.0" width="444" height="425"/>
+                        <rect key="frame" x="0.0" y="0.0" width="444" height="426"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="none" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="ehr-qh-87Q" customClass="AlbumDetailSongListView" customModule="Persephone" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="444" height="425"/>
+                                <rect key="frame" x="0.0" y="0.0" width="444" height="426"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <size key="intercellSpacing" width="3" height="2"/>
                                 <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -98,7 +84,7 @@
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="6eU-Jx-HDR">
-                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="17"/>
+                                                        <rect key="frame" x="0.0" y="1" width="40" height="16"/>
                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" title="1." id="Z5y-oS-Qm8">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -120,7 +106,7 @@
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="nwx-zY-r5o">
-                                                        <rect key="frame" x="0.0" y="0.0" width="441" height="17"/>
+                                                        <rect key="frame" x="0.0" y="1" width="441" height="16"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="437" id="irN-AG-Pcj"/>
                                                         </constraints>
@@ -159,7 +145,7 @@
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="R8t-bV-9LI">
-                                                        <rect key="frame" x="0.0" y="0.0" width="353" height="17"/>
+                                                        <rect key="frame" x="0.0" y="1" width="353" height="16"/>
                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" title="My Song Title" id="Sdi-jJ-EOM">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -196,7 +182,7 @@
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="pCr-f1-wNs">
-                                                        <rect key="frame" x="0.0" y="0.0" width="42" height="17"/>
+                                                        <rect key="frame" x="0.0" y="1" width="42" height="16"/>
                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="right" title="0:00" id="Qe2-WO-eXr">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -233,6 +219,20 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
+                <button verticalHuggingPriority="750" misplaced="YES" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jMU-bv-TNF">
+                    <rect key="frame" x="31" y="32" width="119" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="33" id="2uQ-mC-4QY"/>
+                        <constraint firstAttribute="width" constant="119" id="h2n-ZB-Ufr"/>
+                    </constraints>
+                    <buttonCell key="cell" type="smallSquare" title="Play Album" bezelStyle="smallSquare" image="playButton" imagePosition="left" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Rtg-Zd-JYc">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="playAlbum:" target="-2" id="LTw-Lg-yH2"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="FWd-vZ-5CT" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="31" id="694-aS-G4N"/>
