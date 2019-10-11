@@ -22,8 +22,10 @@ class AlbumViewItem: NSCollectionViewItem {
     super.viewDidLoad()
 
     albumCoverView.wantsLayer = true
-    albumCoverView.layer?.cornerRadius = 3
+    albumCoverView.layer?.backgroundColor = NSColor.black.cgColor
+    albumCoverView.layer?.cornerRadius = 4
     albumCoverView.layer?.borderWidth = 1
+    albumCoverView.layer?.masksToBounds = true
 
     albumCoverBox.wantsLayer = true
     albumCoverBox.layer?.cornerRadius = 5

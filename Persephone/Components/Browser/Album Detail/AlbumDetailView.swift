@@ -9,6 +9,7 @@
 import AppKit
 
 class AlbumDetailView: NSViewController {
+  var observer: NSKeyValueObservation?
   var album: Album?
   var dataSource = AlbumTracksDataSource()
 
@@ -30,10 +31,17 @@ class AlbumDetailView: NSViewController {
     albumTracksView.columnAutoresizingStyle = .sequentialColumnAutoresizingStyle
 
     albumCoverView.wantsLayer = true
-    albumCoverView.layer?.cornerRadius = 5
+    albumCoverView.layer?.backgroundColor = NSColor.black.cgColor
+    albumCoverView.layer?.cornerRadius = 6
     albumCoverView.layer?.borderWidth = 1
+    albumCoverView.layer?.masksToBounds = true
     setAppearance()
 
+    if #available(OSX 10.14, *) {
+      observer = NSApp.observe(\.effectiveAppearance) { (app, _) in
+        self.setAppearance()
+      }
+    }
   }
 
   override func viewWillAppear() {
