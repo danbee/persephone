@@ -8,7 +8,6 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="AlbumDetailView" customModule="Persephone" customModuleProvider="target">
             <connections>
-                <outlet property="albumArtist" destination="4Jx-I5-Nkv" id="mct-x3-yYC"/>
                 <outlet property="albumCoverView" destination="FWd-vZ-5CT" id="aHh-Bz-XQW"/>
                 <outlet property="albumMetadata" destination="ztJ-4E-qvI" id="YGK-TG-RPt"/>
                 <outlet property="albumTitle" destination="m2v-pR-e9v" id="M5i-u6-Nev"/>
