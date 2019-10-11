@@ -48,6 +48,10 @@ extension MPDClient {
       }
     }
 
+    var date: String {
+      return getTag(.date)
+    }
+
     func getTag(_ tagType: MPDTag) -> String {
       guard let tag = mpd_song_get_tag(song, tagType.mpdTag(), 0)
         else { return "" }

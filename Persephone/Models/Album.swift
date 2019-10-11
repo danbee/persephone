@@ -12,6 +12,7 @@ import CryptoSwift
 struct Album {
   var mpdAlbum: MPDClient.MPDAlbum
   var coverArt: Loading<NSImage?> = .notLoaded
+  var metadata: Metadata?
 
   init(mpdAlbum: MPDClient.MPDAlbum) {
     self.mpdAlbum = mpdAlbum

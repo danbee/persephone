@@ -17,7 +17,7 @@ class AlbumDetailView: NSViewController {
 
   @IBOutlet var albumTracksView: NSTableView!
   @IBOutlet var albumTitle: NSTextField!
-  @IBOutlet var albumArtist: NSTextField!
+  @IBOutlet var albumMetadata: NSTextFieldCell!
   @IBOutlet var albumCoverView: NSImageView!
 
   override func viewDidLoad() {
@@ -41,8 +41,10 @@ class AlbumDetailView: NSViewController {
 
     getAlbumSongs(for: album)
 
+    let date = album.metadata?.date ?? ""
+
     albumTitle.stringValue = album.title
-    albumArtist.stringValue = album.artist
+    albumMetadata.stringValue = "\(album.artist) · \(date)"
 
     switch album.coverArt {
     case .loaded(let coverArt):
@@ -58,7 +60,7 @@ class AlbumDetailView: NSViewController {
     dataSource.albumSongs = []
     albumTracksView.reloadData()
     albumTitle.stringValue = ""
-    albumArtist.stringValue = ""
+    albumMetadata.stringValue = ""
     albumCoverView.image = .defaultCoverArt
 
     App.store.dispatch(SetSelectedSong(selectedSong: nil))
