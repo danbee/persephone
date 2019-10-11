@@ -31,6 +31,9 @@ func playerReducer(action: Action, state: PlayerState?) -> PlayerState {
       App.store.dispatch(
         UpdateQueuePlayerStateAction(state: state.state)
       )
+      if let queuePos = state.status?.song {
+        App.store.dispatch(UpdateQueuePosAction(queuePos: queuePos))
+      }
     }
 
   case let action as UpdateCurrentSongAction:
