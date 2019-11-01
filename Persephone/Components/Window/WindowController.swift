@@ -40,8 +40,6 @@ class WindowController: NSWindowController {
       }
     }
 
-    browseViewControls.setSelected(true, forSegment: App.store.state.uiState.browseViewState.rawValue)
-
     App.store.dispatch(MainWindowDidOpenAction())
 
     trackProgress.font = .timerFont
@@ -162,13 +160,6 @@ class WindowController: NSWindowController {
 
   @IBAction func handleRepeatButton(_ sender: NSButton) {
     App.mpdClient.setRepeatState(repeatState: sender.state == .on)
-  }
-
-  @IBAction func setBrowseViewState(_ sender: NSSegmentedControl) {
-    guard let browseViewState = BrowseViewState(rawValue: sender.selectedSegment)
-      else { return }
-
-    App.store.dispatch(SetVisibleBrowseView(browseViewState: browseViewState))
   }
 }
 

@@ -55,8 +55,6 @@
 		E440519E227BB0720090CD6F /* UIReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E440519D227BB0720090CD6F /* UIReducer.swift */; };
 		E44051A0227BB0AB0090CD6F /* UIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E440519F227BB0AB0090CD6F /* UIState.swift */; };
 		E442CCCD2347E73C00004E0C /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E442CCCC2347E73C00004E0C /* Artist.swift */; };
-		E442CCCF2347E90800004E0C /* ArtistViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = E442CCCE2347E90800004E0C /* ArtistViewItem.xib */; };
-		E442CCD12347EAEB00004E0C /* ArtistViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E442CCD02347EAEB00004E0C /* ArtistViewItem.swift */; };
 		E450AD7E222620A10091BED3 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450AD7D222620A10091BED3 /* Album.swift */; };
 		E450AD9522262DF10091BED3 /* CoverArtQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450AD9422262DF10091BED3 /* CoverArtQueue.swift */; };
 		E451E36B22BD214D008BE9B2 /* DraggedSongType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E451E36A22BD214D008BE9B2 /* DraggedSongType.swift */; };
@@ -105,8 +103,6 @@
 		E4B11BC02275EE150075461B /* QueueActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BBF2275EE150075461B /* QueueActions.swift */; };
 		E4B11BC22275EE410075461B /* AlbumListActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BC12275EE410075461B /* AlbumListActions.swift */; };
 		E4B5AE7E22F4C49600CCEC65 /* MPDServerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B5AE7D22F4C49600CCEC65 /* MPDServerDelegate.swift */; };
-		E4BBD2EB2335735500702C16 /* BrowseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BBD2EA2335735500702C16 /* BrowseController.swift */; };
-		E4BBD2ED2335798E00702C16 /* ArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BBD2EC2335798E00702C16 /* ArtistViewController.swift */; };
 		E4BBD2F323357C0700702C16 /* ArtistListState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BBD2F223357C0700702C16 /* ArtistListState.swift */; };
 		E4C8B53C22342005009A20F3 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C8B53B22342005009A20F3 /* PreferencesWindowController.swift */; };
 		E4C8B53E22349002009A20F3 /* MPDIdle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C8B53D22349002009A20F3 /* MPDIdle.swift */; };
@@ -118,7 +114,6 @@
 		E4E96D13233E630800AFD36F /* PMKFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = E4E96D12233E630800AFD36F /* PMKFoundation */; };
 		E4EB2379220F10B8008C70C0 /* MPDPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB2378220F10B8008C70C0 /* MPDPair.swift */; };
 		E4EB237B220F7CF1008C70C0 /* MPDAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB237A220F7CF1008C70C0 /* MPDAlbum.swift */; };
-		E4F26F732341166200D45FF9 /* ArtistDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F26F722341166200D45FF9 /* ArtistDataSource.swift */; };
 		E4F26F7723411AE300D45FF9 /* ArtistListActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F26F7623411AE300D45FF9 /* ArtistListActions.swift */; };
 		E4F26F7923411B1500D45FF9 /* ArtistReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F26F7823411B1500D45FF9 /* ArtistReducer.swift */; };
 		E4F26F7B23411D5400D45FF9 /* MPDClient+Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F26F7A23411D5400D45FF9 /* MPDClient+Artist.swift */; };
@@ -264,8 +259,6 @@
 		E440519D227BB0720090CD6F /* UIReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIReducer.swift; sourceTree = "<group>"; };
 		E440519F227BB0AB0090CD6F /* UIState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIState.swift; sourceTree = "<group>"; };
 		E442CCCC2347E73C00004E0C /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
-		E442CCCE2347E90800004E0C /* ArtistViewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ArtistViewItem.xib; path = "Persephone/Components/Browser/Artist Browser/ArtistViewItem.xib"; sourceTree = SOURCE_ROOT; };
-		E442CCD02347EAEB00004E0C /* ArtistViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArtistViewItem.swift; path = "Persephone/Components/Browser/Artist Browser/ArtistViewItem.swift"; sourceTree = SOURCE_ROOT; };
 		E450AD7D222620A10091BED3 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		E450AD9422262DF10091BED3 /* CoverArtQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverArtQueue.swift; sourceTree = "<group>"; };
 		E450AD9E2229B9BC0091BED3 /* PersephoneBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersephoneBridgingHeader.h; sourceTree = "<group>"; };
@@ -307,8 +300,6 @@
 		E4B11BBF2275EE150075461B /* QueueActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueActions.swift; sourceTree = "<group>"; };
 		E4B11BC12275EE410075461B /* AlbumListActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListActions.swift; sourceTree = "<group>"; };
 		E4B5AE7D22F4C49600CCEC65 /* MPDServerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDServerDelegate.swift; sourceTree = "<group>"; };
-		E4BBD2EA2335735500702C16 /* BrowseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseController.swift; sourceTree = "<group>"; };
-		E4BBD2EC2335798E00702C16 /* ArtistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistViewController.swift; sourceTree = "<group>"; };
 		E4BBD2F223357C0700702C16 /* ArtistListState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListState.swift; sourceTree = "<group>"; };
 		E4C8B53B22342005009A20F3 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
 		E4C8B53D22349002009A20F3 /* MPDIdle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDIdle.swift; sourceTree = "<group>"; };
@@ -319,7 +310,6 @@
 		E4E8CC9922075D370024217A /* MPDSong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDSong.swift; sourceTree = "<group>"; };
 		E4EB2378220F10B8008C70C0 /* MPDPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDPair.swift; sourceTree = "<group>"; };
 		E4EB237A220F7CF1008C70C0 /* MPDAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDAlbum.swift; sourceTree = "<group>"; };
-		E4F26F722341166200D45FF9 /* ArtistDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDataSource.swift; sourceTree = "<group>"; };
 		E4F26F7623411AE300D45FF9 /* ArtistListActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListActions.swift; sourceTree = "<group>"; };
 		E4F26F7823411B1500D45FF9 /* ArtistReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistReducer.swift; sourceTree = "<group>"; };
 		E4F26F7A23411D5400D45FF9 /* MPDClient+Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MPDClient+Artist.swift"; sourceTree = "<group>"; };
@@ -608,24 +598,11 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
-		E442CCCA2347D74B00004E0C /* Artist Browser */ = {
-			isa = PBXGroup;
-			children = (
-				E442CCCE2347E90800004E0C /* ArtistViewItem.xib */,
-				E4F26F722341166200D45FF9 /* ArtistDataSource.swift */,
-				E442CCD02347EAEB00004E0C /* ArtistViewItem.swift */,
-				E4BBD2EC2335798E00702C16 /* ArtistViewController.swift */,
-			);
-			path = "Artist Browser";
-			sourceTree = "<group>";
-		};
 		E442CCCB2347D77A00004E0C /* Browser */ = {
 			isa = PBXGroup;
 			children = (
 				E442CCC82347D65300004E0C /* Album Detail */,
 				E442CCC72347D62F00004E0C /* Album Browser */,
-				E442CCCA2347D74B00004E0C /* Artist Browser */,
-				E4BBD2EA2335735500702C16 /* BrowseController.swift */,
 			);
 			path = Browser;
 			sourceTree = "<group>";
@@ -905,7 +882,6 @@
 				E40786202110CE70006887B1 /* Assets.xcassets in Resources */,
 				E42A8F3C22176D6400A13ED9 /* README.md in Resources */,
 				E408D3CB220E341D0006D9BE /* AlbumViewItem.xib in Resources */,
-				E442CCCF2347E90800004E0C /* ArtistViewItem.xib in Resources */,
 				E40786232110CE70006887B1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -962,8 +938,6 @@
 				E43AC1F622C6AD0B001E483C /* AlbumViewController+NSCollectionViewDelegate.swift in Sources */,
 				E4B11B68226A4FA00075461B /* QueueState.swift in Sources */,
 				E4928E0B2218D62A001D4BEA /* CGColor.swift in Sources */,
-				E4BBD2ED2335798E00702C16 /* ArtistViewController.swift in Sources */,
-				E4F26F732341166200D45FF9 /* ArtistDataSource.swift in Sources */,
 				E4D3BFA622B419C000C56F48 /* QueueViewController+NSOutlineViewDelegate.swift in Sources */,
 				E4405192227644340090CD6F /* MPDServerController.swift in Sources */,
 				E4C8B53E22349002009A20F3 /* MPDIdle.swift in Sources */,
@@ -1015,7 +989,6 @@
 				E41E5309223C020400173814 /* MPDClient+Command.swift in Sources */,
 				E4F26F7923411B1500D45FF9 /* ArtistReducer.swift in Sources */,
 				E4B11B73226A6C770075461B /* TrackTimer.swift in Sources */,
-				E4BBD2EB2335735500702C16 /* BrowseController.swift in Sources */,
 				E44051942278765A0090CD6F /* App.swift in Sources */,
 				E4B11B79226D346B0075461B /* AlbumListReducer.swift in Sources */,
 				E47E2FE52220AA0700F747E6 /* FlexibleGridViewLayout.swift in Sources */,
@@ -1035,7 +1008,6 @@
 				E4B11BBE2275EDAA0075461B /* PlayerActions.swift in Sources */,
 				E4F26F7723411AE300D45FF9 /* ArtistListActions.swift in Sources */,
 				E4FF71942276043A00D4C412 /* MPDServer.swift in Sources */,
-				E442CCD12347EAEB00004E0C /* ArtistViewItem.swift in Sources */,
 				E41E530E223EF4CF00173814 /* CoverArtService+Caching.swift in Sources */,
 				E4E8CC922204F4B80024217A /* QueueViewController.swift in Sources */,
 				E440519C227BAF2E0090CD6F /* UIActions.swift in Sources */,

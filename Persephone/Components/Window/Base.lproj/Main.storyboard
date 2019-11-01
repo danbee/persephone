@@ -302,23 +302,6 @@
                                         </connections>
                                     </button>
                                 </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="D1F09BC1-069E-4734-AFB1-C8E4542D0F75" label="Browse View" paletteLabel="Browse View" sizingBehavior="auto" id="CDA-Tu-0RJ">
-                                    <nil key="toolTip"/>
-                                    <segmentedControl key="view" verticalHuggingPriority="750" id="F8b-3l-HcP">
-                                        <rect key="frame" x="0.0" y="14" width="141" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectOne" id="iXx-16-jmI">
-                                            <font key="font" metaFont="system"/>
-                                            <segments>
-                                                <segment label="Artists"/>
-                                                <segment label="Albums"/>
-                                            </segments>
-                                        </segmentedCell>
-                                        <connections>
-                                            <action selector="setBrowseViewState:" target="B8D-0N-5wS" id="fVP-WG-uOi"/>
-                                        </connections>
-                                    </segmentedControl>
-                                </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
                                 <toolbarItem reference="p3r-ty-Pxf"/>
@@ -331,7 +314,6 @@
                                 <toolbarItem reference="s1h-EC-nvL"/>
                                 <toolbarItem reference="5U7-UV-xn2"/>
                                 <toolbarItem reference="9ol-aR-mzv"/>
-                                <toolbarItem reference="CDA-Tu-0RJ"/>
                             </defaultToolbarItems>
                         </toolbar>
                         <connections>
@@ -339,7 +321,6 @@
                         </connections>
                     </window>
                     <connections>
-                        <outlet property="browseViewControls" destination="F8b-3l-HcP" id="AMQ-6B-8Zd"/>
                         <outlet property="databaseUpdatingIndicator" destination="LpV-iM-o6t" id="y0T-eR-ygY"/>
                         <outlet property="repeatState" destination="OqH-lV-sAg" id="DPC-Ff-Srr"/>
                         <outlet property="shuffleState" destination="E8L-uK-XT0" id="dCF-hm-dBs"/>
@@ -519,10 +500,11 @@
             </objects>
             <point key="canvasLocation" x="1459" y="-242"/>
         </scene>
-        <!--Browse Controller-->
+        <!--View Controller-->
         <scene sceneID="VvW-vT-alQ">
             <objects>
-                <viewController id="SjO-VS-1bb" customClass="BrowseController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
+                <customObject id="MSG-y7-cKU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <viewController id="SjO-VS-1bb" sceneMemberID="viewController">
                     <view key="view" id="BRY-0R-F3u">
                         <rect key="frame" x="0.0" y="0.0" width="478" height="558"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -531,26 +513,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="478" height="558"/>
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems>
-                                    <tabViewItem label="Artists" identifier="" id="bV1-g9-37C">
-                                        <view key="view" id="5Ye-bM-Ifl">
-                                            <rect key="frame" x="0.0" y="0.0" width="478" height="558"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <subviews>
-                                                <containerView translatesAutoresizingMaskIntoConstraints="NO" id="EBh-Di-UhX">
-                                                    <rect key="frame" x="0.0" y="0.0" width="478" height="558"/>
-                                                    <connections>
-                                                        <segue destination="LpS-90-tby" kind="embed" id="00m-3s-fzb"/>
-                                                    </connections>
-                                                </containerView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="EBh-Di-UhX" firstAttribute="leading" secondItem="5Ye-bM-Ifl" secondAttribute="leading" id="SR7-0Y-U4Q"/>
-                                                <constraint firstItem="EBh-Di-UhX" firstAttribute="top" secondItem="5Ye-bM-Ifl" secondAttribute="top" id="bcN-6r-OFW"/>
-                                                <constraint firstAttribute="bottom" secondItem="EBh-Di-UhX" secondAttribute="bottom" id="kOK-UG-b31"/>
-                                                <constraint firstAttribute="trailing" secondItem="EBh-Di-UhX" secondAttribute="trailing" id="vB5-SX-6iT"/>
-                                            </constraints>
-                                        </view>
-                                    </tabViewItem>
                                     <tabViewItem label="Albums" identifier="" id="XgS-cX-SDH">
                                         <view key="view" id="hB7-hN-SbB">
                                             <rect key="frame" x="0.0" y="0.0" width="478" height="558"/>
@@ -585,7 +547,6 @@
                         <outlet property="browseTabView" destination="ARv-cj-xlz" id="h93-fi-yY7"/>
                     </connections>
                 </viewController>
-                <customObject id="MSG-y7-cKU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1436" y="238"/>
         </scene>
@@ -877,53 +838,6 @@
                 </menu>
             </objects>
             <point key="canvasLocation" x="825" y="746"/>
-        </scene>
-        <!--Artist View Controller-->
-        <scene sceneID="SZb-JU-J7O">
-            <objects>
-                <viewController id="LpS-90-tby" customClass="ArtistViewController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="vxO-fC-BpZ">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lkE-Eh-ZKl">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                                <clipView key="contentView" id="W3C-r7-oJL">
-                                    <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <collectionView id="bg7-32-4Jl">
-                                            <rect key="frame" x="0.0" y="0.0" width="450" height="158"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                            <collectionViewLayout key="collectionViewLayout" id="48h-7k-nVB" customClass="FlexibleGridViewLayout" customModule="Persephone" customModuleProvider="target"/>
-                                            <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        </collectionView>
-                                    </subviews>
-                                </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="aW3-Xd-iIz">
-                                    <rect key="frame" x="1" y="144" width="233" height="15"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="DhO-CB-eX0">
-                                    <rect key="frame" x="234" y="1" width="15" height="143"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                            </scrollView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="lkE-Eh-ZKl" secondAttribute="trailing" id="HPW-OE-lpd"/>
-                            <constraint firstItem="lkE-Eh-ZKl" firstAttribute="leading" secondItem="vxO-fC-BpZ" secondAttribute="leading" id="LnL-RZ-Lcm"/>
-                            <constraint firstItem="lkE-Eh-ZKl" firstAttribute="top" secondItem="vxO-fC-BpZ" secondAttribute="top" id="ZyG-hn-fPw"/>
-                            <constraint firstAttribute="bottom" secondItem="lkE-Eh-ZKl" secondAttribute="bottom" id="l4W-l0-fZS"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="artistCollectionView" destination="bg7-32-4Jl" id="g9V-jO-2wj"/>
-                    </connections>
-                </viewController>
-                <customObject id="Ras-zf-6qF" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2038" y="476"/>
         </scene>
         <!--Album View Controller-->
         <scene sceneID="7Ua-Hj-zWt">
