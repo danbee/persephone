@@ -14,7 +14,7 @@ class AlbumViewItem: NSCollectionViewItem {
 
   override var isSelected: Bool {
     didSet {
-      albumCoverBox.layer?.borderWidth = isSelected ? 5 : 0
+      setAppearance(selected: isSelected)
     }
   }
 
@@ -28,14 +28,14 @@ class AlbumViewItem: NSCollectionViewItem {
     albumCoverView.layer?.masksToBounds = true
 
     albumCoverBox.wantsLayer = true
-    albumCoverBox.layer?.cornerRadius = 5
-    albumCoverBox.layer?.borderWidth = 0
+    albumCoverBox.layer?.cornerRadius = 6
+    albumCoverBox.layer?.borderWidth = 5
 
-    setAppearance()
+    setAppearance(selected: false)
 
     if #available(OSX 10.14, *) {
       observer = NSApp.observe(\.effectiveAppearance) { (app, _) in
-        self.setAppearance()
+        self.setAppearance(selected: false)
       }
     }
   }
@@ -59,16 +59,18 @@ class AlbumViewItem: NSCollectionViewItem {
     }
   }
 
-  func setAppearance() {
+  func setAppearance(selected isSelected: Bool) {
     if #available(OSX 10.14, *) {
       let darkMode = NSApp.effectiveAppearance.bestMatch(from:
         [.darkAqua, .aqua]) == .darkAqua
 
       albumCoverView.layer?.borderColor = darkMode ? .albumBorderColorDark : .albumBorderColorLight
-      albumCoverBox.layer?.borderColor = NSColor.controlAccentColor.cgColor
+      albumCoverBox.layer?.borderColor = isSelected ? NSColor.controlAccentColor.cgColor : CGColor.clear
+      albumCoverBox.layer?.backgroundColor = isSelected ? NSColor.controlAccentColor.cgColor : CGColor.clear
     } else {
       albumCoverView.layer?.borderColor = .albumBorderColorLight
-      albumCoverBox.layer?.borderColor = NSColor.selectedControlColor.cgColor
+      albumCoverBox.layer?.borderColor = isSelected ? NSColor.selectedControlColor.cgColor : CGColor.clear
+      albumCoverBox.layer?.backgroundColor = isSelected ? NSColor.selectedControlColor.cgColor : CGColor.clear
     }
   }
 
