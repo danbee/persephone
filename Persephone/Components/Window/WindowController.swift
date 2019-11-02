@@ -27,8 +27,6 @@ class WindowController: NSWindowController {
   @IBOutlet var shuffleState: NSButton!
   @IBOutlet var repeatState: NSButton!
 
-  @IBOutlet var browseViewControls: NSSegmentedControl!
-
   override func windowDidLoad() {
     super.windowDidLoad()
     window?.titleVisibility = .hidden
@@ -160,6 +158,10 @@ class WindowController: NSWindowController {
 
   @IBAction func handleRepeatButton(_ sender: NSButton) {
     App.mpdClient.setRepeatState(repeatState: sender.state == .on)
+  }
+
+  @IBAction func handleSearchQuery(_ sender: NSSearchField) {
+    App.store.dispatch(SetSearchQuery(searchQuery: sender.stringValue))
   }
 }
 

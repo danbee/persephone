@@ -49,11 +49,17 @@ extension MPDClient {
     }
   }
 
-  func allAlbums() {
+  func allAlbums(filter: String) {
     var albums: [MPDAlbum] = []
     var artist: String = ""
 
     mpd_search_db_tags(self.connection, MPD_TAG_ALBUM)
+    if filter != "" {
+      mpd_search_add_expression(
+        self.connection,
+        "(any =~ 'alanis')"
+      )
+    }
     mpd_search_add_group_tag(self.connection, MPD_TAG_ALBUM_ARTIST)
     mpd_search_commit(self.connection)
 
@@ -71,6 +77,8 @@ extension MPDClient {
 
       mpd_return_pair(self.connection, pair.pair)
     }
+
+    print(getLastErrorMessage())
 
     self.delegate?.didLoadAlbums(mpdClient: self, albums: albums)
   }

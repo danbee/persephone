@@ -22,4 +22,6 @@ struct UIState: StateType {
   var selectedSong: Song?
 
   var selectedQueueItem: QueueItem?
+
+  var searchQuery: String = ""
 }

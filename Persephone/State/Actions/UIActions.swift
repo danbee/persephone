@@ -25,3 +25,7 @@ struct SetSelectedQueueItem: Action {
 struct SetSelectedSong: Action {
   let selectedSong: Song?
 }
+
+struct SetSearchQuery: Action {
+  let searchQuery: String
+}

@@ -33,6 +33,9 @@ func uiReducer(action: Action, state: UIState?) -> UIState {
   case let action as SetSelectedQueueItem:
     state.selectedQueueItem = action.selectedQueueItem
 
+  case let action as SetSearchQuery:
+    state.searchQuery = action.searchQuery
+
   default:
     break
   }

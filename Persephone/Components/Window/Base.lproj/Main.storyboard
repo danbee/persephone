@@ -302,6 +302,21 @@
                                         </connections>
                                     </button>
                                 </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="7C15D391-03F5-42C7-AC6D-6E17549C698E" label="Search" paletteLabel="Search" sizingBehavior="auto" id="FRe-rR-Ulo">
+                                    <nil key="toolTip"/>
+                                    <searchField key="view" wantsLayer="YES" verticalHuggingPriority="750" textCompletion="NO" id="xfU-Xe-eno">
+                                        <rect key="frame" x="0.0" y="14" width="96" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="F3N-3P-tS3">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </searchFieldCell>
+                                        <connections>
+                                            <action selector="handleSearchQuery:" target="B8D-0N-5wS" id="BPh-1O-bUU"/>
+                                        </connections>
+                                    </searchField>
+                                </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
                                 <toolbarItem reference="p3r-ty-Pxf"/>
@@ -314,6 +329,7 @@
                                 <toolbarItem reference="s1h-EC-nvL"/>
                                 <toolbarItem reference="5U7-UV-xn2"/>
                                 <toolbarItem reference="9ol-aR-mzv"/>
+                                <toolbarItem reference="FRe-rR-Ulo"/>
                             </defaultToolbarItems>
                         </toolbar>
                         <connections>
@@ -543,9 +559,6 @@
                             <constraint firstItem="ARv-cj-xlz" firstAttribute="leading" secondItem="BRY-0R-F3u" secondAttribute="leading" id="w2Z-xv-Fwz"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="browseTabView" destination="ARv-cj-xlz" id="h93-fi-yY7"/>
-                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1436" y="238"/>
