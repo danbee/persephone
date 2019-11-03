@@ -28,7 +28,7 @@ class AlbumViewItem: NSCollectionViewItem {
     albumCoverView.layer?.masksToBounds = true
 
     albumCoverBox.wantsLayer = true
-    albumCoverBox.layer?.cornerRadius = 6
+    albumCoverBox.layer?.cornerRadius = 7
     albumCoverBox.layer?.borderWidth = 5
 
     setAppearance(selected: false)
