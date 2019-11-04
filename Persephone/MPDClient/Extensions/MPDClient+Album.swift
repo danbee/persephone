@@ -51,34 +51,26 @@ extension MPDClient {
 
   func allAlbums(filter: String) {
     var albums: [MPDAlbum] = []
-    var artist: String = ""
 
-    mpd_search_db_tags(self.connection, MPD_TAG_ALBUM)
+    mpd_search_db_songs(self.connection, false)
     if filter != "" {
       mpd_search_add_expression(
         self.connection,
-        "(any =~ 'alanis')"
+        "(any contains '\(filter)')"
       )
     }
-    mpd_search_add_group_tag(self.connection, MPD_TAG_ALBUM_ARTIST)
+    mpd_search_add_tag_constraint(self.connection, MPD_OPERATOR_DEFAULT, MPD_TAG_TRACK, "1")
+
     mpd_search_commit(self.connection)
 
-    while let pair = mpd_recv_pair(self.connection) {
-      let pair = MPDPair(pair)
+    while let song = mpd_recv_song(self.connection) {
+      let mpdSong = MPDSong(song)
 
-      switch pair.name {
-      case "AlbumArtist":
-        artist = pair.value
-      case "Album":
-        albums.append(MPDAlbum(title: pair.value, artist: artist))
-      default:
-        break
+      let mpdAlbum = MPDAlbum(title: mpdSong.album.title, artist: mpdSong.artist)
+      if (mpdAlbum != albums.last) {
+        albums.append(mpdAlbum)
       }
-
-      mpd_return_pair(self.connection, pair.pair)
     }
-
-    print(getLastErrorMessage())
 
     self.delegate?.didLoadAlbums(mpdClient: self, albums: albums)
   }

@@ -93,7 +93,7 @@ extension MPDClient {
 
     // Album commands
     case .fetchAllAlbums:
-      allAlbums(filter: "Alanis")
+      allAlbums(filter: "")
     case .playAlbum:
       guard let album = userData["album"] as? MPDAlbum else { return }
       sendPlayAlbum(album)
