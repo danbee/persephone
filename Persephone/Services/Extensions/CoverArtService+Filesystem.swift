@@ -40,7 +40,7 @@ extension CoverArtService {
 
     if self.fileSystemArtworkFilePath() == nil {
       FileManager.default.createFile(
-        atPath: "\(self.musicDir)/\(self.songPath)/\(artworkFileName)",
+        atPath: "\(self.musicDir)/\(self.path)/\(artworkFileName)",
         contents: data,
         attributes: nil
       )
@@ -52,19 +52,10 @@ extension CoverArtService {
 
     return self.coverArtFilenames
       .lazy
-      .map { "\(musicDir)/\(self.songPath)/\($0)" }
+      .map { "\(musicDir)/\(self.path)/\($0)" }
       .first {
         FileManager.default.fileExists(atPath: $0)
       }
-  }
-
-  var songPath: String {
-    return song
-      .mpdSong
-      .uriString
-      .split(separator: "/")
-      .dropLast()
-      .joined(separator: "/")
   }
 
   func tryImage(_ filePath: String) -> NSImage? {

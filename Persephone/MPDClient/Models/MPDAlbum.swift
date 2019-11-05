@@ -12,5 +12,7 @@ extension MPDClient {
   struct MPDAlbum: Equatable {
     let title: String
     let artist: String
+    var date: String?
+    var path: String?
   }
 }

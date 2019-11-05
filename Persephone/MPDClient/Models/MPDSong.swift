@@ -36,7 +36,9 @@ extension MPDClient {
     var album: MPDAlbum {
       return MPDAlbum(
         title: getTag(.album),
-        artist: artist
+        artist: artist,
+        date: date,
+        path: path
       )
     }
 
@@ -50,6 +52,13 @@ extension MPDClient {
 
     var date: String {
       return getTag(.date)
+    }
+
+    var path: String {
+      return uriString
+        .split(separator: "/")
+        .dropLast()
+        .joined(separator: "/")
     }
 
     func getTag(_ tagType: MPDTag) -> String {

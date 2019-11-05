@@ -10,7 +10,7 @@ import AppKit
 import PromiseKit
 
 class CoverArtService {
-  let song: Song
+  let path: String
   let album: Album
 
   let cachedArtworkSize = 180
@@ -21,9 +21,9 @@ class CoverArtService {
   var session = URLSession(configuration: .default)
   let coverArtQueue = DispatchQueue(label: "coverArtQueue", qos: .utility)
 
-  init(song: Song) {
-    self.song = song
-    self.album = song.album
+  init(path: String, album: Album) {
+    self.path = path
+    self.album = album
   }
 
   func fetchBigCoverArt() -> Promise<NSImage?> {

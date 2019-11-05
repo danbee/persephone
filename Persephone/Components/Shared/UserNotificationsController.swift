@@ -22,7 +22,7 @@ class UserNotificationsController {
       status.state == .playing
       else { return }
 
-    let coverArtService = CoverArtService(song: currentSong)
+    let coverArtService = CoverArtService(path: currentSong.mpdSong.path, album: currentSong.album)
 
     coverArtService.fetchBigCoverArt()
       .done() {

@@ -161,7 +161,8 @@ class WindowController: NSWindowController {
   }
 
   @IBAction func handleSearchQuery(_ sender: NSSearchField) {
-    App.store.dispatch(SetSearchQuery(searchQuery: sender.stringValue))
+    //App.store.dispatch(SetSearchQuery(searchQuery: sender.stringValue))
+    App.mpdClient.fetchAlbums(filter: sender.stringValue)
   }
 }
 

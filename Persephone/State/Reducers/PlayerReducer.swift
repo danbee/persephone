@@ -40,7 +40,7 @@ func playerReducer(action: Action, state: PlayerState?) -> PlayerState {
     state.currentSong = action.currentSong
 
     if let currentSong = state.currentSong {
-      let coverArtService = CoverArtService(song: currentSong)
+      let coverArtService = CoverArtService(path: currentSong.mpdSong.path, album: currentSong.album)
 
       coverArtService.fetchBigCoverArt()
         .done() { image in

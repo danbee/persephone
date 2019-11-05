@@ -12,7 +12,6 @@ import CryptoSwift
 struct Album {
   var mpdAlbum: MPDClient.MPDAlbum
   var coverArt: Loading<NSImage?> = .notLoaded
-  var metadata: Metadata?
 
   init(mpdAlbum: MPDClient.MPDAlbum) {
     self.mpdAlbum = mpdAlbum
@@ -24,6 +23,11 @@ struct Album {
 
   var artist: String {
     return mpdAlbum.artist
+  }
+
+  var date: String {
+    guard let date = mpdAlbum.date else { return "" }
+    return date
   }
 
   var hash: String {

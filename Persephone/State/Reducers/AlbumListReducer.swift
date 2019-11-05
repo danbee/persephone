@@ -18,9 +18,6 @@ func albumListReducer(action: Action, state: AlbumListState?) -> AlbumListState 
   case let action as UpdateCoverArtAction:
     state.albums[action.albumIndex].coverArt = .loaded(action.coverArt)
 
-  case let action as UpdateAlbumMetaData:
-    state.albums[action.albumIndex].metadata = action.metadata
-
   case is ResetAlbumListCoverArtAction:
     state.albums = state.albums.map {
       var album = $0

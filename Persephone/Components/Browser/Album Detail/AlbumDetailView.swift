@@ -49,7 +49,7 @@ class AlbumDetailView: NSViewController {
 
     getAlbumSongs(for: album)
 
-    let date = album.metadata?.date ?? ""
+    let date = album.mpdAlbum.date ?? ""
 
     albumTitle.stringValue = album.title
     albumMetadata.stringValue = "\(album.artist) · \(date)"
@@ -132,12 +132,12 @@ class AlbumDetailView: NSViewController {
         self.dataSource.albumSongs[1].song
         else { return }
 
-      self.getBigCoverArt(song: song)
+      self.getBigCoverArt(song: song, album: album)
     }
   }
 
-  func getBigCoverArt(song: Song) {
-    let coverArtService = CoverArtService(song: song)
+  func getBigCoverArt(song: Song, album: Album) {
+    let coverArtService = CoverArtService(path: song.mpdSong.path, album: album)
 
     coverArtService.fetchBigCoverArt()
       .done(on: DispatchQueue.main) { [weak self] image in

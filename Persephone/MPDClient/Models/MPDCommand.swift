@@ -41,7 +41,7 @@ extension MPDClient {
     case fetchAllArtists
 
     // Album commands
-    case fetchAllAlbums
+    case fetchAlbums
     case playAlbum
     case getAlbumFirstSong
     case getAlbumSongs

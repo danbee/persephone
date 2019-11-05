@@ -11,7 +11,11 @@ import mpdclient
 
 extension MPDClient {
   func fetchAllAlbums() {
-    enqueueCommand(command: .fetchAllAlbums)
+    enqueueCommand(command: .fetchAlbums, userData: ["filter": ""])
+  }
+
+  func fetchAlbums(filter: String) {
+    enqueueCommand(command: .fetchAlbums, userData: ["filter": filter])
   }
 
   func playAlbum(_ album: MPDAlbum) {
@@ -49,7 +53,7 @@ extension MPDClient {
     }
   }
 
-  func allAlbums(filter: String) {
+  func albums(filter: String) {
     var albums: [MPDAlbum] = []
 
     mpd_search_db_songs(self.connection, false)
@@ -66,7 +70,12 @@ extension MPDClient {
     while let song = mpd_recv_song(self.connection) {
       let mpdSong = MPDSong(song)
 
-      let mpdAlbum = MPDAlbum(title: mpdSong.album.title, artist: mpdSong.artist)
+      let mpdAlbum = MPDAlbum(
+        title: mpdSong.album.title,
+        artist: mpdSong.artist,
+        date: mpdSong.date,
+        path: mpdSong.path
+      )
       if (mpdAlbum != albums.last) {
         albums.append(mpdAlbum)
       }
