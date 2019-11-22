@@ -9,10 +9,6 @@
 import AppKit
 import ReSwift
 
-struct UpdateCurrentCoverArtAction: Action {
-  var coverArt: NSImage?
-}
-
 struct UpdateCurrentSongAction: Action {
   var currentSong: Song?
 }

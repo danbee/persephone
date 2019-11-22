@@ -39,9 +39,6 @@ func playerReducer(action: Action, state: PlayerState?) -> PlayerState {
   case let action as UpdateCurrentSongAction:
     state.currentSong = action.currentSong
 
-  case let action as UpdateCurrentCoverArtAction:
-    break
-
   case let action as UpdateElapsedTimeAction:
     state.elapsedTimeMs = action.elapsedTimeMs
 
