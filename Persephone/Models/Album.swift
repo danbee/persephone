@@ -32,6 +32,26 @@ struct Album {
   var hash: String {
     return "\(title) - \(artist)".sha1()
   }
+
+  var coverArtFilenames: [String] {
+    return [
+      "folder.jpg",
+      "cover.jpg",
+      "\(artist) - \(title ).jpg"
+    ]
+  }
+
+  var coverArtFilePath: String? {
+    let musicDir = App.store.state.preferencesState.expandedMpdLibraryDir
+    guard let albumPath = mpdAlbum.path else { return nil }
+
+    return coverArtFilenames
+      .lazy
+      .map { "\(musicDir)/\(albumPath)/\($0)" }
+      .first {
+        FileManager.default.fileExists(atPath: $0)
+      }
+  }
 }
 
 extension Album: Equatable {

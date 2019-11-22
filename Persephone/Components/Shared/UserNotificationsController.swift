@@ -21,15 +21,15 @@ class UserNotificationsController {
       let status = App.mpdClient.status,
       status.state == .playing
       else { return }
-
-    let coverArtService = CoverArtService(path: currentSong.mpdSong.path, album: currentSong.album)
-
-    coverArtService.fetchBigCoverArt()
-      .done() {
-        SongNotifierService(song: currentSong, image: $0)
-          .deliver()
-      }
-      .cauterize()
+//
+//    let coverArtService = CoverArtService(path: currentSong.mpdSong.path, album: currentSong.album)
+//
+//    coverArtService.fetchBigCoverArt()
+//      .done() {
+//        SongNotifierService(song: currentSong, image: $0)
+//          .deliver()
+//      }
+//      .cauterize()
   }
 }
 

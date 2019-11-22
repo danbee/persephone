@@ -13,18 +13,6 @@ class AlbumViewItem: NSCollectionViewItem {
   var observer: NSKeyValueObservation?
   var album: Album?
 
-  var coverArtFilenames: [String] {
-    return [
-      "folder.jpg",
-      "cover.jpg",
-      "\(album?.artist ?? "") - \(album?.title ?? "").jpg"
-    ]
-  }
-  
-  var musicDir: String {
-    return App.store.state.preferencesState.expandedMpdLibraryDir
-  }
-
   override var isSelected: Bool {
     didSet {
       setAppearance(selected: isSelected)
@@ -67,7 +55,7 @@ class AlbumViewItem: NSCollectionViewItem {
   }
 
   func setAlbumCover(_ album: Album) {
-    guard let imagePath = fileSystemArtworkFilePath() else { return }
+    guard let imagePath = album.coverArtFilePath else { return }
 
     let imageURL = URL(fileURLWithPath: imagePath)
     let provider = LocalFileImageDataProvider(fileURL: imageURL)
@@ -79,15 +67,6 @@ class AlbumViewItem: NSCollectionViewItem {
         .scaleFactor(2),
       ]
     )
-  }
-
-  func fileSystemArtworkFilePath() -> String? {
-    return self.coverArtFilenames
-      .lazy
-      .map { "\(self.musicDir)/\(self.album?.mpdAlbum.path ?? "")/\($0)" }
-      .first {
-        FileManager.default.fileExists(atPath: $0)
-      }
   }
 
   func setAppearance(selected isSelected: Bool) {

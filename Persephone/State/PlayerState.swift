@@ -12,7 +12,6 @@ import ReSwift
 struct PlayerState: StateType {
   var status: MPDClient.MPDStatus?
   var currentSong: Song?
-  var currentArtwork: NSImage?
 
   var state: MPDClient.MPDStatus.State?
   var shuffleState: Bool = false

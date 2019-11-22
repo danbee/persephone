@@ -7,6 +7,7 @@
 //
 
 import AppKit
+import Kingfisher
 
 class AlbumDetailView: NSViewController {
   var observer: NSKeyValueObservation?
@@ -130,15 +131,18 @@ class AlbumDetailView: NSViewController {
   }
 
   func getBigCoverArt(song: Song, album: Album) {
-    let coverArtService = CoverArtService(path: song.mpdSong.path, album: album)
+    guard let imagePath = album.coverArtFilePath else { return }
 
-    coverArtService.fetchBigCoverArt()
-      .done(on: DispatchQueue.main) { [weak self] image in
-        if let image = image {
-          self?.albumCoverView.image = image
-        }
-      }
-      .cauterize()
+    let imageURL = URL(fileURLWithPath: imagePath)
+    let provider = LocalFileImageDataProvider(fileURL: imageURL)
+    albumCoverView.kf.setImage(
+      with: .provider(provider),
+      placeholder: NSImage.defaultCoverArt,
+      options: [
+        .processor(DownsamplingImageProcessor(size: NSSize(width: 500, height: 500))),
+        .scaleFactor(2),
+      ]
+    )
   }
 
   func setAppearance() {

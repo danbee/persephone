@@ -162,7 +162,6 @@ class WindowController: NSWindowController {
 
   @IBAction func handleSearchQuery(_ sender: NSSearchField) {
     //App.store.dispatch(SetSearchQuery(searchQuery: sender.stringValue))
-    CoverArtService.coverArtQueue
     App.mpdClient.fetchAlbums(filter: sender.stringValue)
   }
 }
