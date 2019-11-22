@@ -29,6 +29,15 @@
         }
       },
       {
+        "package": "Kingfisher",
+        "repositoryURL": "https://github.com/onevcat/Kingfisher.git",
+        "state": {
+          "branch": null,
+          "revision": "8ef6ca8b1b767ac2400762ed2f2bf75ddea3de5b",
+          "version": "5.10.1"
+        }
+      },
+      {
         "package": "MediaKeyTap",
         "repositoryURL": "https://github.com/danbee/MediaKeyTap",
         "state": {

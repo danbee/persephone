@@ -54,13 +54,6 @@ class AlbumDetailView: NSViewController {
     albumTitle.stringValue = album.title
     albumMetadata.stringValue = "\(album.artist) · \(date)"
 
-    switch album.coverArt {
-    case .loaded(let coverArt):
-      albumCoverView.image = coverArt ?? .defaultCoverArt
-    default:
-      albumCoverView.image = .defaultCoverArt
-    }
-
     super.viewWillAppear()
   }
 

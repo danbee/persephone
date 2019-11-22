@@ -23,24 +23,6 @@ class AlbumDataSource: NSObject, NSCollectionViewDataSource {
     albumViewItem.view.wantsLayer = true
     albumViewItem.setAlbum(albums[indexPath.item])
 
-    switch albums[indexPath.item].coverArt {
-    case .notLoaded:
-      let album = albums[indexPath.item]
-      guard let path = album.mpdAlbum.path else { break }
-
-      CoverArtService(path: path, album: album)
-        .fetchCoverArt()
-        .done { image in
-          DispatchQueue.main.async {
-            App.store.dispatch(
-              UpdateCoverArtAction(coverArt: image, albumIndex: indexPath.item)
-            )
-          }
-        }
-    default:
-       break
-    }
-
     return albumViewItem
   }
 }

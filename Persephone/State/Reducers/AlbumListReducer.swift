@@ -16,21 +16,10 @@ func albumListReducer(action: Action, state: AlbumListState?) -> AlbumListState 
     state.albums = action.albums.map { Album(mpdAlbum: $0) }
 
   case let action as UpdateCoverArtAction:
-    state.albums[action.albumIndex].coverArt = .loaded(action.coverArt)
+    break
 
   case is ResetAlbumListCoverArtAction:
-    state.albums = state.albums.map {
-      var album = $0
-      switch album.coverArt {
-      case .loaded(let coverArt):
-        if coverArt == nil {
-          album.coverArt = .notLoaded
-        }
-      default:
-        album.coverArt = .notLoaded
-      }
-      return album
-    }
+    break
 
   default:
     break

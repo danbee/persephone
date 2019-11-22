@@ -49,6 +49,7 @@
 		E43B67AA22909793007DCF55 /* AlbumDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B67A822909793007DCF55 /* AlbumDetailView.swift */; };
 		E43B67AB22909793007DCF55 /* AlbumDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E43B67A922909793007DCF55 /* AlbumDetailView.xib */; };
 		E43B67AD229194CD007DCF55 /* AlbumTracksDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B67AC229194CD007DCF55 /* AlbumTracksDataSource.swift */; };
+		E43BECA0238835DC00CAF1EB /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E43BEC9F238835DC00CAF1EB /* Kingfisher */; };
 		E4405192227644340090CD6F /* MPDServerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4405191227644340090CD6F /* MPDServerController.swift */; };
 		E44051942278765A0090CD6F /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44051932278765A0090CD6F /* App.swift */; };
 		E440519C227BAF2E0090CD6F /* UIActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E440519B227BAF2E0090CD6F /* UIActions.swift */; };
@@ -330,6 +331,7 @@
 				E4B11BA72274E4500075461B /* libmpdclient.2.dylib in Frameworks */,
 				E49A5485233E5ADC00EED353 /* Differ in Frameworks */,
 				E4677C48233E60E70041474F /* MediaKeyTap in Frameworks */,
+				E43BECA0238835DC00CAF1EB /* Kingfisher in Frameworks */,
 				E49A548E233E5B6000EED353 /* SwiftyJSON in Frameworks */,
 				E4E96D13233E630800AFD36F /* PMKFoundation in Frameworks */,
 				E49A5482233E580800EED353 /* PromiseKit in Frameworks */,
@@ -446,9 +448,9 @@
 				E41E5302223BF9C300173814 /* MPDClient+Idle.swift */,
 				E41E5300223BF99300173814 /* MPDClient+Queue.swift */,
 				E42A4D5022E2167E001C6CAD /* MPDClient+Songs.swift */,
+				E408D3BD220E03EE0006D9BE /* RawRepresentable.swift */,
 				E41E5306223C019100173814 /* MPDClient+Status.swift */,
 				E41E52FE223BF95E00173814 /* MPDClient+Transport.swift */,
-				E408D3BD220E03EE0006D9BE /* RawRepresentable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -765,6 +767,7 @@
 				E49A548D233E5B6000EED353 /* SwiftyJSON */,
 				E4677C47233E60E70041474F /* MediaKeyTap */,
 				E4E96D12233E630800AFD36F /* PMKFoundation */,
+				E43BEC9F238835DC00CAF1EB /* Kingfisher */,
 			);
 			productName = Persephone;
 			productReference = E40786182110CE6E006887B1 /* Persephone.app */;
@@ -857,6 +860,7 @@
 				E49A548C233E5B6000EED353 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				E4A9BEF9233E5F9000457785 /* XCRemoteSwiftPackageReference "MediaKeyTap" */,
 				E4E96D11233E630800AFD36F /* XCRemoteSwiftPackageReference "Foundation" */,
+				E43BEC9E238835DC00CAF1EB /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = E40786192110CE6E006887B1 /* Products */;
 			projectDirPath = "";
@@ -1385,6 +1389,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E43BEC9E238835DC00CAF1EB /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.1;
+			};
+		};
 		E49A5480233E580800EED353 /* XCRemoteSwiftPackageReference "PromiseKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mxcl/PromiseKit";
@@ -1444,6 +1456,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E43BEC9F238835DC00CAF1EB /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E43BEC9E238835DC00CAF1EB /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		E4677C47233E60E70041474F /* MediaKeyTap */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E4A9BEF9233E5F9000457785 /* XCRemoteSwiftPackageReference "MediaKeyTap" */;

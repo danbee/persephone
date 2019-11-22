@@ -7,10 +7,23 @@
 //
 
 import AppKit
+import Kingfisher
 
 class AlbumViewItem: NSCollectionViewItem {
   var observer: NSKeyValueObservation?
   var album: Album?
+
+  var coverArtFilenames: [String] {
+    return [
+      "folder.jpg",
+      "cover.jpg",
+      "\(album?.artist ?? "") - \(album?.title ?? "").jpg"
+    ]
+  }
+  
+  var musicDir: String {
+    return App.store.state.preferencesState.expandedMpdLibraryDir
+  }
 
   override var isSelected: Bool {
     didSet {
@@ -50,13 +63,31 @@ class AlbumViewItem: NSCollectionViewItem {
     self.album = album
     albumTitle.stringValue = album.title
     albumArtist.stringValue = album.artist
+    setAlbumCover(album)
+  }
 
-    switch album.coverArt {
-    case .loaded(let coverArt):
-      albumCoverView.image = coverArt ?? .defaultCoverArt
-    default:
-      albumCoverView.image = .defaultCoverArt
-    }
+  func setAlbumCover(_ album: Album) {
+    guard let imagePath = fileSystemArtworkFilePath() else { return }
+
+    let imageURL = URL(fileURLWithPath: imagePath)
+    let provider = LocalFileImageDataProvider(fileURL: imageURL)
+    albumCoverView.kf.setImage(
+      with: .provider(provider),
+      placeholder: NSImage.defaultCoverArt,
+      options: [
+        .processor(DownsamplingImageProcessor(size: NSSize(width: 180, height: 180))),
+        .scaleFactor(2),
+      ]
+    )
+  }
+
+  func fileSystemArtworkFilePath() -> String? {
+    return self.coverArtFilenames
+      .lazy
+      .map { "\(self.musicDir)/\(self.album?.mpdAlbum.path ?? "")/\($0)" }
+      .first {
+        FileManager.default.fileExists(atPath: $0)
+      }
   }
 
   func setAppearance(selected isSelected: Bool) {
