@@ -20,7 +20,7 @@ extension CoverArtService {
   func getRemoteArtwork() -> Promise<NSImage?> {
     return Promise { seal in
       if App.store.state.preferencesState .fetchMissingArtworkFromInternet {
-        coverArtQueue.async {
+        CoverArtService.coverArtQueue.async {
           let coverArtWorkItem = DispatchWorkItem {
             self.getArtworkFromMusicBrainz().map(Optional.some).pipe(to: seal.resolve)
           }

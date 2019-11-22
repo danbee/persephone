@@ -24,7 +24,7 @@ extension CoverArtService {
 
   func getArtworkFromFilesystem() -> Promise<NSImage?> {
     return Promise { seal in
-      coverArtQueue.async {
+      CoverArtService.coverArtQueue.async {
         guard let artworkPath = self.fileSystemArtworkFilePath()
           else { seal.fulfill(nil); return }
 

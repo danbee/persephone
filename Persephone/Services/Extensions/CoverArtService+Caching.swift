@@ -14,7 +14,7 @@ extension CoverArtService {
 
   func getCachedArtwork() -> Promise<NSImage?> {
     return Promise { seal in
-      coverArtQueue.async {
+      CoverArtService.coverArtQueue.async {
         if self.isArtworkCached() {
           let cacheFilePath = CoverArtService.cacheDir.appendingPathComponent(self.album.hash).path
           let data = FileManager.default.contents(atPath: cacheFilePath)
@@ -29,7 +29,7 @@ extension CoverArtService {
   }
 
   func cacheArtwork(data: Data?) {
-    coverArtQueue.async {
+    CoverArtService.coverArtQueue.async {
       guard let bundleIdentifier = Bundle.main.bundleIdentifier,
         let cacheDir = try? FileManager.default.url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
           .appendingPathComponent(bundleIdentifier)

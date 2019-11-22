@@ -19,7 +19,7 @@ class CoverArtService {
   let bigArtworkSize = 600
 
   var session = URLSession(configuration: .default)
-  let coverArtQueue = DispatchQueue(label: "coverArtQueue", qos: .utility)
+  static let coverArtQueue = DispatchQueue(label: "coverArtQueue", qos: .utility)
 
   init(path: String, album: Album) {
     self.path = path
@@ -43,7 +43,7 @@ class CoverArtService {
       artwork.map(Promise.value) ?? self.getArtworkFromFilesystem()
     }.then { (artwork: NSImage?) -> Promise<NSImage?> in
       artwork.map(Promise.value) ?? self.getRemoteArtwork()
-    }.compactMap(on: coverArtQueue) {
+    }.compactMap(on: CoverArtService.coverArtQueue) {
       return self.sizeAndCacheImage($0).map(Optional.some)
     }.recover { _ in
       return .value(nil)

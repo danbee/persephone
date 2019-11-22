@@ -14,5 +14,11 @@ extension MPDClient {
     let artist: String
     var date: String?
     var path: String?
+
+    static func == (lhs: MPDAlbum, rhs: MPDAlbum) -> Bool {
+      return (lhs.title == rhs.title) &&
+        (lhs.artist == rhs.artist) &&
+        (lhs.date == rhs.date)
+    }
   }
 }
