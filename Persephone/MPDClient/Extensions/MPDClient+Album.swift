@@ -110,7 +110,7 @@ extension MPDClient {
   func albumSongs(for album: MPDAlbum, callback: ([MPDSong]) -> Void) {
     guard isConnected else { return }
 
-    let songs = searchSongs([MPDTag.album: album.title, MPDTag.artist: album.artist])
+    let songs = searchSongs([MPDTag.album: album.title, MPDTag.albumArtist: album.artist])
 
     callback(songs)
   }
