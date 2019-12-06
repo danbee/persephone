@@ -9,13 +9,6 @@
 import AppKit
 import ReSwift
 
-struct ResetAlbumListCoverArtAction: Action {}
-
-struct UpdateCoverArtAction: Action {
-  var coverArt: NSImage?
-  var albumIndex: Int
-}
-
 struct UpdateAlbumListAction: Action {
   var albums: [MPDClient.MPDAlbum]
 }
