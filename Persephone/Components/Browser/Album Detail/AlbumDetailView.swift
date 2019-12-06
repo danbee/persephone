@@ -80,6 +80,7 @@ class AlbumDetailView: NSViewController {
 
     let queueLength = App.store.state.queueState.queue.count
     App.mpdClient.appendSong(song.mpdSong)
+    App.mpdClient.fetchQueue()
     App.mpdClient.playTrack(at: queueLength)
   }
 
@@ -89,6 +90,7 @@ class AlbumDetailView: NSViewController {
 
     let queueLength = App.store.state.queueState.queue.count
     App.mpdClient.appendSong(song.mpdSong)
+    App.mpdClient.fetchQueue()
     App.mpdClient.playTrack(at: queueLength)
   }
 

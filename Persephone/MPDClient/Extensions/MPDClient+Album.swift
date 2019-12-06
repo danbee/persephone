@@ -45,6 +45,7 @@ extension MPDClient {
         priority: .normal,
         userData: ["songs": songs]
       )
+      self.enqueueCommand(command: .fetchQueue)
       self.enqueueCommand(
         command: .playTrack,
         priority: .normal,
