@@ -35,9 +35,12 @@ struct Album {
 
   var coverArtFilenames: [String] {
     return [
-      "folder.jpg",
       "cover.jpg",
-      "\(artist) - \(title ).jpg"
+      "folder.jpg",
+      "\(artist) - \(title ).jpg",
+      "cover.png",
+      "folder.png",
+      "\(artist) - \(title ).png",
     ]
   }
 
