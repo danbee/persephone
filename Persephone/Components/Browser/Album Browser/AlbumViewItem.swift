@@ -44,6 +44,7 @@ class AlbumViewItem: NSCollectionViewItem {
   override func prepareForReuse() {
     super.prepareForReuse()
 
+    albumCoverView.image = .defaultCoverArt
     AlbumDetailView.popover.close()
   }
 
