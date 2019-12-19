@@ -47,7 +47,9 @@ class WindowController: NSWindowController {
   override func keyDown(with event: NSEvent) {
     switch event.keyCode {
     case NSEvent.keyCodeSpace:
-      App.mpdClient.playPause()
+      if !event.isARepeat {
+        App.mpdClient.playPause()
+      }
     default:
       nextResponder?.keyDown(with: event)
     }
