@@ -10,6 +10,9 @@ import Foundation
 
 extension MPDClient {
   enum MPDCommand {
+    case connect
+    case disconnect
+    
     // Transport commands
     case prevTrack
     case nextTrack

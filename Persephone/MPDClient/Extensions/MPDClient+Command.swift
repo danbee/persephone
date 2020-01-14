@@ -14,6 +14,14 @@ extension MPDClient {
     userData: Dictionary<String, Any> = [:]
   ) {
     switch command {
+      
+    case .connect:
+      guard let host = userData["host"] as? String,
+        let port = userData["port"] as? Int
+        else { return }
+      createConnection(host: host, port: port)
+    case .disconnect:
+      freeConnection()
 
     // Transport commands
     case .prevTrack:

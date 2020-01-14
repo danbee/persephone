@@ -10,40 +10,42 @@ import Foundation
 import mpdclient
 
 extension MPDClient {
-  func makeConnectionOperation(host: String, port: Int) -> BlockOperation {
-    BlockOperation { [unowned self] in
-      guard let connection = mpd_connection_new(host, UInt32(port), 10000),
-        mpd_connection_get_error(connection) == MPD_ERROR_SUCCESS
-        else { return }
+  func createConnection(host: String, port: Int) {
+    guard let connection = mpd_connection_new(host, UInt32(port), 10000),
+      mpd_connection_get_error(connection) == MPD_ERROR_SUCCESS
+      else { return }
 
-      self.isConnected = true
+    self.isConnected = true
 
-      guard let status = mpd_run_status(connection)
-        else { return }
+    guard let status = mpd_run_status(connection)
+      else { return }
 
-      self.connection = connection
-      self.status = MPDStatus(status)
+    self.connection = connection
+    self.status = MPDStatus(status)
 
-      self.delegate?.didConnect(mpdClient: self)
-      self.delegate?.didUpdateStatus(mpdClient: self, status: self.status!)
+    self.delegate?.didConnect(mpdClient: self)
+    self.delegate?.didUpdateStatus(mpdClient: self, status: self.status!)
+  }
+  
+  func freeConnection() {
+    guard isConnected else { return }
+    
+    self.delegate?.willDisconnect(mpdClient: self)
+
+     mpd_connection_free(self.connection)
+     self.isConnected = false
+  }
+
+  func connect(host: String, port: Int) {
+    let commandOperation = BlockOperation() { [unowned self] in
+      self.sendCommand(command: .connect, userData: ["host": host, "port": port])
 
       self.idle()
     }
+    commandQueue.addOperation(commandOperation)
   }
-
-  func connect() {
-    commandQueue.addOperation(connectionOperation)
-  }
-
+  
   func disconnect() {
-    guard isConnected else { return }
-
-    noIdle()
-    commandQueue.addOperation { [unowned self] in
-      self.delegate?.willDisconnect(mpdClient: self)
-
-      mpd_connection_free(self.connection)
-      self.isConnected = false
-    }
+    enqueueCommand(command: .disconnect)
   }
 }

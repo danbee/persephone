@@ -23,9 +23,6 @@ class AppDelegate: NSObject,
   @IBOutlet weak var addSelectedSongToQueueMenuItem: NSMenuItem!
 
   func applicationDidFinishLaunching(_ aNotification: Notification) {
-    connectToMPDServer()
-    instantiateControllers()
-
     mediaKeyTap = MediaKeyTap(delegate: self)
     mediaKeyTap?.start()
 
@@ -34,22 +31,16 @@ class AppDelegate: NSObject,
         $0.uiState
       }
     }
+    
+    instantiateControllers()
+    connectToMPDServer()
   }
 
   func connectToMPDServer() {
-    let mpdServer = App.store.state.preferencesState.mpdServer
-
-    App.mpdClient = MPDClient(
-      host: mpdServer.hostOrDefault,
-      port: mpdServer.portOrDefault,
-      withDelegate: App.mpdServerDelegate
-    )
-
-    App.mpdClient.connect()
+    App.mpdServerController.connect()
   }
 
   func instantiateControllers() {
-    _ = App.mpdServerController
     _ = App.userNotificationsController
   }
 

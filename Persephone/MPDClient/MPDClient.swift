@@ -22,9 +22,8 @@ class MPDClient {
 
   let commandQueue = OperationQueue()
 
-  init(host: String, port: Int, withDelegate delegate: MPDClientDelegate?) {
+  init(withDelegate delegate: MPDClientDelegate?) {
     commandQueue.maxConcurrentOperationCount = 1
     self.delegate = delegate
-    self.connectionOperation = makeConnectionOperation(host: host, port: port)
   }
 }
