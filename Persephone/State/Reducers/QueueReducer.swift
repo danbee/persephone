@@ -36,7 +36,7 @@ func queueReducer(action: Action, state: QueueState?) -> QueueState {
     if oldSongRowPos >= 0 {
       state.queue[oldSongRowPos].isPlaying = false
     }
-    if newSongRowPos >= 0 {
+    if newSongRowPos >= 0 && state.queue.count > newSongRowPos {
       state.queue[newSongRowPos].isPlaying = true
 
       DispatchQueue.main.async {
