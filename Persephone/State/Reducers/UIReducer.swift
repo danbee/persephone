@@ -6,6 +6,7 @@
 //  Copyright © 2019 Dan Barber. All rights reserved.
 //
 
+import AppKit
 import ReSwift
 
 func uiReducer(action: Action, state: UIState?) -> UIState {
@@ -35,6 +36,9 @@ func uiReducer(action: Action, state: UIState?) -> UIState {
 
   case let action as SetSearchQuery:
     state.searchQuery = action.searchQuery
+    DispatchQueue.main.async {
+        App.mpdClient.fetchAlbums(filter: state.searchQuery)
+    }
 
   default:
     break
