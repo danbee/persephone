@@ -11,8 +11,6 @@ import ReSwift
 import Kingfisher
 
 class UserNotificationsController {
-  let cache = ImageCache.default
-
   init() {
     App.store.subscribe(self) {
       $0.select { $0.playerState.currentSong }
