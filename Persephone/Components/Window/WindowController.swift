@@ -120,15 +120,11 @@ class WindowController: NSWindowController {
 
     trackRemaining.stringValue = time.formattedTime
   }
-  
-  func clearSearchQuery() {
-    searchQuery.stringValue = ""
-  }
-  
+    
   @objc func willDisconnect() {
     DispatchQueue.main.async {
-      App.store.dispatch(ClearState())
-      self.clearSearchQuery()
+      App.store.dispatch(SetSearchQuery(searchQuery: ""))
+      self.searchQuery.stringValue = ""
     }
   }
 
