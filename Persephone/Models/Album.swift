@@ -37,7 +37,7 @@ struct Album {
     return [
       "cover.jpg",
       "folder.jpg",
-      "\(artist) - \(title ).jpg",
+      "\(artist) - \(title).jpg",
       "cover.png",
       "folder.png",
       "\(artist) - \(title ).png",
