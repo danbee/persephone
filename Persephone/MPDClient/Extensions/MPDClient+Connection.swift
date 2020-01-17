@@ -23,8 +23,8 @@ extension MPDClient {
     self.connection = connection
     self.status = MPDStatus(status)
 
-    self.delegate?.didConnect(mpdClient: self)
-    self.delegate?.didUpdateStatus(mpdClient: self, status: self.status!)
+    delegate?.didConnect(mpdClient: self)
+    delegate?.didUpdateStatus(mpdClient: self, status: self.status!)
   }
   
   func freeConnection() {
