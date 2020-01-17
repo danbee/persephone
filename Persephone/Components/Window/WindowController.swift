@@ -28,7 +28,7 @@ class WindowController: NSWindowController {
   @IBOutlet var repeatState: NSButton!
 
   @IBOutlet weak var searchQuery: NSSearchField!
-  
+
   override func windowDidLoad() {
     super.windowDidLoad()
     window?.titleVisibility = .hidden
