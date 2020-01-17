@@ -40,7 +40,9 @@ extension MPDClient {
     let commandOperation = BlockOperation() { [unowned self] in
       self.sendCommand(command: .connect, userData: ["host": host, "port": port])
 
-      self.idle()
+      if self.isConnected {
+        self.idle()
+      }
     }
     commandQueue.addOperation(commandOperation)
   }
