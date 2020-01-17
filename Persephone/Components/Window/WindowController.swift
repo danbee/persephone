@@ -27,6 +27,8 @@ class WindowController: NSWindowController {
   @IBOutlet var shuffleState: NSButton!
   @IBOutlet var repeatState: NSButton!
 
+  @IBOutlet weak var searchQuery: NSSearchField!
+  
   override func windowDidLoad() {
     super.windowDidLoad()
     window?.titleVisibility = .hidden
@@ -39,6 +41,8 @@ class WindowController: NSWindowController {
     }
 
     App.store.dispatch(MainWindowDidOpenAction())
+    
+    NotificationCenter.default.addObserver(self, selector: #selector(willDisconnect), name: .willDisconnect, object: nil)
 
     trackProgress.font = .timerFont
     trackRemaining.font = .timerFont
@@ -115,6 +119,17 @@ class WindowController: NSWindowController {
     )
 
     trackRemaining.stringValue = time.formattedTime
+  }
+  
+  func clearSearchQuery() {
+    searchQuery.stringValue = ""
+  }
+  
+  @objc func willDisconnect() {
+    DispatchQueue.main.async {
+      App.store.dispatch(ClearState())
+      self.clearSearchQuery()
+    }
   }
 
   // TODO: Refactor this using a gesture recognizer
