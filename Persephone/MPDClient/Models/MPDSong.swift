@@ -55,10 +55,8 @@ extension MPDClient {
     }
 
     var path: String {
-      return uriString
-        .split(separator: "/")
-        .dropLast()
-        .joined(separator: "/")
+      return NSString(string: uriString)
+        .deletingLastPathComponent
     }
 
     func getTag(_ tagType: MPDTag) -> String {
