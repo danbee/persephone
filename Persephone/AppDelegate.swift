@@ -32,16 +32,9 @@ class AppDelegate: NSObject,
       }
     }
     
-    instantiateControllers()
-    connectToMPDServer()
-  }
-
-  func connectToMPDServer() {
-    App.mpdServerController.connect()
-  }
-
-  func instantiateControllers() {
     _ = App.userNotificationsController
+
+    App.mpdServerController.connect()
   }
 
   func applicationWillTerminate(_ aNotification: Notification) {
