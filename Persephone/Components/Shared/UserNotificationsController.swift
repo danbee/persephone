@@ -29,7 +29,7 @@ class UserNotificationsController {
     _ = KingfisherManager.shared.retrieveImage(
       with: .provider(provider),
       options: [
-        .processor(DownsamplingImageProcessor(size: NSSize(width: 180, height: 180))),
+        .processor(DownsamplingImageProcessor(size: .notificationCoverSize)),
         .scaleFactor(2),
       ]
     ) { result in

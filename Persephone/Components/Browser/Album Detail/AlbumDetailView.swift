@@ -141,7 +141,7 @@ class AlbumDetailView: NSViewController {
       with: .provider(provider),
       placeholder: NSImage.defaultCoverArt,
       options: [
-        .processor(DownsamplingImageProcessor(size: NSSize(width: 500, height: 500))),
+        .processor(DownsamplingImageProcessor(size: .albumDetailCoverSize)),
         .scaleFactor(2),
       ]
     )

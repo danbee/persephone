@@ -24,11 +24,11 @@ class CurrentCoverArtView: NSImageView {
 
     let imageURL = URL(fileURLWithPath: imagePath)
     let provider = LocalFileImageDataProvider(fileURL: imageURL)
-    self.kf.setImage(
+    kf.setImage(
       with: .provider(provider),
       placeholder: NSImage.defaultCoverArt,
       options: [
-        .processor(DownsamplingImageProcessor(size: NSSize(width: 500, height: 500))),
+        .processor(DownsamplingImageProcessor(size: .currentlyPlayingCoverSize)),
         .scaleFactor(2),
       ]
     )
@@ -39,10 +39,11 @@ extension CurrentCoverArtView: StoreSubscriber {
   typealias StoreSubscriberStateType = Song?
 
   func newState(state: Song?) {
-    if let song = state {
-      setAlbumImage(song.album)
-    } else {
+    guard let song = state else {
       image = .defaultCoverArt
+      return
     }
+    
+    setAlbumImage(song.album)
   }
 }

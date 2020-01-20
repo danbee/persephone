@@ -64,7 +64,7 @@ class AlbumViewItem: NSCollectionViewItem {
       with: .provider(provider),
       placeholder: NSImage.defaultCoverArt,
       options: [
-        .processor(DownsamplingImageProcessor(size: NSSize(width: 180, height: 180))),
+        .processor(DownsamplingImageProcessor(size: .albumListCoverSize)),
         .scaleFactor(2),
       ]
     )
