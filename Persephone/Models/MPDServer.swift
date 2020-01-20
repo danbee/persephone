@@ -27,7 +27,7 @@ struct MPDServer {
 
 extension MPDServer: Equatable {
   static func == (lhs: MPDServer, rhs: MPDServer) -> Bool {
-    return (lhs.host == rhs.host) &&
-      (lhs.port == rhs.port)
+    return lhs.host == rhs.host &&
+      lhs.port == rhs.port
   }
 }
