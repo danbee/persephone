@@ -9,78 +9,59 @@
 import AppKit
 
 extension QueueViewController: NSOutlineViewDelegate {
-  func outlineView(
-    _ outlineView: NSOutlineView,
-    selectionIndexesForProposedSelection proposedSelectionIndexes: IndexSet
-    ) -> IndexSet {
-    if proposedSelectionIndexes.contains(0) {
-      return IndexSet()
-    } else {
-      return proposedSelectionIndexes
-    }
-  }
-
   func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
     if let queueItem = item as? QueueItem {
       switch tableColumn?.identifier.rawValue {
-        case "songTitleColumn":
-          return cellForSongTitle(outlineView, with: queueItem)
-        case "songArtistColumn":
-          return cellForSongArtist(outlineView, with: queueItem)
+        case "songCoverColumn":
+          return cellForSongCover(outlineView, with: queueItem)
+        case "songInfoColumn":
+          return cellForSongInfo(outlineView, with: queueItem)
+        case "songDurationColumn":
+          return cellForSongDuration(outlineView, with: queueItem)
         default:
           return nil
       }
-    } else if tableColumn?.identifier.rawValue == "songTitleColumn" {
-      return cellForQueueHeading(outlineView)
     } else {
       return nil
     }
   }
 
   func outlineViewSelectionDidChange(_ notification: Notification) {
-    if queueView.selectedRow >= 1 {
-      let queueItem = dataSource.queue[queueView.selectedRow - 1]
+    let queueItem = dataSource.queue[queueView.selectedRow]
 
-      App.store.dispatch(SetSelectedQueueItem(selectedQueueItem: queueItem))
-    } else {
-      App.store.dispatch(SetSelectedQueueItem(selectedQueueItem: nil))
-    }
+    App.store.dispatch(SetSelectedQueueItem(selectedQueueItem: queueItem))
   }
-
-  func cellForSongTitle(_ outlineView: NSOutlineView, with queueItem: QueueItem) -> NSView {
-    let cellView = outlineView.makeView(
-      withIdentifier: .queueSongTitle,
+  
+  func cellForSongCover(_ outlineView: NSOutlineView, with queueItem: QueueItem) -> NSView {
+      let cellView = outlineView.makeView(
+      withIdentifier: .queueSongCover,
       owner: self
-      ) as! QueueSongTitleView
-
-    cellView.setQueueSong(queueItem, queueIcon: dataSource.queueIcon)
-
+    ) as! QueueSongCoverView
+    
+    cellView.setSong(queueItem, queueIcon: dataSource.queueIcon)
+    
     return cellView
   }
 
-  func cellForSongArtist(_ outlineView: NSOutlineView, with queueItem: QueueItem) -> NSView {
+  func cellForSongInfo(_ outlineView: NSOutlineView, with queueItem: QueueItem) -> NSView {
     let cellView = outlineView.makeView(
-      withIdentifier: .queueSongArtist,
+      withIdentifier: .queueSongInfo,
       owner: self
-      ) as! NSTableCellView
+    ) as! QueueSongInfoView
 
-    cellView.textField?.stringValue = queueItem.song.artist
-    if queueItem.isPlaying {
-      cellView.textField?.font = .systemFontBold
-    } else {
-      cellView.textField?.font = .systemFontRegular
-    }
+    cellView.setSong(queueItem, queueIcon: dataSource.queueIcon)
 
     return cellView
   }
-
-  func cellForQueueHeading(_ outlineView: NSOutlineView) -> NSView {
+  
+  func cellForSongDuration(_ outlineView: NSOutlineView, with queueItem: QueueItem) -> NSView {
     let cellView = outlineView.makeView(
-      withIdentifier: .queueHeading,
+      withIdentifier: .queueSongDuration,
       owner: self
-      ) as! NSTableCellView
-
-    cellView.textField?.stringValue = "QUEUE"
+    ) as! NSTableCellView
+    
+    cellView.textField?.font = .timerFont
+    cellView.textField?.stringValue = queueItem.song.duration.formattedTime
 
     return cellView
   }

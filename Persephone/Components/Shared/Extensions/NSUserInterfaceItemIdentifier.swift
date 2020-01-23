@@ -9,15 +9,13 @@
 import AppKit
 
 extension NSUserInterfaceItemIdentifier {
-  static let queueSongTitleColumn = NSUserInterfaceItemIdentifier("songTitleColumn")
-  static let queueSongArtistColumn = NSUserInterfaceItemIdentifier("songArtistColumn")
+  static let queueSongInfoColumn = NSUserInterfaceItemIdentifier("songInfoColumn")
 
-  static let queueHeading = NSUserInterfaceItemIdentifier("queueHeadingCell")
-  static let queueSongArtist = NSUserInterfaceItemIdentifier("songArtistCell")
-  static let queueSongTitle = NSUserInterfaceItemIdentifier("songTitleCell")
+  static let queueSongCover = NSUserInterfaceItemIdentifier("songCoverCell")
+  static let queueSongInfo = NSUserInterfaceItemIdentifier("songInfoCell")
+  static let queueSongDuration = NSUserInterfaceItemIdentifier("songDurationCell")
 
   static let albumViewItem = NSUserInterfaceItemIdentifier("AlbumViewItem")
-  static let artistViewItem = NSUserInterfaceItemIdentifier("ArtistViewItem")
 
   static let discNumber = NSUserInterfaceItemIdentifier("discNumberCell")
   static let trackNumber = NSUserInterfaceItemIdentifier("trackNumberCell")

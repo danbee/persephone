@@ -15,16 +15,16 @@ class QueueDataSource: NSObject, NSOutlineViewDataSource {
   func setQueueIcon(_ state: QueueState) {
     switch state.state {
     case .playing?:
-      queueIcon = .playIcon
+      queueIcon = .queuePlayIcon
     case .paused?:
-      queueIcon = .pauseIcon
+      queueIcon = .queuePauseIcon
     default:
       queueIcon = nil
     }
   }
 
   func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
-    return queue.count + 1
+    return queue.count
   }
 
   func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
@@ -32,11 +32,7 @@ class QueueDataSource: NSObject, NSOutlineViewDataSource {
   }
 
   func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
-    if index > 0 {
-      return queue[index - 1]
-    } else {
-      return ""
-    }
+    return queue[index]
   }
 
   func outlineView(_ outlineView: NSOutlineView, pasteboardWriterForItem item: Any) -> NSPasteboardWriting? {
@@ -47,14 +43,15 @@ class QueueDataSource: NSObject, NSOutlineViewDataSource {
       draggedSong: DraggedSong(
         type: .queueItem(queueItem.queuePos),
         title: queueItem.song.title,
-        artist: queueItem.song.artist
+        artist: queueItem.song.artist,
+        cover: queueItem.song.album.coverArtFilePath
       ),
       ofType: .songPasteboardType
     )
   }
 
   func outlineView(_ outlineView: NSOutlineView, validateDrop info: NSDraggingInfo, proposedItem item: Any?, proposedChildIndex index: Int) -> NSDragOperation {
-    var newQueuePos = index - 1
+    var newQueuePos = index
 
     guard newQueuePos >= 0,
       let draggingTypes = info.draggingPasteboard.types
@@ -84,7 +81,7 @@ class QueueDataSource: NSObject, NSOutlineViewDataSource {
   }
 
   func outlineView(_ outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item: Any?, childIndex index: Int) -> Bool {
-    var newQueuePos = index - 1
+    var newQueuePos = index
 
     guard let draggingTypes = info.draggingPasteboard.types
       else { return false }
@@ -131,12 +128,20 @@ class QueueDataSource: NSObject, NSOutlineViewDataSource {
       guard let item = draggingItem.item as? NSPasteboardItem,
         let data = item.data(forType: .songPasteboardType),
         let draggedSong = try? PropertyListDecoder().decode(DraggedSong.self, from: data),
-        case let (title?, artist?) = (draggedSong.title, draggedSong.artist)
+        case let (title?, artist?, cover?) = (
+          draggedSong.title,
+          draggedSong.artist,
+          draggedSong.cover
+        )
         else { return }
 
       draggingItem.imageComponentsProvider = {
         let component = NSDraggingImageComponent(key: NSDraggingItem.ImageComponentKey.icon)
-        let draggedSongView = DraggedSongView(title: title, artist: artist)
+        let draggedSongView = DraggedSongView(
+          title: title,
+          artist: artist,
+          cover: cover
+        )
 
         let view = draggedSongView.view
         let image = view.image()

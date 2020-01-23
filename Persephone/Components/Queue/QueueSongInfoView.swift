@@ -8,23 +8,18 @@
 
 import AppKit
 
-class QueueSongTitleView: NSTableCellView {
-  @IBOutlet var queuePlayerStateImage: NSImageView!
-  @IBOutlet var queuePosition: NSTextField!
+class QueueSongInfoView: NSTableCellView {
   @IBOutlet var queueSongTitle: NSTextField!
-
-  func setQueueSong(_ queueItem: QueueItem, queueIcon: NSImage?) {
-    queuePosition?.font = .timerFont
+  @IBOutlet var queueSongArtist: NSTextField!
+  
+  func setSong(_ queueItem: QueueItem, queueIcon: NSImage?) {
     queueSongTitle?.stringValue = queueItem.song.title
+    queueSongArtist?.stringValue = queueItem.song.artist
 
     if queueItem.isPlaying && queueIcon != nil {
       queueSongTitle?.font = .systemFontBold
-      queuePlayerStateImage?.image = queueIcon
-      queuePosition?.stringValue = ""
     } else {
       queueSongTitle?.font = .systemFontRegular
-      queuePlayerStateImage?.image = nil
-      queuePosition?.stringValue = "\(queueItem.queuePos + 1)."
     }
   }
 }

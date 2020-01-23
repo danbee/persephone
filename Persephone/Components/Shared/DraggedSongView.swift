@@ -7,17 +7,22 @@
 //
 
 import Cocoa
+import Kingfisher
 
 class DraggedSongView: NSViewController {
   @IBOutlet var titleLabel: NSTextField!
   @IBOutlet var artistLabel: NSTextField!
-
+  @IBOutlet var coverImage: NSImageView!
+  
   private let songTitle: String
   private let songArtist: String
+  private let songCover: String?
 
-  init(title: String, artist: String) {
+  init(title: String, artist: String, cover: String? = nil) {
     songTitle = title
     songArtist = artist
+    songCover = cover
+
     super.init(nibName: nil, bundle: nil)
   }
 
@@ -27,7 +32,44 @@ class DraggedSongView: NSViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    coverImage.wantsLayer = true
+    coverImage.layer?.backgroundColor = CGColor.black
+    coverImage.layer?.cornerRadius = 2
+    coverImage.layer?.borderWidth = 1
+    coverImage.layer?.masksToBounds = true
+
+    setAppearance()
+    
     titleLabel.stringValue = songTitle
     artistLabel.stringValue = songArtist
+    setCoverArt()
+  }
+  
+  func setAppearance() {
+    if #available(OSX 10.14, *) {
+      let darkMode = NSApp.effectiveAppearance.bestMatch(from:
+        [.darkAqua, .aqua]) == .darkAqua
+
+      coverImage.layer?.borderColor = darkMode ? .albumBorderColorDark : .albumBorderColorLight
+    } else {
+      coverImage.layer?.borderColor = .albumBorderColorLight
+    }
+  }
+  
+  func setCoverArt() {
+    guard let imagePath = songCover else { return }
+
+    let imageURL = URL(fileURLWithPath: imagePath)
+    let provider = LocalFileImageDataProvider(fileURL: imageURL)
+    
+    coverImage.kf.setImage(
+      with: .provider(provider),
+      placeholder: NSImage.defaultCoverArt,
+      options: [
+        .processor(DownsamplingImageProcessor(size: .queueSongCoverSize)),
+        .scaleFactor(2),
+      ]
+    )
   }
 }

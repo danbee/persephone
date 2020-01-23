@@ -40,11 +40,9 @@ class QueueViewController: NSViewController {
     case NSEvent.keyCodeSpace:
       nextResponder?.keyDown(with: event)
     case NSEvent.keyCodeBS:
-      let queuePos = queueView.selectedRow - 1
+      let queuePos = queueView.selectedRow
 
-      if queuePos >= 0 {
-        App.mpdClient.removeSong(at: queuePos)
-      }
+      App.mpdClient.removeSong(at: queuePos)
     default:
       super.keyDown(with: event)
     }
@@ -62,26 +60,20 @@ class QueueViewController: NSViewController {
   }
 
   @IBAction func playTrack(_ sender: Any) {
-    let queuePos = queueView.selectedRow - 1
+    let queuePos = queueView.selectedRow
 
-    if queuePos >= 0 {
-      App.mpdClient.playTrack(at: queuePos)
-    }
+    App.mpdClient.playTrack(at: queuePos)
   }
   
   @IBAction func playSongMenuAction(_ sender: NSMenuItem) {
-    let queuePos = queueView.clickedRow - 1
+    let queuePos = queueView.clickedRow
 
-    if queuePos >= 0 {
-      App.mpdClient.playTrack(at: queuePos)
-    }
+    App.mpdClient.playTrack(at: queuePos)
   }
   @IBAction func removeSongMenuAction(_ sender: NSMenuItem) {
-    let queuePos = queueView.clickedRow - 1
+    let queuePos = queueView.clickedRow
 
-    if queuePos >= 0 {
-      App.mpdClient.removeSong(at: queuePos)
-    }
+    App.mpdClient.removeSong(at: queuePos)
   }
 }
 

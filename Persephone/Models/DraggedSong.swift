@@ -10,4 +10,5 @@ struct DraggedSong: Codable {
   var type: DraggedSongType
   var title: String?
   var artist: String?
+  var cover: String?
 }
