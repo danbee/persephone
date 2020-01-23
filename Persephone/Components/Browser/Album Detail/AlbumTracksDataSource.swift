@@ -30,7 +30,7 @@ class AlbumTracksDataSource: NSObject, NSTableViewDataSource {
     var disc: String? = ""
 
     songs.forEach { song in
-      if song.disc != disc {
+      if song.disc != disc && song.disc != "0" {
         disc = song.disc
         albumSongs.append(AlbumSongItem(disc: song.disc))
       }
