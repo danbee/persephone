@@ -33,7 +33,7 @@ extension QueueViewController: NSOutlineViewDelegate {
   }
   
   func cellForSongCover(_ outlineView: NSOutlineView, with queueItem: QueueItem) -> NSView {
-      let cellView = outlineView.makeView(
+    let cellView = outlineView.makeView(
       withIdentifier: .queueSongCover,
       owner: self
     ) as! QueueSongCoverView
