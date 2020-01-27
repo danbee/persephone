@@ -690,28 +690,22 @@
                                                                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="kingfisher-1" id="KfD-57-Whk"/>
                                                                     <color key="contentTintColor" name="quaternaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                                 </imageView>
-                                                                <button wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wOh-Rs-R2S" userLabel="Song Play Button">
-                                                                    <rect key="frame" x="9" y="5" width="32" height="32"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="32" id="cDu-pP-YAh"/>
-                                                                        <constraint firstAttribute="height" constant="32" id="j6D-Zt-d1I"/>
-                                                                    </constraints>
-                                                                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" transparent="YES" inset="2" id="eWw-vk-jay">
-                                                                        <behavior key="behavior" lightByContents="YES"/>
-                                                                        <font key="font" metaFont="system"/>
-                                                                    </buttonCell>
-                                                                    <color key="contentTintColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                                </button>
+                                                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ceF-G3-pG5">
+                                                                    <rect key="frame" x="16" y="12" width="17" height="17"/>
+                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="queuePauseButton" id="a8D-O7-eZ5"/>
+                                                                </imageView>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="wOh-Rs-R2S" firstAttribute="centerY" secondItem="5rR-Gz-AcP" secondAttribute="centerY" id="5pe-ht-AvV"/>
-                                                                <constraint firstAttribute="trailing" secondItem="wOh-Rs-R2S" secondAttribute="trailing" constant="2" id="6b6-jo-ek2"/>
+                                                                <constraint firstItem="ceF-G3-pG5" firstAttribute="trailing" secondItem="7Yi-vi-Frs" secondAttribute="trailing" constant="-8" id="7xV-J1-YZK"/>
+                                                                <constraint firstItem="ceF-G3-pG5" firstAttribute="bottom" secondItem="7Yi-vi-Frs" secondAttribute="bottom" constant="-7" id="8qA-ho-KZI"/>
+                                                                <constraint firstItem="ceF-G3-pG5" firstAttribute="top" secondItem="7Yi-vi-Frs" secondAttribute="top" constant="8" id="So1-Lk-ks3"/>
+                                                                <constraint firstItem="ceF-G3-pG5" firstAttribute="leading" secondItem="7Yi-vi-Frs" secondAttribute="leading" constant="7" id="Uth-gG-VdC"/>
                                                                 <constraint firstAttribute="trailing" secondItem="7Yi-vi-Frs" secondAttribute="trailing" constant="2" id="mdH-6E-1hS"/>
                                                                 <constraint firstItem="7Yi-vi-Frs" firstAttribute="centerY" secondItem="5rR-Gz-AcP" secondAttribute="centerY" id="uga-Kx-ogd"/>
                                                             </constraints>
                                                             <connections>
-                                                                <outlet property="queueSongButton" destination="wOh-Rs-R2S" id="tkf-l4-qKj"/>
                                                                 <outlet property="queueSongCover" destination="7Yi-vi-Frs" id="fna-Ad-H3N"/>
+                                                                <outlet property="queueSongIcon" destination="ceF-G3-pG5" id="8uk-Vg-PqL"/>
                                                             </connections>
                                                         </tableCellView>
                                                     </prototypeCellViews>
@@ -736,7 +730,7 @@
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tBe-Q9-3Rw" userLabel="Song Artist View">
                                                                     <rect key="frame" x="1" y="7" width="219" height="16"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Song Artist" id="Ceb-ec-ydU">
-                                                                        <font key="font" metaFont="system" size="12"/>
+                                                                        <font key="font" metaFont="cellTitle"/>
                                                                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
@@ -948,6 +942,7 @@
         <image name="nextTrackButton" width="17" height="17"/>
         <image name="playButton" width="17" height="17"/>
         <image name="prevTrackButton" width="17" height="17"/>
+        <image name="queuePauseButton" width="17" height="17"/>
         <image name="repeatButton" width="17" height="17"/>
         <image name="shuffleButton" width="17" height="17"/>
         <image name="stopButton" width="17" height="17"/>

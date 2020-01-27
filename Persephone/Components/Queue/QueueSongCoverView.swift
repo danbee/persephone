@@ -11,7 +11,7 @@ import Kingfisher
 
 class QueueSongCoverView: NSTableCellView {
   @IBOutlet var queueSongCover: NSImageView!
-  @IBOutlet var queueSongButton: NSButton!
+  @IBOutlet var queueSongIcon: NSImageView!
   
   let playingFilters = [
     CIFilter(name: "CIExposureAdjust", parameters: ["inputEV": -2])!
@@ -27,7 +27,7 @@ class QueueSongCoverView: NSTableCellView {
     queueSongCover.layer?.cornerRadius = 2
     queueSongCover.layer?.borderWidth = 1
     queueSongCover.layer?.masksToBounds = true
-    queueSongButton.wantsLayer = true
+    queueSongIcon.wantsLayer = true
     setAppearance()
     
     if isPlaying {
@@ -77,10 +77,10 @@ class QueueSongCoverView: NSTableCellView {
     
     if isPlaying && queueIcon != nil {
       queueSongCover.layer?.filters = playingFilters
-      queueSongButton.image = queueIcon
+      queueSongIcon.image = queueIcon
     } else {
       queueSongCover.layer?.filters = nil
-      queueSongButton.image = nil
+      queueSongIcon.image = nil
     }
   }
 }
