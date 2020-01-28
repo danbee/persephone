@@ -29,6 +29,9 @@ class QueueViewController: NSViewController {
     queueView.columnAutoresizingStyle = .sequentialColumnAutoresizingStyle
     queueView.registerForDraggedTypes([.songPasteboardType, .albumPasteboardType])
     queueView.draggingDestinationFeedbackStyle = .regular
+    
+    queueCoverArtImage.wantsLayer = true
+    queueCoverArtImage.layer?.backgroundColor = CGColor.black
   }
 
   deinit {
