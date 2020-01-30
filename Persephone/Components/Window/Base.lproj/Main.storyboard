@@ -666,7 +666,7 @@
                                             <tableColumns>
                                                 <tableColumn identifier="songCoverColumn" width="43" minWidth="42" maxWidth="1000" id="0Co-uF-CCB" userLabel="Position">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                        <font key="font" metaFont="controlContent" size="11"/>
+                                                        <font key="font" metaFont="menu" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -687,12 +687,12 @@
                                                                         <constraint firstAttribute="width" constant="32" id="hhe-Vq-2aS"/>
                                                                         <constraint firstAttribute="height" constant="32" id="iz9-3T-uWZ"/>
                                                                     </constraints>
-                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="kingfisher-1" id="KfD-57-Whk"/>
+                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="defaultCoverArt" id="KfD-57-Whk"/>
                                                                     <color key="contentTintColor" name="quaternaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                                 </imageView>
                                                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ceF-G3-pG5">
                                                                     <rect key="frame" x="16" y="12" width="17" height="17"/>
-                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="queuePauseButton" id="a8D-O7-eZ5"/>
+                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="a8D-O7-eZ5"/>
                                                                 </imageView>
                                                             </subviews>
                                                             <constraints>
@@ -712,7 +712,7 @@
                                                 </tableColumn>
                                                 <tableColumn identifier="songInfoColumn" width="213" minWidth="10" maxWidth="3.4028234663852886e+38" id="HP0-ty-PFY" userLabel="Song Info">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
-                                                        <font key="font" metaFont="controlContent" size="11"/>
+                                                        <font key="font" metaFont="menu" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </tableHeaderCell>
@@ -761,7 +761,7 @@
                                                 </tableColumn>
                                                 <tableColumn identifier="songDurationColumn" width="64" minWidth="64" maxWidth="64" id="8O6-ox-kx2" userLabel="Duration">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
-                                                        <font key="font" metaFont="controlContent" size="11"/>
+                                                        <font key="font" metaFont="menu" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </tableHeaderCell>
@@ -938,11 +938,9 @@
         <image name="NSPreferencesGeneral" width="32" height="32"/>
         <image name="coverArtPreferencesIcon" width="32" height="32"/>
         <image name="defaultCoverArt" width="128" height="128"/>
-        <image name="kingfisher-1" width="250" height="250"/>
         <image name="nextTrackButton" width="17" height="17"/>
         <image name="playButton" width="17" height="17"/>
         <image name="prevTrackButton" width="17" height="17"/>
-        <image name="queuePauseButton" width="17" height="17"/>
         <image name="repeatButton" width="17" height="17"/>
         <image name="shuffleButton" width="17" height="17"/>
         <image name="stopButton" width="17" height="17"/>

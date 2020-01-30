@@ -41,6 +41,8 @@ class QueueSongCoverView: NSTableCellView {
     super.prepareForReuse()
   
     queueSongCover.image = .defaultCoverArt
+    queueSongCover.layer?.filters = nil
+    queueSongIcon.image = nil
   }
   
   func setAppearance() {
