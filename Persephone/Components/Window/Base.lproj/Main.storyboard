@@ -691,15 +691,15 @@
                                                                     <color key="contentTintColor" name="quaternaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                                 </imageView>
                                                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ceF-G3-pG5">
-                                                                    <rect key="frame" x="16" y="12" width="17" height="17"/>
+                                                                    <rect key="frame" x="9" y="5" width="32" height="32"/>
                                                                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="a8D-O7-eZ5"/>
                                                                 </imageView>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="ceF-G3-pG5" firstAttribute="trailing" secondItem="7Yi-vi-Frs" secondAttribute="trailing" constant="-8" id="7xV-J1-YZK"/>
-                                                                <constraint firstItem="ceF-G3-pG5" firstAttribute="bottom" secondItem="7Yi-vi-Frs" secondAttribute="bottom" constant="-7" id="8qA-ho-KZI"/>
-                                                                <constraint firstItem="ceF-G3-pG5" firstAttribute="top" secondItem="7Yi-vi-Frs" secondAttribute="top" constant="8" id="So1-Lk-ks3"/>
-                                                                <constraint firstItem="ceF-G3-pG5" firstAttribute="leading" secondItem="7Yi-vi-Frs" secondAttribute="leading" constant="7" id="Uth-gG-VdC"/>
+                                                                <constraint firstItem="ceF-G3-pG5" firstAttribute="trailing" secondItem="7Yi-vi-Frs" secondAttribute="trailing" id="7xV-J1-YZK"/>
+                                                                <constraint firstItem="ceF-G3-pG5" firstAttribute="bottom" secondItem="7Yi-vi-Frs" secondAttribute="bottom" id="8qA-ho-KZI"/>
+                                                                <constraint firstItem="ceF-G3-pG5" firstAttribute="top" secondItem="7Yi-vi-Frs" secondAttribute="top" id="So1-Lk-ks3"/>
+                                                                <constraint firstItem="ceF-G3-pG5" firstAttribute="leading" secondItem="7Yi-vi-Frs" secondAttribute="leading" id="Uth-gG-VdC"/>
                                                                 <constraint firstAttribute="trailing" secondItem="7Yi-vi-Frs" secondAttribute="trailing" constant="2" id="mdH-6E-1hS"/>
                                                                 <constraint firstItem="7Yi-vi-Frs" firstAttribute="centerY" secondItem="5rR-Gz-AcP" secondAttribute="centerY" id="uga-Kx-ogd"/>
                                                             </constraints>
