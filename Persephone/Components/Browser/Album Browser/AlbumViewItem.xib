@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14868" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14868"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -35,10 +35,11 @@
                                 </shadow>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="defaultCoverArt" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" refusesFirstResponder="YES" state="on" transparent="YES" imageScaling="proportionallyUpOrDown" inset="2" id="t8A-Hz-L38">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="label" size="13"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="showAlbumDetail:" target="-2" id="A4Q-gb-B45"/>
+                                    <outlet property="menu" destination="HIQ-ig-PeQ" id="Dwf-9g-U9a"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -53,7 +54,7 @@
                 <textField identifier="albumTitle" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KEh-NL-c2W">
                     <rect key="frame" x="8" y="28" width="142" height="17"/>
                     <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Label" id="pDs-0t-e1j">
-                        <font key="font" metaFont="system"/>
+                        <font key="font" metaFont="label" size="13"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -61,7 +62,7 @@
                 <textField identifier="albumArtist" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5Uu-j1-qyT">
                     <rect key="frame" x="8" y="10" width="142" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Label" id="yZn-e9-zyP">
-                        <font key="font" metaFont="system"/>
+                        <font key="font" metaFont="label" size="13"/>
                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -83,6 +84,23 @@
             <point key="canvasLocation" x="-20" y="112"/>
         </customView>
         <collectionViewItem id="Qgu-aI-55A" customClass="AlbumViewItem" customModule="Persephone" customModuleProvider="target"/>
+        <menu id="HIQ-ig-PeQ">
+            <items>
+                <menuItem title="Play album" id="caG-XV-Jy6">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="playAlbumMenuAction:" target="-2" id="sfI-FH-YaW"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Add album to queue" id="F6c-oO-oBw">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="addAlbumToQueueMenuAction:" target="-2" id="6wW-oR-ykh"/>
+                    </connections>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="191" y="38"/>
+        </menu>
     </objects>
     <resources>
         <image name="defaultCoverArt" width="128" height="128"/>

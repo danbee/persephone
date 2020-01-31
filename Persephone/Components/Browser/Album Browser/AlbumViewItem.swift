@@ -107,4 +107,18 @@ class AlbumViewItem: NSCollectionViewItem {
   @IBOutlet var albumCoverView: NSButton!
   @IBOutlet var albumTitle: NSTextField!
   @IBOutlet var albumArtist: NSTextField!
+  
+  @IBAction func playAlbumMenuAction(_ sender: NSMenuItem) {
+    guard let album = album else { return }
+    
+    App.mpdClient.playAlbum(album.mpdAlbum)
+  }
+
+  @IBAction func addAlbumToQueueMenuAction(_ sender: NSMenuItem) {
+    guard let album = album else { return }
+    
+    let queueLength = App.store.state.queueState.queue.count
+
+    App.mpdClient.addAlbumToQueue(album: album.mpdAlbum, at: queueLength)
+  }
 }
