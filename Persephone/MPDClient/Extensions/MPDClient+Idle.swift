@@ -12,15 +12,23 @@ import mpdclient
 extension MPDClient {
   func noIdle() {
     if isIdle {
-      mpd_send_noidle(connection)
-      isIdle = false
+      do {
+        idleLock.lock()
+        defer { idleLock.unlock() }
+        mpd_send_noidle(connection)
+        isIdle = false
+      }
     }
   }
 
-  func idle() {
-    if !self.isIdle && self.commandQueue.operationCount == 1 {
-      mpd_send_idle(self.connection)
-      self.isIdle = true
+  func idle(_ force: Bool = false) {
+    if (!self.isIdle && self.commandQueue.operationCount == 1) || force {
+      do {
+        idleLock.lock()
+        defer { idleLock.unlock() }
+        mpd_send_idle(self.connection)
+        self.isIdle = true
+      }
 
       let result = mpd_recv_idle(self.connection, true)
       self.handleIdleResult(result)
@@ -28,7 +36,11 @@ extension MPDClient {
   }
 
   func handleIdleResult(_ result: mpd_idle) {
-    isIdle = false
+    do {
+      idleLock.lock()
+      defer { idleLock.unlock() }
+      isIdle = false
+    }
     
     let mpdIdle = MPDIdle(rawValue: result.rawValue)
 

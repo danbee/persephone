@@ -128,15 +128,18 @@ class AlbumDetailView: NSViewController {
         self.dataSource.albumSongs[1].song
         else { return }
 
-      self.getBigCoverArt(song: song, album: album)
+      DispatchQueue.main.async {
+        self.getBigCoverArt(song: song, album: album)
+      }
     }
   }
 
   func getBigCoverArt(song: Song, album: Album) {
-    guard let imagePath = album.coverArtFilePath else { return }
+    let provider = MPDAlbumArtImageDataProvider(
+      songUri: song.mpdSong.uriString,
+      cacheKey: album.hash
+    )
 
-    let imageURL = URL(fileURLWithPath: imagePath)
-    let provider = LocalFileImageDataProvider(fileURL: imageURL)
     albumCoverView.kf.setImage(
       with: .provider(provider),
       placeholder: NSImage.defaultCoverArt,
@@ -146,13 +149,19 @@ class AlbumDetailView: NSViewController {
       ]
     )
 
-    cacheSmallCover(provider: provider)
+    cacheSmallCover(song: song, album: album)
   }
   
-  func cacheSmallCover(provider: ImageDataProvider) {
+  func cacheSmallCover(song: Song, album: Album) {
+    let provider = MPDAlbumArtImageDataProvider(
+      songUri: song.mpdSong.uriString,
+      cacheKey: album.hash
+    )
+
     _ = KingfisherManager.shared.retrieveImage(
       with: .provider(provider),
       options: [
+        .memoryCacheExpiration(.never),
         .processor(DownsamplingImageProcessor(size: .queueSongCoverSize)),
         .scaleFactor(2),
       ]

@@ -35,7 +35,7 @@
                                 </shadow>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="defaultCoverArt" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" refusesFirstResponder="YES" state="on" transparent="YES" imageScaling="proportionallyUpOrDown" inset="2" id="t8A-Hz-L38">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="label" size="13"/>
+                                    <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="showAlbumDetail:" target="-2" id="A4Q-gb-B45"/>
@@ -54,7 +54,7 @@
                 <textField identifier="albumTitle" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KEh-NL-c2W">
                     <rect key="frame" x="8" y="28" width="142" height="17"/>
                     <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Label" id="pDs-0t-e1j">
-                        <font key="font" metaFont="label" size="13"/>
+                        <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -62,7 +62,7 @@
                 <textField identifier="albumArtist" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5Uu-j1-qyT">
                     <rect key="frame" x="8" y="10" width="142" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Label" id="yZn-e9-zyP">
-                        <font key="font" metaFont="label" size="13"/>
+                        <font key="font" metaFont="system"/>
                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -96,6 +96,13 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="addAlbumToQueueMenuAction:" target="-2" id="6wW-oR-ykh"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="g9v-9R-xDB"/>
+                <menuItem title="Refresh album art" id="4Ld-db-wka">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="refreshAlbumArtMenuAction:" target="-2" id="wyO-Dn-k9r"/>
                     </connections>
                 </menuItem>
             </items>

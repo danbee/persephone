@@ -13,17 +13,6 @@ struct PreferencesState: StateType, Equatable {
   let preferences = UserDefaults.standard
 
   var mpdServer: MPDServer
-  let mpdLibraryDirDefault = "~/Music"
-
-  var mpdLibraryDir: String?
-
-  var mpdLibraryDirOrDefault: String {
-    return mpdLibraryDir ?? mpdLibraryDirDefault
-  }
-
-  var expandedMpdLibraryDir: String {
-    return NSString(string: mpdLibraryDirOrDefault).expandingTildeInPath
-  }
 
   var fetchMissingArtworkFromInternet: Bool
 
@@ -32,7 +21,6 @@ struct PreferencesState: StateType, Equatable {
       host: preferences.string(forKey: "mpdHost"),
       port: preferences.value(forKey: "mpdPort") as? Int
     )
-    self.mpdLibraryDir = preferences.string(forKey: "mpdLibraryDir")
     self.fetchMissingArtworkFromInternet = preferences.bool(
       forKey: "fetchMissingArtworkFromInternet"
     )
@@ -45,7 +33,6 @@ struct PreferencesState: StateType, Equatable {
     } else {
       preferences.removeObject(forKey: "mpdPort")
     }
-    preferences.set(mpdLibraryDir, forKey: "mpdLibraryDir")
     preferences.set(fetchMissingArtworkFromInternet, forKey: "fetchMissingArtworkFromInternet")
   }
 }

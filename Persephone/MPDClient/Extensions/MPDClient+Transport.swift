@@ -11,24 +11,26 @@ import mpdclient
 
 extension MPDClient {
   func playPause() {
-    enqueueCommand(command: .playPause)
+    enqueueCommand(command: .playPause, priority: .veryHigh, forceIdle: true)
   }
 
   func stop() {
-    enqueueCommand(command: .stop)
+    enqueueCommand(command: .stop, priority: .veryHigh, forceIdle: true)
   }
 
   func prevTrack() {
-    enqueueCommand(command: .prevTrack)
+    enqueueCommand(command: .prevTrack, priority: .veryHigh, forceIdle: true)
   }
 
   func nextTrack() {
-    enqueueCommand(command: .nextTrack)
+    enqueueCommand(command: .nextTrack, priority: .veryHigh, forceIdle: true)
   }
 
   func seekCurrentSong(timeInSeconds: Float) {
     enqueueCommand(
       command: .seekCurrentSong,
+      priority: .veryHigh,
+      forceIdle: true,
       userData: ["timeInSeconds": timeInSeconds]
     )
   }
@@ -36,6 +38,8 @@ extension MPDClient {
   func setShuffleState(shuffleState: Bool) {
     enqueueCommand(
       command: .setShuffleState,
+      priority: .veryHigh,
+      forceIdle: true,
       userData: ["shuffleState": shuffleState]
     )
   }
@@ -43,6 +47,8 @@ extension MPDClient {
   func setRepeatState(repeatState: Bool) {
     enqueueCommand(
       command: .setRepeatState,
+      priority: .veryHigh,
+      forceIdle: true,
       userData: ["repeatState": repeatState]
     )
   }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16085" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16085"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -429,30 +429,14 @@
             <objects>
                 <viewController title="Cover Art" id="3C9-vU-zjZ" userLabel="Cover Art" customClass="CoverArtPrefsController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="PyK-v2-kus">
-                        <rect key="frame" x="0.0" y="0.0" width="524" height="168"/>
+                        <rect key="frame" x="0.0" y="0.0" width="420" height="103"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zZn-Rm-e1f">
-                                <rect key="frame" x="53" y="129" width="104" height="16"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Music Directory:" id="sPn-V6-CfK">
-                                    <font key="font" usesAppearanceFont="YES"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gDk-ca-eOa">
-                                <rect key="frame" x="162" y="125" width="288" height="21"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="~/Music" drawsBackground="YES" id="7WZ-b7-GUs">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                                <connections>
-                                    <action selector="updateMpdLibraryDir:" target="3C9-vU-zjZ" id="3Ta-fH-5Zh"/>
-                                </connections>
-                            </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pRL-MG-1Be">
-                                <rect key="frame" x="160" y="94" width="264" height="18"/>
+                                <rect key="frame" x="82" y="67" width="264" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="260" id="PJN-iZ-3RV"/>
+                                </constraints>
                                 <buttonCell key="cell" type="check" title="Fetch missing artwork from MusicBrainz" bezelStyle="regularSquare" imagePosition="left" enabled="NO" inset="2" id="LpD-Ew-HMd">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -461,61 +445,31 @@
                                     <action selector="updateFetchMissingArtworkFromInternet:" target="3C9-vU-zjZ" id="I7x-9V-xJr"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="z1g-nP-ksw">
-                                <rect key="frame" x="160" y="63" width="264" height="18"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="260" id="gK0-aW-CJy"/>
-                                </constraints>
-                                <buttonCell key="cell" type="check" title="Save fetched artwork to music directory" bezelStyle="regularSquare" imagePosition="left" enabled="NO" inset="2" id="ZeZ-O4-vjS">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mXh-kY-tMC">
+                                <rect key="frame" x="78" y="21" width="185" height="32"/>
+                                <buttonCell key="cell" type="push" title="Clear album art cache..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="l81-SG-7mf">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="clearAlbumArtCache:" target="3C9-vU-zjZ" id="tXg-rz-lvh"/>
+                                </connections>
                             </button>
-                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xgS-Kg-8KR">
-                                <rect key="frame" x="162" y="26" width="144" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="144" id="DSX-th-Wn1"/>
-                                </constraints>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="folder.jpg" drawsBackground="YES" id="nKF-YI-xBL">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SmH-w6-5QI">
-                                <rect key="frame" x="37" y="30" width="119" height="16"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" enabled="NO" alignment="right" title="Cover art filename:" id="b4u-u7-iWD">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="pRL-MG-1Be" firstAttribute="centerX" secondItem="z1g-nP-ksw" secondAttribute="centerX" id="0Ev-Ia-XBO"/>
-                            <constraint firstItem="gDk-ca-eOa" firstAttribute="leading" secondItem="pRL-MG-1Be" secondAttribute="leading" id="1jd-wZ-a4Q"/>
-                            <constraint firstItem="pRL-MG-1Be" firstAttribute="leading" secondItem="z1g-nP-ksw" secondAttribute="leading" id="3tZ-Ub-RaT"/>
-                            <constraint firstItem="gDk-ca-eOa" firstAttribute="leading" secondItem="zZn-Rm-e1f" secondAttribute="trailing" constant="7" id="C0m-yx-gXh"/>
-                            <constraint firstItem="z1g-nP-ksw" firstAttribute="leading" secondItem="xgS-Kg-8KR" secondAttribute="leading" id="Dkv-ai-X2G"/>
-                            <constraint firstItem="xgS-Kg-8KR" firstAttribute="leading" secondItem="SmH-w6-5QI" secondAttribute="trailing" constant="8" symbolic="YES" id="KQk-nr-H8y"/>
-                            <constraint firstItem="zZn-Rm-e1f" firstAttribute="leading" secondItem="PyK-v2-kus" secondAttribute="leading" constant="55" id="OzK-MR-zuB"/>
-                            <constraint firstAttribute="bottom" secondItem="SmH-w6-5QI" secondAttribute="bottom" constant="30" id="aBY-Ny-jPe"/>
-                            <constraint firstItem="pRL-MG-1Be" firstAttribute="top" secondItem="gDk-ca-eOa" secondAttribute="bottom" constant="15" id="dKy-uC-r43"/>
-                            <constraint firstItem="xgS-Kg-8KR" firstAttribute="top" secondItem="z1g-nP-ksw" secondAttribute="bottom" constant="18" id="lfR-Im-bd4"/>
-                            <constraint firstAttribute="trailing" secondItem="gDk-ca-eOa" secondAttribute="trailing" constant="74" id="n8X-T2-tXA"/>
-                            <constraint firstAttribute="bottom" secondItem="xgS-Kg-8KR" secondAttribute="bottom" constant="26" id="oXZ-qo-HwX"/>
-                            <constraint firstItem="SmH-w6-5QI" firstAttribute="top" secondItem="zZn-Rm-e1f" secondAttribute="bottom" constant="83" id="qhC-mD-Bvw"/>
-                            <constraint firstItem="z1g-nP-ksw" firstAttribute="top" secondItem="pRL-MG-1Be" secondAttribute="bottom" constant="17" id="sTP-hk-zfU"/>
+                            <constraint firstItem="pRL-MG-1Be" firstAttribute="leading" secondItem="PyK-v2-kus" secondAttribute="leading" constant="84" id="81s-YL-o8A"/>
+                            <constraint firstAttribute="bottom" secondItem="pRL-MG-1Be" secondAttribute="bottom" constant="69" id="L7b-jE-keG"/>
+                            <constraint firstItem="mXh-kY-tMC" firstAttribute="leading" secondItem="pRL-MG-1Be" secondAttribute="leading" id="b9X-hO-aYJ"/>
+                            <constraint firstAttribute="bottom" secondItem="mXh-kY-tMC" secondAttribute="bottom" constant="28" id="ras-nE-Oq8"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="fetchMissingArtworkFromInternet" destination="pRL-MG-1Be" id="Xcp-sb-iZm"/>
-                        <outlet property="mpdLibraryDirField" destination="gDk-ca-eOa" id="myi-BQ-0NS"/>
                     </connections>
                 </viewController>
                 <customObject id="KzD-E3-lpA" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1459" y="-242"/>
+            <point key="canvasLocation" x="1407" y="-274.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="VvW-vT-alQ">
@@ -647,18 +601,18 @@
             <objects>
                 <viewController id="KIP-rq-4dM" customClass="QueueViewController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
                     <splitView key="view" misplaced="YES" dividerStyle="thin" id="84I-w3-Mxl">
-                        <rect key="frame" x="0.0" y="0.0" width="329" height="543"/>
+                        <rect key="frame" x="0.0" y="0.0" width="329" height="498"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
                             <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="42" horizontalPageScroll="10" verticalLineScroll="42" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="S3o-nF-NN7">
-                                <rect key="frame" x="0.0" y="0.0" width="329" height="217"/>
+                                <rect key="frame" x="0.0" y="0.0" width="329" height="198"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <clipView key="contentView" drawsBackground="NO" id="WI8-Pw-03L">
-                                    <rect key="frame" x="0.0" y="0.0" width="329" height="217"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="329" height="198"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowHeight="42" rowSizeStyle="automatic" viewBased="YES" indentationMarkerFollowsCell="NO" outlineTableColumn="0Co-uF-CCB" id="jEJ-jg-fll">
-                                            <rect key="frame" x="0.0" y="0.0" width="329" height="217"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="329" height="198"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="0.0"/>
                                             <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -666,7 +620,6 @@
                                             <tableColumns>
                                                 <tableColumn identifier="songCoverColumn" width="43" minWidth="42" maxWidth="1000" id="0Co-uF-CCB" userLabel="Position">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                        <font key="font" metaFont="message" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -712,7 +665,6 @@
                                                 </tableColumn>
                                                 <tableColumn identifier="songInfoColumn" width="213" minWidth="10" maxWidth="3.4028234663852886e+38" id="HP0-ty-PFY" userLabel="Song Info">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
-                                                        <font key="font" metaFont="message" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </tableHeaderCell>
@@ -761,7 +713,6 @@
                                                 </tableColumn>
                                                 <tableColumn identifier="songDurationColumn" width="64" minWidth="64" maxWidth="64" id="8O6-ox-kx2" userLabel="Duration">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
-                                                        <font key="font" metaFont="message" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </tableHeaderCell>
@@ -824,7 +775,7 @@
                                 </scroller>
                             </scrollView>
                             <customView misplaced="YES" id="iUb-eV-Qws">
-                                <rect key="frame" x="0.0" y="218" width="329" height="325"/>
+                                <rect key="frame" x="0.0" y="199" width="329" height="299"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Dw3-M5-tWY" customClass="CurrentCoverArtView" customModule="Persephone" customModuleProvider="target">

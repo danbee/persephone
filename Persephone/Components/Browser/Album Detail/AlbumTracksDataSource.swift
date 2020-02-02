@@ -50,7 +50,8 @@ class AlbumTracksDataSource: NSObject, NSTableViewDataSource {
         type: .albumSongItem(song.mpdSong.uriString),
         title: song.title,
         artist: song.artist,
-        cover: song.album.coverArtFilePath
+        album: song.album.title,
+        uri: song.mpdSong.uriString
       ),
       ofType: .songPasteboardType
     )
@@ -69,10 +70,11 @@ class AlbumTracksDataSource: NSObject, NSTableViewDataSource {
     ) { draggingItem, index, stop in
       guard let item = draggingItem.item as? NSPasteboardItem,
         let draggedSong = item.draggedSong(forType: .songPasteboardType),
-        case let (title?, artist?, cover?) = (
+        case let (title, artist, album, uri) = (
           draggedSong.title,
           draggedSong.artist,
-          draggedSong.cover
+          draggedSong.album,
+          draggedSong.uri
         )
         else { return }
 
@@ -81,7 +83,8 @@ class AlbumTracksDataSource: NSObject, NSTableViewDataSource {
         let draggedSongView = DraggedSongView(
           title: title,
           artist: artist,
-          cover: cover
+          album: album,
+          uri: uri
         )
 
         component.contents = draggedSongView.view.image()

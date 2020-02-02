@@ -37,8 +37,7 @@ extension MPDClient {
       return MPDAlbum(
         title: getTag(.album),
         artist: artist,
-        date: date,
-        path: path
+        date: date
       )
     }
 
@@ -52,11 +51,6 @@ extension MPDClient {
 
     var date: String {
       return getTag(.date)
-    }
-
-    var path: String {
-      return NSString(string: uriString)
-        .deletingLastPathComponent
     }
 
     func getTag(_ tagType: MPDTag) -> String {

@@ -56,10 +56,14 @@ class AlbumViewItem: NSCollectionViewItem {
   }
 
   func setAlbumCover(_ album: Album) {
-    guard let imagePath = album.coverArtFilePath else { return }
+    guard let song = album.mpdAlbum.firstSong
+      else { return }
 
-    let imageURL = URL(fileURLWithPath: imagePath)
-    let provider = LocalFileImageDataProvider(fileURL: imageURL)
+    let provider = MPDAlbumArtImageDataProvider(
+      songUri: song.uriString,
+      cacheKey: album.hash
+    )
+
     albumCoverView.kf.setImage(
       with: .provider(provider),
       placeholder: NSImage.defaultCoverArt,
@@ -86,6 +90,18 @@ class AlbumViewItem: NSCollectionViewItem {
       viewLayer.borderColor = .albumBorderColorLight
       boxLayer.borderColor = isSelected ? NSColor.selectedControlColor.cgColor : CGColor.clear
       boxLayer.backgroundColor = albumCoverBox.layer?.borderColor
+    }
+  }
+  
+  func refreshAlbumArt() {
+    guard let album = album,
+      let mpdSong = album.mpdAlbum.firstSong
+      else { return }
+      
+    let song = Song(mpdSong: mpdSong)
+    
+    CoverArtService(song: song).refresh {
+      self.setAlbumCover(album)
     }
   }
 
@@ -120,5 +136,9 @@ class AlbumViewItem: NSCollectionViewItem {
     let queueLength = App.store.state.queueState.queue.count
 
     App.mpdClient.addAlbumToQueue(album: album.mpdAlbum, at: queueLength)
+  }
+
+  @IBAction func refreshAlbumArtMenuAction(_ sender: NSMenuItem) {
+    refreshAlbumArt()
   }
 }

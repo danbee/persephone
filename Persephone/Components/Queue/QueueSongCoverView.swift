@@ -60,14 +60,15 @@ class QueueSongCoverView: NSTableCellView {
   }
 
   func setSong(_ queueItem: QueueItem, queueIcon: NSImage?) {
-    guard let imagePath = queueItem.song.album.coverArtFilePath
-      else { return }
+    let song = queueItem.song
 
     isPlaying = queueItem.isPlaying
-
-    let imageURL = URL(fileURLWithPath: imagePath)
-    let provider = LocalFileImageDataProvider(fileURL: imageURL)
     
+    let provider = MPDAlbumArtImageDataProvider(
+      songUri: song.mpdSong.uriString,
+      cacheKey: song.album.hash
+    )
+
     queueSongCover.kf.setImage(
       with: .provider(provider),
       placeholder: NSImage.defaultCoverArt,

@@ -24,6 +24,7 @@ class QueueViewController: NSViewController {
 
     NotificationCenter.default.addObserver(self, selector: #selector(didConnect), name: .didConnect, object: nil)
     NotificationCenter.default.addObserver(self, selector: #selector(willDisconnect), name: .willDisconnect, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(didReloadAlbumArt), name: .didReloadAlbumArt, object: nil)
 
     queueView.dataSource = dataSource
     queueView.columnAutoresizingStyle = .sequentialColumnAutoresizingStyle
@@ -60,6 +61,10 @@ class QueueViewController: NSViewController {
       App.store.dispatch(UpdateQueuePosAction(queuePos: -1))
       App.store.dispatch(UpdateQueueAction(queue: []))
     }
+  }
+  
+  @objc func didReloadAlbumArt() {
+    queueView.reloadData()
   }
 
   @IBAction func playTrack(_ sender: Any) {

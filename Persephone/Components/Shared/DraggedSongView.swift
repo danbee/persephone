@@ -16,12 +16,14 @@ class DraggedSongView: NSViewController {
   
   private let songTitle: String
   private let songArtist: String
-  private let songCover: String?
+  private let songAlbum: String
+  private let songUri: String
 
-  init(title: String, artist: String, cover: String? = nil) {
+  init(title: String, artist: String, album: String, uri: String) {
     songTitle = title
     songArtist = artist
-    songCover = cover
+    songAlbum = album
+    songUri = uri
 
     super.init(nibName: nil, bundle: nil)
   }
@@ -58,11 +60,13 @@ class DraggedSongView: NSViewController {
   }
   
   func setCoverArt() {
-    guard let imagePath = songCover else { return }
+    let mpdAlbum = MPDClient.MPDAlbum(title: songAlbum, artist: songArtist)
 
-    let imageURL = URL(fileURLWithPath: imagePath)
-    let provider = LocalFileImageDataProvider(fileURL: imageURL)
-    
+    let provider = MPDAlbumArtImageDataProvider(
+      songUri: songUri,
+      cacheKey: Album(mpdAlbum: mpdAlbum).hash
+    )
+
     coverImage.kf.setImage(
       with: .provider(provider),
       placeholder: NSImage.defaultCoverArt,

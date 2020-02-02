@@ -12,8 +12,8 @@ extension MPDClient {
   struct MPDAlbum: Equatable {
     let title: String
     let artist: String
+    var firstSong: MPDSong?
     var date: String?
-    var path: String?
 
     static func == (lhs: MPDAlbum, rhs: MPDAlbum) -> Bool {
       return lhs.title == rhs.title &&

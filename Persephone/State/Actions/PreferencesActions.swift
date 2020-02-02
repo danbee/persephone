@@ -16,10 +16,6 @@ struct UpdateServerPort: Action {
   var port: Int?
 }
 
-struct UpdateMPDLibraryDir: Action {
-  var mpdLibraryDir: String?
-}
-
 struct UpdateFetchMissingArtworkFromInternet: Action {
   var fetchMissingArtworkFromInternet: Bool
 }

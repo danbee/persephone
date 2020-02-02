@@ -119,6 +119,22 @@ extension MPDClient {
         else { return }
 
       albumSongs(for: album, callback: callback)
+      
+      // Song commands
+      case .fetchAlbumArt:
+        guard let songUri = userData["songUri"] as? String,
+          let offset = userData["offset"] as? Int32,
+          let callback = userData["callback"] as? (Data?) -> Void
+          else { return }
+      
+        var imageData = userData["imageData"] as? Data? ?? nil
+        
+        sendFetchAlbumArt(
+          forUri: songUri,
+          imageData: imageData,
+          offset: offset,
+          callback: callback
+        )
     }
     
   }
@@ -126,6 +142,7 @@ extension MPDClient {
   func enqueueCommand(
     command: MPDCommand,
     priority: BlockOperation.QueuePriority = .normal,
+    forceIdle: Bool = false,
     userData: Dictionary<String, Any> = [:]
   ) {
     guard isConnected else { return }
@@ -135,7 +152,7 @@ extension MPDClient {
     let commandOperation = BlockOperation() { [unowned self] in
       self.sendCommand(command: command, userData: userData)
 
-      self.idle()
+      self.idle(forceIdle)
     }
     commandOperation.queuePriority = priority
     commandQueue.addOperation(commandOperation)

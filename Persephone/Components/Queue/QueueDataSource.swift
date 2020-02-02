@@ -44,7 +44,8 @@ class QueueDataSource: NSObject, NSOutlineViewDataSource {
         type: .queueItem(queueItem.queuePos),
         title: queueItem.song.title,
         artist: queueItem.song.artist,
-        cover: queueItem.song.album.coverArtFilePath
+        album: queueItem.song.album.title,
+        uri: queueItem.song.mpdSong.uriString
       ),
       ofType: .songPasteboardType
     )
@@ -128,10 +129,11 @@ class QueueDataSource: NSObject, NSOutlineViewDataSource {
       guard let item = draggingItem.item as? NSPasteboardItem,
         let data = item.data(forType: .songPasteboardType),
         let draggedSong = try? PropertyListDecoder().decode(DraggedSong.self, from: data),
-        case let (title?, artist?, cover?) = (
+        case let (title, artist, album, uri) = (
           draggedSong.title,
           draggedSong.artist,
-          draggedSong.cover
+          draggedSong.album,
+          draggedSong.uri
         )
         else { return }
 
@@ -140,7 +142,8 @@ class QueueDataSource: NSObject, NSOutlineViewDataSource {
         let draggedSongView = DraggedSongView(
           title: title,
           artist: artist,
-          cover: cover
+          album: album,
+          uri: uri
         )
 
         let view = draggedSongView.view

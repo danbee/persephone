@@ -18,14 +18,16 @@ class UserNotificationsController {
   }
 
   func notifyTrack(_ state: Song?) {
-    guard let currentSong = state,
-      let coverArtFilePath = currentSong.album.coverArtFilePath,
+    guard let song = state,
       let status = App.mpdClient.status,
       status.state == .playing
       else { return }
+    
+    let provider = MPDAlbumArtImageDataProvider(
+      songUri: song.mpdSong.uriString,
+      cacheKey: song.album.hash
+    )
 
-    let imageURL = URL(fileURLWithPath: coverArtFilePath)
-    let provider = LocalFileImageDataProvider(fileURL: imageURL)
     _ = KingfisherManager.shared.retrieveImage(
       with: .provider(provider),
       options: [
@@ -35,7 +37,7 @@ class UserNotificationsController {
     ) { result in
       switch result {
       case .success(let value):
-        SongNotifierService(song: currentSong, image: value.image)
+        SongNotifierService(song: song, image: value.image)
           .deliver()
       case .failure:
         break

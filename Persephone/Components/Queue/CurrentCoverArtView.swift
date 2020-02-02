@@ -17,13 +17,23 @@ class CurrentCoverArtView: NSImageView {
     App.store.subscribe(self) {
       $0.select { $0.playerState.currentSong }
     }
+    
+    NotificationCenter.default.addObserver(self, selector: #selector(didReloadAlbumArt), name: .didReloadAlbumArt, object: nil)
+  }
+  
+  @objc func didReloadAlbumArt() {
+    guard let song = App.store.state.playerState.currentSong
+      else { return }
+    
+    setSongImage(song)
   }
 
-  func setAlbumImage(_ album: Album) {
-    guard let imagePath = album.coverArtFilePath else { return }
+  func setSongImage(_ song: Song) {
+    let provider = MPDAlbumArtImageDataProvider(
+      songUri: song.mpdSong.uriString,
+      cacheKey: song.album.hash
+    )
 
-    let imageURL = URL(fileURLWithPath: imagePath)
-    let provider = LocalFileImageDataProvider(fileURL: imageURL)
     kf.setImage(
       with: .provider(provider),
       placeholder: NSImage.defaultCoverArt,
@@ -44,6 +54,6 @@ extension CurrentCoverArtView: StoreSubscriber {
       return
     }
     
-    setAlbumImage(song.album)
+    setSongImage(song)
   }
 }

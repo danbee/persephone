@@ -48,5 +48,8 @@ extension MPDClient {
     case playAlbum
     case getAlbumFirstSong
     case getAlbumSongs
+    
+    // Song commands
+    case fetchAlbumArt
   }
 }

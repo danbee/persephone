@@ -74,8 +74,8 @@ extension MPDClient {
       let mpdAlbum = MPDAlbum(
         title: mpdSong.album.title,
         artist: mpdSong.artist,
-        date: mpdSong.date,
-        path: mpdSong.path
+        firstSong: mpdSong,
+        date: mpdSong.date
       )
       if (mpdAlbum != albums.last) {
         albums.append(mpdAlbum)

@@ -7,14 +7,11 @@
 //
 
 import AppKit
+import Kingfisher
 
 class CoverArtPrefsController: NSViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
-
-    if let mpdLibraryDir = App.store.state.preferencesState.mpdLibraryDir {
-      mpdLibraryDirField.stringValue = mpdLibraryDir
-    }
 
     if App.store.state.preferencesState.fetchMissingArtworkFromInternet {
       fetchMissingArtworkFromInternet.state = .on
@@ -33,12 +30,6 @@ class CoverArtPrefsController: NSViewController {
     self.parent?.view.window?.title = title
   }
 
-  @IBAction func updateMpdLibraryDir(_ sender: NSTextField) {
-    App.store.dispatch(UpdateMPDLibraryDir(mpdLibraryDir: sender.stringValue))
-  }
-
-  @IBOutlet var mpdLibraryDirField: NSTextField!
-
   @IBAction func updateFetchMissingArtworkFromInternet(_ sender: NSButton) {
     App.store.dispatch(
       UpdateFetchMissingArtworkFromInternet(
@@ -47,5 +38,10 @@ class CoverArtPrefsController: NSViewController {
     )
   }
 
+  @IBAction func clearAlbumArtCache(_ sender: NSButton) {
+    KingfisherManager.shared.cache.clearDiskCache()
+    KingfisherManager.shared.cache.clearMemoryCache()
+  }
+  
   @IBOutlet var fetchMissingArtworkFromInternet: NSButton!
 }

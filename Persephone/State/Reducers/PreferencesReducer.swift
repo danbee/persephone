@@ -20,9 +20,6 @@ func preferencesReducer(action: Action, state: PreferencesState?) -> Preferences
   case let action as UpdateServerPort:
     state.mpdServer.port = action.port
 
-  case let action as UpdateMPDLibraryDir:
-    state.mpdLibraryDir = action.mpdLibraryDir
-
   case is SavePreferences:
     state.save()
 
