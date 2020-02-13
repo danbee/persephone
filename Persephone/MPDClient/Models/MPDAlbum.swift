@@ -17,8 +17,7 @@ extension MPDClient {
 
     static func == (lhs: MPDAlbum, rhs: MPDAlbum) -> Bool {
       return lhs.title == rhs.title &&
-        lhs.artist == rhs.artist &&
-        lhs.date == rhs.date
+        lhs.artist == rhs.artist
     }
   }
 }
