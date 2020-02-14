@@ -113,15 +113,18 @@ class AlbumDetailView: NSViewController {
   }
 
   func getAlbumSongs(for album: Album) {
-    App.mpdClient.getAlbumSongs(for: album.mpdAlbum) { [self] (mpdSongs: [MPDClient.MPDSong]) in
-      self.dataSource.setAlbumSongs(
-        mpdSongs.map { Song(mpdSong: $0) }
-      )
+    App.mpdClient.getAlbumSongs(for: album.mpdAlbum) { [weak self] (mpdSongs: [MPDClient.MPDSong]) in
+      guard let self = self else { return }
 
       DispatchQueue.main.async {
+        self.dataSource.setAlbumSongs(
+          mpdSongs.map { Song(mpdSong: $0) }
+        )
+
         self.albumTracksView.reloadData()
 
-        guard let song = self.dataSource.albumSongs.first?.song ??
+        guard !self.dataSource.albumSongs.isEmpty,
+          let song = self.dataSource.albumSongs.first?.song ??
           self.dataSource.albumSongs[1].song
           else { return }
 
