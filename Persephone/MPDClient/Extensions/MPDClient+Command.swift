@@ -127,7 +127,7 @@ extension MPDClient {
           let callback = userData["callback"] as? (Data?) -> Void
           else { return }
       
-        var imageData = userData["imageData"] as? Data? ?? nil
+        let imageData = userData["imageData"] as? Data? ?? nil
         
         sendFetchAlbumArt(
           forUri: songUri,
