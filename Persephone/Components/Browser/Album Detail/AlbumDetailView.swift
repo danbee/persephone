@@ -113,9 +113,7 @@ class AlbumDetailView: NSViewController {
   }
 
   func getAlbumSongs(for album: Album) {
-    App.mpdClient.getAlbumSongs(for: album.mpdAlbum) { [weak self] (mpdSongs: [MPDClient.MPDSong]) in
-      guard let self = self else { return }
-
+    App.mpdClient.getAlbumSongs(for: album.mpdAlbum) { [self] (mpdSongs: [MPDClient.MPDSong]) in
       self.dataSource.setAlbumSongs(
         mpdSongs.map { Song(mpdSong: $0) }
       )
