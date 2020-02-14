@@ -67,7 +67,7 @@ extension MPDClient {
     mpd_return_pair(self.connection, binaryPair.pair)
     
     _ = data[offset...].withUnsafeMutableBytes { (pointer) in
-      mpd_recv_binary(self.connection, pointer, chunkSize)
+      mpd_recv_binary(self.connection, pointer.baseAddress, chunkSize)
     }
     
     guard mpd_response_finish(self.connection) else { return }
