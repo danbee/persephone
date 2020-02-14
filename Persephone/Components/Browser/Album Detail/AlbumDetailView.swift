@@ -120,13 +120,11 @@ class AlbumDetailView: NSViewController {
 
       DispatchQueue.main.async {
         self.albumTracksView.reloadData()
-      }
 
-      guard let song = self.dataSource.albumSongs.first?.song ??
-        self.dataSource.albumSongs[1].song
-        else { return }
+        guard let song = self.dataSource.albumSongs.first?.song ??
+          self.dataSource.albumSongs[1].song
+          else { return }
 
-      DispatchQueue.main.async {
         self.getBigCoverArt(song: song, album: album)
       }
     }
