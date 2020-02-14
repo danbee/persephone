@@ -147,15 +147,10 @@ class AlbumDetailView: NSViewController {
       ]
     )
 
-    cacheSmallCover(song: song, album: album)
+    cacheSmallCover(provider: provider)
   }
   
-  func cacheSmallCover(song: Song, album: Album) {
-    let provider = MPDAlbumArtImageDataProvider(
-      songUri: song.mpdSong.uriString,
-      cacheKey: album.hash
-    )
-
+  func cacheSmallCover(provider: MPDAlbumArtImageDataProvider) {
     _ = KingfisherManager.shared.retrieveImage(
       with: .provider(provider),
       options: [
