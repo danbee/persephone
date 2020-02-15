@@ -12,9 +12,9 @@ import Kingfisher
 public struct MPDAlbumArtImageDataProvider: ImageDataProvider {
   let songUri: String
 
-  init(songUri: String, cacheKey: String? = nil) {
+  init(songUri: String, cacheKey: String) {
     self.songUri = songUri
-    self.cacheKey = cacheKey ?? songUri
+    self.cacheKey = cacheKey
   }
 
   public var cacheKey: String

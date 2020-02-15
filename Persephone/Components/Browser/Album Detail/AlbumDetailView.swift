@@ -123,12 +123,10 @@ class AlbumDetailView: NSViewController {
 
         self.albumTracksView.reloadData()
 
-        guard !self.dataSource.albumSongs.isEmpty,
-          let song = self.dataSource.albumSongs.first?.song ??
-          self.dataSource.albumSongs[1].song
+        guard let mpdSong = album.mpdAlbum.firstSong
           else { return }
 
-        self.getBigCoverArt(song: song, album: album)
+        self.getBigCoverArt(song: Song(mpdSong: mpdSong), album: album)
       }
     }
   }
