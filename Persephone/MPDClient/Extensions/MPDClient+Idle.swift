@@ -11,10 +11,10 @@ import mpdclient
 
 extension MPDClient {
   func noIdle() {
-    if isIdle {
-      do {
-        idleLock.lock()
-        defer { idleLock.unlock() }
+    do {
+      idleLock.lock()
+      defer { idleLock.unlock() }
+      if isIdle {
         mpd_send_noidle(connection)
         isIdle = false
       }
@@ -22,14 +22,21 @@ extension MPDClient {
   }
 
   func idle(_ force: Bool = false) {
-    if (!self.isIdle && self.commandQueue.operationCount == 1) || force {
-      do {
-        idleLock.lock()
-        defer { idleLock.unlock() }
+    let shouldIdle: Bool
+  
+    do {
+      idleLock.lock()
+      defer { idleLock.unlock() }
+        shouldIdle = (!self.isIdle && self.commandQueue.operationCount == 1) || force
+      if shouldIdle {
         mpd_send_idle(self.connection)
         self.isIdle = true
       }
+    }
+    
+    // noIdle could happen here which will crash
 
+    if shouldIdle {
       let result = mpd_recv_idle(self.connection, true)
       self.handleIdleResult(result)
     }
