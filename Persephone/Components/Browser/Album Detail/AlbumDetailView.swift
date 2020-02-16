@@ -145,19 +145,6 @@ class AlbumDetailView: NSViewController {
         .scaleFactor(2),
       ]
     )
-
-    cacheSmallCover(provider: provider)
-  }
-  
-  func cacheSmallCover(provider: MPDAlbumArtImageDataProvider) {
-    _ = KingfisherManager.shared.retrieveImage(
-      with: .provider(provider),
-      options: [
-        .memoryCacheExpiration(.never),
-        .processor(DownsamplingImageProcessor(size: .queueSongCoverSize)),
-        .scaleFactor(2),
-      ]
-    ) { result in }
   }
 
   func setAppearance() {
