@@ -154,6 +154,7 @@ extension MPDClient {
 
       self.idle(forceIdle)
     }
+
     commandOperation.queuePriority = priority
     commandQueue.addOperation(commandOperation)
   }
