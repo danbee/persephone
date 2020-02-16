@@ -81,11 +81,11 @@ extension MPDClient {
             self.delegate?.didFinishDatabaseUpdate(mpdClient: self)
           }
         }
-
-        if !mpdIdle.isEmpty {
-          self.idle()
-        }
       }
+    }
+
+    if !mpdIdle.isEmpty {
+      self.idle()
     }
   }
 }
