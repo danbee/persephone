@@ -30,13 +30,13 @@ extension MPDClient {
   func searchSongs(_ terms: [MPDClient.MPDTag: String]) -> [MPDSong] {
     var songs: [MPDSong] = []
 
-    mpd_search_db_songs(self.connection, true)
+    mpd_search_db_songs(connection, true)
     for (tag, term) in terms {
-      mpd_search_add_tag_constraint(self.connection, MPD_OPERATOR_DEFAULT, tag.mpdTag(), term)
+      mpd_search_add_tag_constraint(connection, MPD_OPERATOR_DEFAULT, tag.mpdTag(), term)
     }
-    mpd_search_commit(self.connection)
+    mpd_search_commit(connection)
 
-    while let song = mpd_recv_song(self.connection) {
+    while let song = mpd_recv_song(connection) {
       songs.append(MPDSong(song))
     }
 
@@ -51,31 +51,31 @@ extension MPDClient {
   ) -> Void {
     var size: Int?
     
-    mpd_send_albumart(self.connection, songUri, String(offset))
+    mpd_send_albumart(connection, songUri, String(offset))
     
-    guard let sizePair = mpd_recv_pair(self.connection) else {
-      mpd_connection_clear_error(self.connection)
+    guard let sizePair = mpd_recv_pair(connection) else {
+      mpd_connection_clear_error(connection)
       return
     }
     size = Int(MPDPair(sizePair).value)
-    mpd_return_pair(self.connection, sizePair)
+    mpd_return_pair(connection, sizePair)
 
     var data = imageData ?? Data(count: size!)
           
-    let binaryPair = MPDPair(mpd_recv_pair(self.connection))
+    let binaryPair = MPDPair(mpd_recv_pair(connection))
     let chunkSize = Int(binaryPair.value)!
-    mpd_return_pair(self.connection, binaryPair.pair)
+    mpd_return_pair(connection, binaryPair.pair)
     
     _ = data[offset...].withUnsafeMutableBytes { (pointer) in
-      mpd_recv_binary(self.connection, pointer.baseAddress, chunkSize)
+      mpd_recv_binary(connection, pointer.baseAddress, chunkSize)
     }
     
-    guard mpd_response_finish(self.connection) else { return }
+    guard mpd_response_finish(connection) else { return }
     
     let newOffset = offset + Int32(chunkSize)
     
     if newOffset < size! {
-      self.fetchAlbumArt(
+      fetchAlbumArt(
         songUri: songUri,
         imageData: data,
         offset: newOffset,
