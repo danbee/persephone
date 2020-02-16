@@ -27,9 +27,9 @@ extension MPDClient {
     do {
       idleLock.lock()
       defer { idleLock.unlock() }
-        shouldIdle = (!self.isIdle && self.commandQueue.operationCount == 1) || force
+      shouldIdle = (!isIdle && commandQueue.operationCount == 1) || force
       if shouldIdle {
-        mpd_send_idle(self.connection)
+        mpd_send_idle(connection)
         self.isIdle = true
       }
     }
@@ -37,51 +37,55 @@ extension MPDClient {
     // noIdle could happen here which will crash
 
     if shouldIdle {
-      let result = mpd_recv_idle(self.connection, true)
-      self.handleIdleResult(result)
+      let result = mpd_recv_idle(connection, true)
+      handleIdleResult(result)
     }
   }
 
   func handleIdleResult(_ result: mpd_idle) {
+    let mpdIdle = MPDIdle(rawValue: result.rawValue)
+
     do {
       idleLock.lock()
       defer { idleLock.unlock() }
-      isIdle = false
-    }
-    
-    let mpdIdle = MPDIdle(rawValue: result.rawValue)
 
-    if mpdIdle.contains(.database) {
-      self.fetchAllAlbums()
-    }
-    if mpdIdle.contains(.queue) {
-      self.fetchQueue()
-      self.fetchStatus()
+      if isIdle {
+        isIdle = false
+      
+        if mpdIdle.contains(.database) {
+          self.fetchAllAlbums()
+        }
+        if mpdIdle.contains(.queue) {
+          self.fetchQueue()
+          self.fetchStatus()
 
-      self.delegate?.didUpdateQueue(mpdClient: self, queue: self.queue)
-      if let status = self.status {
-        self.delegate?.didUpdateQueuePos(mpdClient: self, song: status.song)
+          self.delegate?.didUpdateQueue(mpdClient: self, queue: self.queue)
+          if let status = self.status {
+            self.delegate?.didUpdateQueuePos(mpdClient: self, song: status.song)
+          }
+        }
+        if mpdIdle.contains(.player) || mpdIdle.contains(.options) {
+          self.fetchStatus()
+
+          if let status = self.status {
+            self.delegate?.didUpdateStatus(mpdClient: self, status: status)
+            self.delegate?.didUpdateQueuePos(mpdClient: self, song: status.song)
+          }
+        }
+        if mpdIdle.contains(.update) {
+          self.fetchStatus()
+
+          if self.status?.updating ?? false {
+            self.delegate?.willStartDatabaseUpdate(mpdClient: self)
+          } else {
+            self.delegate?.didFinishDatabaseUpdate(mpdClient: self)
+          }
+        }
+
+        if !mpdIdle.isEmpty {
+          self.idle()
+        }
       }
-    }
-    if mpdIdle.contains(.player) || mpdIdle.contains(.options) {
-      self.fetchStatus()
-
-      if let status = self.status {
-        self.delegate?.didUpdateStatus(mpdClient: self, status: status)
-        self.delegate?.didUpdateQueuePos(mpdClient: self, song: status.song)
-      }
-    }
-    if mpdIdle.contains(.update) {
-      self.fetchStatus()
-
-      if self.status?.updating ?? false {
-        self.delegate?.willStartDatabaseUpdate(mpdClient: self)
-      } else {
-        self.delegate?.didFinishDatabaseUpdate(mpdClient: self)
-      }
-    }
-    if !mpdIdle.isEmpty {
-      self.idle()
     }
   }
 }
