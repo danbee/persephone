@@ -74,17 +74,15 @@ extension MPDClient {
     
     let newOffset = offset + Int32(chunkSize)
     
-    DispatchQueue.main.async {
-      if newOffset < size! {
-        self.fetchAlbumArt(
-          songUri: songUri,
-          imageData: data,
-          offset: newOffset,
-          callback: callback
-        )
-      } else {
-        callback(data)
-      }
+    if newOffset < size! {
+      self.fetchAlbumArt(
+        songUri: songUri,
+        imageData: data,
+        offset: newOffset,
+        callback: callback
+      )
+    } else {
+      callback(data)
     }
   }
 }
