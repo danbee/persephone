@@ -33,8 +33,6 @@ extension MPDClient {
         self.isIdle = true
       }
     }
-    
-    // noIdle could happen here which will crash
 
     if shouldIdle {
       let result = mpd_recv_idle(connection, true)
