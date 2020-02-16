@@ -19,27 +19,51 @@ extension MPDClient {
   }
 
   func playTrack(at queuePos: Int) {
-    enqueueCommand(command: .playTrack, userData: ["queuePos": queuePos])
+    enqueueCommand(
+      command: .playTrack,
+      forceIdle: true,
+      userData: ["queuePos": queuePos]
+    )
   }
 
   func appendSong(_ song: MPDSong) {
-    enqueueCommand(command: .appendSong, userData: ["song": song])
+    enqueueCommand(
+      command: .appendSong,
+      forceIdle: true,
+      userData: ["song": song]
+    )
   }
 
   func removeSong(at queuePos: Int) {
-    enqueueCommand(command: .removeSong, userData: ["queuePos": queuePos])
+    enqueueCommand(
+      command: .removeSong,
+      forceIdle: true,
+      userData: ["queuePos": queuePos]
+    )
   }
 
   func moveSongInQueue(at queuePos: Int, to newQueuePos: Int) {
-    enqueueCommand(command: .moveSongInQueue, userData: ["oldQueuePos": queuePos, "newQueuePos": newQueuePos])
+    enqueueCommand(
+      command: .moveSongInQueue,
+      forceIdle: true,
+      userData: ["oldQueuePos": queuePos, "newQueuePos": newQueuePos]
+    )
   }
 
   func addSongToQueue(songUri: String, at queuePos: Int) {
-    enqueueCommand(command: .addSongToQueue, userData: ["uri": songUri, "queuePos": queuePos])
+    enqueueCommand(
+      command: .addSongToQueue,
+      forceIdle: true,
+      userData: ["uri": songUri, "queuePos": queuePos]
+    )
   }
 
   func addAlbumToQueue(album: MPDAlbum, at queuePos: Int) {
-    enqueueCommand(command: .addAlbumToQueue, userData: ["album": album, "queuePos": queuePos])
+    enqueueCommand(
+      command: .addAlbumToQueue,
+      forceIdle: true,
+      userData: ["album": album, "queuePos": queuePos]
+    )
   }
 
   func sendPlayTrack(at queuePos: Int) {

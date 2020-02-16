@@ -18,6 +18,7 @@ extension MPDClient {
   ) {
     enqueueCommand(
       command: .fetchAlbumArt,
+      priority: .low,
       userData: [
         "songUri": songUri,
         "callback": callback,
