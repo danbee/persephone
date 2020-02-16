@@ -42,48 +42,48 @@ extension MPDClient {
 
   func handleIdleResult(_ result: mpd_idle) {
     let mpdIdle = MPDIdle(rawValue: result.rawValue)
+    let wasIdle: Bool
 
     do {
       idleLock.lock()
       defer { idleLock.unlock() }
-
-      if isIdle {
-        isIdle = false
-      
-        if mpdIdle.contains(.database) {
-          self.fetchAllAlbums()
-        }
-        if mpdIdle.contains(.queue) {
-          self.fetchQueue()
-          self.fetchStatus()
-
-          self.delegate?.didUpdateQueue(mpdClient: self, queue: self.queue)
-          if let status = self.status {
-            self.delegate?.didUpdateQueuePos(mpdClient: self, song: status.song)
-          }
-        }
-        if mpdIdle.contains(.player) || mpdIdle.contains(.options) {
-          self.fetchStatus()
-
-          if let status = self.status {
-            self.delegate?.didUpdateStatus(mpdClient: self, status: status)
-            self.delegate?.didUpdateQueuePos(mpdClient: self, song: status.song)
-          }
-        }
-        if mpdIdle.contains(.update) {
-          self.fetchStatus()
-
-          if self.status?.updating ?? false {
-            self.delegate?.willStartDatabaseUpdate(mpdClient: self)
-          } else {
-            self.delegate?.didFinishDatabaseUpdate(mpdClient: self)
-          }
-        }
-      }
+      wasIdle = isIdle
+      isIdle = false
     }
 
-    if !mpdIdle.isEmpty {
-      self.idle()
+    if wasIdle {
+      if mpdIdle.contains(.database) {
+        self.fetchAllAlbums()
+      }
+      if mpdIdle.contains(.queue) {
+        self.fetchQueue()
+        self.fetchStatus()
+
+        self.delegate?.didUpdateQueue(mpdClient: self, queue: self.queue)
+        if let status = self.status {
+          self.delegate?.didUpdateQueuePos(mpdClient: self, song: status.song)
+        }
+      }
+      if mpdIdle.contains(.player) || mpdIdle.contains(.options) {
+        self.fetchStatus()
+
+        if let status = self.status {
+          self.delegate?.didUpdateStatus(mpdClient: self, status: status)
+          self.delegate?.didUpdateQueuePos(mpdClient: self, song: status.song)
+        }
+      }
+      if mpdIdle.contains(.update) {
+        self.fetchStatus()
+
+        if self.status?.updating ?? false {
+          self.delegate?.willStartDatabaseUpdate(mpdClient: self)
+        } else {
+          self.delegate?.didFinishDatabaseUpdate(mpdClient: self)
+        }
+      }
+      if !mpdIdle.isEmpty {
+        self.idle()
+      }
     }
   }
 }
