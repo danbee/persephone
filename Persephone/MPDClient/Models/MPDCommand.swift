@@ -22,6 +22,8 @@ extension MPDClient {
 
     case setShuffleState
     case setRepeatState
+    
+    case setVolume
 
     // Database commands
     case updateDatabase

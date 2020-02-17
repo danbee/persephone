@@ -46,6 +46,11 @@ extension MPDClient {
       guard let repeatState = userData["repeatState"] as? Bool
         else { return }
       sendRepeatState(repeatState: repeatState)
+      
+    case .setVolume:
+      guard let volume = userData["volume"] as? Int
+        else { return }
+      sendSetVolume(to: volume)
 
     // Database commands
     case .updateDatabase:

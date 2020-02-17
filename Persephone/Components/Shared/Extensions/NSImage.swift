@@ -15,4 +15,10 @@ extension NSImage {
   static let queuePauseIcon = NSImage(named: "queuePauseButton")
   
   static let defaultCoverArt = NSImage(named: "defaultCoverArt")
+  
+  static let speakerDisabled = NSImage(named: "speakerDisabled")
+  static let speakerOff = NSImage(named: "speakerOff")
+  static let speakerLow = NSImage(named: "speakerLow")
+  static let speakerMid = NSImage(named: "speakerMid")
+  static let speakerHigh = NSImage(named: "speakerHigh")
 }

@@ -20,3 +20,7 @@ struct UpdateElapsedTimeAction: Action {
 struct UpdateStatusAction: Action {
   var status: MPDClient.MPDStatus
 }
+
+struct UpdateVolumeAction: Action {
+  var volume: Int
+}

@@ -16,6 +16,8 @@ struct PlayerState: StateType {
   var state: MPDClient.MPDStatus.State?
   var shuffleState: Bool = false
   var repeatState: Bool = false
+  
+  var volume: Int = 0
 
   var totalTime: UInt?
   var elapsedTimeMs: UInt?
@@ -23,10 +25,11 @@ struct PlayerState: StateType {
 
 extension PlayerState: Equatable {
   static func == (lhs: PlayerState, rhs: PlayerState) -> Bool {
-    return (lhs.state == rhs.state) &&
-      (lhs.totalTime == rhs.totalTime) &&
-      (lhs.elapsedTimeMs == rhs.elapsedTimeMs) &&
-      (lhs.shuffleState == rhs.shuffleState) &&
-      (lhs.repeatState == rhs.repeatState)
+    return lhs.state == rhs.state &&
+      lhs.totalTime == rhs.totalTime &&
+      lhs.elapsedTimeMs == rhs.elapsedTimeMs &&
+      lhs.shuffleState == rhs.shuffleState &&
+      lhs.repeatState == rhs.repeatState &&
+      lhs.volume == rhs.volume
   }
 }

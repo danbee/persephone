@@ -27,6 +27,8 @@ class WindowController: NSWindowController {
   @IBOutlet var shuffleState: NSButton!
   @IBOutlet var repeatState: NSButton!
 
+  @IBOutlet var volumeState: NSButton!
+
   @IBOutlet weak var searchQuery: NSSearchField!
 
   override func windowDidLoad() {
@@ -120,6 +122,25 @@ class WindowController: NSWindowController {
 
     trackRemaining.stringValue = time.formattedTime
   }
+  
+  func setVolumeControlIcon(_ state: PlayerState) {
+    volumeState.isEnabled = state.volume != -1
+
+    switch state.volume {
+    case -1:
+      volumeState.image = .speakerDisabled
+    case 0..<5:
+      volumeState.image = .speakerOff
+    case 5..<40:
+      volumeState.image = .speakerLow
+    case 40..<70:
+      volumeState.image = .speakerMid
+    case 70...100:
+      volumeState.image = .speakerHigh
+    default:
+      break
+    }
+  }
     
   @objc func willDisconnect() {
     DispatchQueue.main.async {
@@ -176,6 +197,16 @@ class WindowController: NSWindowController {
   @IBAction func handleSearchQuery(_ sender: NSSearchField) {
     App.store.dispatch(SetSearchQuery(searchQuery: sender.stringValue))
   }
+  
+  @IBAction func showVolumeControl(_ sender: NSButton) {
+    VolumeControlView.popover.contentViewController = VolumeControlView.shared
+    VolumeControlView.popover.behavior = .transient
+    VolumeControlView.popover.show(
+      relativeTo: sender.bounds,
+      of: sender,
+      preferredEdge: .maxY
+    )
+  }
 }
 
 extension WindowController: NSWindowDelegate {
@@ -201,6 +232,7 @@ extension WindowController: StoreSubscriber {
       self.setShuffleRepeatState(state.playerState)
       self.setTrackProgressControls(state.playerState)
       self.setDatabaseUpdatingIndicator(state.uiState)
+      self.setVolumeControlIcon(state.playerState)
     }
   }
 }
