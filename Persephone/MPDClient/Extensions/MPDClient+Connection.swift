@@ -11,16 +11,19 @@ import mpdclient
 
 extension MPDClient {
   func createConnection(host: String, port: Int) {
-    guard let connection = mpd_connection_new(host, UInt32(port), 10000),
-      mpd_connection_get_error(connection) == MPD_ERROR_SUCCESS
-      else { return }
+    connection = mpd_connection_new(host, UInt32(port), 10000)
+    let error = mpd_connection_get_error(connection)
+
+    guard error == MPD_ERROR_SUCCESS else {
+      handleError(mpdError: error)
+      return
+    }
 
     self.isConnected = true
 
     guard let status = mpd_run_status(connection)
       else { return }
 
-    self.connection = connection
     self.status = MPDStatus(status)
 
     delegate?.didConnect(mpdClient: self)

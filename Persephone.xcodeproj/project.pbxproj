@@ -101,6 +101,7 @@
 		E4B11BC02275EE150075461B /* QueueActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BBF2275EE150075461B /* QueueActions.swift */; };
 		E4B11BC22275EE410075461B /* AlbumListActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BC12275EE410075461B /* AlbumListActions.swift */; };
 		E4B3DF6523D66A4400728F6B /* QueueSongCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B3DF6423D66A4400728F6B /* QueueSongCoverView.swift */; };
+		E4B46F8F2402E89800152157 /* MPDError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B46F8E2402E89800152157 /* MPDError.swift */; };
 		E4B5AE7E22F4C49600CCEC65 /* MPDServerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B5AE7D22F4C49600CCEC65 /* MPDServerDelegate.swift */; };
 		E4BB7F8F23E5E7BC00906E2F /* MPDAlbumArtImageDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BB7F8E23E5E7BC00906E2F /* MPDAlbumArtImageDataProvider.swift */; };
 		E4BB7F9323E9150A00906E2F /* CoverArtService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BB7F9223E9150A00906E2F /* CoverArtService.swift */; };
@@ -300,6 +301,7 @@
 		E4B11BBF2275EE150075461B /* QueueActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueActions.swift; sourceTree = "<group>"; };
 		E4B11BC12275EE410075461B /* AlbumListActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListActions.swift; sourceTree = "<group>"; };
 		E4B3DF6423D66A4400728F6B /* QueueSongCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueSongCoverView.swift; sourceTree = "<group>"; };
+		E4B46F8E2402E89800152157 /* MPDError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDError.swift; sourceTree = "<group>"; };
 		E4B5AE7D22F4C49600CCEC65 /* MPDServerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDServerDelegate.swift; sourceTree = "<group>"; };
 		E4BB7F8E23E5E7BC00906E2F /* MPDAlbumArtImageDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDAlbumArtImageDataProvider.swift; sourceTree = "<group>"; };
 		E4BB7F9223E9150A00906E2F /* CoverArtService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverArtService.swift; sourceTree = "<group>"; };
@@ -707,6 +709,7 @@
 			children = (
 				E4EB237A220F7CF1008C70C0 /* MPDAlbum.swift */,
 				E45962C52241A78500FC1A1E /* MPDCommand.swift */,
+				E4B46F8E2402E89800152157 /* MPDError.swift */,
 				E4C8B53D22349002009A20F3 /* MPDIdle.swift */,
 				E4EB2378220F10B8008C70C0 /* MPDPair.swift */,
 				E4E8CC9922075D370024217A /* MPDSong.swift */,
@@ -974,6 +977,7 @@
 				E450AD7E222620A10091BED3 /* Album.swift in Sources */,
 				E4DA820623D6236200C1EE58 /* NSSize.swift in Sources */,
 				E408D3B6220DD8970006D9BE /* Notification.swift in Sources */,
+				E4B46F8F2402E89800152157 /* MPDError.swift in Sources */,
 				E43AC1F822C7065A001E483C /* AlbumCoverButton.swift in Sources */,
 				E45962C62241A78500FC1A1E /* MPDCommand.swift in Sources */,
 				E408D3B9220DE98F0006D9BE /* NSUserInterfaceItemIdentifier.swift in Sources */,

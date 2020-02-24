@@ -34,7 +34,7 @@ class AppDelegate: NSObject,
     
     _ = App.userNotificationsController
 
-    App.mpdServerController.connect()
+    _ = App.mpdServerController
   }
 
   func applicationWillTerminate(_ aNotification: Notification) {

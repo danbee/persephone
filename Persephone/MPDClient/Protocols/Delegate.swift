@@ -11,6 +11,8 @@ import Foundation
 protocol MPDClientDelegate {
   func didConnect(mpdClient: MPDClient)
   func willDisconnect(mpdClient: MPDClient)
+  
+  func didRaiseError(mpdClient: MPDClient, error: MPDClient.MPDError)
 
   func didUpdateStatus(mpdClient: MPDClient, status: MPDClient.MPDStatus)
 
