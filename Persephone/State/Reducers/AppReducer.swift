@@ -10,6 +10,7 @@ import ReSwift
 
 func appReducer(action: Action, state: AppState?) -> AppState {
   return AppState(
+    serverState: serverReducer(action: action, state: state?.serverState),
     playerState: playerReducer(action: action, state: state?.playerState),
     queueState: queueReducer(action: action, state: state?.queueState),
     albumListState: albumListReducer(action: action, state: state?.albumListState),

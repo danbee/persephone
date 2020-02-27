@@ -6,7 +6,6 @@
 //  Copyright © 2019 Dan Barber. All rights reserved.
 //
 
-import AppKit
 import ReSwift
 
 struct UpdateCurrentSongAction: Action {
@@ -16,6 +15,8 @@ struct UpdateCurrentSongAction: Action {
 struct UpdateElapsedTimeAction: Action {
   var elapsedTimeMs: UInt = 0
 }
+
+struct ResetStatusAction: Action {}
 
 struct UpdateStatusAction: Action {
   var status: MPDClient.MPDStatus

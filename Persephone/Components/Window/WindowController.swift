@@ -38,13 +38,14 @@ class WindowController: NSWindowController {
 
     App.store.subscribe(self) {
       $0.select {
-        ($0.playerState, $0.uiState)
+        ($0.serverState, $0.playerState, $0.uiState)
       }
     }
 
     App.store.dispatch(MainWindowDidOpenAction())
     
     NotificationCenter.default.addObserver(self, selector: #selector(willDisconnect), name: .willDisconnect, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(reportError), name: .didRaiseError, object: nil)
 
     trackProgress.font = .timerFont
     trackRemaining.font = .timerFont
@@ -76,9 +77,18 @@ class WindowController: NSWindowController {
     }
   }
 
-  func setShuffleRepeatState(_ state: PlayerState) {
-    shuffleState.state = state.shuffleState ? .on : .off
-    repeatState.state = state.repeatState ? .on : .off
+  func setShuffleRepeatState(
+    _ serverState: ServerState,
+    _ playerState: PlayerState
+  ) {
+    shuffleState.isEnabled = serverState.connected
+    repeatState.isEnabled = serverState.connected
+    shuffleState.state = playerState.shuffleState ? .on : .off
+    repeatState.state = playerState.repeatState ? .on : .off
+  }
+  
+  func setSearchState(_ serverState: ServerState) {
+    searchQuery.isEnabled = serverState.connected
   }
 
   func setTrackProgressControls(_ playerState: PlayerState) {
@@ -144,8 +154,24 @@ class WindowController: NSWindowController {
     
   @objc func willDisconnect() {
     DispatchQueue.main.async {
-      App.store.dispatch(SetSearchQuery(searchQuery: ""))
+      App.store.dispatch(ResetStatusAction())
       self.searchQuery.stringValue = ""
+    }
+  }
+  
+  @objc func reportError(_ notification: NSNotification) {
+    guard let error = notification.object as? MPDClient.MPDError
+      else { return }
+
+    DispatchQueue.main.async {
+      let alert = NSAlert(error: error)
+      alert.informativeText = error.message
+
+      alert.alertStyle = error.recovered ? .warning : .critical
+
+      guard let window = NSApplication.shared.mainWindow
+        else { return }
+      alert.beginSheetModal(for: window) { _ in }
     }
   }
 
@@ -224,12 +250,15 @@ extension WindowController: NSWindowDelegate {
 }
 
 extension WindowController: StoreSubscriber {
-  typealias StoreSubscriberStateType = (playerState: PlayerState, uiState: UIState)
+  typealias StoreSubscriberStateType = (
+    serverState: ServerState, playerState: PlayerState, uiState: UIState
+  )
 
   func newState(state: StoreSubscriberStateType) {
     DispatchQueue.main.async {
       self.setTransportControlState(state.playerState)
-      self.setShuffleRepeatState(state.playerState)
+      self.setShuffleRepeatState(state.serverState, state.playerState)
+      self.setSearchState(state.serverState)
       self.setTrackProgressControls(state.playerState)
       self.setDatabaseUpdatingIndicator(state.uiState)
       self.setVolumeControlIcon(state.playerState)

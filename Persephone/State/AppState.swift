@@ -9,6 +9,7 @@
 import ReSwift
 
 struct AppState: StateType {
+  var serverState = ServerState()
   var playerState = PlayerState()
   var queueState = QueueState()
   var albumListState = AlbumListState()

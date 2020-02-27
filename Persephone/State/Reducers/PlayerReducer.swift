@@ -13,6 +13,14 @@ func playerReducer(action: Action, state: PlayerState?) -> PlayerState {
   var state = state ?? PlayerState()
 
   switch action {
+  case is ResetStatusAction:
+    state.state = .unknown
+    state.totalTime = 0
+    state.elapsedTimeMs = 0
+    state.shuffleState = false
+    state.repeatState = false
+    state.volume = -1
+
   case let action as UpdateStatusAction:
     state.status = action.status
     state.state = action.status.state

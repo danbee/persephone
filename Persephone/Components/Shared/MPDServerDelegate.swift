@@ -11,31 +11,23 @@ import AppKit
 class MPDServerDelegate: MPDClientDelegate {
   func didConnect(mpdClient: MPDClient) {
     NotificationCenter.default.post(name: .didConnect, object: nil)
+    DispatchQueue.main.async {
+      App.store.dispatch(UpdateConnectedState(connected: true))
+    }
   }
 
   func willDisconnect(mpdClient: MPDClient) {
     NotificationCenter.default.post(name: .willDisconnect, object: nil)
+    DispatchQueue.main.async {
+      App.store.dispatch(UpdateConnectedState(connected: false))
+    }
   }
   
-  func didRaiseError(mpdClient: MPDClient, error: MPDClient.MPDError) {
-    DispatchQueue.main.async {
-      let alert = NSAlert(error: error)
-      switch error {
-      case .success:
-        break;
-      case .outOfMemory(let message),
-           .argument(let message),
-           .state(let message),
-           .timeout(let message),
-           .system(let message),
-           .resolver(let message),
-           .malformed(let message),
-           .closed(let message),
-           .server(let message):
-        alert.messageText = message
-        alert.runModal()
-      }
-    }
+  func didRaiseError(
+    mpdClient: MPDClient,
+    error: MPDClient.MPDError
+  ) {
+    NotificationCenter.default.post(name: .didRaiseError, object: error)
   }
 
   func didUpdateStatus(mpdClient: MPDClient, status: MPDClient.MPDStatus) {

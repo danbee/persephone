@@ -15,7 +15,7 @@ extension MPDClient {
     let error = mpd_connection_get_error(connection)
 
     guard error == MPD_ERROR_SUCCESS else {
-      handleError(mpdError: error)
+      _ = handleError(mpdError: error)
       return
     }
 

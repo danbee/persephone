@@ -157,7 +157,9 @@ extension MPDClient {
     let commandOperation = BlockOperation() { [unowned self] in
       self.sendCommand(command: command, userData: userData)
 
-      self.idle(forceIdle)
+      if self.checkError() {
+        self.idle(forceIdle)
+      }
     }
 
     commandOperation.queuePriority = priority

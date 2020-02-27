@@ -12,4 +12,5 @@ extension Notification.Name {
   static let didConnect = Notification.Name("MPDClientDidConnect")
   static let willDisconnect = Notification.Name("MPDClientWillDisconnect")
   static let didReloadAlbumArt = Notification.Name("MPDDidReloadAlbumArt")
+  static let didRaiseError = Notification.Name("MPDDidRaiseError")
 }

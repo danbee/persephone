@@ -121,6 +121,9 @@
 		E4F26F7723411AE300D45FF9 /* ArtistListActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F26F7623411AE300D45FF9 /* ArtistListActions.swift */; };
 		E4F26F7923411B1500D45FF9 /* ArtistReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F26F7823411B1500D45FF9 /* ArtistReducer.swift */; };
 		E4F26F7B23411D5400D45FF9 /* MPDClient+Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F26F7A23411D5400D45FF9 /* MPDClient+Artist.swift */; };
+		E4F2EFEE24076A2700198159 /* ServerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F2EFED24076A2700198159 /* ServerState.swift */; };
+		E4F2EFF024076B0900198159 /* ServerActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F2EFEF24076B0900198159 /* ServerActions.swift */; };
+		E4F2EFF224076B5E00198159 /* ServerReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F2EFF124076B5E00198159 /* ServerReducer.swift */; };
 		E4F6B460221E119B00ACF42A /* QueueDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6B45F221E119B00ACF42A /* QueueDataSource.swift */; };
 		E4F6B463221E125900ACF42A /* QueueItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6B462221E125900ACF42A /* QueueItem.swift */; };
 		E4F6B467221E233200ACF42A /* AlbumDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6B466221E233200ACF42A /* AlbumDataSource.swift */; };
@@ -322,6 +325,9 @@
 		E4F26F7623411AE300D45FF9 /* ArtistListActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListActions.swift; sourceTree = "<group>"; };
 		E4F26F7823411B1500D45FF9 /* ArtistReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistReducer.swift; sourceTree = "<group>"; };
 		E4F26F7A23411D5400D45FF9 /* MPDClient+Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MPDClient+Artist.swift"; sourceTree = "<group>"; };
+		E4F2EFED24076A2700198159 /* ServerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerState.swift; sourceTree = "<group>"; };
+		E4F2EFEF24076B0900198159 /* ServerActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerActions.swift; sourceTree = "<group>"; };
+		E4F2EFF124076B5E00198159 /* ServerReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerReducer.swift; sourceTree = "<group>"; };
 		E4F6B45F221E119B00ACF42A /* QueueDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueDataSource.swift; sourceTree = "<group>"; };
 		E4F6B462221E125900ACF42A /* QueueItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueItem.swift; sourceTree = "<group>"; };
 		E4F6B466221E233200ACF42A /* AlbumDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDataSource.swift; sourceTree = "<group>"; };
@@ -662,6 +668,7 @@
 				E4B11B60226A4BFF0075461B /* PlayerReducer.swift */,
 				E4FF718F227601B400D4C412 /* PreferencesReducer.swift */,
 				E4B11B74226CC4D30075461B /* QueueReducer.swift */,
+				E4F2EFF124076B5E00198159 /* ServerReducer.swift */,
 				E440519D227BB0720090CD6F /* UIReducer.swift */,
 			);
 			path = Reducers;
@@ -678,6 +685,7 @@
 				E4B11B65226A4F830075461B /* PlayerState.swift */,
 				E4FF718D2276010E00D4C412 /* PreferencesState.swift */,
 				E4B11B67226A4FA00075461B /* QueueState.swift */,
+				E4F2EFED24076A2700198159 /* ServerState.swift */,
 				E440519F227BB0AB0090CD6F /* UIState.swift */,
 			);
 			path = State;
@@ -691,6 +699,7 @@
 				E4B11BBD2275EDAA0075461B /* PlayerActions.swift */,
 				E4FF71912276029000D4C412 /* PreferencesActions.swift */,
 				E4B11BBF2275EE150075461B /* QueueActions.swift */,
+				E4F2EFEF24076B0900198159 /* ServerActions.swift */,
 				E440519B227BAF2E0090CD6F /* UIActions.swift */,
 			);
 			path = Actions;
@@ -977,6 +986,7 @@
 				E450AD7E222620A10091BED3 /* Album.swift in Sources */,
 				E4DA820623D6236200C1EE58 /* NSSize.swift in Sources */,
 				E408D3B6220DD8970006D9BE /* Notification.swift in Sources */,
+				E4F2EFEE24076A2700198159 /* ServerState.swift in Sources */,
 				E4B46F8F2402E89800152157 /* MPDError.swift in Sources */,
 				E43AC1F822C7065A001E483C /* AlbumCoverButton.swift in Sources */,
 				E45962C62241A78500FC1A1E /* MPDCommand.swift in Sources */,
@@ -995,6 +1005,7 @@
 				E4FF71922276029000D4C412 /* PreferencesActions.swift in Sources */,
 				E489E39922B85D0400CA8CBD /* NSPasteboard.swift in Sources */,
 				E43AC1F122C68E6A001E483C /* NSPasteboardItem.swift in Sources */,
+				E4F2EFF224076B5E00198159 /* ServerReducer.swift in Sources */,
 				E465049A21E94DF500A70F4C /* WindowController.swift in Sources */,
 				E41B22C621FB932700D544F6 /* MPDClient.swift in Sources */,
 				E47E2FDD2220A6D100F747E6 /* Time.swift in Sources */,
@@ -1025,6 +1036,7 @@
 				E41EA46C221636AF0068EF46 /* GeneralPrefsViewController.swift in Sources */,
 				E4E8CC902204EC7F0024217A /* Delegate.swift in Sources */,
 				E47E2FD5222071FD00F747E6 /* AlbumViewItem.swift in Sources */,
+				E4F2EFF024076B0900198159 /* ServerActions.swift in Sources */,
 				E408D3BE220E03EE0006D9BE /* RawRepresentable.swift in Sources */,
 				E4B11B66226A4F830075461B /* PlayerState.swift in Sources */,
 				E4B11BBE2275EDAA0075461B /* PlayerActions.swift in Sources */,
