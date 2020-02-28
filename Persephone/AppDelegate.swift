@@ -16,19 +16,21 @@ class AppDelegate: NSObject,
                    MediaKeyTapDelegate {
   var mediaKeyTap: MediaKeyTap?
 
+  @IBOutlet weak var connectMenuItem: NSMenuItem!
+  @IBOutlet weak var disconnectMenuItem: NSMenuItem!
   @IBOutlet weak var mainWindowMenuItem: NSMenuItem!
   @IBOutlet weak var updateDatabaseMenuItem: NSMenuItem!
   @IBOutlet weak var playSelectedSongMenuItem: NSMenuItem!
   @IBOutlet weak var playSelectedSongNextMenuItem: NSMenuItem!
   @IBOutlet weak var addSelectedSongToQueueMenuItem: NSMenuItem!
-
+  
   func applicationDidFinishLaunching(_ aNotification: Notification) {
     mediaKeyTap = MediaKeyTap(delegate: self)
     mediaKeyTap?.start()
 
     App.store.subscribe(self) {
       $0.select {
-        $0.uiState
+        ($0.serverState, $0.uiState)
       }
     }
     
@@ -105,6 +107,11 @@ class AppDelegate: NSObject,
     playSelectedSongNextMenuItem.isEnabled = selectedSong != nil
     addSelectedSongToQueueMenuItem.isEnabled = selectedSong != nil
   }
+  
+  func setConnectMenuItemsState(connected: Bool) {
+    connectMenuItem.isEnabled = !connected
+    disconnectMenuItem.isEnabled = connected
+  }
 
   func handle(mediaKey: MediaKey, event: KeyEvent) {
     switch mediaKey {
@@ -117,6 +124,13 @@ class AppDelegate: NSObject,
     }
   }
 
+  @IBAction func connectMenuAction(_ sender: NSMenuItem) {
+    App.mpdServerController.connect()
+  }
+  @IBAction func disconnectMenuAction(_ sender: NSMenuItem) {
+    App.mpdServerController.disconnect()
+  }
+  
   @IBAction func updateDatabase(_ sender: NSMenuItem) {
     App.mpdClient.updateDatabase()
   }
@@ -182,11 +196,14 @@ class AppDelegate: NSObject,
 }
 
 extension AppDelegate: StoreSubscriber {
-  typealias StoreSubscriberStateType = UIState
+  typealias StoreSubscriberStateType = (
+    serverState: ServerState, uiState: UIState
+  )
 
-  func newState(state: UIState) {
-    updateDatabaseMenuItem.isEnabled = !state.databaseUpdating
-    setMainWindowStateMenuItem(state: state.mainWindowState)
-    setSongMenuItemsState(selectedSong: state.selectedSong)
+  func newState(state: StoreSubscriberStateType) {
+    updateDatabaseMenuItem.isEnabled = !state.uiState.databaseUpdating
+    setMainWindowStateMenuItem(state: state.uiState.mainWindowState)
+    setSongMenuItemsState(selectedSong: state.uiState.selectedSong)
+    setConnectMenuItemsState(connected: state.serverState.connected)
   }
 }

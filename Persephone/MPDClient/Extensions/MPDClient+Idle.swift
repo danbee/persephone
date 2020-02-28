@@ -11,6 +11,8 @@ import mpdclient
 
 extension MPDClient {
   func noIdle() {
+    guard isConnected else { return }
+
     do {
       idleLock.lock()
       defer { idleLock.unlock() }
@@ -22,6 +24,8 @@ extension MPDClient {
   }
 
   func idle(_ force: Bool = false) {
+    guard isConnected else { return }
+
     let shouldIdle: Bool
   
     do {
@@ -50,8 +54,8 @@ extension MPDClient {
       wasIdle = isIdle
       isIdle = false
     }
-
-    if wasIdle {
+  
+    if checkError() && wasIdle {
       if mpdIdle.contains(.database) {
         self.fetchAllAlbums()
       }

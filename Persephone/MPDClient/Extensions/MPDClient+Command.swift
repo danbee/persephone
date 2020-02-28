@@ -13,6 +13,8 @@ extension MPDClient {
     command: MPDCommand,
     userData: Dictionary<String, Any> = [:]
   ) {
+    guard command == .connect || isConnected else { return }
+
     switch command {
       
     case .connect:

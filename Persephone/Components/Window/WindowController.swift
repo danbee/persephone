@@ -165,13 +165,28 @@ class WindowController: NSWindowController {
 
     DispatchQueue.main.async {
       let alert = NSAlert(error: error)
-      alert.informativeText = error.message
+      alert.messageText = error.message
 
       alert.alertStyle = error.recovered ? .warning : .critical
+      
+      if !error.recovered {
+        alert.addButton(withTitle: "Reconnect")
+        alert.addButton(withTitle: "Dismiss")
+      }
 
-      guard let window = NSApplication.shared.mainWindow
+      guard let window = NSApplication.shared.mainWindow ?? self.window
         else { return }
-      alert.beginSheetModal(for: window) { _ in }
+
+      alert.beginSheetModal(for: window) { response in
+        switch response {
+        case .alertFirstButtonReturn:
+          if !error.recovered {
+            App.mpdServerController.connect()
+          }
+        default:
+          break
+        }
+      }
     }
   }
 

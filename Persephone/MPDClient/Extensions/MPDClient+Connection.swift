@@ -53,4 +53,10 @@ extension MPDClient {
   func disconnect() {
     enqueueCommand(command: .disconnect)
   }
+  
+  func resetConnection() {
+    delegate?.willDisconnect(mpdClient: self)
+    mpd_connection_free(connection)
+    self.isConnected = false;
+  }
 }

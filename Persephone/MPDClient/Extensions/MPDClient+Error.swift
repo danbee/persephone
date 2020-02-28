@@ -34,6 +34,10 @@ extension MPDClient {
       message: message
     )
     delegate?.didRaiseError(mpdClient: self, error: error)
+    
+    if !recovered {
+      resetConnection()
+    }
 
     return recovered
   }
