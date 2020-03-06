@@ -23,7 +23,7 @@ class AppDelegate: NSObject,
   @IBOutlet weak var playSelectedSongMenuItem: NSMenuItem!
   @IBOutlet weak var playSelectedSongNextMenuItem: NSMenuItem!
   @IBOutlet weak var addSelectedSongToQueueMenuItem: NSMenuItem!
-  
+
   func applicationDidFinishLaunching(_ aNotification: Notification) {
     mediaKeyTap = MediaKeyTap(delegate: self)
     mediaKeyTap?.start()
