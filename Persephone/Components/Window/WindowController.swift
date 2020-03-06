@@ -164,18 +164,33 @@ class WindowController: NSWindowController {
       else { return }
 
     DispatchQueue.main.async {
+      guard let window = NSApplication.shared.mainWindow ?? self.window
+        else { return }
+
       let alert = NSAlert(error: error)
       alert.messageText = error.message
 
       alert.alertStyle = error.recovered ? .warning : .critical
       
+      print(error.mpdError)
+      
+      switch error.mpdError {
+      case MPD_ERROR_MALFORMED,
+           MPD_ERROR_ARGUMENT:
+        alert.informativeText = "Please check the mpd log for more details."
+      case MPD_ERROR_SYSTEM,
+           MPD_ERROR_TIMEOUT:
+        alert.informativeText = "Is the mpd server running?"
+      case MPD_ERROR_RESOLVER:
+        alert.informativeText = "Check your network connection."
+      default:
+        break;
+      }
+      
       if !error.recovered {
         alert.addButton(withTitle: "Reconnect")
         alert.addButton(withTitle: "Dismiss")
       }
-
-      guard let window = NSApplication.shared.mainWindow ?? self.window
-        else { return }
 
       alert.beginSheetModal(for: window) { response in
         switch response {
