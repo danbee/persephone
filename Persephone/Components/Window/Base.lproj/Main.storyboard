@@ -73,6 +73,50 @@
                                     </items>
                                 </menu>
                             </menuItem>
+                            <menuItem title="Edit" id="vqD-eY-QGd">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Edit" id="TuB-7j-hDK">
+                                    <items>
+                                        <menuItem title="Undo" keyEquivalent="z" id="Qfn-k5-qMJ">
+                                            <connections>
+                                                <action selector="undo:" target="Ady-hI-5gd" id="eEs-gZ-3LG"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Redo" keyEquivalent="Z" id="jTO-Fc-mMc">
+                                            <connections>
+                                                <action selector="redo:" target="Ady-hI-5gd" id="VB9-9R-Kbp"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="iGg-SA-H7J"/>
+                                        <menuItem title="Cut" keyEquivalent="x" id="wMs-2i-IFp">
+                                            <connections>
+                                                <action selector="cut:" target="Ady-hI-5gd" id="kNV-s2-6rJ"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Copy" keyEquivalent="c" id="6Xf-49-5o2">
+                                            <connections>
+                                                <action selector="copy:" target="Ady-hI-5gd" id="QzD-pM-sbg"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Paste" keyEquivalent="v" id="FPx-H8-gor">
+                                            <connections>
+                                                <action selector="paste:" target="Ady-hI-5gd" id="zK6-ON-cCD"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Delete" id="42c-Ut-F4e">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="delete:" target="Ady-hI-5gd" id="XbT-8a-cop"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Select All" keyEquivalent="a" id="oF5-zh-KZt">
+                                            <connections>
+                                                <action selector="selectAll:" target="Ady-hI-5gd" id="3gW-FK-DJV"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
                             <menuItem title="Database" id="usv-UH-vkC">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Database" autoenablesItems="NO" id="rFP-zL-1X4">
