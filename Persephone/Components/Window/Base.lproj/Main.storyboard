@@ -176,6 +176,34 @@
                                     </items>
                                 </menu>
                             </menuItem>
+                            <menuItem title="Controls" id="hB8-hX-gD5">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Controls" autoenablesItems="NO" id="61K-cL-XWL">
+                                    <items>
+                                        <menuItem title="Play" keyEquivalent=" " id="xXJ-ld-Y8C">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="playPauseMenuAction:" target="Voe-Tx-rLC" id="Rld-sw-gZY"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Stop" keyEquivalent="." id="gWV-jG-Mxw">
+                                            <connections>
+                                                <action selector="stopMenuAction:" target="Voe-Tx-rLC" id="Bz3-r5-4bf"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Next song" keyEquivalent="" id="NXq-Bk-4E0">
+                                            <connections>
+                                                <action selector="nextTrackMenuAction:" target="Voe-Tx-rLC" id="uhI-Rf-2WT"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Previous song" keyEquivalent="" id="Ziz-Ge-r1Q">
+                                            <connections>
+                                                <action selector="prevTrackMenuAction:" target="Voe-Tx-rLC" id="05d-gm-3bo"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
                             <menuItem title="Window" id="aUF-d1-5bR">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Window" systemMenu="window" id="Td7-aD-5lo">
@@ -237,8 +265,12 @@
                         <outlet property="connectMenuItem" destination="VlA-Re-OZs" id="Zzt-yq-mtp"/>
                         <outlet property="disconnectMenuItem" destination="yjK-qU-C6d" id="qel-dM-Gbl"/>
                         <outlet property="mainWindowMenuItem" destination="1Sq-L7-znT" id="dC6-yY-6Ss"/>
+                        <outlet property="nextSongMenuItem" destination="NXq-Bk-4E0" id="QEA-iy-BPE"/>
+                        <outlet property="playPauseMenuItem" destination="xXJ-ld-Y8C" id="aeQ-wi-en7"/>
                         <outlet property="playSelectedSongMenuItem" destination="dyT-9E-DRY" id="UY2-SN-YMF"/>
                         <outlet property="playSelectedSongNextMenuItem" destination="Q8j-jr-IOp" id="Jqh-ia-sMK"/>
+                        <outlet property="previousSongMenuItem" destination="Ziz-Ge-r1Q" id="Ufe-w4-alG"/>
+                        <outlet property="stopMenuItem" destination="gWV-jG-Mxw" id="AkD-66-iWe"/>
                         <outlet property="updateDatabaseMenuItem" destination="EJg-93-1F6" id="gMf-SQ-lyI"/>
                     </connections>
                 </customObject>

@@ -9,12 +9,4 @@
 import AppKit
 
 class MainSplitViewController: NSSplitViewController {
-  override func keyDown(with event: NSEvent) {
-    switch event.keyCode {
-    case NSEvent.keyCodeSpace:
-      nextResponder?.keyDown(with: event)
-    default:
-      super.keyDown(with: event)
-    }
-  }
 }

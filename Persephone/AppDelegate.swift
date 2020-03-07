@@ -16,6 +16,11 @@ class AppDelegate: NSObject,
                    MediaKeyTapDelegate {
   var mediaKeyTap: MediaKeyTap?
 
+  @IBOutlet weak var playPauseMenuItem: NSMenuItem!
+  @IBOutlet weak var stopMenuItem: NSMenuItem!
+  @IBOutlet weak var nextSongMenuItem: NSMenuItem!
+  @IBOutlet weak var previousSongMenuItem: NSMenuItem!
+  
   @IBOutlet weak var connectMenuItem: NSMenuItem!
   @IBOutlet weak var disconnectMenuItem: NSMenuItem!
   @IBOutlet weak var mainWindowMenuItem: NSMenuItem!
@@ -30,7 +35,7 @@ class AppDelegate: NSObject,
 
     App.store.subscribe(self) {
       $0.select {
-        ($0.serverState, $0.uiState)
+        ($0.serverState, $0.playerState, $0.uiState)
       }
     }
     
@@ -52,7 +57,11 @@ class AppDelegate: NSObject,
     if let currentSong = App.store.state.playerState.currentSong,
       state.isOneOf([.playing, .paused]) {
 
-      let nowPlayingItem = NSMenuItem(title: "Now Playing", action: nil, keyEquivalent: "")
+      let nowPlayingItem = NSMenuItem(
+        title: state == .playing ? "Now Playing" : "Paused",
+        action: nil,
+        keyEquivalent: ""
+      )
       let songItem = NSMenuItem(title: currentSong.title, action: nil, keyEquivalent: "")
       let albumItem = NSMenuItem(
         title: "\(currentSong.artist) — \(currentSong.album.title)",
@@ -106,6 +115,21 @@ class AppDelegate: NSObject,
     playSelectedSongMenuItem.isEnabled = selectedSong != nil
     playSelectedSongNextMenuItem.isEnabled = selectedSong != nil
     addSelectedSongToQueueMenuItem.isEnabled = selectedSong != nil
+  }
+  
+  func setControlsMenuItemsState(state: PlayerState) {
+    guard let state = state.state else { return }
+
+    playPauseMenuItem.isEnabled = state.isOneOf([.playing, .paused, .stopped])
+    stopMenuItem.isEnabled = state.isOneOf([.playing, .paused])
+    nextSongMenuItem.isEnabled = state.isOneOf([.playing, .paused])
+    previousSongMenuItem.isEnabled = state.isOneOf([.playing, .paused])
+    
+    if state.isOneOf([.paused, .stopped, .unknown]) {
+      playPauseMenuItem.title = "Play"
+    } else {
+      playPauseMenuItem.title = "Pause"
+    }
   }
   
   func setConnectMenuItemsState(connected: Bool) {
@@ -197,13 +221,14 @@ class AppDelegate: NSObject,
 
 extension AppDelegate: StoreSubscriber {
   typealias StoreSubscriberStateType = (
-    serverState: ServerState, uiState: UIState
+    serverState: ServerState, playerState: PlayerState, uiState: UIState
   )
 
   func newState(state: StoreSubscriberStateType) {
     updateDatabaseMenuItem.isEnabled = !state.uiState.databaseUpdating
     setMainWindowStateMenuItem(state: state.uiState.mainWindowState)
     setSongMenuItemsState(selectedSong: state.uiState.selectedSong)
+    setControlsMenuItemsState(state: state.playerState)
     setConnectMenuItemsState(connected: state.serverState.connected)
   }
 }

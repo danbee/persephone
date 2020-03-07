@@ -39,18 +39,6 @@ class QueueViewController: NSViewController {
     App.store.unsubscribe(self)
   }
 
-  override func keyDown(with event: NSEvent) {
-    switch event.keyCode {
-    case NSEvent.keyCodeSpace:
-      nextResponder?.keyDown(with: event)
-    case NSEvent.keyCodeBS:
-      let queuePos = queueView.selectedRow
-
-      App.mpdClient.removeSong(at: queuePos)
-    default:
-      super.keyDown(with: event)
-    }
-  }
 
   @objc func didConnect() {
     App.mpdClient.fetchQueue()

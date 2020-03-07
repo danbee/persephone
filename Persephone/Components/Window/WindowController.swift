@@ -30,7 +30,7 @@ class WindowController: NSWindowController {
   @IBOutlet var volumeState: NSButton!
 
   @IBOutlet weak var searchQuery: NSSearchField!
-
+  
   override func windowDidLoad() {
     super.windowDidLoad()
     window?.titleVisibility = .hidden
@@ -49,17 +49,6 @@ class WindowController: NSWindowController {
 
     trackProgress.font = .timerFont
     trackRemaining.font = .timerFont
-  }
-
-  override func keyDown(with event: NSEvent) {
-    switch event.keyCode {
-    case NSEvent.keyCodeSpace:
-      if !event.isARepeat {
-        App.mpdClient.playPause()
-      }
-    default:
-      nextResponder?.keyDown(with: event)
-    }
   }
 
   func setTransportControlState(_ state: PlayerState) {

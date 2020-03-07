@@ -9,12 +9,25 @@
 import AppKit
 
 class MainWindow: NSWindow {
-  override func keyDown(with event: NSEvent) {
-    switch event.keyCode {
-    case NSEvent.keyCodeSpace:
-      nextResponder?.keyDown(with: event)
-    default:
-      super.keyDown(with: event)
+  override func sendEvent(_ event: NSEvent) {
+    guard let responder = firstResponder else { return }
+
+    if event.type == .keyDown &&
+      doesNotRequireSpace(responder) {
+
+      switch event.keyCode {
+      case NSEvent.keyCodeSpace:
+        App.mpdClient.playPause()
+      default:
+        super.sendEvent(event)
+      }
+    } else {
+      super.sendEvent(event)
     }
+  }
+  
+  func doesNotRequireSpace(_ responder: NSResponder) -> Bool {
+    return !responder.isKind(of: NSText.self) &&
+      !responder.isKind(of: NSButton.self)
   }
 }
