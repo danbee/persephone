@@ -39,7 +39,6 @@ class QueueViewController: NSViewController {
     App.store.unsubscribe(self)
   }
 
-
   @objc func didConnect() {
     App.mpdClient.fetchQueue()
   }

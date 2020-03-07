@@ -161,8 +161,6 @@ class WindowController: NSWindowController {
 
       alert.alertStyle = error.recovered ? .warning : .critical
       
-      print(error.mpdError)
-      
       switch error.mpdError {
       case MPD_ERROR_MALFORMED,
            MPD_ERROR_ARGUMENT:
