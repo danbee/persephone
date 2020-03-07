@@ -433,7 +433,7 @@
                 <splitViewController id="fnD-7K-pHK" customClass="MainSplitViewController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
                     <splitViewItems>
                         <splitViewItem holdingPriority="255" behavior="contentList" id="CWo-v7-gd2"/>
-                        <splitViewItem id="Mdr-U0-Vci"/>
+                        <splitViewItem id="bAy-ec-iQI"/>
                     </splitViewItems>
                     <splitView key="splitView" dividerStyle="thin" vertical="YES" id="g34-ef-XN0">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
@@ -445,7 +445,7 @@
                     <connections>
                         <outlet property="splitView" destination="g34-ef-XN0" id="YEc-LL-DoS"/>
                         <segue destination="KIP-rq-4dM" kind="relationship" relationship="splitItems" id="Vmb-hY-d12"/>
-                        <segue destination="SjO-VS-1bb" kind="relationship" relationship="splitItems" id="peC-gL-WJ1"/>
+                        <segue destination="gPn-fP-LFc" kind="relationship" relationship="splitItems" id="eC9-b4-YWt"/>
                     </connections>
                 </splitViewController>
                 <customObject id="Dag-kO-ps3" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -558,53 +558,6 @@
                 <customObject id="KzD-E3-lpA" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1411" y="-420"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="VvW-vT-alQ">
-            <objects>
-                <customObject id="MSG-y7-cKU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <viewController id="SjO-VS-1bb" sceneMemberID="viewController">
-                    <view key="view" id="BRY-0R-F3u">
-                        <rect key="frame" x="0.0" y="0.0" width="478" height="558"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <tabView type="noTabsNoBorder" initialItem="XgS-cX-SDH" translatesAutoresizingMaskIntoConstraints="NO" id="ARv-cj-xlz">
-                                <rect key="frame" x="0.0" y="0.0" width="478" height="558"/>
-                                <font key="font" metaFont="system"/>
-                                <tabViewItems>
-                                    <tabViewItem label="Albums" identifier="" id="XgS-cX-SDH">
-                                        <view key="view" id="hB7-hN-SbB">
-                                            <rect key="frame" x="0.0" y="0.0" width="478" height="558"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <subviews>
-                                                <containerView translatesAutoresizingMaskIntoConstraints="NO" id="moE-bb-Zvg">
-                                                    <rect key="frame" x="-3" y="-3" width="481" height="561"/>
-                                                    <connections>
-                                                        <segue destination="gPn-fP-LFc" kind="embed" id="2iB-9y-I9h"/>
-                                                    </connections>
-                                                </containerView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="moE-bb-Zvg" firstAttribute="top" secondItem="hB7-hN-SbB" secondAttribute="top" id="DUI-jy-8D7"/>
-                                                <constraint firstItem="moE-bb-Zvg" firstAttribute="leading" secondItem="hB7-hN-SbB" secondAttribute="leading" constant="-3" id="dCS-Kx-2UP"/>
-                                                <constraint firstAttribute="trailing" secondItem="moE-bb-Zvg" secondAttribute="trailing" id="qey-4e-xfu"/>
-                                                <constraint firstAttribute="bottom" secondItem="moE-bb-Zvg" secondAttribute="bottom" constant="-3" id="ziA-Xh-dlz"/>
-                                            </constraints>
-                                        </view>
-                                    </tabViewItem>
-                                </tabViewItems>
-                            </tabView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="ARv-cj-xlz" secondAttribute="trailing" id="nXk-bi-ua4"/>
-                            <constraint firstAttribute="bottom" secondItem="ARv-cj-xlz" secondAttribute="bottom" id="nzf-Jw-Bpk"/>
-                            <constraint firstItem="ARv-cj-xlz" firstAttribute="top" secondItem="BRY-0R-F3u" secondAttribute="top" id="v6W-0L-kQ1"/>
-                            <constraint firstItem="ARv-cj-xlz" firstAttribute="leading" secondItem="BRY-0R-F3u" secondAttribute="leading" id="w2Z-xv-Fwz"/>
-                        </constraints>
-                    </view>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="1436" y="238"/>
         </scene>
         <!--General-->
         <scene sceneID="xTC-Y5-Agk">
@@ -970,7 +923,7 @@
                 </viewController>
                 <customObject id="uex-Ws-5X4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2038" y="87"/>
+            <point key="canvasLocation" x="1485" y="182"/>
         </scene>
     </scenes>
     <resources>
