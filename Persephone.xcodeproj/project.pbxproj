@@ -374,15 +374,16 @@
 		E407860F2110CE6E006887B1 = {
 			isa = PBXGroup;
 			children = (
-				E41B22BE21FB6B3300D544F6 /* Frameworks */,
-				E407861A2110CE6E006887B1 /* Persephone */,
-				E407862D2110CE70006887B1 /* PersephoneTests */,
-				E40786382110CE70006887B1 /* PersephoneUITests */,
-				E40786192110CE6E006887B1 /* Products */,
 				E45E4FD822515D87004B537F /* Brewfile */,
 				E45E4FD722515D87004B537F /* CHANGELOG.md */,
+				E41B22BE21FB6B3300D544F6 /* Frameworks */,
 				E42A8F3922176D6400A13ED9 /* LICENSE.md */,
+				E407861A2110CE6E006887B1 /* Mac */,
+				E407862D2110CE70006887B1 /* MacTests */,
+				E40786382110CE70006887B1 /* MacUITests */,
+				E40786192110CE6E006887B1 /* Products */,
 				E42A8F3A22176D6400A13ED9 /* README.md */,
+				E411C268241C02B2008B9682 /* Shared */,
 			);
 			sourceTree = "<group>";
 		};
@@ -396,41 +397,38 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E407861A2110CE6E006887B1 /* Persephone */ = {
+		E407861A2110CE6E006887B1 /* Mac */ = {
 			isa = PBXGroup;
 			children = (
 				E44051932278765A0090CD6F /* App.swift */,
 				E407861B2110CE6E006887B1 /* AppDelegate.swift */,
 				E407861F2110CE70006887B1 /* Assets.xcassets */,
 				E442CCC42347D5B900004E0C /* Components */,
-				E41B22C721FB966C00D544F6 /* include */,
 				E40786242110CE70006887B1 /* Info.plist */,
-				E4F6B461221E124700ACF42A /* Models */,
-				E4A642DB220912FA00067D21 /* MPDClient */,
 				E40786252110CE70006887B1 /* Persephone.entitlements */,
 				E450AD9E2229B9BC0091BED3 /* PersephoneBridgingHeader.h */,
 				E4A83BF2222207BE0098FED6 /* Services */,
 				E4B11B64226A4F460075461B /* State */,
 			);
-			path = Persephone;
+			path = Mac;
 			sourceTree = "<group>";
 		};
-		E407862D2110CE70006887B1 /* PersephoneTests */ = {
+		E407862D2110CE70006887B1 /* MacTests */ = {
 			isa = PBXGroup;
 			children = (
 				E407862E2110CE70006887B1 /* PersephoneTests.swift */,
 				E40786302110CE70006887B1 /* Info.plist */,
 			);
-			path = PersephoneTests;
+			path = MacTests;
 			sourceTree = "<group>";
 		};
-		E40786382110CE70006887B1 /* PersephoneUITests */ = {
+		E40786382110CE70006887B1 /* MacUITests */ = {
 			isa = PBXGroup;
 			children = (
 				E40786392110CE70006887B1 /* PersephoneUITests.swift */,
 				E407863B2110CE70006887B1 /* Info.plist */,
 			);
-			path = PersephoneUITests;
+			path = MacUITests;
 			sourceTree = "<group>";
 		};
 		E408D3B7220DE8CC0006D9BE /* Extensions */ = {
@@ -471,6 +469,16 @@
 				E408D3BD220E03EE0006D9BE /* RawRepresentable.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E411C268241C02B2008B9682 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				E41B22C721FB966C00D544F6 /* include */,
+				E4F6B461221E124700ACF42A /* Models */,
+				E4A642DB220912FA00067D21 /* MPDClient */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		E41B22BE21FB6B3300D544F6 /* Frameworks */ = {
