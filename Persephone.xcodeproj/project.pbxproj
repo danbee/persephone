@@ -2065,9 +2065,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/libmpdclient/output",
-					"$(PROJECT_DIR)/libmpdclient/output-iOS",
-					"$(PROJECT_DIR)/libmpdclient/output-iOSSim",
+					"$(PROJECT_DIR)/Shared/libmpdclient/output",
 				);
 				MARKETING_VERSION = "0.17.0-alpha";
 				PRODUCT_BUNDLE_IDENTIFIER = me.danbarber.Persephone;
@@ -2100,9 +2098,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/libmpdclient/output",
-					"$(PROJECT_DIR)/libmpdclient/output-iOS",
-					"$(PROJECT_DIR)/libmpdclient/output-iOSSim",
+					"$(PROJECT_DIR)/Shared/libmpdclient/output",
 				);
 				MARKETING_VERSION = "0.17.0-alpha";
 				PRODUCT_BUNDLE_IDENTIFIER = me.danbarber.Persephone;
@@ -2132,13 +2128,13 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/libmpdclient/output",
+					"$(PROJECT_DIR)/shared/libmpdclient/output",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.danbarber.PersephoneTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				SYSTEM_HEADER_SEARCH_PATHS = Persephone/include;
+				SYSTEM_HEADER_SEARCH_PATHS = Shared/include;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Persephone.app/Contents/MacOS/Persephone";
 				USER_HEADER_SEARCH_PATHS = libmpdclient/output;
 			};
@@ -2161,13 +2157,13 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/libmpdclient/output",
+					"$(PROJECT_DIR)/shared/libmpdclient/output",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.danbarber.PersephoneTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				SYSTEM_HEADER_SEARCH_PATHS = Persephone/include;
+				SYSTEM_HEADER_SEARCH_PATHS = Shared/include;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Persephone.app/Contents/MacOS/Persephone";
 				USER_HEADER_SEARCH_PATHS = libmpdclient/output;
 			};
