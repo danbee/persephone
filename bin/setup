@@ -2,3 +2,10 @@
 
 git submodule update --init
 git apply --directory=libmpdclient/ libmpdclient.patch
+
+pushd libmpdclient
+
+meson . output
+ninja -C output
+
+popd
