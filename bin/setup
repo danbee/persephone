@@ -1,5 +1,7 @@
 #!/bin/sh
 
+brew bundle
+
 git submodule update --init
 git apply --directory=libmpdclient/ libmpdclient.patch
 
