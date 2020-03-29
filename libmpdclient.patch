@@ -1,0 +1,24 @@
+diff --git a/src/socket.c b/src/socket.c
+index 8f684b2..65498f2 100644
+--- a/src/socket.c
++++ b/src/socket.c
+@@ -35,6 +35,7 @@
+ #include <stdlib.h>
+ #include <stdio.h>
+ #include <fcntl.h>
++#include <sys/time.h>
+ 
+ #ifdef _WIN32
+ #  include <winsock2.h>
+diff --git a/src/sync.c b/src/sync.c
+index 3fefffe..ab96fb7 100644
+--- a/src/sync.c
++++ b/src/sync.c
+@@ -34,6 +34,7 @@
+ #include <assert.h>
+ #include <stdlib.h>
+ #include <stdio.h>
++#include <sys/time.h>
+ 
+ #ifndef _WIN32
+ #include <sys/select.h>

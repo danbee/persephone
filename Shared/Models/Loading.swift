@@ -6,8 +6,6 @@
 //  Copyright © 2019 Dan Barber. All rights reserved.
 //
 
-import Foundation
-
 enum Loading<T> {
   case notLoaded
   case loading

@@ -6,8 +6,6 @@
 //  Copyright © 2019 Dan Barber. All rights reserved.
 //
 
-import AppKit
-
 struct QueueItem: Hashable {
   var song: Song
   var queuePos: Int

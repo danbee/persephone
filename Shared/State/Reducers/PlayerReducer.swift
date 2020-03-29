@@ -6,7 +6,7 @@
 //  Copyright © 2019 Dan Barber. All rights reserved.
 //
 
-import AppKit
+import Dispatch
 import ReSwift
 
 func playerReducer(action: Action, state: PlayerState?) -> PlayerState {

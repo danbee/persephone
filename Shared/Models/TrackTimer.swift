@@ -6,17 +6,17 @@
 //  Copyright © 2019 Dan Barber. All rights reserved.
 //
 
-import AppKit
+import Foundation
 
-class TrackTimer: NSObject {
+class TrackTimer {
   var timer: Timer?
-  var startTime: CFTimeInterval = CACurrentMediaTime()
+  var startTime: CFTimeInterval = CFTimeInterval(machTimeS())
   var startElapsed: Double = 0
 
   func start(elapsedTimeMs: UInt?) {
     guard let elapsedTimeMs = elapsedTimeMs else { return }
 
-    startTime = CACurrentMediaTime()
+    startTime = CFTimeInterval(machTimeS())
     startElapsed = Double(elapsedTimeMs) / 1000
 
     DispatchQueue.main.async {
@@ -26,7 +26,7 @@ class TrackTimer: NSObject {
         withTimeInterval: 0.25,
         repeats: true
       ) { _ in
-        let currentTime = CACurrentMediaTime()
+        let currentTime = CFTimeInterval(machTimeS())
 
         let timeDiff = currentTime - self.startTime
         let newElapsedTimeMs = UInt((self.startElapsed + timeDiff) * 1000)

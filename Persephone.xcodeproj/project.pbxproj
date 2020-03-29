@@ -51,7 +51,6 @@
 		E440519C227BAF2E0090CD6F /* UIActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E440519B227BAF2E0090CD6F /* UIActions.swift */; };
 		E440519E227BB0720090CD6F /* UIReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E440519D227BB0720090CD6F /* UIReducer.swift */; };
 		E44051A0227BB0AB0090CD6F /* UIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E440519F227BB0AB0090CD6F /* UIState.swift */; };
-		E442CCCD2347E73C00004E0C /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E442CCCC2347E73C00004E0C /* Artist.swift */; };
 		E450AD7E222620A10091BED3 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450AD7D222620A10091BED3 /* Album.swift */; };
 		E451E36B22BD214D008BE9B2 /* DraggedSongType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E451E36A22BD214D008BE9B2 /* DraggedSongType.swift */; };
 		E451E36E22BD2501008BE9B2 /* DraggedSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = E451E36C22BD23DB008BE9B2 /* DraggedSong.swift */; };
@@ -69,6 +68,183 @@
 		E47E2FD5222071FD00F747E6 /* AlbumViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E2FD4222071FD00F747E6 /* AlbumViewItem.swift */; };
 		E47E2FDD2220A6D100F747E6 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E2FDC2220A6D100F747E6 /* Time.swift */; };
 		E47E2FE52220AA0700F747E6 /* FlexibleGridViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E2FE42220AA0700F747E6 /* FlexibleGridViewLayout.swift */; };
+		E480510F2423BD7100362CF3 /* MachTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E480510E2423BD7100362CF3 /* MachTime.swift */; };
+		E480511124255BA900362CF3 /* MachTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E480510E2423BD7100362CF3 /* MachTime.swift */; };
+		E480511224255BAF00362CF3 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450AD7D222620A10091BED3 /* Album.swift */; };
+		E480511324255BAF00362CF3 /* DraggedAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43AC1F422C6A4F4001E483C /* DraggedAlbum.swift */; };
+		E480511424255BAF00362CF3 /* DraggedSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = E451E36C22BD23DB008BE9B2 /* DraggedSong.swift */; };
+		E480511524255BAF00362CF3 /* DraggedSongType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E451E36A22BD214D008BE9B2 /* DraggedSongType.swift */; };
+		E480511624255BAF00362CF3 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BA82274EDE30075461B /* Loading.swift */; };
+		E480511724255BAF00362CF3 /* MPDServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF71932276043A00D4C412 /* MPDServer.swift */; };
+		E480511824255BAF00362CF3 /* QueueItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6B462221E125900ACF42A /* QueueItem.swift */; };
+		E480511924255BAF00362CF3 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = E419E2862249B96600216A8C /* Song.swift */; };
+		E480511A24255BAF00362CF3 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E2FDC2220A6D100F747E6 /* Time.swift */; };
+		E480511B24255BAF00362CF3 /* TrackTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11B72226A6C770075461B /* TrackTimer.swift */; };
+		E480511C24255BBF00362CF3 /* MPDClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41B22C521FB932700D544F6 /* MPDClient.swift */; };
+		E480511D24255BD200362CF3 /* MPDClientWrapper.c in Sources */ = {isa = PBXBuildFile; fileRef = E4DCCFAD23E4DB5D009A8113 /* MPDClientWrapper.c */; };
+		E480511E24255BD500362CF3 /* RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E408D3BD220E03EE0006D9BE /* RawRepresentable.swift */; };
+		E480511F24255BDB00362CF3 /* MPDClient+Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41E530A223C033700173814 /* MPDClient+Album.swift */; };
+		E480512024255BDB00362CF3 /* MPDClient+Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F26F7A23411D5400D45FF9 /* MPDClient+Artist.swift */; };
+		E480512124255BDB00362CF3 /* MPDClient+Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41E5308223C020400173814 /* MPDClient+Command.swift */; };
+		E480512224255BDB00362CF3 /* MPDClient+Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41E52FC223BF87300173814 /* MPDClient+Connection.swift */; };
+		E480512324255BDB00362CF3 /* MPDClient+Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42410B52241B956005ED6DF /* MPDClient+Database.swift */; };
+		E480512424255BDB00362CF3 /* MPDClient+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41E5304223BFB0700173814 /* MPDClient+Error.swift */; };
+		E480512524255BDB00362CF3 /* MPDClient+Idle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41E5302223BF9C300173814 /* MPDClient+Idle.swift */; };
+		E480512624255BDB00362CF3 /* MPDClient+Mixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E453825423FA347C007F6BFC /* MPDClient+Mixer.swift */; };
+		E480512724255BDB00362CF3 /* MPDClient+Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41E5300223BF99300173814 /* MPDClient+Queue.swift */; };
+		E480512824255BDB00362CF3 /* MPDClient+Songs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42A4D5022E2167E001C6CAD /* MPDClient+Songs.swift */; };
+		E480512924255BDB00362CF3 /* MPDClient+Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41E5306223C019100173814 /* MPDClient+Status.swift */; };
+		E480512A24255BDB00362CF3 /* MPDClient+Transport.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41E52FE223BF95E00173814 /* MPDClient+Transport.swift */; };
+		E480512B24255BDF00362CF3 /* MPDAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB237A220F7CF1008C70C0 /* MPDAlbum.swift */; };
+		E480512C24255BDF00362CF3 /* MPDCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45962C52241A78500FC1A1E /* MPDCommand.swift */; };
+		E480512D24255BDF00362CF3 /* MPDError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B46F8E2402E89800152157 /* MPDError.swift */; };
+		E480512E24255BDF00362CF3 /* MPDIdle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C8B53D22349002009A20F3 /* MPDIdle.swift */; };
+		E480512F24255BDF00362CF3 /* MPDPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB2378220F10B8008C70C0 /* MPDPair.swift */; };
+		E480513024255BDF00362CF3 /* MPDSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC9922075D370024217A /* MPDSong.swift */; };
+		E480513124255BDF00362CF3 /* MPDStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A642D922090CBE00067D21 /* MPDStatus.swift */; };
+		E480513224255BDF00362CF3 /* MPDTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42A4D4E22E20D7D001C6CAD /* MPDTag.swift */; };
+		E480513324255BE100362CF3 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC8F2204EC7F0024217A /* Delegate.swift */; };
+		E480513824255CE000362CF3 /* ReSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E480513724255CE000362CF3 /* ReSwift */; };
+		E480513A24255CF200362CF3 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E480513924255CF200362CF3 /* CryptoSwift */; };
+		E480513B24255E7200362CF3 /* AlbumListState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11B69226A4FBC0075461B /* AlbumListState.swift */; };
+		E480513C24255E7200362CF3 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11B52226928F20075461B /* AppState.swift */; };
+		E480513D24255E7200362CF3 /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11B65226A4F830075461B /* PlayerState.swift */; };
+		E480513E24255E7200362CF3 /* PreferencesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF718D2276010E00D4C412 /* PreferencesState.swift */; };
+		E480513F24255E7200362CF3 /* QueueState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11B67226A4FA00075461B /* QueueState.swift */; };
+		E480514024255E7200362CF3 /* ServerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F2EFED24076A2700198159 /* ServerState.swift */; };
+		E480514124255E7200362CF3 /* UIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E440519F227BB0AB0090CD6F /* UIState.swift */; };
+		E480514224255E7700362CF3 /* AlbumListReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11B78226D346B0075461B /* AlbumListReducer.swift */; };
+		E480514324255E7700362CF3 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11B62226A4C510075461B /* AppReducer.swift */; };
+		E480514424255E7700362CF3 /* PlayerReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11B60226A4BFF0075461B /* PlayerReducer.swift */; };
+		E480514524255E7700362CF3 /* PreferencesReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF718F227601B400D4C412 /* PreferencesReducer.swift */; };
+		E480514624255E7700362CF3 /* QueueReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11B74226CC4D30075461B /* QueueReducer.swift */; };
+		E480514724255E7700362CF3 /* ServerReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F2EFF124076B5E00198159 /* ServerReducer.swift */; };
+		E480514824255E7700362CF3 /* UIReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E440519D227BB0720090CD6F /* UIReducer.swift */; };
+		E480514924255E7D00362CF3 /* AlbumListActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BC12275EE410075461B /* AlbumListActions.swift */; };
+		E480514A24255E7D00362CF3 /* PlayerActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BBD2275EDAA0075461B /* PlayerActions.swift */; };
+		E480514B24255E7D00362CF3 /* PreferencesActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF71912276029000D4C412 /* PreferencesActions.swift */; };
+		E480514C24255E7D00362CF3 /* QueueActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BBF2275EE150075461B /* QueueActions.swift */; };
+		E480514D24255E7D00362CF3 /* ServerActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F2EFEF24076B0900198159 /* ServerActions.swift */; };
+		E480514E24255E7D00362CF3 /* UIActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E440519B227BAF2E0090CD6F /* UIActions.swift */; };
+		E48051522425626300362CF3 /* MPDServerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4405191227644340090CD6F /* MPDServerController.swift */; };
+		E48058282426D73500362CF3 /* version.h.in in Resources */ = {isa = PBXBuildFile; fileRef = E48056D82426D73400362CF3 /* version.h.in */; };
+		E48058292426D73500362CF3 /* version.h.in in Resources */ = {isa = PBXBuildFile; fileRef = E48056D82426D73400362CF3 /* version.h.in */; };
+		E480590E2426D73600362CF3 /* configure.py in Resources */ = {isa = PBXBuildFile; fileRef = E48057752426D73400362CF3 /* configure.py */; };
+		E480590F2426D73600362CF3 /* configure.py in Resources */ = {isa = PBXBuildFile; fileRef = E48057752426D73400362CF3 /* configure.py */; };
+		E48059102426D73600362CF3 /* win64.txt in Resources */ = {isa = PBXBuildFile; fileRef = E48057772426D73400362CF3 /* win64.txt */; };
+		E48059112426D73600362CF3 /* win64.txt in Resources */ = {isa = PBXBuildFile; fileRef = E48057772426D73400362CF3 /* win64.txt */; };
+		E48059122426D73600362CF3 /* win32.txt in Resources */ = {isa = PBXBuildFile; fileRef = E48057782426D73400362CF3 /* win32.txt */; };
+		E48059132426D73600362CF3 /* win32.txt in Resources */ = {isa = PBXBuildFile; fileRef = E48057782426D73400362CF3 /* win32.txt */; };
+		E48059142426D73600362CF3 /* build.sh in Resources */ = {isa = PBXBuildFile; fileRef = E48057792426D73400362CF3 /* build.sh */; };
+		E48059152426D73600362CF3 /* build.sh in Resources */ = {isa = PBXBuildFile; fileRef = E48057792426D73400362CF3 /* build.sh */; };
+		E48059C02426D73600362CF3 /* libmpdclient.vapi in Resources */ = {isa = PBXBuildFile; fileRef = E48057D82426D73400362CF3 /* libmpdclient.vapi */; };
+		E48059C12426D73600362CF3 /* libmpdclient.vapi in Resources */ = {isa = PBXBuildFile; fileRef = E48057D82426D73400362CF3 /* libmpdclient.vapi */; };
+		E48059C22426D73600362CF3 /* directory.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057DA2426D73400362CF3 /* directory.c */; };
+		E48059C32426D73600362CF3 /* directory.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057DA2426D73400362CF3 /* directory.c */; };
+		E48059C42426D73600362CF3 /* replay_gain.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057DB2426D73400362CF3 /* replay_gain.c */; };
+		E48059C52426D73600362CF3 /* replay_gain.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057DB2426D73400362CF3 /* replay_gain.c */; };
+		E48059C62426D73600362CF3 /* cplaylist.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057DC2426D73400362CF3 /* cplaylist.c */; };
+		E48059C72426D73600362CF3 /* cplaylist.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057DC2426D73400362CF3 /* cplaylist.c */; };
+		E48059C82426D73600362CF3 /* async.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057DE2426D73400362CF3 /* async.c */; };
+		E48059C92426D73600362CF3 /* async.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057DE2426D73400362CF3 /* async.c */; };
+		E48059CA2426D73600362CF3 /* list.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057DF2426D73400362CF3 /* list.c */; };
+		E48059CB2426D73600362CF3 /* list.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057DF2426D73400362CF3 /* list.c */; };
+		E48059CC2426D73600362CF3 /* mixer.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057E12426D73400362CF3 /* mixer.c */; };
+		E48059CD2426D73600362CF3 /* mixer.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057E12426D73400362CF3 /* mixer.c */; };
+		E48059CE2426D73600362CF3 /* cpartition.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057E22426D73400362CF3 /* cpartition.c */; };
+		E48059CF2426D73600362CF3 /* cpartition.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057E22426D73400362CF3 /* cpartition.c */; };
+		E48059D02426D73600362CF3 /* send.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057E32426D73400362CF3 /* send.c */; };
+		E48059D12426D73600362CF3 /* send.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057E32426D73400362CF3 /* send.c */; };
+		E48059D22426D73600362CF3 /* partition.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057E62426D73400362CF3 /* partition.c */; };
+		E48059D32426D73600362CF3 /* partition.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057E62426D73400362CF3 /* partition.c */; };
+		E48059D42426D73600362CF3 /* resolver.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057E72426D73400362CF3 /* resolver.c */; };
+		E48059D52426D73600362CF3 /* resolver.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057E72426D73400362CF3 /* resolver.c */; };
+		E48059D62426D73600362CF3 /* ierror.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057E82426D73400362CF3 /* ierror.c */; };
+		E48059D72426D73600362CF3 /* ierror.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057E82426D73400362CF3 /* ierror.c */; };
+		E48059D82426D73600362CF3 /* database.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057E92426D73400362CF3 /* database.c */; };
+		E48059D92426D73600362CF3 /* database.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057E92426D73400362CF3 /* database.c */; };
+		E48059DA2426D73600362CF3 /* entity.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057EA2426D73400362CF3 /* entity.c */; };
+		E48059DB2426D73600362CF3 /* entity.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057EA2426D73400362CF3 /* entity.c */; };
+		E48059DC2426D73600362CF3 /* cstatus.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057EC2426D73400362CF3 /* cstatus.c */; };
+		E48059DD2426D73600362CF3 /* cstatus.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057EC2426D73400362CF3 /* cstatus.c */; };
+		E48059DE2426D73600362CF3 /* audio_format.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057EF2426D73400362CF3 /* audio_format.c */; };
+		E48059DF2426D73600362CF3 /* audio_format.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057EF2426D73400362CF3 /* audio_format.c */; };
+		E48059E02426D73600362CF3 /* password.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057F02426D73400362CF3 /* password.c */; };
+		E48059E12426D73600362CF3 /* password.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057F02426D73400362CF3 /* password.c */; };
+		E48059E22426D73600362CF3 /* mount.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057F12426D73400362CF3 /* mount.c */; };
+		E48059E32426D73600362CF3 /* mount.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057F12426D73400362CF3 /* mount.c */; };
+		E48059E42426D73600362CF3 /* run.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057F22426D73400362CF3 /* run.c */; };
+		E48059E52426D73600362CF3 /* run.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057F22426D73400362CF3 /* run.c */; };
+		E48059E62426D73600362CF3 /* playlist.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057F42426D73400362CF3 /* playlist.c */; };
+		E48059E72426D73600362CF3 /* playlist.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057F42426D73400362CF3 /* playlist.c */; };
+		E48059E82426D73600362CF3 /* queue.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057F52426D73400362CF3 /* queue.c */; };
+		E48059E92426D73600362CF3 /* queue.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057F52426D73400362CF3 /* queue.c */; };
+		E48059EA2426D73600362CF3 /* coutput.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057F72426D73400362CF3 /* coutput.c */; };
+		E48059EB2426D73600362CF3 /* coutput.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057F72426D73400362CF3 /* coutput.c */; };
+		E48059EC2426D73600362CF3 /* stats.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057F82426D73400362CF3 /* stats.c */; };
+		E48059ED2426D73600362CF3 /* stats.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057F82426D73400362CF3 /* stats.c */; };
+		E48059EE2426D73600362CF3 /* socket.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057F92426D73400362CF3 /* socket.c */; };
+		E48059EF2426D73600362CF3 /* socket.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057F92426D73400362CF3 /* socket.c */; };
+		E48059F02426D73600362CF3 /* fingerprint.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057FA2426D73400362CF3 /* fingerprint.c */; };
+		E48059F12426D73600362CF3 /* fingerprint.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057FA2426D73400362CF3 /* fingerprint.c */; };
+		E48059F22426D73600362CF3 /* capabilities.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057FB2426D73400362CF3 /* capabilities.c */; };
+		E48059F32426D73600362CF3 /* capabilities.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057FB2426D73400362CF3 /* capabilities.c */; };
+		E48059F42426D73600362CF3 /* search.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057FC2426D73400362CF3 /* search.c */; };
+		E48059F52426D73600362CF3 /* search.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057FC2426D73400362CF3 /* search.c */; };
+		E48059F62426D73600362CF3 /* sticker.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057FD2426D73400362CF3 /* sticker.c */; };
+		E48059F72426D73600362CF3 /* sticker.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057FD2426D73400362CF3 /* sticker.c */; };
+		E48059F82426D73600362CF3 /* rdirectory.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057FE2426D73400362CF3 /* rdirectory.c */; };
+		E48059F92426D73600362CF3 /* rdirectory.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057FE2426D73400362CF3 /* rdirectory.c */; };
+		E48059FA2426D73600362CF3 /* recv.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057FF2426D73400362CF3 /* recv.c */; };
+		E48059FB2426D73600362CF3 /* recv.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057FF2426D73400362CF3 /* recv.c */; };
+		E48059FC2426D73600362CF3 /* neighbor.c in Sources */ = {isa = PBXBuildFile; fileRef = E48058002426D73400362CF3 /* neighbor.c */; };
+		E48059FD2426D73600362CF3 /* neighbor.c in Sources */ = {isa = PBXBuildFile; fileRef = E48058002426D73400362CF3 /* neighbor.c */; };
+		E48059FE2426D73600362CF3 /* cstats.c in Sources */ = {isa = PBXBuildFile; fileRef = E48058012426D73400362CF3 /* cstats.c */; };
+		E48059FF2426D73600362CF3 /* cstats.c in Sources */ = {isa = PBXBuildFile; fileRef = E48058012426D73400362CF3 /* cstats.c */; };
+		E4805A002426D73600362CF3 /* quote.c in Sources */ = {isa = PBXBuildFile; fileRef = E48058022426D73400362CF3 /* quote.c */; };
+		E4805A012426D73600362CF3 /* quote.c in Sources */ = {isa = PBXBuildFile; fileRef = E48058022426D73400362CF3 /* quote.c */; };
+		E4805A042426D73600362CF3 /* connection.c in Sources */ = {isa = PBXBuildFile; fileRef = E48058052426D73400362CF3 /* connection.c */; };
+		E4805A052426D73600362CF3 /* connection.c in Sources */ = {isa = PBXBuildFile; fileRef = E48058052426D73400362CF3 /* connection.c */; };
+		E4805A062426D73600362CF3 /* error.c in Sources */ = {isa = PBXBuildFile; fileRef = E48058062426D73400362CF3 /* error.c */; };
+		E4805A072426D73600362CF3 /* error.c in Sources */ = {isa = PBXBuildFile; fileRef = E48058062426D73400362CF3 /* error.c */; };
+		E4805A082426D73600362CF3 /* fd_util.c in Sources */ = {isa = PBXBuildFile; fileRef = E48058092426D73400362CF3 /* fd_util.c */; };
+		E4805A092426D73600362CF3 /* fd_util.c in Sources */ = {isa = PBXBuildFile; fileRef = E48058092426D73400362CF3 /* fd_util.c */; };
+		E4805A0A2426D73600362CF3 /* sync.c in Sources */ = {isa = PBXBuildFile; fileRef = E480580A2426D73400362CF3 /* sync.c */; };
+		E4805A0B2426D73600362CF3 /* sync.c in Sources */ = {isa = PBXBuildFile; fileRef = E480580A2426D73400362CF3 /* sync.c */; };
+		E4805A0C2426D73600362CF3 /* settings.c in Sources */ = {isa = PBXBuildFile; fileRef = E480580B2426D73400362CF3 /* settings.c */; };
+		E4805A0D2426D73600362CF3 /* settings.c in Sources */ = {isa = PBXBuildFile; fileRef = E480580B2426D73400362CF3 /* settings.c */; };
+		E4805A0E2426D73600362CF3 /* cmount.c in Sources */ = {isa = PBXBuildFile; fileRef = E480580C2426D73400362CF3 /* cmount.c */; };
+		E4805A0F2426D73600362CF3 /* cmount.c in Sources */ = {isa = PBXBuildFile; fileRef = E480580C2426D73400362CF3 /* cmount.c */; };
+		E4805A102426D73600362CF3 /* tag.c in Sources */ = {isa = PBXBuildFile; fileRef = E480580D2426D73400362CF3 /* tag.c */; };
+		E4805A112426D73600362CF3 /* tag.c in Sources */ = {isa = PBXBuildFile; fileRef = E480580D2426D73400362CF3 /* tag.c */; };
+		E4805A122426D73600362CF3 /* rplaylist.c in Sources */ = {isa = PBXBuildFile; fileRef = E480580E2426D73400362CF3 /* rplaylist.c */; };
+		E4805A132426D73600362CF3 /* rplaylist.c in Sources */ = {isa = PBXBuildFile; fileRef = E480580E2426D73400362CF3 /* rplaylist.c */; };
+		E4805A142426D73600362CF3 /* response.c in Sources */ = {isa = PBXBuildFile; fileRef = E480580F2426D73400362CF3 /* response.c */; };
+		E4805A152426D73600362CF3 /* response.c in Sources */ = {isa = PBXBuildFile; fileRef = E480580F2426D73400362CF3 /* response.c */; };
+		E4805A162426D73600362CF3 /* song.c in Sources */ = {isa = PBXBuildFile; fileRef = E48058102426D73400362CF3 /* song.c */; };
+		E4805A172426D73600362CF3 /* song.c in Sources */ = {isa = PBXBuildFile; fileRef = E48058102426D73400362CF3 /* song.c */; };
+		E4805A182426D73600362CF3 /* status.c in Sources */ = {isa = PBXBuildFile; fileRef = E48058112426D73400362CF3 /* status.c */; };
+		E4805A192426D73600362CF3 /* status.c in Sources */ = {isa = PBXBuildFile; fileRef = E48058112426D73400362CF3 /* status.c */; };
+		E4805A1A2426D73600362CF3 /* cmessage.c in Sources */ = {isa = PBXBuildFile; fileRef = E48058132426D73400362CF3 /* cmessage.c */; };
+		E4805A1B2426D73600362CF3 /* cmessage.c in Sources */ = {isa = PBXBuildFile; fileRef = E48058132426D73400362CF3 /* cmessage.c */; };
+		E4805A1C2426D73600362CF3 /* kvlist.c in Sources */ = {isa = PBXBuildFile; fileRef = E48058142426D73400362CF3 /* kvlist.c */; };
+		E4805A1D2426D73600362CF3 /* kvlist.c in Sources */ = {isa = PBXBuildFile; fileRef = E48058142426D73400362CF3 /* kvlist.c */; };
+		E4805A1E2426D73600362CF3 /* idle.c in Sources */ = {isa = PBXBuildFile; fileRef = E48058162426D73400362CF3 /* idle.c */; };
+		E4805A1F2426D73600362CF3 /* idle.c in Sources */ = {isa = PBXBuildFile; fileRef = E48058162426D73400362CF3 /* idle.c */; };
+		E4805A202426D73600362CF3 /* parser.c in Sources */ = {isa = PBXBuildFile; fileRef = E48058172426D73400362CF3 /* parser.c */; };
+		E4805A212426D73600362CF3 /* parser.c in Sources */ = {isa = PBXBuildFile; fileRef = E48058172426D73400362CF3 /* parser.c */; };
+		E4805A222426D73600362CF3 /* output.c in Sources */ = {isa = PBXBuildFile; fileRef = E48058192426D73400362CF3 /* output.c */; };
+		E4805A232426D73600362CF3 /* output.c in Sources */ = {isa = PBXBuildFile; fileRef = E48058192426D73400362CF3 /* output.c */; };
+		E4805A242426D73600362CF3 /* iso8601.c in Sources */ = {isa = PBXBuildFile; fileRef = E480581A2426D73400362CF3 /* iso8601.c */; };
+		E4805A252426D73600362CF3 /* iso8601.c in Sources */ = {isa = PBXBuildFile; fileRef = E480581A2426D73400362CF3 /* iso8601.c */; };
+		E4805A262426D73600362CF3 /* cneighbor.c in Sources */ = {isa = PBXBuildFile; fileRef = E480581B2426D73400362CF3 /* cneighbor.c */; };
+		E4805A272426D73600362CF3 /* cneighbor.c in Sources */ = {isa = PBXBuildFile; fileRef = E480581B2426D73400362CF3 /* cneighbor.c */; };
+		E4805A282426D73600362CF3 /* player.c in Sources */ = {isa = PBXBuildFile; fileRef = E480581C2426D73500362CF3 /* player.c */; };
+		E4805A292426D73600362CF3 /* player.c in Sources */ = {isa = PBXBuildFile; fileRef = E480581C2426D73500362CF3 /* player.c */; };
+		E4805A2A2426D73600362CF3 /* message.c in Sources */ = {isa = PBXBuildFile; fileRef = E480581D2426D73500362CF3 /* message.c */; };
+		E4805A2B2426D73600362CF3 /* message.c in Sources */ = {isa = PBXBuildFile; fileRef = E480581D2426D73500362CF3 /* message.c */; };
+		E483CE68242FEF8B001F742E /* MPDServerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B5AE7D22F4C49600CCEC65 /* MPDServerDelegate.swift */; };
+		E483CE69242FEFB8001F742E /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E408D3B5220DD8970006D9BE /* Notification.swift */; };
 		E489E39922B85D0400CA8CBD /* NSPasteboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E489E39822B85D0400CA8CBD /* NSPasteboard.swift */; };
 		E489E39D22B9CF0000CA8CBD /* NSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E489E39C22B9CF0000CA8CBD /* NSView.swift */; };
 		E489E3A422B9D31800CA8CBD /* DraggedSongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E489E3A222B9D31800CA8CBD /* DraggedSongView.swift */; };
@@ -83,8 +259,6 @@
 		E4A642DA22090CBE00067D21 /* MPDStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A642D922090CBE00067D21 /* MPDStatus.swift */; };
 		E4A83BEF2221F8CF0098FED6 /* CoverArtPrefsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A83BEE2221F8CF0098FED6 /* CoverArtPrefsController.swift */; };
 		E4A83BF12221FAA00098FED6 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A83BF02221FAA00098FED6 /* PreferencesViewController.swift */; };
-		E4B079C723E5E0AD0044B6D3 /* libmpdclient.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E41B22BF21FB6BBA00D544F6 /* libmpdclient.2.dylib */; };
-		E4B079C823E5E0AD0044B6D3 /* libmpdclient.2.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = E41B22BF21FB6BBA00D544F6 /* libmpdclient.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		E4B11B53226928F20075461B /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11B52226928F20075461B /* AppState.swift */; };
 		E4B11B61226A4C000075461B /* PlayerReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11B60226A4BFF0075461B /* PlayerReducer.swift */; };
 		E4B11B63226A4C510075461B /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11B62226A4C510075461B /* AppReducer.swift */; };
@@ -105,7 +279,6 @@
 		E4B5AE7E22F4C49600CCEC65 /* MPDServerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B5AE7D22F4C49600CCEC65 /* MPDServerDelegate.swift */; };
 		E4BB7F8F23E5E7BC00906E2F /* MPDAlbumArtImageDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BB7F8E23E5E7BC00906E2F /* MPDAlbumArtImageDataProvider.swift */; };
 		E4BB7F9323E9150A00906E2F /* CoverArtService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BB7F9223E9150A00906E2F /* CoverArtService.swift */; };
-		E4BBD2F323357C0700702C16 /* ArtistListState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BBD2F223357C0700702C16 /* ArtistListState.swift */; };
 		E4C8B53C22342005009A20F3 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C8B53B22342005009A20F3 /* PreferencesWindowController.swift */; };
 		E4C8B53E22349002009A20F3 /* MPDIdle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C8B53D22349002009A20F3 /* MPDIdle.swift */; };
 		E4D3BFA622B419C000C56F48 /* QueueViewController+NSOutlineViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D3BFA522B419C000C56F48 /* QueueViewController+NSOutlineViewDelegate.swift */; };
@@ -118,8 +291,6 @@
 		E4E96D13233E630800AFD36F /* PMKFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = E4E96D12233E630800AFD36F /* PMKFoundation */; };
 		E4EB2379220F10B8008C70C0 /* MPDPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB2378220F10B8008C70C0 /* MPDPair.swift */; };
 		E4EB237B220F7CF1008C70C0 /* MPDAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB237A220F7CF1008C70C0 /* MPDAlbum.swift */; };
-		E4F26F7723411AE300D45FF9 /* ArtistListActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F26F7623411AE300D45FF9 /* ArtistListActions.swift */; };
-		E4F26F7923411B1500D45FF9 /* ArtistReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F26F7823411B1500D45FF9 /* ArtistReducer.swift */; };
 		E4F26F7B23411D5400D45FF9 /* MPDClient+Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F26F7A23411D5400D45FF9 /* MPDClient+Artist.swift */; };
 		E4F2EFEE24076A2700198159 /* ServerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F2EFED24076A2700198159 /* ServerState.swift */; };
 		E4F2EFF024076B0900198159 /* ServerActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F2EFEF24076B0900198159 /* ServerActions.swift */; };
@@ -148,6 +319,20 @@
 			remoteGlobalIDString = E40786172110CE6E006887B1;
 			remoteInfo = Persephone;
 		};
+		E411C283241C10F5008B9682 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E40786102110CE6E006887B1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E411C26C241C10F0008B9682;
+			remoteInfo = "Persephone-iOS";
+		};
+		E411C28E241C10F5008B9682 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E40786102110CE6E006887B1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E411C26C241C10F0008B9682;
+			remoteInfo = "Persephone-iOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -160,13 +345,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E480545C2426D4D900362CF3 /* Embed Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E4B079C923E5E0AD0044B6D3 /* Embed Libraries */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E4B079C823E5E0AD0044B6D3 /* libmpdclient.2.dylib in Embed Libraries */,
 			);
 			name = "Embed Libraries";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -192,8 +386,10 @@
 		E408D3C1220E134F0006D9BE /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
 		E408D3C9220E341D0006D9BE /* AlbumViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumViewItem.xib; sourceTree = "<group>"; };
 		E40FE71A221B904300A4223F /* NSEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSEvent.swift; sourceTree = "<group>"; };
+		E411C26D241C10F0008B9682 /* Persephone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Persephone.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E411C282241C10F5008B9682 /* Persephone-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Persephone-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E411C28D241C10F5008B9682 /* Persephone-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Persephone-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E419E2862249B96600216A8C /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
-		E41B22BF21FB6BBA00D544F6 /* libmpdclient.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libmpdclient.2.dylib; path = libmpdclient/output/libmpdclient.2.dylib; sourceTree = "<group>"; };
 		E41B22C421FB715A00D544F6 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		E41B22C521FB932700D544F6 /* MPDClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDClient.swift; sourceTree = "<group>"; };
 		E41B22C921FB966C00D544F6 /* connection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = connection.h; sourceTree = "<group>"; };
@@ -261,7 +457,6 @@
 		E440519B227BAF2E0090CD6F /* UIActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActions.swift; sourceTree = "<group>"; };
 		E440519D227BB0720090CD6F /* UIReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIReducer.swift; sourceTree = "<group>"; };
 		E440519F227BB0AB0090CD6F /* UIState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIState.swift; sourceTree = "<group>"; };
-		E442CCCC2347E73C00004E0C /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		E450AD7D222620A10091BED3 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		E450AD9E2229B9BC0091BED3 /* PersephoneBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersephoneBridgingHeader.h; sourceTree = "<group>"; };
 		E451E36A22BD214D008BE9B2 /* DraggedSongType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggedSongType.swift; sourceTree = "<group>"; };
@@ -271,7 +466,7 @@
 		E453825423FA347C007F6BFC /* MPDClient+Mixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MPDClient+Mixer.swift"; sourceTree = "<group>"; };
 		E45878372296173C00586A1C /* AlbumDetailSongRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailSongRowView.swift; sourceTree = "<group>"; };
 		E45962C52241A78500FC1A1E /* MPDCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDCommand.swift; sourceTree = "<group>"; };
-		E45E4FD722515D87004B537F /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = SOURCE_ROOT; };
+		E45E4FD722515D87004B537F /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = Mac/CHANGELOG.md; sourceTree = SOURCE_ROOT; };
 		E45E4FD822515D87004B537F /* Brewfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Brewfile; sourceTree = SOURCE_ROOT; };
 		E465049921E94DF500A70F4C /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		E47E2FD022205C4600F747E6 /* MainSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSplitViewController.swift; sourceTree = "<group>"; };
@@ -279,6 +474,119 @@
 		E47E2FD4222071FD00F747E6 /* AlbumViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumViewItem.swift; sourceTree = "<group>"; };
 		E47E2FDC2220A6D100F747E6 /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		E47E2FE42220AA0700F747E6 /* FlexibleGridViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexibleGridViewLayout.swift; sourceTree = "<group>"; };
+		E480510E2423BD7100362CF3 /* MachTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachTime.swift; sourceTree = "<group>"; };
+		E48056CC2426D73400362CF3 /* connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = connection.h; sourceTree = "<group>"; };
+		E48056CD2426D73400362CF3 /* protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = protocol.h; sourceTree = "<group>"; };
+		E48056CE2426D73400362CF3 /* error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = error.h; sourceTree = "<group>"; };
+		E48056CF2426D73400362CF3 /* recv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = recv.h; sourceTree = "<group>"; };
+		E48056D02426D73400362CF3 /* neighbor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = neighbor.h; sourceTree = "<group>"; };
+		E48056D12426D73400362CF3 /* client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = client.h; sourceTree = "<group>"; };
+		E48056D22426D73400362CF3 /* song.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = song.h; sourceTree = "<group>"; };
+		E48056D32426D73400362CF3 /* response.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = response.h; sourceTree = "<group>"; };
+		E48056D42426D73400362CF3 /* status.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = status.h; sourceTree = "<group>"; };
+		E48056D52426D73400362CF3 /* tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tag.h; sourceTree = "<group>"; };
+		E48056D62426D73400362CF3 /* compiler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = compiler.h; sourceTree = "<group>"; };
+		E48056D72426D73400362CF3 /* settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settings.h; sourceTree = "<group>"; };
+		E48056D82426D73400362CF3 /* version.h.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = version.h.in; sourceTree = "<group>"; };
+		E48056D92426D73400362CF3 /* parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parser.h; sourceTree = "<group>"; };
+		E48056DA2426D73400362CF3 /* idle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = idle.h; sourceTree = "<group>"; };
+		E48056DB2426D73400362CF3 /* message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = message.h; sourceTree = "<group>"; };
+		E48056DC2426D73400362CF3 /* player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = player.h; sourceTree = "<group>"; };
+		E48056DD2426D73400362CF3 /* output.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = output.h; sourceTree = "<group>"; };
+		E48056DE2426D73400362CF3 /* mixer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mixer.h; sourceTree = "<group>"; };
+		E48056DF2426D73400362CF3 /* list.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = list.h; sourceTree = "<group>"; };
+		E48056E02426D73400362CF3 /* async.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = async.h; sourceTree = "<group>"; };
+		E48056E12426D73400362CF3 /* directory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = directory.h; sourceTree = "<group>"; };
+		E48056E22426D73400362CF3 /* replay_gain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = replay_gain.h; sourceTree = "<group>"; };
+		E48056E32426D73400362CF3 /* database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = database.h; sourceTree = "<group>"; };
+		E48056E42426D73400362CF3 /* partition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = partition.h; sourceTree = "<group>"; };
+		E48056E52426D73400362CF3 /* entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = entity.h; sourceTree = "<group>"; };
+		E48056E62426D73400362CF3 /* pair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pair.h; sourceTree = "<group>"; };
+		E48056E72426D73400362CF3 /* send.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = send.h; sourceTree = "<group>"; };
+		E48056E82426D73400362CF3 /* password.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = password.h; sourceTree = "<group>"; };
+		E48056E92426D73400362CF3 /* audio_format.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audio_format.h; sourceTree = "<group>"; };
+		E48056EA2426D73400362CF3 /* mount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mount.h; sourceTree = "<group>"; };
+		E48056EB2426D73400362CF3 /* sticker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sticker.h; sourceTree = "<group>"; };
+		E48056EC2426D73400362CF3 /* search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = search.h; sourceTree = "<group>"; };
+		E48056ED2426D73400362CF3 /* fingerprint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fingerprint.h; sourceTree = "<group>"; };
+		E48056EE2426D73400362CF3 /* socket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = socket.h; sourceTree = "<group>"; };
+		E48056EF2426D73400362CF3 /* stats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stats.h; sourceTree = "<group>"; };
+		E48056F02426D73400362CF3 /* capabilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = capabilities.h; sourceTree = "<group>"; };
+		E48056F12426D73400362CF3 /* queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = queue.h; sourceTree = "<group>"; };
+		E48056F22426D73400362CF3 /* playlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = playlist.h; sourceTree = "<group>"; };
+		E48057752426D73400362CF3 /* configure.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = configure.py; sourceTree = "<group>"; };
+		E48057772426D73400362CF3 /* win64.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = win64.txt; sourceTree = "<group>"; };
+		E48057782426D73400362CF3 /* win32.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = win32.txt; sourceTree = "<group>"; };
+		E48057792426D73400362CF3 /* build.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = build.sh; sourceTree = "<group>"; };
+		E48057D82426D73400362CF3 /* libmpdclient.vapi */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libmpdclient.vapi; sourceTree = "<group>"; };
+		E48057DA2426D73400362CF3 /* directory.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = directory.c; sourceTree = "<group>"; };
+		E48057DB2426D73400362CF3 /* replay_gain.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = replay_gain.c; sourceTree = "<group>"; };
+		E48057DC2426D73400362CF3 /* cplaylist.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cplaylist.c; sourceTree = "<group>"; };
+		E48057DD2426D73400362CF3 /* quote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = quote.h; sourceTree = "<group>"; };
+		E48057DE2426D73400362CF3 /* async.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = async.c; sourceTree = "<group>"; };
+		E48057DF2426D73400362CF3 /* list.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = list.c; sourceTree = "<group>"; };
+		E48057E02426D73400362CF3 /* internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = internal.h; sourceTree = "<group>"; };
+		E48057E12426D73400362CF3 /* mixer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mixer.c; sourceTree = "<group>"; };
+		E48057E22426D73400362CF3 /* cpartition.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cpartition.c; sourceTree = "<group>"; };
+		E48057E32426D73400362CF3 /* send.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = send.c; sourceTree = "<group>"; };
+		E48057E42426D73400362CF3 /* iasync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iasync.h; sourceTree = "<group>"; };
+		E48057E52426D73400362CF3 /* sync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sync.h; sourceTree = "<group>"; };
+		E48057E62426D73400362CF3 /* partition.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = partition.c; sourceTree = "<group>"; };
+		E48057E72426D73400362CF3 /* resolver.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = resolver.c; sourceTree = "<group>"; };
+		E48057E82426D73400362CF3 /* ierror.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ierror.c; sourceTree = "<group>"; };
+		E48057E92426D73400362CF3 /* database.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = database.c; sourceTree = "<group>"; };
+		E48057EA2426D73400362CF3 /* entity.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = entity.c; sourceTree = "<group>"; };
+		E48057EB2426D73400362CF3 /* iaf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iaf.h; sourceTree = "<group>"; };
+		E48057EC2426D73400362CF3 /* cstatus.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cstatus.c; sourceTree = "<group>"; };
+		E48057ED2426D73400362CF3 /* fd_util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fd_util.h; sourceTree = "<group>"; };
+		E48057EE2426D73400362CF3 /* uri.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uri.h; sourceTree = "<group>"; };
+		E48057EF2426D73400362CF3 /* audio_format.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = audio_format.c; sourceTree = "<group>"; };
+		E48057F02426D73400362CF3 /* password.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = password.c; sourceTree = "<group>"; };
+		E48057F12426D73400362CF3 /* mount.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mount.c; sourceTree = "<group>"; };
+		E48057F22426D73400362CF3 /* run.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = run.c; sourceTree = "<group>"; };
+		E48057F32426D73400362CF3 /* kvlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kvlist.h; sourceTree = "<group>"; };
+		E48057F42426D73400362CF3 /* playlist.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = playlist.c; sourceTree = "<group>"; };
+		E48057F52426D73400362CF3 /* queue.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = queue.c; sourceTree = "<group>"; };
+		E48057F62426D73400362CF3 /* iso8601.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iso8601.h; sourceTree = "<group>"; };
+		E48057F72426D73400362CF3 /* coutput.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = coutput.c; sourceTree = "<group>"; };
+		E48057F82426D73400362CF3 /* stats.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stats.c; sourceTree = "<group>"; };
+		E48057F92426D73400362CF3 /* socket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = socket.c; sourceTree = "<group>"; };
+		E48057FA2426D73400362CF3 /* fingerprint.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fingerprint.c; sourceTree = "<group>"; };
+		E48057FB2426D73400362CF3 /* capabilities.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = capabilities.c; sourceTree = "<group>"; };
+		E48057FC2426D73400362CF3 /* search.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = search.c; sourceTree = "<group>"; };
+		E48057FD2426D73400362CF3 /* sticker.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sticker.c; sourceTree = "<group>"; };
+		E48057FE2426D73400362CF3 /* rdirectory.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rdirectory.c; sourceTree = "<group>"; };
+		E48057FF2426D73400362CF3 /* recv.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = recv.c; sourceTree = "<group>"; };
+		E48058002426D73400362CF3 /* neighbor.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = neighbor.c; sourceTree = "<group>"; };
+		E48058012426D73400362CF3 /* cstats.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cstats.c; sourceTree = "<group>"; };
+		E48058022426D73400362CF3 /* quote.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = quote.c; sourceTree = "<group>"; };
+		E48058032426D73400362CF3 /* buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buffer.h; sourceTree = "<group>"; };
+		E48058042426D73400362CF3 /* example.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = example.c; sourceTree = "<group>"; };
+		E48058052426D73400362CF3 /* connection.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = connection.c; sourceTree = "<group>"; };
+		E48058062426D73400362CF3 /* error.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = error.c; sourceTree = "<group>"; };
+		E48058072426D73400362CF3 /* ierror.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ierror.h; sourceTree = "<group>"; };
+		E48058082426D73400362CF3 /* resolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = resolver.h; sourceTree = "<group>"; };
+		E48058092426D73400362CF3 /* fd_util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fd_util.c; sourceTree = "<group>"; };
+		E480580A2426D73400362CF3 /* sync.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sync.c; sourceTree = "<group>"; };
+		E480580B2426D73400362CF3 /* settings.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = settings.c; sourceTree = "<group>"; };
+		E480580C2426D73400362CF3 /* cmount.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cmount.c; sourceTree = "<group>"; };
+		E480580D2426D73400362CF3 /* tag.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tag.c; sourceTree = "<group>"; };
+		E480580E2426D73400362CF3 /* rplaylist.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rplaylist.c; sourceTree = "<group>"; };
+		E480580F2426D73400362CF3 /* response.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = response.c; sourceTree = "<group>"; };
+		E48058102426D73400362CF3 /* song.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = song.c; sourceTree = "<group>"; };
+		E48058112426D73400362CF3 /* status.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = status.c; sourceTree = "<group>"; };
+		E48058122426D73400362CF3 /* isend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = isend.h; sourceTree = "<group>"; };
+		E48058132426D73400362CF3 /* cmessage.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cmessage.c; sourceTree = "<group>"; };
+		E48058142426D73400362CF3 /* kvlist.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = kvlist.c; sourceTree = "<group>"; };
+		E48058152426D73400362CF3 /* run.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = run.h; sourceTree = "<group>"; };
+		E48058162426D73400362CF3 /* idle.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = idle.c; sourceTree = "<group>"; };
+		E48058172426D73400362CF3 /* parser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = parser.c; sourceTree = "<group>"; };
+		E48058182426D73400362CF3 /* socket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = socket.h; sourceTree = "<group>"; };
+		E48058192426D73400362CF3 /* output.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = output.c; sourceTree = "<group>"; };
+		E480581A2426D73400362CF3 /* iso8601.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = iso8601.c; sourceTree = "<group>"; };
+		E480581B2426D73400362CF3 /* cneighbor.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cneighbor.c; sourceTree = "<group>"; };
+		E480581C2426D73500362CF3 /* player.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = player.c; sourceTree = "<group>"; };
+		E480581D2426D73500362CF3 /* message.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = message.c; sourceTree = "<group>"; };
 		E489E39822B85D0400CA8CBD /* NSPasteboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPasteboard.swift; sourceTree = "<group>"; };
 		E489E39C22B9CF0000CA8CBD /* NSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSView.swift; sourceTree = "<group>"; };
 		E489E3A222B9D31800CA8CBD /* DraggedSongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggedSongView.swift; sourceTree = "<group>"; };
@@ -308,7 +616,6 @@
 		E4B5AE7D22F4C49600CCEC65 /* MPDServerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDServerDelegate.swift; sourceTree = "<group>"; };
 		E4BB7F8E23E5E7BC00906E2F /* MPDAlbumArtImageDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDAlbumArtImageDataProvider.swift; sourceTree = "<group>"; };
 		E4BB7F9223E9150A00906E2F /* CoverArtService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverArtService.swift; sourceTree = "<group>"; };
-		E4BBD2F223357C0700702C16 /* ArtistListState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListState.swift; sourceTree = "<group>"; };
 		E4C8B53B22342005009A20F3 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
 		E4C8B53D22349002009A20F3 /* MPDIdle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDIdle.swift; sourceTree = "<group>"; };
 		E4D3BFA522B419C000C56F48 /* QueueViewController+NSOutlineViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QueueViewController+NSOutlineViewDelegate.swift"; sourceTree = "<group>"; };
@@ -322,8 +629,6 @@
 		E4E8CC9922075D370024217A /* MPDSong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDSong.swift; sourceTree = "<group>"; };
 		E4EB2378220F10B8008C70C0 /* MPDPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDPair.swift; sourceTree = "<group>"; };
 		E4EB237A220F7CF1008C70C0 /* MPDAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDAlbum.swift; sourceTree = "<group>"; };
-		E4F26F7623411AE300D45FF9 /* ArtistListActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListActions.swift; sourceTree = "<group>"; };
-		E4F26F7823411B1500D45FF9 /* ArtistReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistReducer.swift; sourceTree = "<group>"; };
 		E4F26F7A23411D5400D45FF9 /* MPDClient+Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MPDClient+Artist.swift"; sourceTree = "<group>"; };
 		E4F2EFED24076A2700198159 /* ServerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerState.swift; sourceTree = "<group>"; };
 		E4F2EFEF24076B0900198159 /* ServerActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerActions.swift; sourceTree = "<group>"; };
@@ -347,7 +652,6 @@
 				E43BECA0238835DC00CAF1EB /* Kingfisher in Frameworks */,
 				E49A548E233E5B6000EED353 /* SwiftyJSON in Frameworks */,
 				E4E96D13233E630800AFD36F /* PMKFoundation in Frameworks */,
-				E4B079C723E5E0AD0044B6D3 /* libmpdclient.2.dylib in Frameworks */,
 				E49A5482233E580800EED353 /* PromiseKit in Frameworks */,
 				E49A548B233E5B2D00EED353 /* CryptoSwift in Frameworks */,
 				E49A5488233E5B0000EED353 /* ReSwift in Frameworks */,
@@ -368,6 +672,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E411C26A241C10F0008B9682 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E480513824255CE000362CF3 /* ReSwift in Frameworks */,
+				E480513A24255CF200362CF3 /* CryptoSwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E411C27F241C10F5008B9682 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E411C28A241C10F5008B9682 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -375,8 +702,6 @@
 			isa = PBXGroup;
 			children = (
 				E45E4FD822515D87004B537F /* Brewfile */,
-				E45E4FD722515D87004B537F /* CHANGELOG.md */,
-				E41B22BE21FB6B3300D544F6 /* Frameworks */,
 				E42A8F3922176D6400A13ED9 /* LICENSE.md */,
 				E407861A2110CE6E006887B1 /* Mac */,
 				E407862D2110CE70006887B1 /* MacTests */,
@@ -384,6 +709,7 @@
 				E40786192110CE6E006887B1 /* Products */,
 				E42A8F3A22176D6400A13ED9 /* README.md */,
 				E411C268241C02B2008B9682 /* Shared */,
+				E48054592426D4D900362CF3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -393,6 +719,9 @@
 				E40786182110CE6E006887B1 /* Persephone.app */,
 				E407862A2110CE70006887B1 /* PersephoneTests.xctest */,
 				E40786352110CE70006887B1 /* PersephoneUITests.xctest */,
+				E411C26D241C10F0008B9682 /* Persephone.app */,
+				E411C282241C10F5008B9682 /* Persephone-iOSTests.xctest */,
+				E411C28D241C10F5008B9682 /* Persephone-iOSUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -400,15 +729,15 @@
 		E407861A2110CE6E006887B1 /* Mac */ = {
 			isa = PBXGroup;
 			children = (
-				E44051932278765A0090CD6F /* App.swift */,
+				E45E4FD722515D87004B537F /* CHANGELOG.md */,
 				E407861B2110CE6E006887B1 /* AppDelegate.swift */,
+				E44051932278765A0090CD6F /* App.swift */,
 				E407861F2110CE70006887B1 /* Assets.xcassets */,
 				E442CCC42347D5B900004E0C /* Components */,
 				E40786242110CE70006887B1 /* Info.plist */,
 				E40786252110CE70006887B1 /* Persephone.entitlements */,
 				E450AD9E2229B9BC0091BED3 /* PersephoneBridgingHeader.h */,
 				E4A83BF2222207BE0098FED6 /* Services */,
-				E4B11B64226A4F460075461B /* State */,
 			);
 			path = Mac;
 			sourceTree = "<group>";
@@ -435,7 +764,6 @@
 			isa = PBXGroup;
 			children = (
 				E4928E0A2218D62A001D4BEA /* CGColor.swift */,
-				E408D3B5220DD8970006D9BE /* Notification.swift */,
 				E40FE71A221B904300A4223F /* NSEvent.swift */,
 				E435E3E1221CD4E200184CFC /* NSFont.swift */,
 				E435E3E3221CD75D00184CFC /* NSImage.swift */,
@@ -474,19 +802,25 @@
 		E411C268241C02B2008B9682 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				E483CE67242FEF82001F742E /* Delegates */,
+				E48056C22426D73300362CF3 /* libmpdclient */,
+				E48051512425607100362CF3 /* Controllers */,
+				E411C29D241C123C008B9682 /* Extensions */,
 				E41B22C721FB966C00D544F6 /* include */,
+				E480510D2423BD6700362CF3 /* Lib */,
 				E4F6B461221E124700ACF42A /* Models */,
 				E4A642DB220912FA00067D21 /* MPDClient */,
+				E4B11B64226A4F460075461B /* State */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
 		};
-		E41B22BE21FB6B3300D544F6 /* Frameworks */ = {
+		E411C29D241C123C008B9682 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				E41B22BF21FB6BBA00D544F6 /* libmpdclient.2.dylib */,
+				E408D3B5220DD8970006D9BE /* Notification.swift */,
 			);
-			name = Frameworks;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E41B22C721FB966C00D544F6 /* include */ = {
@@ -611,8 +945,6 @@
 				E408D3B7220DE8CC0006D9BE /* Extensions */,
 				E489E3A222B9D31800CA8CBD /* DraggedSongView.swift */,
 				E489E3A322B9D31800CA8CBD /* DraggedSongView.xib */,
-				E4405191227644340090CD6F /* MPDServerController.swift */,
-				E4B5AE7D22F4C49600CCEC65 /* MPDServerDelegate.swift */,
 				E4B11BB52275374B0075461B /* UserNotificationsController.swift */,
 			);
 			path = Shared;
@@ -634,6 +966,204 @@
 				E453825123FA0186007F6BFC /* VolumeControlView.xib */,
 			);
 			path = VolumeControl;
+			sourceTree = "<group>";
+		};
+		E480510D2423BD6700362CF3 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				E480510E2423BD7100362CF3 /* MachTime.swift */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		E48051512425607100362CF3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E4405191227644340090CD6F /* MPDServerController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E48054592426D4D900362CF3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E48056C22426D73300362CF3 /* libmpdclient */ = {
+			isa = PBXGroup;
+			children = (
+				E48056CA2426D73300362CF3 /* include */,
+				E48057742426D73400362CF3 /* build */,
+				E48057D72426D73400362CF3 /* vapi */,
+				E48057D92426D73400362CF3 /* src */,
+			);
+			path = libmpdclient;
+			sourceTree = SOURCE_ROOT;
+		};
+		E48056CA2426D73300362CF3 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				E48056CB2426D73300362CF3 /* mpd */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		E48056CB2426D73300362CF3 /* mpd */ = {
+			isa = PBXGroup;
+			children = (
+				E48056CC2426D73400362CF3 /* connection.h */,
+				E48056CD2426D73400362CF3 /* protocol.h */,
+				E48056CE2426D73400362CF3 /* error.h */,
+				E48056CF2426D73400362CF3 /* recv.h */,
+				E48056D02426D73400362CF3 /* neighbor.h */,
+				E48056D12426D73400362CF3 /* client.h */,
+				E48056D22426D73400362CF3 /* song.h */,
+				E48056D32426D73400362CF3 /* response.h */,
+				E48056D42426D73400362CF3 /* status.h */,
+				E48056D52426D73400362CF3 /* tag.h */,
+				E48056D62426D73400362CF3 /* compiler.h */,
+				E48056D72426D73400362CF3 /* settings.h */,
+				E48056D82426D73400362CF3 /* version.h.in */,
+				E48056D92426D73400362CF3 /* parser.h */,
+				E48056DA2426D73400362CF3 /* idle.h */,
+				E48056DB2426D73400362CF3 /* message.h */,
+				E48056DC2426D73400362CF3 /* player.h */,
+				E48056DD2426D73400362CF3 /* output.h */,
+				E48056DE2426D73400362CF3 /* mixer.h */,
+				E48056DF2426D73400362CF3 /* list.h */,
+				E48056E02426D73400362CF3 /* async.h */,
+				E48056E12426D73400362CF3 /* directory.h */,
+				E48056E22426D73400362CF3 /* replay_gain.h */,
+				E48056E32426D73400362CF3 /* database.h */,
+				E48056E42426D73400362CF3 /* partition.h */,
+				E48056E52426D73400362CF3 /* entity.h */,
+				E48056E62426D73400362CF3 /* pair.h */,
+				E48056E72426D73400362CF3 /* send.h */,
+				E48056E82426D73400362CF3 /* password.h */,
+				E48056E92426D73400362CF3 /* audio_format.h */,
+				E48056EA2426D73400362CF3 /* mount.h */,
+				E48056EB2426D73400362CF3 /* sticker.h */,
+				E48056EC2426D73400362CF3 /* search.h */,
+				E48056ED2426D73400362CF3 /* fingerprint.h */,
+				E48056EE2426D73400362CF3 /* socket.h */,
+				E48056EF2426D73400362CF3 /* stats.h */,
+				E48056F02426D73400362CF3 /* capabilities.h */,
+				E48056F12426D73400362CF3 /* queue.h */,
+				E48056F22426D73400362CF3 /* playlist.h */,
+			);
+			path = mpd;
+			sourceTree = "<group>";
+		};
+		E48057742426D73400362CF3 /* build */ = {
+			isa = PBXGroup;
+			children = (
+				E48057752426D73400362CF3 /* configure.py */,
+				E48057762426D73400362CF3 /* cross */,
+				E48057792426D73400362CF3 /* build.sh */,
+			);
+			path = build;
+			sourceTree = "<group>";
+		};
+		E48057762426D73400362CF3 /* cross */ = {
+			isa = PBXGroup;
+			children = (
+				E48057772426D73400362CF3 /* win64.txt */,
+				E48057782426D73400362CF3 /* win32.txt */,
+			);
+			path = cross;
+			sourceTree = "<group>";
+		};
+		E48057D72426D73400362CF3 /* vapi */ = {
+			isa = PBXGroup;
+			children = (
+				E48057D82426D73400362CF3 /* libmpdclient.vapi */,
+			);
+			path = vapi;
+			sourceTree = "<group>";
+		};
+		E48057D92426D73400362CF3 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				E48057DE2426D73400362CF3 /* async.c */,
+				E48057EF2426D73400362CF3 /* audio_format.c */,
+				E48058032426D73400362CF3 /* buffer.h */,
+				E48057FB2426D73400362CF3 /* capabilities.c */,
+				E48058132426D73400362CF3 /* cmessage.c */,
+				E480580C2426D73400362CF3 /* cmount.c */,
+				E480581B2426D73400362CF3 /* cneighbor.c */,
+				E48058052426D73400362CF3 /* connection.c */,
+				E48057F72426D73400362CF3 /* coutput.c */,
+				E48057E22426D73400362CF3 /* cpartition.c */,
+				E48057DC2426D73400362CF3 /* cplaylist.c */,
+				E48058012426D73400362CF3 /* cstats.c */,
+				E48057EC2426D73400362CF3 /* cstatus.c */,
+				E48057E92426D73400362CF3 /* database.c */,
+				E48057DA2426D73400362CF3 /* directory.c */,
+				E48057EA2426D73400362CF3 /* entity.c */,
+				E48058062426D73400362CF3 /* error.c */,
+				E48058042426D73400362CF3 /* example.c */,
+				E48058092426D73400362CF3 /* fd_util.c */,
+				E48057ED2426D73400362CF3 /* fd_util.h */,
+				E48057FA2426D73400362CF3 /* fingerprint.c */,
+				E48057EB2426D73400362CF3 /* iaf.h */,
+				E48057E42426D73400362CF3 /* iasync.h */,
+				E48058162426D73400362CF3 /* idle.c */,
+				E48057E82426D73400362CF3 /* ierror.c */,
+				E48058072426D73400362CF3 /* ierror.h */,
+				E48057E02426D73400362CF3 /* internal.h */,
+				E48058122426D73400362CF3 /* isend.h */,
+				E480581A2426D73400362CF3 /* iso8601.c */,
+				E48057F62426D73400362CF3 /* iso8601.h */,
+				E48058142426D73400362CF3 /* kvlist.c */,
+				E48057F32426D73400362CF3 /* kvlist.h */,
+				E48057DF2426D73400362CF3 /* list.c */,
+				E480581D2426D73500362CF3 /* message.c */,
+				E48057E12426D73400362CF3 /* mixer.c */,
+				E48057F12426D73400362CF3 /* mount.c */,
+				E48058002426D73400362CF3 /* neighbor.c */,
+				E48058192426D73400362CF3 /* output.c */,
+				E48058172426D73400362CF3 /* parser.c */,
+				E48057E62426D73400362CF3 /* partition.c */,
+				E48057F02426D73400362CF3 /* password.c */,
+				E480581C2426D73500362CF3 /* player.c */,
+				E48057F42426D73400362CF3 /* playlist.c */,
+				E48057F52426D73400362CF3 /* queue.c */,
+				E48058022426D73400362CF3 /* quote.c */,
+				E48057DD2426D73400362CF3 /* quote.h */,
+				E48057FE2426D73400362CF3 /* rdirectory.c */,
+				E48057FF2426D73400362CF3 /* recv.c */,
+				E48057DB2426D73400362CF3 /* replay_gain.c */,
+				E48057E72426D73400362CF3 /* resolver.c */,
+				E48058082426D73400362CF3 /* resolver.h */,
+				E480580F2426D73400362CF3 /* response.c */,
+				E480580E2426D73400362CF3 /* rplaylist.c */,
+				E48057F22426D73400362CF3 /* run.c */,
+				E48058152426D73400362CF3 /* run.h */,
+				E48057FC2426D73400362CF3 /* search.c */,
+				E48057E32426D73400362CF3 /* send.c */,
+				E480580B2426D73400362CF3 /* settings.c */,
+				E48057F92426D73400362CF3 /* socket.c */,
+				E48058182426D73400362CF3 /* socket.h */,
+				E48058102426D73400362CF3 /* song.c */,
+				E48057F82426D73400362CF3 /* stats.c */,
+				E48058112426D73400362CF3 /* status.c */,
+				E48057FD2426D73400362CF3 /* sticker.c */,
+				E480580A2426D73400362CF3 /* sync.c */,
+				E48057E52426D73400362CF3 /* sync.h */,
+				E480580D2426D73400362CF3 /* tag.c */,
+				E48057EE2426D73400362CF3 /* uri.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		E483CE67242FEF82001F742E /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				E4B5AE7D22F4C49600CCEC65 /* MPDServerDelegate.swift */,
+			);
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 		E4A642DB220912FA00067D21 /* MPDClient */ = {
@@ -672,7 +1202,6 @@
 			children = (
 				E4B11B78226D346B0075461B /* AlbumListReducer.swift */,
 				E4B11B62226A4C510075461B /* AppReducer.swift */,
-				E4F26F7823411B1500D45FF9 /* ArtistReducer.swift */,
 				E4B11B60226A4BFF0075461B /* PlayerReducer.swift */,
 				E4FF718F227601B400D4C412 /* PreferencesReducer.swift */,
 				E4B11B74226CC4D30075461B /* QueueReducer.swift */,
@@ -689,7 +1218,6 @@
 				E4B11B5F226A4BED0075461B /* Reducers */,
 				E4B11B69226A4FBC0075461B /* AlbumListState.swift */,
 				E4B11B52226928F20075461B /* AppState.swift */,
-				E4BBD2F223357C0700702C16 /* ArtistListState.swift */,
 				E4B11B65226A4F830075461B /* PlayerState.swift */,
 				E4FF718D2276010E00D4C412 /* PreferencesState.swift */,
 				E4B11B67226A4FA00075461B /* QueueState.swift */,
@@ -703,7 +1231,6 @@
 			isa = PBXGroup;
 			children = (
 				E4B11BC12275EE410075461B /* AlbumListActions.swift */,
-				E4F26F7623411AE300D45FF9 /* ArtistListActions.swift */,
 				E4B11BBD2275EDAA0075461B /* PlayerActions.swift */,
 				E4FF71912276029000D4C412 /* PreferencesActions.swift */,
 				E4B11BBF2275EE150075461B /* QueueActions.swift */,
@@ -756,7 +1283,6 @@
 			isa = PBXGroup;
 			children = (
 				E450AD7D222620A10091BED3 /* Album.swift */,
-				E442CCCC2347E73C00004E0C /* Artist.swift */,
 				E43AC1F422C6A4F4001E483C /* DraggedAlbum.swift */,
 				E451E36C22BD23DB008BE9B2 /* DraggedSong.swift */,
 				E451E36A22BD214D008BE9B2 /* DraggedSongType.swift */,
@@ -839,13 +1365,71 @@
 			productReference = E40786352110CE70006887B1 /* PersephoneUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		E411C26C241C10F0008B9682 /* Persephone-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E411C294241C10F5008B9682 /* Build configuration list for PBXNativeTarget "Persephone-iOS" */;
+			buildPhases = (
+				E411C269241C10F0008B9682 /* Sources */,
+				E411C26A241C10F0008B9682 /* Frameworks */,
+				E411C26B241C10F0008B9682 /* Resources */,
+				E480545C2426D4D900362CF3 /* Embed Libraries */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Persephone-iOS";
+			packageProductDependencies = (
+				E480513724255CE000362CF3 /* ReSwift */,
+				E480513924255CF200362CF3 /* CryptoSwift */,
+			);
+			productName = "Persephone-iOS";
+			productReference = E411C26D241C10F0008B9682 /* Persephone.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E411C281241C10F5008B9682 /* Persephone-iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E411C297241C10F5008B9682 /* Build configuration list for PBXNativeTarget "Persephone-iOSTests" */;
+			buildPhases = (
+				E411C27E241C10F5008B9682 /* Sources */,
+				E411C27F241C10F5008B9682 /* Frameworks */,
+				E411C280241C10F5008B9682 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E411C284241C10F5008B9682 /* PBXTargetDependency */,
+			);
+			name = "Persephone-iOSTests";
+			productName = "Persephone-iOSTests";
+			productReference = E411C282241C10F5008B9682 /* Persephone-iOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E411C28C241C10F5008B9682 /* Persephone-iOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E411C29A241C10F5008B9682 /* Build configuration list for PBXNativeTarget "Persephone-iOSUITests" */;
+			buildPhases = (
+				E411C289241C10F5008B9682 /* Sources */,
+				E411C28A241C10F5008B9682 /* Frameworks */,
+				E411C28B241C10F5008B9682 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E411C28F241C10F5008B9682 /* PBXTargetDependency */,
+			);
+			name = "Persephone-iOSUITests";
+			productName = "Persephone-iOSUITests";
+			productReference = E411C28D241C10F5008B9682 /* Persephone-iOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		E40786102110CE6E006887B1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0940;
+				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Dan Barber";
 				TargetAttributes = {
@@ -870,6 +1454,17 @@
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 1020;
 						TestTargetID = E40786172110CE6E006887B1;
+					};
+					E411C26C241C10F0008B9682 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					E411C281241C10F5008B9682 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = E411C26C241C10F0008B9682;
+					};
+					E411C28C241C10F5008B9682 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = E411C26C241C10F0008B9682;
 					};
 				};
 			};
@@ -899,6 +1494,9 @@
 				E40786172110CE6E006887B1 /* Persephone */,
 				E40786292110CE70006887B1 /* PersephoneTests */,
 				E40786342110CE70006887B1 /* PersephoneUITests */,
+				E411C26C241C10F0008B9682 /* Persephone-iOS */,
+				E411C281241C10F5008B9682 /* Persephone-iOSTests */,
+				E411C28C241C10F5008B9682 /* Persephone-iOSUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -908,16 +1506,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E48059C02426D73600362CF3 /* libmpdclient.vapi in Resources */,
+				E48059102426D73600362CF3 /* win64.txt in Resources */,
 				E45E4FDB22515D87004B537F /* Brewfile in Resources */,
 				E42A8F3B22176D6400A13ED9 /* LICENSE.md in Resources */,
 				E453825323FA0186007F6BFC /* VolumeControlView.xib in Resources */,
 				E45E4FDA22515D87004B537F /* CHANGELOG.md in Resources */,
 				E43B67AB22909793007DCF55 /* AlbumDetailView.xib in Resources */,
+				E48058282426D73500362CF3 /* version.h.in in Resources */,
 				E489E3A522B9D31800CA8CBD /* DraggedSongView.xib in Resources */,
 				E40786202110CE70006887B1 /* Assets.xcassets in Resources */,
 				E42A8F3C22176D6400A13ED9 /* README.md in Resources */,
+				E480590E2426D73600362CF3 /* configure.py in Resources */,
+				E48059142426D73600362CF3 /* build.sh in Resources */,
 				E408D3CB220E341D0006D9BE /* AlbumViewItem.xib in Resources */,
 				E40786232110CE70006887B1 /* Main.storyboard in Resources */,
+				E48059122426D73600362CF3 /* win32.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -929,6 +1533,33 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		E40786332110CE70006887B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E411C26B241C10F0008B9682 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E48059112426D73600362CF3 /* win64.txt in Resources */,
+				E480590F2426D73600362CF3 /* configure.py in Resources */,
+				E48058292426D73500362CF3 /* version.h.in in Resources */,
+				E48059152426D73600362CF3 /* build.sh in Resources */,
+				E48059132426D73600362CF3 /* win32.txt in Resources */,
+				E48059C12426D73600362CF3 /* libmpdclient.vapi in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E411C280241C10F5008B9682 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E411C28B241C10F5008B9682 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -963,10 +1594,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4A83BEF2221F8CF0098FED6 /* CoverArtPrefsController.swift in Sources */,
+				E48059CE2426D73600362CF3 /* cpartition.c in Sources */,
+				E48059EE2426D73600362CF3 /* socket.c in Sources */,
 				E4F6B467221E233200ACF42A /* AlbumDataSource.swift in Sources */,
 				E4B11BA92274EDE30075461B /* Loading.swift in Sources */,
 				E408D3C2220E134F0006D9BE /* AlbumViewController.swift in Sources */,
 				E42A4D4F22E20D7D001C6CAD /* MPDTag.swift in Sources */,
+				E48059D82426D73600362CF3 /* database.c in Sources */,
 				E43AC1F522C6A4F4001E483C /* DraggedAlbum.swift in Sources */,
 				E40FE71B221B904300A4223F /* NSEvent.swift in Sources */,
 				E4B11BB62275374B0075461B /* UserNotificationsController.swift in Sources */,
@@ -975,93 +1609,139 @@
 				E4928E0B2218D62A001D4BEA /* CGColor.swift in Sources */,
 				E4D3BFA622B419C000C56F48 /* QueueViewController+NSOutlineViewDelegate.swift in Sources */,
 				E4405192227644340090CD6F /* MPDServerController.swift in Sources */,
+				E4805A102426D73600362CF3 /* tag.c in Sources */,
 				E4C8B53E22349002009A20F3 /* MPDIdle.swift in Sources */,
+				E4805A222426D73600362CF3 /* output.c in Sources */,
 				E4F6B460221E119B00ACF42A /* QueueDataSource.swift in Sources */,
 				E4C8B53C22342005009A20F3 /* PreferencesWindowController.swift in Sources */,
 				E4B11B63226A4C510075461B /* AppReducer.swift in Sources */,
 				E41E5307223C019100173814 /* MPDClient+Status.swift in Sources */,
-				E442CCCD2347E73C00004E0C /* Artist.swift in Sources */,
 				E4DCCFAE23E4DB5D009A8113 /* MPDClientWrapper.c in Sources */,
 				E41E530B223C033700173814 /* MPDClient+Album.swift in Sources */,
 				E42410B62241B956005ED6DF /* MPDClient+Database.swift in Sources */,
+				E48059F02426D73600362CF3 /* fingerprint.c in Sources */,
+				E48059F42426D73600362CF3 /* search.c in Sources */,
 				E4BB7F8F23E5E7BC00906E2F /* MPDAlbumArtImageDataProvider.swift in Sources */,
 				E4235640228623D2001216D6 /* QueueSongInfoView.swift in Sources */,
 				E451E36E22BD2501008BE9B2 /* DraggedSong.swift in Sources */,
 				E4A642DA22090CBE00067D21 /* MPDStatus.swift in Sources */,
 				E4B11BC02275EE150075461B /* QueueActions.swift in Sources */,
 				E43B67AD229194CD007DCF55 /* AlbumTracksDataSource.swift in Sources */,
+				E48059C22426D73600362CF3 /* directory.c in Sources */,
+				E4805A1C2426D73600362CF3 /* kvlist.c in Sources */,
 				E41E52FD223BF87300173814 /* MPDClient+Connection.swift in Sources */,
 				E450AD7E222620A10091BED3 /* Album.swift in Sources */,
+				E4805A0A2426D73600362CF3 /* sync.c in Sources */,
 				E4DA820623D6236200C1EE58 /* NSSize.swift in Sources */,
 				E408D3B6220DD8970006D9BE /* Notification.swift in Sources */,
+				E48059E42426D73600362CF3 /* run.c in Sources */,
+				E4805A1A2426D73600362CF3 /* cmessage.c in Sources */,
+				E48059C42426D73600362CF3 /* replay_gain.c in Sources */,
+				E48059F62426D73600362CF3 /* sticker.c in Sources */,
+				E4805A042426D73600362CF3 /* connection.c in Sources */,
 				E4F2EFEE24076A2700198159 /* ServerState.swift in Sources */,
 				E4B46F8F2402E89800152157 /* MPDError.swift in Sources */,
 				E43AC1F822C7065A001E483C /* AlbumCoverButton.swift in Sources */,
 				E45962C62241A78500FC1A1E /* MPDCommand.swift in Sources */,
 				E408D3B9220DE98F0006D9BE /* NSUserInterfaceItemIdentifier.swift in Sources */,
+				E48059C62426D73600362CF3 /* cplaylist.c in Sources */,
 				E4EB2379220F10B8008C70C0 /* MPDPair.swift in Sources */,
 				E489E3A422B9D31800CA8CBD /* DraggedSongView.swift in Sources */,
 				E440519E227BB0720090CD6F /* UIReducer.swift in Sources */,
 				E43B67AA22909793007DCF55 /* AlbumDetailView.swift in Sources */,
+				E48059FA2426D73600362CF3 /* recv.c in Sources */,
 				E4E7A6AD22AAAF98006D566C /* AlbumDetailView+NSTableViewDelegate.swift in Sources */,
 				E4FF7190227601B400D4C412 /* PreferencesReducer.swift in Sources */,
 				E4F6B463221E125900ACF42A /* QueueItem.swift in Sources */,
 				E4A83BF12221FAA00098FED6 /* PreferencesViewController.swift in Sources */,
+				E48059D42426D73600362CF3 /* resolver.c in Sources */,
 				E4B11BC22275EE410075461B /* AlbumListActions.swift in Sources */,
 				E4F26F7B23411D5400D45FF9 /* MPDClient+Artist.swift in Sources */,
+				E48059DC2426D73600362CF3 /* cstatus.c in Sources */,
+				E4805A182426D73600362CF3 /* status.c in Sources */,
+				E48059EA2426D73600362CF3 /* coutput.c in Sources */,
 				E4B11B61226A4C000075461B /* PlayerReducer.swift in Sources */,
+				E4805A0E2426D73600362CF3 /* cmount.c in Sources */,
 				E4FF71922276029000D4C412 /* PreferencesActions.swift in Sources */,
 				E489E39922B85D0400CA8CBD /* NSPasteboard.swift in Sources */,
 				E43AC1F122C68E6A001E483C /* NSPasteboardItem.swift in Sources */,
 				E4F2EFF224076B5E00198159 /* ServerReducer.swift in Sources */,
 				E465049A21E94DF500A70F4C /* WindowController.swift in Sources */,
 				E41B22C621FB932700D544F6 /* MPDClient.swift in Sources */,
+				E48059CC2426D73600362CF3 /* mixer.c in Sources */,
+				E48059D22426D73600362CF3 /* partition.c in Sources */,
 				E47E2FDD2220A6D100F747E6 /* Time.swift in Sources */,
+				E48059E02426D73600362CF3 /* password.c in Sources */,
+				E48059EC2426D73600362CF3 /* stats.c in Sources */,
 				E419E2872249B96600216A8C /* Song.swift in Sources */,
 				E451E36B22BD214D008BE9B2 /* DraggedSongType.swift in Sources */,
-				E4BBD2F323357C0700702C16 /* ArtistListState.swift in Sources */,
+				E48059C82426D73600362CF3 /* async.c in Sources */,
+				E48059E22426D73600362CF3 /* mount.c in Sources */,
 				E453825223FA0186007F6BFC /* VolumeControlView.swift in Sources */,
 				E44051A0227BB0AB0090CD6F /* UIState.swift in Sources */,
+				E48059D62426D73600362CF3 /* ierror.c in Sources */,
 				E4FF718E2276010E00D4C412 /* PreferencesState.swift in Sources */,
+				E48059DE2426D73600362CF3 /* audio_format.c in Sources */,
 				E439109822640213002982E9 /* SongNotifierService.swift in Sources */,
 				E4B3DF6523D66A4400728F6B /* QueueSongCoverView.swift in Sources */,
 				E407861C2110CE6E006887B1 /* AppDelegate.swift in Sources */,
 				E4B11B75226CC4D30075461B /* QueueReducer.swift in Sources */,
+				E4805A1E2426D73600362CF3 /* idle.c in Sources */,
+				E4805A082426D73600362CF3 /* fd_util.c in Sources */,
+				E48059FE2426D73600362CF3 /* cstats.c in Sources */,
 				E41E5309223C020400173814 /* MPDClient+Command.swift in Sources */,
-				E4F26F7923411B1500D45FF9 /* ArtistReducer.swift in Sources */,
 				E4B11B73226A6C770075461B /* TrackTimer.swift in Sources */,
 				E44051942278765A0090CD6F /* App.swift in Sources */,
 				E4BB7F9323E9150A00906E2F /* CoverArtService.swift in Sources */,
+				E48059E82426D73600362CF3 /* queue.c in Sources */,
+				E4805A262426D73600362CF3 /* cneighbor.c in Sources */,
 				E4B11B79226D346B0075461B /* AlbumListReducer.swift in Sources */,
 				E47E2FE52220AA0700F747E6 /* FlexibleGridViewLayout.swift in Sources */,
 				E41E52FF223BF95E00173814 /* MPDClient+Transport.swift in Sources */,
 				E47E2FD322205D2500F747E6 /* MainWindow.swift in Sources */,
 				E47E2FD122205C4600F747E6 /* MainSplitViewController.swift in Sources */,
+				E4805A062426D73600362CF3 /* error.c in Sources */,
+				E4805A122426D73600362CF3 /* rplaylist.c in Sources */,
+				E4805A202426D73600362CF3 /* parser.c in Sources */,
 				E4B5AE7E22F4C49600CCEC65 /* MPDServerDelegate.swift in Sources */,
+				E4805A2A2426D73600362CF3 /* message.c in Sources */,
 				E4B11BB8227538FA0075461B /* CurrentCoverArtView.swift in Sources */,
 				E453825523FA347C007F6BFC /* MPDClient+Mixer.swift in Sources */,
+				E48059E62426D73600362CF3 /* playlist.c in Sources */,
 				E4E8CC9A22075D370024217A /* MPDSong.swift in Sources */,
 				E41EA46C221636AF0068EF46 /* GeneralPrefsViewController.swift in Sources */,
 				E4E8CC902204EC7F0024217A /* Delegate.swift in Sources */,
+				E480510F2423BD7100362CF3 /* MachTime.swift in Sources */,
 				E47E2FD5222071FD00F747E6 /* AlbumViewItem.swift in Sources */,
+				E4805A142426D73600362CF3 /* response.c in Sources */,
 				E4F2EFF024076B0900198159 /* ServerActions.swift in Sources */,
 				E408D3BE220E03EE0006D9BE /* RawRepresentable.swift in Sources */,
 				E4B11B66226A4F830075461B /* PlayerState.swift in Sources */,
 				E4B11BBE2275EDAA0075461B /* PlayerActions.swift in Sources */,
-				E4F26F7723411AE300D45FF9 /* ArtistListActions.swift in Sources */,
 				E4FF71942276043A00D4C412 /* MPDServer.swift in Sources */,
+				E4805A282426D73600362CF3 /* player.c in Sources */,
+				E48059D02426D73600362CF3 /* send.c in Sources */,
 				E4E8CC922204F4B80024217A /* QueueViewController.swift in Sources */,
 				E440519C227BAF2E0090CD6F /* UIActions.swift in Sources */,
+				E48059F22426D73600362CF3 /* capabilities.c in Sources */,
+				E48059F82426D73600362CF3 /* rdirectory.c in Sources */,
 				E45878382296173C00586A1C /* AlbumDetailSongRowView.swift in Sources */,
 				E41E5301223BF99300173814 /* MPDClient+Queue.swift in Sources */,
+				E48059CA2426D73600362CF3 /* list.c in Sources */,
+				E48059DA2426D73600362CF3 /* entity.c in Sources */,
 				E4EB237B220F7CF1008C70C0 /* MPDAlbum.swift in Sources */,
+				E4805A002426D73600362CF3 /* quote.c in Sources */,
 				E41E5303223BF9C300173814 /* MPDClient+Idle.swift in Sources */,
 				E4A3A6A122A457B600EA2C40 /* AlbumDetailSongListView.swift in Sources */,
 				E4B11B53226928F20075461B /* AppState.swift in Sources */,
 				E435E3E4221CD75D00184CFC /* NSImage.swift in Sources */,
+				E48059FC2426D73600362CF3 /* neighbor.c in Sources */,
 				E4B11B6A226A4FBC0075461B /* AlbumListState.swift in Sources */,
+				E4805A162426D73600362CF3 /* song.c in Sources */,
 				E41E5305223BFB0700173814 /* MPDClient+Error.swift in Sources */,
 				E435E3E2221CD4E200184CFC /* NSFont.swift in Sources */,
+				E4805A0C2426D73600362CF3 /* settings.c in Sources */,
+				E4805A242426D73600362CF3 /* iso8601.c in Sources */,
 				E489E39D22B9CF0000CA8CBD /* NSView.swift in Sources */,
 				E42A4D5122E2167E001C6CAD /* MPDClient+Songs.swift in Sources */,
 			);
@@ -1083,6 +1763,137 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E411C269241C10F0008B9682 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E48059DD2426D73600362CF3 /* cstatus.c in Sources */,
+				E48059FF2426D73600362CF3 /* cstats.c in Sources */,
+				E480512A24255BDB00362CF3 /* MPDClient+Transport.swift in Sources */,
+				E4805A0F2426D73600362CF3 /* cmount.c in Sources */,
+				E48059E32426D73600362CF3 /* mount.c in Sources */,
+				E480511424255BAF00362CF3 /* DraggedSong.swift in Sources */,
+				E48059CB2426D73600362CF3 /* list.c in Sources */,
+				E4805A212426D73600362CF3 /* parser.c in Sources */,
+				E48059EB2426D73600362CF3 /* coutput.c in Sources */,
+				E48059FB2426D73600362CF3 /* recv.c in Sources */,
+				E480511A24255BAF00362CF3 /* Time.swift in Sources */,
+				E480514C24255E7D00362CF3 /* QueueActions.swift in Sources */,
+				E480511E24255BD500362CF3 /* RawRepresentable.swift in Sources */,
+				E4805A1D2426D73600362CF3 /* kvlist.c in Sources */,
+				E4805A2B2426D73600362CF3 /* message.c in Sources */,
+				E48059C92426D73600362CF3 /* async.c in Sources */,
+				E480514924255E7D00362CF3 /* AlbumListActions.swift in Sources */,
+				E480511624255BAF00362CF3 /* Loading.swift in Sources */,
+				E480514324255E7700362CF3 /* AppReducer.swift in Sources */,
+				E4805A292426D73600362CF3 /* player.c in Sources */,
+				E480514724255E7700362CF3 /* ServerReducer.swift in Sources */,
+				E480514E24255E7D00362CF3 /* UIActions.swift in Sources */,
+				E480513C24255E7200362CF3 /* AppState.swift in Sources */,
+				E480514024255E7200362CF3 /* ServerState.swift in Sources */,
+				E480514224255E7700362CF3 /* AlbumListReducer.swift in Sources */,
+				E480513224255BDF00362CF3 /* MPDTag.swift in Sources */,
+				E48059CD2426D73600362CF3 /* mixer.c in Sources */,
+				E480512524255BDB00362CF3 /* MPDClient+Idle.swift in Sources */,
+				E480512724255BDB00362CF3 /* MPDClient+Queue.swift in Sources */,
+				E480513D24255E7200362CF3 /* PlayerState.swift in Sources */,
+				E480511D24255BD200362CF3 /* MPDClientWrapper.c in Sources */,
+				E480512924255BDB00362CF3 /* MPDClient+Status.swift in Sources */,
+				E48059FD2426D73600362CF3 /* neighbor.c in Sources */,
+				E4805A252426D73600362CF3 /* iso8601.c in Sources */,
+				E480512C24255BDF00362CF3 /* MPDCommand.swift in Sources */,
+				E48059F52426D73600362CF3 /* search.c in Sources */,
+				E4805A1F2426D73600362CF3 /* idle.c in Sources */,
+				E480511724255BAF00362CF3 /* MPDServer.swift in Sources */,
+				E48059C32426D73600362CF3 /* directory.c in Sources */,
+				E480514A24255E7D00362CF3 /* PlayerActions.swift in Sources */,
+				E48059DF2426D73600362CF3 /* audio_format.c in Sources */,
+				E48059CF2426D73600362CF3 /* cpartition.c in Sources */,
+				E4805A012426D73600362CF3 /* quote.c in Sources */,
+				E4805A092426D73600362CF3 /* fd_util.c in Sources */,
+				E48059D52426D73600362CF3 /* resolver.c in Sources */,
+				E48059D72426D73600362CF3 /* ierror.c in Sources */,
+				E48059F32426D73600362CF3 /* capabilities.c in Sources */,
+				E483CE69242FEFB8001F742E /* Notification.swift in Sources */,
+				E480511B24255BAF00362CF3 /* TrackTimer.swift in Sources */,
+				E480513124255BDF00362CF3 /* MPDStatus.swift in Sources */,
+				E480514424255E7700362CF3 /* PlayerReducer.swift in Sources */,
+				E480514524255E7700362CF3 /* PreferencesReducer.swift in Sources */,
+				E480511F24255BDB00362CF3 /* MPDClient+Album.swift in Sources */,
+				E4805A0B2426D73600362CF3 /* sync.c in Sources */,
+				E4805A052426D73600362CF3 /* connection.c in Sources */,
+				E480512324255BDB00362CF3 /* MPDClient+Database.swift in Sources */,
+				E48059ED2426D73600362CF3 /* stats.c in Sources */,
+				E480514824255E7700362CF3 /* UIReducer.swift in Sources */,
+				E480512124255BDB00362CF3 /* MPDClient+Command.swift in Sources */,
+				E480512624255BDB00362CF3 /* MPDClient+Mixer.swift in Sources */,
+				E4805A172426D73600362CF3 /* song.c in Sources */,
+				E480513324255BE100362CF3 /* Delegate.swift in Sources */,
+				E4805A272426D73600362CF3 /* cneighbor.c in Sources */,
+				E48059F72426D73600362CF3 /* sticker.c in Sources */,
+				E48059F12426D73600362CF3 /* fingerprint.c in Sources */,
+				E480512024255BDB00362CF3 /* MPDClient+Artist.swift in Sources */,
+				E48059D92426D73600362CF3 /* database.c in Sources */,
+				E480513E24255E7200362CF3 /* PreferencesState.swift in Sources */,
+				E4805A132426D73600362CF3 /* rplaylist.c in Sources */,
+				E480513024255BDF00362CF3 /* MPDSong.swift in Sources */,
+				E480511524255BAF00362CF3 /* DraggedSongType.swift in Sources */,
+				E480512B24255BDF00362CF3 /* MPDAlbum.swift in Sources */,
+				E48059DB2426D73600362CF3 /* entity.c in Sources */,
+				E48051522425626300362CF3 /* MPDServerController.swift in Sources */,
+				E480511324255BAF00362CF3 /* DraggedAlbum.swift in Sources */,
+				E4805A072426D73600362CF3 /* error.c in Sources */,
+				E480514124255E7200362CF3 /* UIState.swift in Sources */,
+				E48059E72426D73600362CF3 /* playlist.c in Sources */,
+				E480512E24255BDF00362CF3 /* MPDIdle.swift in Sources */,
+				E48059E92426D73600362CF3 /* queue.c in Sources */,
+				E48059D12426D73600362CF3 /* send.c in Sources */,
+				E4805A1B2426D73600362CF3 /* cmessage.c in Sources */,
+				E48059E52426D73600362CF3 /* run.c in Sources */,
+				E480514D24255E7D00362CF3 /* ServerActions.swift in Sources */,
+				E480511C24255BBF00362CF3 /* MPDClient.swift in Sources */,
+				E480513B24255E7200362CF3 /* AlbumListState.swift in Sources */,
+				E480512224255BDB00362CF3 /* MPDClient+Connection.swift in Sources */,
+				E480511124255BA900362CF3 /* MachTime.swift in Sources */,
+				E4805A112426D73600362CF3 /* tag.c in Sources */,
+				E4805A192426D73600362CF3 /* status.c in Sources */,
+				E48059EF2426D73600362CF3 /* socket.c in Sources */,
+				E480514B24255E7D00362CF3 /* PreferencesActions.swift in Sources */,
+				E480511824255BAF00362CF3 /* QueueItem.swift in Sources */,
+				E480514624255E7700362CF3 /* QueueReducer.swift in Sources */,
+				E480513F24255E7200362CF3 /* QueueState.swift in Sources */,
+				E48059D32426D73600362CF3 /* partition.c in Sources */,
+				E48059E12426D73600362CF3 /* password.c in Sources */,
+				E48059C52426D73600362CF3 /* replay_gain.c in Sources */,
+				E480512424255BDB00362CF3 /* MPDClient+Error.swift in Sources */,
+				E48059C72426D73600362CF3 /* cplaylist.c in Sources */,
+				E480512824255BDB00362CF3 /* MPDClient+Songs.swift in Sources */,
+				E4805A0D2426D73600362CF3 /* settings.c in Sources */,
+				E480511924255BAF00362CF3 /* Song.swift in Sources */,
+				E483CE68242FEF8B001F742E /* MPDServerDelegate.swift in Sources */,
+				E48059F92426D73600362CF3 /* rdirectory.c in Sources */,
+				E480511224255BAF00362CF3 /* Album.swift in Sources */,
+				E480512D24255BDF00362CF3 /* MPDError.swift in Sources */,
+				E480512F24255BDF00362CF3 /* MPDPair.swift in Sources */,
+				E4805A232426D73600362CF3 /* output.c in Sources */,
+				E4805A152426D73600362CF3 /* response.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E411C27E241C10F5008B9682 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E411C289241C10F5008B9682 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1095,6 +1906,16 @@
 			isa = PBXTargetDependency;
 			target = E40786172110CE6E006887B1 /* Persephone */;
 			targetProxy = E40786362110CE70006887B1 /* PBXContainerItemProxy */;
+		};
+		E411C284241C10F5008B9682 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E411C26C241C10F0008B9682 /* Persephone-iOS */;
+			targetProxy = E411C283241C10F5008B9682 /* PBXContainerItemProxy */;
+		};
+		E411C28F241C10F5008B9682 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E411C26C241C10F0008B9682 /* Persephone-iOS */;
+			targetProxy = E411C28E241C10F5008B9682 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1166,7 +1987,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OBJC_BRIDGING_HEADER = Persephone/PersephoneBridgingHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Mac/PersephoneBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -1220,7 +2041,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OBJC_BRIDGING_HEADER = Persephone/PersephoneBridgingHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Mac/PersephoneBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
@@ -1233,10 +2054,11 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 54DPC63K8R;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = Persephone/Info.plist;
+				INFOPLIST_FILE = Mac/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -1244,15 +2066,17 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/libmpdclient/output",
+					"$(PROJECT_DIR)/libmpdclient/output-iOS",
+					"$(PROJECT_DIR)/libmpdclient/output-iOSSim",
 				);
 				MARKETING_VERSION = "0.17.0-alpha";
 				PRODUCT_BUNDLE_IDENTIFIER = me.danbarber.Persephone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Persephone/MPDClient/Extensions/Persephone-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Shared/MPDClient/Extensions/Persephone-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				SYSTEM_HEADER_SEARCH_PATHS = Persephone/include;
+				SYSTEM_HEADER_SEARCH_PATHS = Shared/include;
 				USER_HEADER_SEARCH_PATHS = libmpdclient/output;
 			};
 			name = Debug;
@@ -1265,10 +2089,11 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 54DPC63K8R;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = Persephone/Info.plist;
+				INFOPLIST_FILE = Mac/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -1276,14 +2101,16 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/libmpdclient/output",
+					"$(PROJECT_DIR)/libmpdclient/output-iOS",
+					"$(PROJECT_DIR)/libmpdclient/output-iOSSim",
 				);
 				MARKETING_VERSION = "0.17.0-alpha";
 				PRODUCT_BUNDLE_IDENTIFIER = me.danbarber.Persephone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Persephone/MPDClient/Extensions/Persephone-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Shared/MPDClient/Extensions/Persephone-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				SYSTEM_HEADER_SEARCH_PATHS = Persephone/include;
+				SYSTEM_HEADER_SEARCH_PATHS = Shared/include;
 				USER_HEADER_SEARCH_PATHS = libmpdclient/output;
 			};
 			name = Release;
@@ -1390,6 +2217,172 @@
 			};
 			name = Release;
 		};
+		E411C295241C10F5008B9682 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 54DPC63K8R;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/libmpdclient/output-iOS",
+					"$(PROJECT_DIR)/libmpdclient/output-iOSSim",
+					"$(PROJECT_DIR)/libmpdclient/output",
+				);
+				MARKETING_VERSION = "0.1.0-alpha";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.danbarber.Persephone-iOS";
+				PRODUCT_NAME = Persephone;
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Shared/MPDClient/Extensions/Persephone-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				SYSTEM_HEADER_SEARCH_PATHS = Shared/include;
+				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = libmpdclient/output;
+			};
+			name = Debug;
+		};
+		E411C296241C10F5008B9682 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 54DPC63K8R;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/libmpdclient/output-iOS",
+					"$(PROJECT_DIR)/libmpdclient/output-iOSSim",
+					"$(PROJECT_DIR)/libmpdclient/output",
+				);
+				MARKETING_VERSION = "0.1.0-alpha";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.danbarber.Persephone-iOS";
+				PRODUCT_NAME = Persephone;
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Shared/MPDClient/Extensions/Persephone-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				SYSTEM_HEADER_SEARCH_PATHS = Shared/include;
+				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = libmpdclient/output;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E411C298241C10F5008B9682 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 54DPC63K8R;
+				INFOPLIST_FILE = "Persephone-iOSTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.danbarber.Persephone-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Persephone-iOS.app/Persephone-iOS";
+			};
+			name = Debug;
+		};
+		E411C299241C10F5008B9682 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 54DPC63K8R;
+				INFOPLIST_FILE = "Persephone-iOSTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.danbarber.Persephone-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Persephone-iOS.app/Persephone-iOS";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E411C29B241C10F5008B9682 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 54DPC63K8R;
+				INFOPLIST_FILE = "Persephone-iOSUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.danbarber.Persephone-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Persephone-iOS";
+			};
+			name = Debug;
+		};
+		E411C29C241C10F5008B9682 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 54DPC63K8R;
+				INFOPLIST_FILE = "Persephone-iOSUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.danbarber.Persephone-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Persephone-iOS";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1425,6 +2418,33 @@
 			buildConfigurations = (
 				E40786452110CE70006887B1 /* Debug */,
 				E40786462110CE70006887B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E411C294241C10F5008B9682 /* Build configuration list for PBXNativeTarget "Persephone-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E411C295241C10F5008B9682 /* Debug */,
+				E411C296241C10F5008B9682 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E411C297241C10F5008B9682 /* Build configuration list for PBXNativeTarget "Persephone-iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E411C298241C10F5008B9682 /* Debug */,
+				E411C299241C10F5008B9682 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E411C29A241C10F5008B9682 /* Build configuration list for PBXNativeTarget "Persephone-iOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E411C29B241C10F5008B9682 /* Debug */,
+				E411C29C241C10F5008B9682 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1508,6 +2528,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E4A9BEF9233E5F9000457785 /* XCRemoteSwiftPackageReference "MediaKeyTap" */;
 			productName = MediaKeyTap;
+		};
+		E480513724255CE000362CF3 /* ReSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E49A5486233E5B0000EED353 /* XCRemoteSwiftPackageReference "ReSwift" */;
+			productName = ReSwift;
+		};
+		E480513924255CF200362CF3 /* CryptoSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E49A5489233E5B2D00EED353 /* XCRemoteSwiftPackageReference "CryptoSwift" */;
+			productName = CryptoSwift;
 		};
 		E49A5481233E580800EED353 /* PromiseKit */ = {
 			isa = XCSwiftPackageProductDependency;

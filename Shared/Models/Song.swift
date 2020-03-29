@@ -6,8 +6,6 @@
 //  Copyright © 2019 Dan Barber. All rights reserved.
 //
 
-import Foundation
-
 struct Song {
   var mpdSong: MPDClient.MPDSong
 

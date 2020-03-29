@@ -11,7 +11,7 @@ import ReSwift
 struct App {
   static let store = Store<AppState>(reducer: appReducer, state: nil)
   static let trackTimer = TrackTimer()
-  static let userNotificationsController = UserNotificationsController()
+  //static let userNotificationsController = UserNotificationsController()
   static let mpdServerDelegate = MPDServerDelegate()
   static let mpdServerController = MPDServerController(delegate: mpdServerDelegate)
   static var mpdClient: MPDClient!

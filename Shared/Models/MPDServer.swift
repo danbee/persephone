@@ -6,8 +6,6 @@
 //  Copyright © 2019 Dan Barber. All rights reserved.
 //
 
-import Foundation
-
 struct MPDServer {
   let hostDefault = "127.0.0.1"
   let portDefault = 6600

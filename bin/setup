@@ -1,10 +1,4 @@
 #!/bin/sh
 
-brew install meson
-
 git submodule update --init
-
-cd libmpdclient && \
-  meson . output && \
-  ninja -C output
-cd ..
+git apply --directory=libmpdclient/ libmpdclient.patch

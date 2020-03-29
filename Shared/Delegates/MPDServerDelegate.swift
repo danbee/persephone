@@ -6,7 +6,8 @@
 //  Copyright © 2019 Dan Barber. All rights reserved.
 //
 
-import AppKit
+import Dispatch
+import NotificationCenter
 
 class MPDServerDelegate: MPDClientDelegate {
   func didConnect(mpdClient: MPDClient) {
@@ -67,8 +68,5 @@ class MPDServerDelegate: MPDClientDelegate {
   }
 
   func didLoadArtists(mpdClient: MPDClient, artists: [String]) {
-    DispatchQueue.main.async {
-      App.store.dispatch(UpdateArtistListAction(artists: artists))
-    }
   }
 }

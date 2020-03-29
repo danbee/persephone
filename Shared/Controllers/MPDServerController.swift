@@ -10,8 +10,8 @@ import Foundation
 import ReSwift
 
 class MPDServerController {
-  init() {
-    App.mpdClient = MPDClient(withDelegate: App.mpdServerDelegate)
+  init(delegate: MPDClientDelegate? = nil) {
+    App.mpdClient = MPDClient(withDelegate: delegate)
     
     App.store.subscribe(self) {
       $0.select { $0.preferencesState.mpdServer }
