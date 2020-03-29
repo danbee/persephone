@@ -2128,7 +2128,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/shared/libmpdclient/output",
+					"$(PROJECT_DIR)/Shared/libmpdclient/output",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.danbarber.PersephoneTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2157,7 +2157,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/shared/libmpdclient/output",
+					"$(PROJECT_DIR)/Shared/libmpdclient/output",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.danbarber.PersephoneTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
