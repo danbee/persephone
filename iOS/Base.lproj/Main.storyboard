@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="K6U-7P-Keb">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Album View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="AlbumViewController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="u9f-Xg-Xs3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="iSU-Ww-625">
+                            <size key="itemSize" width="171" height="207"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AlbumViewCell" id="AqS-aJ-qh6" customClass="AlbumItemCell" customModule="Persephone" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="171" height="207"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gmr-FF-FMp">
+                                    <rect key="frame" x="0.0" y="0.0" width="171" height="207"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultCoverArt" translatesAutoresizingMaskIntoConstraints="NO" id="eNz-Ou-6la">
+                                            <rect key="frame" x="0.0" y="0.0" width="171" height="171"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="eNz-Ou-6la" secondAttribute="height" multiplier="1:1" id="n5p-sc-9rg"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NLE-dn-N7W">
+                                            <rect key="frame" x="0.0" y="177" width="171" height="18"/>
+                                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUQ-Qx-VQi">
+                                            <rect key="frame" x="0.0" y="191" width="171" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="RUQ-Qx-VQi" firstAttribute="trailing" secondItem="NLE-dn-N7W" secondAttribute="trailing" id="3ah-xV-cff"/>
+                                        <constraint firstAttribute="bottom" secondItem="RUQ-Qx-VQi" secondAttribute="bottom" id="VW9-i1-Y7B"/>
+                                        <constraint firstItem="eNz-Ou-6la" firstAttribute="leading" secondItem="gmr-FF-FMp" secondAttribute="leading" id="XMv-8p-ZCn"/>
+                                        <constraint firstItem="RUQ-Qx-VQi" firstAttribute="leading" secondItem="NLE-dn-N7W" secondAttribute="leading" id="cTY-NU-nXy"/>
+                                        <constraint firstItem="NLE-dn-N7W" firstAttribute="leading" secondItem="gmr-FF-FMp" secondAttribute="leading" id="cXj-dh-Rdo"/>
+                                        <constraint firstAttribute="trailing" secondItem="eNz-Ou-6la" secondAttribute="trailing" id="dPc-Nv-BZY"/>
+                                        <constraint firstAttribute="trailing" secondItem="NLE-dn-N7W" secondAttribute="trailing" id="jjb-av-JT8"/>
+                                        <constraint firstItem="eNz-Ou-6la" firstAttribute="top" secondItem="gmr-FF-FMp" secondAttribute="top" id="pYf-gW-8m7"/>
+                                        <constraint firstItem="RUQ-Qx-VQi" firstAttribute="top" secondItem="eNz-Ou-6la" secondAttribute="bottom" constant="20" id="utB-aD-k6K"/>
+                                        <constraint firstItem="NLE-dn-N7W" firstAttribute="top" secondItem="eNz-Ou-6la" secondAttribute="bottom" constant="6" id="zyQ-R1-v35"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <size key="customSize" width="171" height="207"/>
+                                <connections>
+                                    <outlet property="albumArtist" destination="RUQ-Qx-VQi" id="r0K-2i-kak"/>
+                                    <outlet property="albumCoverView" destination="eNz-Ou-6la" id="fPd-Sn-Dke"/>
+                                    <outlet property="albumTitle" destination="NLE-dn-N7W" id="Chx-gy-kPL"/>
+                                    <segue destination="ii3-nU-e6h" kind="show" id="Fww-At-iOj"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="tsN-Dk-Jan"/>
+                    <connections>
+                        <outlet property="albumCollectionView" destination="u9f-Xg-Xs3" id="Gaj-EK-kIM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1815.9420289855075" y="138.61607142857142"/>
+        </scene>
+        <!--Album Detail View Controller-->
+        <scene sceneID="7Uf-kw-bl3">
+            <objects>
+                <viewController id="ii3-nU-e6h" customClass="AlbumDetailViewController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VGR-kF-UUm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XIW-jv-ioG">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultCoverArt" translatesAutoresizingMaskIntoConstraints="NO" id="x4m-cJ-Efb">
+                                        <rect key="frame" x="20" y="30" width="179" height="179"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="x4m-cJ-Efb" secondAttribute="height" multiplier="1:1" id="3yv-0S-X2C"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNh-tV-Sqi">
+                                        <rect key="frame" x="215" y="53" width="179" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album Title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hz5-e6-wXe">
+                                        <rect key="frame" x="215" y="30" width="179" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MqK-AJ-gyc">
+                                        <rect key="frame" x="20" y="225" width="179" height="45"/>
+                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="jk9-EB-TOt"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <state key="normal" title="Play" image="playButtonLarge">
+                                            <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playAlbumAction:" destination="ii3-nU-e6h" eventType="touchUpInside" id="xSY-YL-t6L"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="HNh-tV-Sqi" firstAttribute="leading" secondItem="x4m-cJ-Efb" secondAttribute="trailing" constant="16" id="5Pa-0J-SCI"/>
+                                    <constraint firstItem="hz5-e6-wXe" firstAttribute="leading" secondItem="x4m-cJ-Efb" secondAttribute="trailing" constant="16" id="ACA-EC-ptE"/>
+                                    <constraint firstItem="HNh-tV-Sqi" firstAttribute="top" secondItem="hz5-e6-wXe" secondAttribute="bottom" constant="1.5" id="DUa-dT-pJ1"/>
+                                    <constraint firstItem="hz5-e6-wXe" firstAttribute="width" secondItem="x4m-cJ-Efb" secondAttribute="width" id="FiT-Cz-jtL"/>
+                                    <constraint firstItem="MqK-AJ-gyc" firstAttribute="leading" secondItem="UzT-Em-gMm" secondAttribute="leading" constant="20" id="Hsf-wJ-Jgi"/>
+                                    <constraint firstItem="HNh-tV-Sqi" firstAttribute="width" secondItem="hz5-e6-wXe" secondAttribute="width" id="MnT-pH-wBT"/>
+                                    <constraint firstItem="MqK-AJ-gyc" firstAttribute="width" secondItem="x4m-cJ-Efb" secondAttribute="width" id="OVe-wp-v9Y"/>
+                                    <constraint firstItem="x4m-cJ-Efb" firstAttribute="leading" secondItem="UzT-Em-gMm" secondAttribute="leading" constant="20" id="OtV-id-weM"/>
+                                    <constraint firstItem="x4m-cJ-Efb" firstAttribute="top" secondItem="UzT-Em-gMm" secondAttribute="top" constant="30" id="U0O-oU-iaU"/>
+                                    <constraint firstItem="MqK-AJ-gyc" firstAttribute="top" secondItem="x4m-cJ-Efb" secondAttribute="bottom" constant="16" id="akc-3M-fpI"/>
+                                    <constraint firstItem="UzT-Em-gMm" firstAttribute="trailing" secondItem="HNh-tV-Sqi" secondAttribute="trailing" constant="20" id="hcQ-WE-uZP"/>
+                                    <constraint firstItem="hz5-e6-wXe" firstAttribute="top" secondItem="UzT-Em-gMm" secondAttribute="top" constant="30" id="na1-d0-EdD"/>
+                                    <constraint firstItem="UzT-Em-gMm" firstAttribute="trailing" secondItem="hz5-e6-wXe" secondAttribute="trailing" constant="20" id="uE2-Pg-mgq"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="fqj-4d-6vE"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="UzT-Em-gMm"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="XIW-jv-ioG" firstAttribute="trailing" secondItem="xgx-ch-8Vx" secondAttribute="trailing" id="9JH-zm-iwv"/>
+                            <constraint firstItem="XIW-jv-ioG" firstAttribute="leading" secondItem="xgx-ch-8Vx" secondAttribute="leading" id="Ee7-z5-6hs"/>
+                            <constraint firstItem="XIW-jv-ioG" firstAttribute="top" secondItem="xgx-ch-8Vx" secondAttribute="top" id="N81-n7-eIq"/>
+                            <constraint firstItem="XIW-jv-ioG" firstAttribute="bottom" secondItem="xgx-ch-8Vx" secondAttribute="bottom" id="NaK-3i-hav"/>
+                            <constraint firstItem="XIW-jv-ioG" firstAttribute="top" secondItem="xgx-ch-8Vx" secondAttribute="top" id="VQc-pH-bzV"/>
+                            <constraint firstItem="xgx-ch-8Vx" firstAttribute="trailing" secondItem="XIW-jv-ioG" secondAttribute="trailing" id="WsF-4E-Zjl"/>
+                            <constraint firstItem="XIW-jv-ioG" firstAttribute="trailing" secondItem="xgx-ch-8Vx" secondAttribute="trailing" id="cvb-Ov-jPf"/>
+                            <constraint firstItem="XIW-jv-ioG" firstAttribute="leading" secondItem="xgx-ch-8Vx" secondAttribute="leading" id="ldd-Mx-jjs"/>
+                            <constraint firstItem="XIW-jv-ioG" firstAttribute="bottom" secondItem="xgx-ch-8Vx" secondAttribute="bottom" id="tp0-RF-fNB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xgx-ch-8Vx"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="6fY-yh-Q6C"/>
+                    <connections>
+                        <outlet property="albumArtist" destination="HNh-tV-Sqi" id="3Bm-Kp-Tyf"/>
+                        <outlet property="albumCoverView" destination="x4m-cJ-Efb" id="KBK-5d-7jT"/>
+                        <outlet property="albumTitle" destination="hz5-e6-wXe" id="tsd-FD-rbX"/>
+                        <outlet property="playAlbumButton" destination="MqK-AJ-gyc" id="05F-91-XS7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ru6-mu-Q6h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2553.6231884057975" y="138.61607142857142"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="MfI-fd-cqh">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="K6U-7P-Keb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7Nx-g8-JPS">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="9Vi-iO-P5G" kind="relationship" relationship="viewControllers" id="d6O-R2-Xvc"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="knf-OK-U9P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
+        </scene>
+        <!--Albums-->
+        <scene sceneID="fsq-t8-GDw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9Vi-iO-P5G" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Albums" image="square.grid.2x2.fill" catalog="system" id="neh-3P-aiC"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fhl-gx-pxj">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ZGc-1O-hMf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hvo-yX-dBI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="905.79710144927549" y="138.61607142857142"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="defaultCoverArt" width="128" height="128"/>
+        <image name="playButtonLarge" width="22" height="22"/>
+        <image name="square.grid.2x2.fill" catalog="system" width="128" height="114"/>
+    </resources>
+</document>

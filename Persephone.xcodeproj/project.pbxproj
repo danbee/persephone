@@ -19,6 +19,23 @@
 		E408D3C2220E134F0006D9BE /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E408D3C1220E134F0006D9BE /* AlbumViewController.swift */; };
 		E408D3CB220E341D0006D9BE /* AlbumViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = E408D3C9220E341D0006D9BE /* AlbumViewItem.xib */; };
 		E40FE71B221B904300A4223F /* NSEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40FE71A221B904300A4223F /* NSEvent.swift */; };
+		E41222112431425400473C1D /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41221FD2431425400473C1D /* App.swift */; };
+		E41222122431425400473C1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41221FE2431425400473C1D /* AppDelegate.swift */; };
+		E41222132431425400473C1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E41221FF2431425400473C1D /* LaunchScreen.storyboard */; };
+		E41222142431425400473C1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E41222012431425400473C1D /* Main.storyboard */; };
+		E41222162431425400473C1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E41222042431425400473C1D /* Assets.xcassets */; };
+		E41222172431425400473C1D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41222052431425400473C1D /* SceneDelegate.swift */; };
+		E41222182431425400473C1D /* AlbumItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41222092431425400473C1D /* AlbumItemCell.swift */; };
+		E41222192431425400473C1D /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E412220A2431425400473C1D /* AlbumViewController.swift */; };
+		E412221A2431425400473C1D /* AlbumViewController+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E412220B2431425400473C1D /* AlbumViewController+UICollectionViewDataSource.swift */; };
+		E412221B2431425400473C1D /* AlbumViewController+UICollectionViewDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E412220C2431425400473C1D /* AlbumViewController+UICollectionViewDelegateFlowLayout.swift */; };
+		E412221C2431431500473C1D /* Persephone_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41221F72431425300473C1D /* Persephone_iOSTests.swift */; };
+		E412221F2431432100473C1D /* Persephone_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41221FB2431425300473C1D /* Persephone_iOSUITests.swift */; };
+		E41222232431530900473C1D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E41222222431530900473C1D /* Kingfisher */; };
+		E41222242431535E00473C1D /* MPDAlbumArtImageDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BB7F8E23E5E7BC00906E2F /* MPDAlbumArtImageDataProvider.swift */; };
+		E4122228243153B200473C1D /* CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41222272431539800473C1D /* CGSize.swift */; };
+		E41222292431555100473C1D /* CGColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4928E0A2218D62A001D4BEA /* CGColor.swift */; };
+		E412222C2431830500473C1D /* AlbumDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E412222B2431830500473C1D /* AlbumDetailViewController.swift */; };
 		E419E2872249B96600216A8C /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = E419E2862249B96600216A8C /* Song.swift */; };
 		E41B22C621FB932700D544F6 /* MPDClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41B22C521FB932700D544F6 /* MPDClient.swift */; };
 		E41E52FD223BF87300173814 /* MPDClient+Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41E52FC223BF87300173814 /* MPDClient+Connection.swift */; };
@@ -391,6 +408,23 @@
 		E411C26D241C10F0008B9682 /* Persephone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Persephone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E411C282241C10F5008B9682 /* Persephone-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Persephone-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E411C28D241C10F5008B9682 /* Persephone-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Persephone-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E41221F72431425300473C1D /* Persephone_iOSTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persephone_iOSTests.swift; sourceTree = "<group>"; };
+		E41221F82431425300473C1D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E41221FA2431425300473C1D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E41221FB2431425300473C1D /* Persephone_iOSUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persephone_iOSUITests.swift; sourceTree = "<group>"; };
+		E41221FD2431425400473C1D /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		E41221FE2431425400473C1D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E41222002431425400473C1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E41222022431425400473C1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E41222032431425400473C1D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E41222042431425400473C1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E41222052431425400473C1D /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E41222092431425400473C1D /* AlbumItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumItemCell.swift; sourceTree = "<group>"; };
+		E412220A2431425400473C1D /* AlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
+		E412220B2431425400473C1D /* AlbumViewController+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AlbumViewController+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
+		E412220C2431425400473C1D /* AlbumViewController+UICollectionViewDelegateFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AlbumViewController+UICollectionViewDelegateFlowLayout.swift"; sourceTree = "<group>"; };
+		E41222272431539800473C1D /* CGSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSize.swift; sourceTree = "<group>"; };
+		E412222B2431830500473C1D /* AlbumDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailViewController.swift; sourceTree = "<group>"; };
 		E419E2862249B96600216A8C /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		E41B22C421FB715A00D544F6 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		E41B22C521FB932700D544F6 /* MPDClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDClient.swift; sourceTree = "<group>"; };
@@ -678,6 +712,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E41222232431530900473C1D /* Kingfisher in Frameworks */,
 				E480513824255CE000362CF3 /* ReSwift in Frameworks */,
 				E480513A24255CF200362CF3 /* CryptoSwift in Frameworks */,
 			);
@@ -705,6 +740,9 @@
 			children = (
 				E45E4FD822515D87004B537F /* Brewfile */,
 				E42A8F3922176D6400A13ED9 /* LICENSE.md */,
+				E41221FC2431425300473C1D /* iOS */,
+				E41221F62431425300473C1D /* iOSTests */,
+				E41221F92431425300473C1D /* iOSUITests */,
 				E407861A2110CE6E006887B1 /* Mac */,
 				E407862D2110CE70006887B1 /* MacTests */,
 				E40786382110CE70006887B1 /* MacUITests */,
@@ -765,15 +803,14 @@
 		E408D3B7220DE8CC0006D9BE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				E4928E0A2218D62A001D4BEA /* CGColor.swift */,
 				E40FE71A221B904300A4223F /* NSEvent.swift */,
 				E435E3E1221CD4E200184CFC /* NSFont.swift */,
 				E435E3E3221CD75D00184CFC /* NSImage.swift */,
-				E408D3B8220DE98F0006D9BE /* NSUserInterfaceItemIdentifier.swift */,
 				E489E39822B85D0400CA8CBD /* NSPasteboard.swift */,
-				E489E39C22B9CF0000CA8CBD /* NSView.swift */,
 				E43AC1F022C68E6A001E483C /* NSPasteboardItem.swift */,
 				E4DA820523D6236200C1EE58 /* NSSize.swift */,
+				E408D3B8220DE98F0006D9BE /* NSUserInterfaceItemIdentifier.swift */,
+				E489E39C22B9CF0000CA8CBD /* NSView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -804,6 +841,7 @@
 		E411C268241C02B2008B9682 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				E4BB7F8D23E5E7A300906E2F /* ImageDataProviders */,
 				E483CE67242FEF82001F742E /* Delegates */,
 				E48056C22426D73300362CF3 /* libmpdclient */,
 				E48051512425607100362CF3 /* Controllers */,
@@ -820,9 +858,96 @@
 		E411C29D241C123C008B9682 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E4928E0A2218D62A001D4BEA /* CGColor.swift */,
 				E408D3B5220DD8970006D9BE /* Notification.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E41221F62431425300473C1D /* iOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				E41221F82431425300473C1D /* Info.plist */,
+				E41221F72431425300473C1D /* Persephone_iOSTests.swift */,
+			);
+			path = iOSTests;
+			sourceTree = "<group>";
+		};
+		E41221F92431425300473C1D /* iOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E41221FA2431425300473C1D /* Info.plist */,
+				E41221FB2431425300473C1D /* Persephone_iOSUITests.swift */,
+			);
+			path = iOSUITests;
+			sourceTree = "<group>";
+		};
+		E41221FC2431425300473C1D /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				E41221FD2431425400473C1D /* App.swift */,
+				E41221FE2431425400473C1D /* AppDelegate.swift */,
+				E41222042431425400473C1D /* Assets.xcassets */,
+				E41222062431425400473C1D /* Components */,
+				E41222032431425400473C1D /* Info.plist */,
+				E41221FF2431425400473C1D /* LaunchScreen.storyboard */,
+				E41222012431425400473C1D /* Main.storyboard */,
+				E41222052431425400473C1D /* SceneDelegate.swift */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		E41222062431425400473C1D /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E41222252431538700473C1D /* Shared */,
+				E41222072431425400473C1D /* Browser */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E41222072431425400473C1D /* Browser */ = {
+			isa = PBXGroup;
+			children = (
+				E412222A243182F700473C1D /* Album Detail */,
+				E41222082431425400473C1D /* Album Browser */,
+			);
+			path = Browser;
+			sourceTree = "<group>";
+		};
+		E41222082431425400473C1D /* Album Browser */ = {
+			isa = PBXGroup;
+			children = (
+				E41222092431425400473C1D /* AlbumItemCell.swift */,
+				E412220A2431425400473C1D /* AlbumViewController.swift */,
+				E412220B2431425400473C1D /* AlbumViewController+UICollectionViewDataSource.swift */,
+				E412220C2431425400473C1D /* AlbumViewController+UICollectionViewDelegateFlowLayout.swift */,
+			);
+			path = "Album Browser";
+			sourceTree = "<group>";
+		};
+		E41222252431538700473C1D /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				E41222262431539000473C1D /* Extensions */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		E41222262431539000473C1D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E41222272431539800473C1D /* CGSize.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E412222A243182F700473C1D /* Album Detail */ = {
+			isa = PBXGroup;
+			children = (
+				E412222B2431830500473C1D /* AlbumDetailViewController.swift */,
+			);
+			path = "Album Detail";
 			sourceTree = "<group>";
 		};
 		E41B22C721FB966C00D544F6 /* include */ = {
@@ -929,10 +1054,10 @@
 		E442CCC82347D65300004E0C /* Album Detail */ = {
 			isa = PBXGroup;
 			children = (
-				E43B67A922909793007DCF55 /* AlbumDetailView.xib */,
 				E4A3A6A022A457B600EA2C40 /* AlbumDetailSongListView.swift */,
 				E45878372296173C00586A1C /* AlbumDetailSongRowView.swift */,
 				E43B67A822909793007DCF55 /* AlbumDetailView.swift */,
+				E43B67A922909793007DCF55 /* AlbumDetailView.xib */,
 				E4E7A6AC22AAAF98006D566C /* AlbumDetailView+NSTableViewDelegate.swift */,
 				E43B67AC229194CD007DCF55 /* AlbumTracksDataSource.swift */,
 				38BAC36A249CB1A6004BAEA4 /* AlbumDetailSongTitleView.swift */,
@@ -943,7 +1068,6 @@
 		E442CCC92347D6FD00004E0C /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				E4BB7F8D23E5E7A300906E2F /* ImageDataProviders */,
 				E4E13C2C2350D8CB00092A6E /* Layouts */,
 				E408D3B7220DE8CC0006D9BE /* Extensions */,
 				E489E3A222B9D31800CA8CBD /* DraggedSongView.swift */,
@@ -1385,6 +1509,7 @@
 			packageProductDependencies = (
 				E480513724255CE000362CF3 /* ReSwift */,
 				E480513924255CF200362CF3 /* CryptoSwift */,
+				E41222222431530900473C1D /* Kingfisher */,
 			);
 			productName = "Persephone-iOS";
 			productReference = E411C26D241C10F0008B9682 /* Persephone.app */;
@@ -1546,12 +1671,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E41222132431425400473C1D /* LaunchScreen.storyboard in Resources */,
+				E41222142431425400473C1D /* Main.storyboard in Resources */,
 				E48059112426D73600362CF3 /* win64.txt in Resources */,
 				E480590F2426D73600362CF3 /* configure.py in Resources */,
 				E48058292426D73500362CF3 /* version.h.in in Resources */,
 				E48059152426D73600362CF3 /* build.sh in Resources */,
 				E48059132426D73600362CF3 /* win32.txt in Resources */,
 				E48059C12426D73600362CF3 /* libmpdclient.vapi in Resources */,
+				E41222162431425400473C1D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1782,11 +1910,13 @@
 				E48059EB2426D73600362CF3 /* coutput.c in Sources */,
 				E48059FB2426D73600362CF3 /* recv.c in Sources */,
 				E480511A24255BAF00362CF3 /* Time.swift in Sources */,
+				E41222112431425400473C1D /* App.swift in Sources */,
 				E480514C24255E7D00362CF3 /* QueueActions.swift in Sources */,
 				E480511E24255BD500362CF3 /* RawRepresentable.swift in Sources */,
 				E4805A1D2426D73600362CF3 /* kvlist.c in Sources */,
 				E4805A2B2426D73600362CF3 /* message.c in Sources */,
 				E48059C92426D73600362CF3 /* async.c in Sources */,
+				E4122228243153B200473C1D /* CGSize.swift in Sources */,
 				E480514924255E7D00362CF3 /* AlbumListActions.swift in Sources */,
 				E480511624255BAF00362CF3 /* Loading.swift in Sources */,
 				E480514324255E7700362CF3 /* AppReducer.swift in Sources */,
@@ -1802,17 +1932,20 @@
 				E480512724255BDB00362CF3 /* MPDClient+Queue.swift in Sources */,
 				E480513D24255E7200362CF3 /* PlayerState.swift in Sources */,
 				E480511D24255BD200362CF3 /* MPDClientWrapper.c in Sources */,
+				E41222242431535E00473C1D /* MPDAlbumArtImageDataProvider.swift in Sources */,
 				E480512924255BDB00362CF3 /* MPDClient+Status.swift in Sources */,
 				E48059FD2426D73600362CF3 /* neighbor.c in Sources */,
 				E4805A252426D73600362CF3 /* iso8601.c in Sources */,
 				E480512C24255BDF00362CF3 /* MPDCommand.swift in Sources */,
 				E48059F52426D73600362CF3 /* search.c in Sources */,
 				E4805A1F2426D73600362CF3 /* idle.c in Sources */,
+				E41222182431425400473C1D /* AlbumItemCell.swift in Sources */,
 				E480511724255BAF00362CF3 /* MPDServer.swift in Sources */,
 				E48059C32426D73600362CF3 /* directory.c in Sources */,
 				E480514A24255E7D00362CF3 /* PlayerActions.swift in Sources */,
 				E48059DF2426D73600362CF3 /* audio_format.c in Sources */,
 				E48059CF2426D73600362CF3 /* cpartition.c in Sources */,
+				E412221B2431425400473C1D /* AlbumViewController+UICollectionViewDelegateFlowLayout.swift in Sources */,
 				E4805A012426D73600362CF3 /* quote.c in Sources */,
 				E4805A092426D73600362CF3 /* fd_util.c in Sources */,
 				E48059D52426D73600362CF3 /* resolver.c in Sources */,
@@ -1823,6 +1956,7 @@
 				E480513124255BDF00362CF3 /* MPDStatus.swift in Sources */,
 				E480514424255E7700362CF3 /* PlayerReducer.swift in Sources */,
 				E480514524255E7700362CF3 /* PreferencesReducer.swift in Sources */,
+				E41222292431555100473C1D /* CGColor.swift in Sources */,
 				E480511F24255BDB00362CF3 /* MPDClient+Album.swift in Sources */,
 				E4805A0B2426D73600362CF3 /* sync.c in Sources */,
 				E4805A052426D73600362CF3 /* connection.c in Sources */,
@@ -1843,21 +1977,26 @@
 				E480513024255BDF00362CF3 /* MPDSong.swift in Sources */,
 				E480511524255BAF00362CF3 /* DraggedSongType.swift in Sources */,
 				E480512B24255BDF00362CF3 /* MPDAlbum.swift in Sources */,
+				E412221A2431425400473C1D /* AlbumViewController+UICollectionViewDataSource.swift in Sources */,
+				E41222172431425400473C1D /* SceneDelegate.swift in Sources */,
 				E48059DB2426D73600362CF3 /* entity.c in Sources */,
 				E48051522425626300362CF3 /* MPDServerController.swift in Sources */,
 				E480511324255BAF00362CF3 /* DraggedAlbum.swift in Sources */,
+				E41222122431425400473C1D /* AppDelegate.swift in Sources */,
 				E4805A072426D73600362CF3 /* error.c in Sources */,
 				E480514124255E7200362CF3 /* UIState.swift in Sources */,
 				E48059E72426D73600362CF3 /* playlist.c in Sources */,
 				E480512E24255BDF00362CF3 /* MPDIdle.swift in Sources */,
 				E48059E92426D73600362CF3 /* queue.c in Sources */,
 				E48059D12426D73600362CF3 /* send.c in Sources */,
+				E412222C2431830500473C1D /* AlbumDetailViewController.swift in Sources */,
 				E4805A1B2426D73600362CF3 /* cmessage.c in Sources */,
 				E48059E52426D73600362CF3 /* run.c in Sources */,
 				E480514D24255E7D00362CF3 /* ServerActions.swift in Sources */,
 				E480511C24255BBF00362CF3 /* MPDClient.swift in Sources */,
 				E480513B24255E7200362CF3 /* AlbumListState.swift in Sources */,
 				E480512224255BDB00362CF3 /* MPDClient+Connection.swift in Sources */,
+				E41222192431425400473C1D /* AlbumViewController.swift in Sources */,
 				E480511124255BA900362CF3 /* MachTime.swift in Sources */,
 				E4805A112426D73600362CF3 /* tag.c in Sources */,
 				E4805A192426D73600362CF3 /* status.c in Sources */,
@@ -1888,6 +2027,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E412221C2431431500473C1D /* Persephone_iOSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1895,6 +2035,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E412221F2431432100473C1D /* Persephone_iOSUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1928,6 +2069,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				E40786222110CE70006887B1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E41221FF2431425400473C1D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E41222002431425400473C1D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		E41222012431425400473C1D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E41222022431425400473C1D /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -2527,6 +2684,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E41222222431530900473C1D /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E43BEC9E238835DC00CAF1EB /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		E43BEC9F238835DC00CAF1EB /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E43BEC9E238835DC00CAF1EB /* XCRemoteSwiftPackageReference "Kingfisher" */;
