@@ -16,12 +16,25 @@ class AlbumTracksDataSource: NSObject, UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let albumSongCell = tableView.dequeueReusableCell(withIdentifier: "albumSongCell") as? AlbumSongCell
-      else { return AlbumSongCell() }
+    let albumSongItem = albumSongs[indexPath.row]
     
-    albumSongCell.setSongItem(songItem: albumSongs[indexPath.row])
+    if let song = albumSongItem.song {
+      guard let albumSongCell = tableView.dequeueReusableCell(withIdentifier: "albumSongCell") as? AlbumSongCell
+        else { return AlbumSongCell() }
+      
+      albumSongCell.setSongItem(songItem: albumSongItem)
 
-    return albumSongCell
+      return albumSongCell
+    } else if let disc = albumSongItem.disc {
+      guard let albumDiscCell = tableView.dequeueReusableCell(withIdentifier: "albumDiscCell") as? AlbumDiscCell
+        else { return AlbumDiscCell() }
+      
+      albumDiscCell.setSongItem(songItem: albumSongItem)
+      
+      return albumDiscCell
+    }
+    
+    return UITableViewCell()
   }
 
   func setAlbumSongs(_ songs: [Song]) {

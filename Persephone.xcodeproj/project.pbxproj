@@ -301,6 +301,8 @@
 		E4B5AE7E22F4C49600CCEC65 /* MPDServerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B5AE7D22F4C49600CCEC65 /* MPDServerDelegate.swift */; };
 		E4BB7F8F23E5E7BC00906E2F /* MPDAlbumArtImageDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BB7F8E23E5E7BC00906E2F /* MPDAlbumArtImageDataProvider.swift */; };
 		E4BB7F9323E9150A00906E2F /* CoverArtService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BB7F9223E9150A00906E2F /* CoverArtService.swift */; };
+		E4C51F08243422380093FB31 /* AlbumDiscCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C51F07243422380093FB31 /* AlbumDiscCell.swift */; };
+		E4C51F0A243428B60093FB31 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C51F09243428B60093FB31 /* UIFont.swift */; };
 		E4C8B53C22342005009A20F3 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C8B53B22342005009A20F3 /* PreferencesWindowController.swift */; };
 		E4C8B53E22349002009A20F3 /* MPDIdle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C8B53D22349002009A20F3 /* MPDIdle.swift */; };
 		E4D3BFA622B419C000C56F48 /* QueueViewController+NSOutlineViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D3BFA522B419C000C56F48 /* QueueViewController+NSOutlineViewDelegate.swift */; };
@@ -659,6 +661,8 @@
 		E4B5AE7D22F4C49600CCEC65 /* MPDServerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDServerDelegate.swift; sourceTree = "<group>"; };
 		E4BB7F8E23E5E7BC00906E2F /* MPDAlbumArtImageDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDAlbumArtImageDataProvider.swift; sourceTree = "<group>"; };
 		E4BB7F9223E9150A00906E2F /* CoverArtService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverArtService.swift; sourceTree = "<group>"; };
+		E4C51F07243422380093FB31 /* AlbumDiscCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDiscCell.swift; sourceTree = "<group>"; };
+		E4C51F09243428B60093FB31 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		E4C8B53B22342005009A20F3 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
 		E4C8B53D22349002009A20F3 /* MPDIdle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDIdle.swift; sourceTree = "<group>"; };
 		E4D3BFA522B419C000C56F48 /* QueueViewController+NSOutlineViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QueueViewController+NSOutlineViewDelegate.swift"; sourceTree = "<group>"; };
@@ -945,6 +949,7 @@
 			isa = PBXGroup;
 			children = (
 				E41222272431539800473C1D /* CGSize.swift */,
+				E4C51F09243428B60093FB31 /* UIFont.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -952,9 +957,10 @@
 		E412222A243182F700473C1D /* Album Detail */ = {
 			isa = PBXGroup;
 			children = (
-				E412222F2432B0A300473C1D /* AlbumTracksDataSource.swift */,
+				E4C51F07243422380093FB31 /* AlbumDiscCell.swift */,
 				E4B3B3622432DA4B007E25D2 /* AlbumSongCell.swift */,
 				E4B3B3652432DEDB007E25D2 /* AlbumSongListViewController.swift */,
+				E412222F2432B0A300473C1D /* AlbumTracksDataSource.swift */,
 			);
 			path = "Album Detail";
 			sourceTree = "<group>";
@@ -1990,6 +1996,7 @@
 				E4805A132426D73600362CF3 /* rplaylist.c in Sources */,
 				E480513024255BDF00362CF3 /* MPDSong.swift in Sources */,
 				E4B3B3642432DB7A007E25D2 /* AlbumSongCell.swift in Sources */,
+				E4C51F0A243428B60093FB31 /* UIFont.swift in Sources */,
 				E480511524255BAF00362CF3 /* DraggedSongType.swift in Sources */,
 				E480512B24255BDF00362CF3 /* MPDAlbum.swift in Sources */,
 				E412221A2431425400473C1D /* AlbumViewController+UICollectionViewDataSource.swift in Sources */,
@@ -2007,6 +2014,7 @@
 				E4805A1B2426D73600362CF3 /* cmessage.c in Sources */,
 				E48059E52426D73600362CF3 /* run.c in Sources */,
 				E480514D24255E7D00362CF3 /* ServerActions.swift in Sources */,
+				E4C51F08243422380093FB31 /* AlbumDiscCell.swift in Sources */,
 				E480511C24255BBF00362CF3 /* MPDClient.swift in Sources */,
 				E480513B24255E7200362CF3 /* AlbumListState.swift in Sources */,
 				E480512224255BDB00362CF3 /* MPDClient+Connection.swift in Sources */,

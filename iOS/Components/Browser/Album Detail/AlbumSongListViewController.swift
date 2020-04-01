@@ -95,12 +95,6 @@ class AlbumSongListViewController: UITableViewController {
       ]
     )
   }
-
-  @IBAction func playAlbumAction(_ sender: Any) {
-    guard let album = album else { return }
-
-    App.mpdClient.playAlbum(album.mpdAlbum)
-  }
   
   func setAppearance() {
     let darkMode = traitCollection.userInterfaceStyle == .dark
@@ -108,13 +102,20 @@ class AlbumSongListViewController: UITableViewController {
     albumCoverView.layer.borderColor = darkMode ? CGColor.albumBorderColorDark : CGColor.albumBorderColorLight
   }
 
-  //  @IBAction func addAlbumToQueueAction(_ sender: Any) {
-  //    guard let album = album else { return }
-  //
-  //    let queueLength = App.store.state.queueState.queue.count
-  //
-  //    App.mpdClient.addAlbumToQueue(album: album.mpdAlbum, at: queueLength)
-  //  }
+  @IBAction func playAlbumAction(_ sender: Any) {
+    guard let album = album else { return }
+
+    App.mpdClient.playAlbum(album.mpdAlbum)
+  }
+
+  @IBAction func addAlbumToQueueAction(_ sender: Any) {
+    guard let album = album else { return }
+
+    let queueLength = App.store.state.queueState.queue.count
+
+    App.mpdClient.addAlbumToQueue(album: album.mpdAlbum, at: queueLength)
+  }
+
   @IBOutlet var addAlbumToQueueButton: UIButton!
   @IBOutlet var playAlbumButton: UIButton!
   @IBOutlet var albumTitle: UILabel!

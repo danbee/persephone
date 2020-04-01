@@ -1,6 +1,6 @@
 //
 //  AlbumSongCell.swift
-//  Persephone
+//  Persephone-iOS
 //
 //  Created by Daniel Barber on 2020-3-30.
 //  Copyright © 2020 Dan Barber. All rights reserved.
@@ -14,8 +14,13 @@ class AlbumSongCell: UITableViewCell {
   func setSongItem(songItem: AlbumSongItem) {
     albumSongItem = songItem
     
-    trackNumber.text = songItem.song?.trackNumber
-    songTitle.text = songItem.song?.title
+    guard let song = songItem.song else { return }
+    
+    songDuration.font = .timerFont
+
+    trackNumber.text = song.trackNumber
+    songTitle.text = song.title
+    songDuration.text = song.duration.formattedTime
   }
   
   @IBOutlet var trackNumber: UILabel!
