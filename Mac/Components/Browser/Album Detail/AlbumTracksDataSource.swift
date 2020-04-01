@@ -9,21 +9,6 @@
 import AppKit
 
 class AlbumTracksDataSource: NSObject, NSTableViewDataSource {
-  struct AlbumSongItem {
-    let disc: String?
-    let song: Song?
-
-    init(song: Song) {
-      self.disc = nil
-      self.song = song
-    }
-
-    init(disc: String) {
-      self.disc = disc
-      self.song = nil
-    }
-  }
-
   var albumSongs: [AlbumSongItem] = []
   var showSongArtist: Bool = false
 

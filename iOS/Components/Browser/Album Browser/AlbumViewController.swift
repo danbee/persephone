@@ -46,7 +46,7 @@ class AlbumViewController: UICollectionViewController {
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    guard let detailView = segue.destination as? AlbumDetailViewController,
+    guard let detailView = segue.destination as? AlbumSongListViewController,
       let sender = sender as? AlbumItemCell
       else { return }
     

@@ -298,7 +298,7 @@
                                         <rect key="frame" x="0.0" y="14" width="153" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedRounded" trackingMode="momentary" id="EBk-sD-nG7">
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="label" size="13"/>
                                             <segments>
                                                 <segment image="prevTrackButton" width="32" enabled="NO"/>
                                                 <segment image="playButton" width="48" enabled="NO" tag="1"/>
@@ -320,7 +320,7 @@
                                         <rect key="frame" x="16" y="14" width="55" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" placeholderString="8:88:88" id="g0c-k5-wCA">
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="label" size="13"/>
                                             <color key="textColor" name="tertiaryLabelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
@@ -347,7 +347,7 @@
                                         <rect key="frame" x="16" y="14" width="60" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" placeholderString="-8:88:88" id="XUa-pD-s5c">
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="label" size="13"/>
                                             <color key="textColor" name="tertiaryLabelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
@@ -369,7 +369,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="shuffleButton" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" inset="2" id="YNb-hd-ax8">
                                             <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="label" size="13"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="handleShuffleButton:" target="B8D-0N-5wS" id="THd-0g-fmb"/>
@@ -385,7 +385,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="repeatButton" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" inset="2" id="1bu-vK-3Hb">
                                             <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="label" size="13"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="handleRepeatButton:" target="B8D-0N-5wS" id="EN2-u4-DNl"/>
@@ -398,7 +398,7 @@
                                         <rect key="frame" x="0.0" y="14" width="96" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="F3N-3P-tS3">
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="label" size="13"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </searchFieldCell>
@@ -414,7 +414,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="speakerHigh" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bJh-X9-7q0">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="label" size="13"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="showVolumeControl:" target="B8D-0N-5wS" id="UoW-fa-jBM"/>
@@ -516,7 +516,7 @@
                     <tabView key="tabView" type="noTabsNoBorder" id="6dC-M0-oC5">
                         <rect key="frame" x="0.0" y="0.0" width="418" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <font key="font" metaFont="system"/>
+                        <font key="font" metaFont="label" size="13"/>
                         <connections>
                             <outlet property="delegate" destination="zhe-qh-Mal" id="LUL-qN-JlP"/>
                         </connections>
@@ -554,7 +554,7 @@
                                             <rect key="frame" x="78" y="59" width="271" height="18"/>
                                             <buttonCell key="cell" type="check" title="Fetch missing artwork from MusicBrainz" bezelStyle="regularSquare" imagePosition="left" enabled="NO" inset="2" id="LpD-Ew-HMd">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
+                                                <font key="font" metaFont="label" size="13"/>
                                             </buttonCell>
                                             <connections>
                                                 <action selector="updateFetchMissingArtworkFromInternet:" target="3C9-vU-zjZ" id="I7x-9V-xJr"/>
@@ -566,7 +566,7 @@
                                             <rect key="frame" x="74" y="19" width="279" height="32"/>
                                             <buttonCell key="cell" type="push" title="Clear album art cache..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="l81-SG-7mf">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
+                                                <font key="font" metaFont="label" size="13"/>
                                             </buttonCell>
                                             <connections>
                                                 <action selector="clearAlbumArtCache:" target="3C9-vU-zjZ" id="tXg-rz-lvh"/>
@@ -614,7 +614,7 @@
                                         <textField key="contentView" translatesAutoresizingMaskIntoConstraints="NO" id="kvB-99-zwY">
                                             <rect key="frame" x="78" y="64" width="165" height="17"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Server Host:" id="AVi-g9-Irz">
-                                                <font key="font" metaFont="system"/>
+                                                <font key="font" metaFont="label" size="13"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -637,7 +637,7 @@
                                         <textField key="contentView" translatesAutoresizingMaskIntoConstraints="NO" id="AU9-wN-kbU">
                                             <rect key="frame" x="78" y="29" width="165" height="16"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Server Port:" id="DgA-xT-2ir">
-                                                <font key="font" metaFont="system"/>
+                                                <font key="font" metaFont="label" size="13"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -651,7 +651,7 @@
                                                     <real key="minimum" value="0.0"/>
                                                     <real key="maximum" value="65535"/>
                                                 </numberFormatter>
-                                                <font key="font" metaFont="system"/>
+                                                <font key="font" metaFont="label" size="13"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -677,7 +677,7 @@
                 </viewController>
                 <customObject id="lzf-yO-5pP" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <textFieldCell lineBreakMode="clipping" alignment="right" title="Server Port:" id="22M-hh-h8g">
-                    <font key="font" metaFont="system"/>
+                    <font key="font" metaFont="label" size="13"/>
                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                 </textFieldCell>
@@ -712,7 +712,7 @@
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
                                                     <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="99v-Rb-3kv">
-                                                        <font key="font" metaFont="system"/>
+                                                        <font key="font" metaFont="label" size="13"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
@@ -757,7 +757,7 @@
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </tableHeaderCell>
                                                     <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="zb2-QK-DhK">
-                                                        <font key="font" metaFont="system"/>
+                                                        <font key="font" metaFont="label" size="13"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
@@ -778,7 +778,7 @@
                                                                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="i0h-bn-auJ" userLabel="Song Title View">
                                                                     <rect key="frame" x="1" y="23" width="217" height="16"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Song Title" id="ei8-1e-ErK">
-                                                                        <font key="font" metaFont="system"/>
+                                                                        <font key="font" metaFont="label" size="13"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
@@ -805,7 +805,7 @@
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </tableHeaderCell>
                                                     <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="JOa-Mc-ceQ">
-                                                        <font key="font" metaFont="system"/>
+                                                        <font key="font" metaFont="label" size="13"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
@@ -818,7 +818,7 @@
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="ukg-c0-XVS">
                                                                     <rect key="frame" x="11" y="13" width="41" height="16"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="right" title="88:88" id="JnJ-sF-vCP">
-                                                                        <font key="font" metaFont="system"/>
+                                                                        <font key="font" metaFont="label" size="13"/>
                                                                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
