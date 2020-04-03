@@ -40,9 +40,6 @@ class AlbumViewController: UICollectionViewController {
   }
   
   @objc func willDisconnect() {
-    DispatchQueue.main.async {
-      App.store.dispatch(UpdateAlbumListAction(albums: []))
-    }
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

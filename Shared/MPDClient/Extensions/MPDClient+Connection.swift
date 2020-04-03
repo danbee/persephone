@@ -35,19 +35,21 @@ extension MPDClient {
     
     self.delegate?.willDisconnect(mpdClient: self)
 
-     mpd_connection_free(self.connection)
-     self.isConnected = false
+    mpd_connection_free(self.connection)
+    self.isConnected = false
   }
 
   func connect(host: String, port: Int) {
-    let commandOperation = BlockOperation() { [unowned self] in
-      self.sendCommand(command: .connect, userData: ["host": host, "port": port])
+    if !isConnected {
+      let commandOperation = BlockOperation() { [unowned self] in
+        self.sendCommand(command: .connect, userData: ["host": host, "port": port])
 
-      if self.isConnected {
-        self.idle()
+        if self.isConnected {
+          self.idle()
+        }
       }
+      commandQueue.addOperation(commandOperation)
     }
-    commandQueue.addOperation(commandOperation)
   }
   
   func disconnect() {
