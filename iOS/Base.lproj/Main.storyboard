@@ -163,7 +163,7 @@
                             </constraints>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="sk8-CG-x2M" customClass="AlbumDetailFooterView" customModule="Persephone" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="666" width="414" height="44"/>
+                            <rect key="frame" x="0.0" y="666" width="414" height="49"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 Songs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CEd-uu-R5o">
@@ -175,9 +175,9 @@
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
+                                <constraint firstItem="CEd-uu-R5o" firstAttribute="top" secondItem="sk8-CG-x2M" secondAttribute="top" constant="11.5" id="1r3-Km-Fl0"/>
                                 <constraint firstAttribute="trailing" secondItem="CEd-uu-R5o" secondAttribute="trailing" constant="20" id="JIw-Za-a3F"/>
                                 <constraint firstItem="CEd-uu-R5o" firstAttribute="leading" secondItem="sk8-CG-x2M" secondAttribute="leading" constant="20" id="YqV-Mn-MfH"/>
-                                <constraint firstItem="CEd-uu-R5o" firstAttribute="centerY" secondItem="sk8-CG-x2M" secondAttribute="centerY" id="xvV-WL-Aiy"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -288,7 +288,6 @@
         <!--Albums-->
         <scene sceneID="fsq-t8-GDw">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Hvo-yX-dBI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9Vi-iO-P5G" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Albums" image="square.grid.2x2.fill" catalog="system" id="neh-3P-aiC"/>
                     <toolbarItems/>
@@ -301,6 +300,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ZGc-1O-hMf"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hvo-yX-dBI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="905.79710144927549" y="138.61607142857142"/>
         </scene>
