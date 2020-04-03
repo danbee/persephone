@@ -21,8 +21,10 @@ class MPDServerController {
   func connect() {
     let mpdServer = App.store.state.preferencesState.mpdServer
 
+    guard let host = mpdServer.hostOrDefault else { return }
+
     App.mpdClient.connect(
-      host: mpdServer.hostOrDefault,
+      host: host,
       port: mpdServer.portOrDefault
     )
   }
