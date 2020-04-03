@@ -6,4 +6,20 @@
 //  Copyright © 2020 Dan Barber. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class AlbumDetailFooterView: UIView {
+  override func didMoveToSuperview() {
+    super.didMoveToSuperview()
+    
+    let separator = CALayer()
+    separator.frame = CGRect(
+      x: 20,
+      y: -0.5,
+      width: UIScreen.main.bounds.width - 20,
+      height: 0.5
+    )
+    separator.backgroundColor = UIColor.separator.cgColor
+    layer.addSublayer(separator)
+  }
+}

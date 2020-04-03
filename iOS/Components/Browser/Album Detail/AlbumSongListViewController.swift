@@ -66,9 +66,16 @@ class AlbumSongListViewController: UITableViewController {
       guard let self = self else { return }
 
       DispatchQueue.main.async {
+        var totalDurationInSeconds = 0
+
         self.dataSource.setAlbumSongs(
-          mpdSongs.map { Song(mpdSong: $0) }
+          mpdSongs.map {
+            totalDurationInSeconds += $0.duration
+            return Song(mpdSong: $0)
+          }
         )
+        
+        let totalDuration = Time(timeInSeconds: totalDurationInSeconds)
 
         self.albumTracksView.reloadData()
 
@@ -76,6 +83,16 @@ class AlbumSongListViewController: UITableViewController {
           else { return }
         
         self.getBigCoverArt(song: Song(mpdSong: mpdSong), album: album)
+        
+        var metadata = "\(mpdSongs.count) song"
+        metadata += mpdSongs.count > 1 ? "s," : ","
+        if totalDuration.hours > 0 {
+          metadata += " \(totalDuration.hours) hour"
+          metadata += totalDuration.hours > 1 ? "s" : ""
+        }
+        metadata += " \(totalDuration.minutes) minute"
+        metadata += totalDuration.minutes > 1 ? "s" : ""
+        self.songListMetadata.text = metadata
       }
     }
   }
@@ -115,6 +132,8 @@ class AlbumSongListViewController: UITableViewController {
 
     App.mpdClient.addAlbumToQueue(album: album.mpdAlbum, at: queueLength)
   }
+
+  @IBOutlet var songListMetadata: UILabel!
 
   @IBOutlet var addAlbumToQueueButton: UIButton!
   @IBOutlet var playAlbumButton: UIButton!

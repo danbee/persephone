@@ -294,6 +294,7 @@
 		E4B11BBE2275EDAA0075461B /* PlayerActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BBD2275EDAA0075461B /* PlayerActions.swift */; };
 		E4B11BC02275EE150075461B /* QueueActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BBF2275EE150075461B /* QueueActions.swift */; };
 		E4B11BC22275EE410075461B /* AlbumListActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BC12275EE410075461B /* AlbumListActions.swift */; };
+		E4B28EE02436D56E003B28AE /* AlbumDetailFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B28EDE2436D548003B28AE /* AlbumDetailFooterView.swift */; };
 		E4B3B3642432DB7A007E25D2 /* AlbumSongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B3B3622432DA4B007E25D2 /* AlbumSongCell.swift */; };
 		E4B3B3672432DF1B007E25D2 /* AlbumSongListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B3B3652432DEDB007E25D2 /* AlbumSongListViewController.swift */; };
 		E4B3DF6523D66A4400728F6B /* QueueSongCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B3DF6423D66A4400728F6B /* QueueSongCoverView.swift */; };
@@ -654,6 +655,7 @@
 		E4B11BBD2275EDAA0075461B /* PlayerActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerActions.swift; sourceTree = "<group>"; };
 		E4B11BBF2275EE150075461B /* QueueActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueActions.swift; sourceTree = "<group>"; };
 		E4B11BC12275EE410075461B /* AlbumListActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListActions.swift; sourceTree = "<group>"; };
+		E4B28EDE2436D548003B28AE /* AlbumDetailFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailFooterView.swift; sourceTree = "<group>"; };
 		E4B3B3622432DA4B007E25D2 /* AlbumSongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumSongCell.swift; sourceTree = "<group>"; };
 		E4B3B3652432DEDB007E25D2 /* AlbumSongListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumSongListViewController.swift; sourceTree = "<group>"; };
 		E4B3DF6423D66A4400728F6B /* QueueSongCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueSongCoverView.swift; sourceTree = "<group>"; };
@@ -961,6 +963,7 @@
 				E4B3B3622432DA4B007E25D2 /* AlbumSongCell.swift */,
 				E4B3B3652432DEDB007E25D2 /* AlbumSongListViewController.swift */,
 				E412222F2432B0A300473C1D /* AlbumTracksDataSource.swift */,
+				E4B28EDE2436D548003B28AE /* AlbumDetailFooterView.swift */,
 			);
 			path = "Album Detail";
 			sourceTree = "<group>";
@@ -1940,6 +1943,7 @@
 				E4805A292426D73600362CF3 /* player.c in Sources */,
 				E480514724255E7700362CF3 /* ServerReducer.swift in Sources */,
 				E480514E24255E7D00362CF3 /* UIActions.swift in Sources */,
+				E4B28EE02436D56E003B28AE /* AlbumDetailFooterView.swift in Sources */,
 				E480513C24255E7200362CF3 /* AppState.swift in Sources */,
 				E480514024255E7200362CF3 /* ServerState.swift in Sources */,
 				E480514224255E7700362CF3 /* AlbumListReducer.swift in Sources */,
