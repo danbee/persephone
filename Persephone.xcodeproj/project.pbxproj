@@ -27,7 +27,7 @@
 		E41222172431425400473C1D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41222052431425400473C1D /* SceneDelegate.swift */; };
 		E41222182431425400473C1D /* AlbumItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41222092431425400473C1D /* AlbumItemCell.swift */; };
 		E41222192431425400473C1D /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E412220A2431425400473C1D /* AlbumViewController.swift */; };
-		E412221A2431425400473C1D /* AlbumViewController+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E412220B2431425400473C1D /* AlbumViewController+UICollectionViewDataSource.swift */; };
+		E412221A2431425400473C1D /* AlbumDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E412220B2431425400473C1D /* AlbumDataSource.swift */; };
 		E412221B2431425400473C1D /* AlbumViewController+UICollectionViewDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E412220C2431425400473C1D /* AlbumViewController+UICollectionViewDelegateFlowLayout.swift */; };
 		E412221C2431431500473C1D /* Persephone_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41221F72431425300473C1D /* Persephone_iOSTests.swift */; };
 		E412221F2431432100473C1D /* Persephone_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41221FB2431425300473C1D /* Persephone_iOSUITests.swift */; };
@@ -269,7 +269,6 @@
 		E489E39D22B9CF0000CA8CBD /* NSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E489E39C22B9CF0000CA8CBD /* NSView.swift */; };
 		E489E3A422B9D31800CA8CBD /* DraggedSongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E489E3A222B9D31800CA8CBD /* DraggedSongView.swift */; };
 		E489E3A522B9D31800CA8CBD /* DraggedSongView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E489E3A322B9D31800CA8CBD /* DraggedSongView.xib */; };
-		E4928E0B2218D62A001D4BEA /* CGColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4928E0A2218D62A001D4BEA /* CGColor.swift */; };
 		E49A5482233E580800EED353 /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = E49A5481233E580800EED353 /* PromiseKit */; };
 		E49A5485233E5ADC00EED353 /* Differ in Frameworks */ = {isa = PBXBuildFile; productRef = E49A5484233E5ADC00EED353 /* Differ */; };
 		E49A5488233E5B0000EED353 /* ReSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E49A5487233E5B0000EED353 /* ReSwift */; };
@@ -295,6 +294,7 @@
 		E4B11BC02275EE150075461B /* QueueActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BBF2275EE150075461B /* QueueActions.swift */; };
 		E4B11BC22275EE410075461B /* AlbumListActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11BC12275EE410075461B /* AlbumListActions.swift */; };
 		E4B28EE02436D56E003B28AE /* AlbumDetailFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B28EDE2436D548003B28AE /* AlbumDetailFooterView.swift */; };
+		E4B28EE224379606003B28AE /* CGColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B28EE124379606003B28AE /* CGColor.swift */; };
 		E4B3B3642432DB7A007E25D2 /* AlbumSongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B3B3622432DA4B007E25D2 /* AlbumSongCell.swift */; };
 		E4B3B3672432DF1B007E25D2 /* AlbumSongListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B3B3652432DEDB007E25D2 /* AlbumSongListViewController.swift */; };
 		E4B3DF6523D66A4400728F6B /* QueueSongCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B3DF6423D66A4400728F6B /* QueueSongCoverView.swift */; };
@@ -428,7 +428,7 @@
 		E41222052431425400473C1D /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E41222092431425400473C1D /* AlbumItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumItemCell.swift; sourceTree = "<group>"; };
 		E412220A2431425400473C1D /* AlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
-		E412220B2431425400473C1D /* AlbumViewController+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AlbumViewController+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
+		E412220B2431425400473C1D /* AlbumDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumDataSource.swift; sourceTree = "<group>"; };
 		E412220C2431425400473C1D /* AlbumViewController+UICollectionViewDelegateFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AlbumViewController+UICollectionViewDelegateFlowLayout.swift"; sourceTree = "<group>"; };
 		E41222272431539800473C1D /* CGSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSize.swift; sourceTree = "<group>"; };
 		E412222F2432B0A300473C1D /* AlbumTracksDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTracksDataSource.swift; sourceTree = "<group>"; };
@@ -656,6 +656,7 @@
 		E4B11BBF2275EE150075461B /* QueueActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueActions.swift; sourceTree = "<group>"; };
 		E4B11BC12275EE410075461B /* AlbumListActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListActions.swift; sourceTree = "<group>"; };
 		E4B28EDE2436D548003B28AE /* AlbumDetailFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailFooterView.swift; sourceTree = "<group>"; };
+		E4B28EE124379606003B28AE /* CGColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGColor.swift; sourceTree = "<group>"; };
 		E4B3B3622432DA4B007E25D2 /* AlbumSongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumSongCell.swift; sourceTree = "<group>"; };
 		E4B3B3652432DEDB007E25D2 /* AlbumSongListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumSongListViewController.swift; sourceTree = "<group>"; };
 		E4B3DF6423D66A4400728F6B /* QueueSongCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueSongCoverView.swift; sourceTree = "<group>"; };
@@ -816,6 +817,7 @@
 		E408D3B7220DE8CC0006D9BE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E4B28EE124379606003B28AE /* CGColor.swift */,
 				E40FE71A221B904300A4223F /* NSEvent.swift */,
 				E435E3E1221CD4E200184CFC /* NSFont.swift */,
 				E435E3E3221CD75D00184CFC /* NSImage.swift */,
@@ -871,7 +873,6 @@
 		E411C29D241C123C008B9682 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				E4928E0A2218D62A001D4BEA /* CGColor.swift */,
 				E408D3B5220DD8970006D9BE /* Notification.swift */,
 			);
 			path = Extensions;
@@ -933,7 +934,7 @@
 			children = (
 				E41222092431425400473C1D /* AlbumItemCell.swift */,
 				E412220A2431425400473C1D /* AlbumViewController.swift */,
-				E412220B2431425400473C1D /* AlbumViewController+UICollectionViewDataSource.swift */,
+				E412220B2431425400473C1D /* AlbumDataSource.swift */,
 				E412220C2431425400473C1D /* AlbumViewController+UICollectionViewDelegateFlowLayout.swift */,
 			);
 			path = "Album Browser";
@@ -950,6 +951,7 @@
 		E41222262431539000473C1D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E4928E0A2218D62A001D4BEA /* CGColor.swift */,
 				E41222272431539800473C1D /* CGSize.swift */,
 				E4C51F09243428B60093FB31 /* UIFont.swift */,
 			);
@@ -1757,7 +1759,6 @@
 				E4B11BB62275374B0075461B /* UserNotificationsController.swift in Sources */,
 				E43AC1F622C6AD0B001E483C /* AlbumViewController+NSCollectionViewDelegate.swift in Sources */,
 				E4B11B68226A4FA00075461B /* QueueState.swift in Sources */,
-				E4928E0B2218D62A001D4BEA /* CGColor.swift in Sources */,
 				E4D3BFA622B419C000C56F48 /* QueueViewController+NSOutlineViewDelegate.swift in Sources */,
 				E4405192227644340090CD6F /* MPDServerController.swift in Sources */,
 				E4805A102426D73600362CF3 /* tag.c in Sources */,
@@ -1890,6 +1891,7 @@
 				E48059FC2426D73600362CF3 /* neighbor.c in Sources */,
 				E4B11B6A226A4FBC0075461B /* AlbumListState.swift in Sources */,
 				E4805A162426D73600362CF3 /* song.c in Sources */,
+				E4B28EE224379606003B28AE /* CGColor.swift in Sources */,
 				E41E5305223BFB0700173814 /* MPDClient+Error.swift in Sources */,
 				E435E3E2221CD4E200184CFC /* NSFont.swift in Sources */,
 				E4805A0C2426D73600362CF3 /* settings.c in Sources */,
@@ -2003,7 +2005,7 @@
 				E4C51F0A243428B60093FB31 /* UIFont.swift in Sources */,
 				E480511524255BAF00362CF3 /* DraggedSongType.swift in Sources */,
 				E480512B24255BDF00362CF3 /* MPDAlbum.swift in Sources */,
-				E412221A2431425400473C1D /* AlbumViewController+UICollectionViewDataSource.swift in Sources */,
+				E412221A2431425400473C1D /* AlbumDataSource.swift in Sources */,
 				E41222172431425400473C1D /* SceneDelegate.swift in Sources */,
 				E48059DB2426D73600362CF3 /* entity.c in Sources */,
 				E48051522425626300362CF3 /* MPDServerController.swift in Sources */,

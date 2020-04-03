@@ -8,16 +8,17 @@
 
 import UIKit
 
-extension AlbumViewController {
-  override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+class AlbumDataSource: NSObject, UICollectionViewDataSource {
+  var albums: [Album] = []
+
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return albums.count
   }
   
-  override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let item = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumViewCell", for: indexPath)
     guard let albumViewCell = item as? AlbumItemCell else { return item }
 
-    //albumViewItem.view.wantsLayer = true
     albumViewCell.setAlbum(albums[indexPath.item])
 
     return albumViewCell

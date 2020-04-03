@@ -10,7 +10,7 @@ import UIKit
 import ReSwift
 
 class AlbumViewController: UICollectionViewController {
-  var albums: [Album] = []
+  let dataSource = AlbumDataSource()
   
   let itemsPerRow: CGFloat = 2
   
@@ -23,6 +23,8 @@ class AlbumViewController: UICollectionViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    albumCollectionView.dataSource = dataSource
 
     App.store.subscribe(self) {
       $0.select { $0.albumListState }
@@ -53,7 +55,7 @@ extension AlbumViewController: StoreSubscriber {
   typealias StoreSubscriberStateType = AlbumListState
 
   func newState(state: StoreSubscriberStateType) {
-    albums = state.albums
+    dataSource.albums = state.albums
 
     albumCollectionView.reloadData()
   }
