@@ -29,17 +29,13 @@ class AlbumViewController: UICollectionViewController {
     }
 
     NotificationCenter.default.addObserver(self, selector: #selector(didConnect), name: .didConnect, object: nil)
-    NotificationCenter.default.addObserver(self, selector: #selector(willDisconnect), name: .willDisconnect, object: nil)
-    
+
     title = "Albums"
     navigationController?.navigationBar.prefersLargeTitles = true
   }
 
   @objc func didConnect() {
     App.mpdClient.fetchAllAlbums()
-  }
-  
-  @objc func willDisconnect() {
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
