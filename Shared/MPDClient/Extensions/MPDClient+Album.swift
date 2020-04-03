@@ -57,7 +57,7 @@ extension MPDClient {
   func albums(filter: String) {
     var albums: [MPDAlbum] = []
 
-    mpd_search_db_songs(self.connection, false)
+    mpd_search_db_songs(connection, false)
     if filter != "" {
       let escapedFilter = filter.replacingOccurrences(of: "'", with: "\\'")
 
@@ -66,11 +66,12 @@ extension MPDClient {
         "(any contains '\(escapedFilter)')"
       )
     }
-    mpd_search_add_tag_constraint(self.connection, MPD_OPERATOR_DEFAULT, MPD_TAG_TRACK, "1")
+    mpd_search_add_tag_constraint(connection, MPD_OPERATOR_DEFAULT, MPD_TAG_TRACK, "1")
+    mpd_search_add_sort_tag(connection, MPD_TAG_ALBUM_ARTIST_SORT, false)
 
     mpd_search_commit(self.connection)
 
-    while let song = mpd_recv_song(self.connection) {
+    while let song = mpd_recv_song(connection) {
       let mpdSong = MPDSong(song)
 
       let mpdAlbum = MPDAlbum(
@@ -92,10 +93,10 @@ extension MPDClient {
 
     var firstSong: MPDSong?
 
-    mpd_search_db_songs(self.connection, true)
-    mpd_search_add_tag_constraint(self.connection, MPD_OPERATOR_DEFAULT, MPD_TAG_ALBUM, album.title)
-    mpd_search_add_tag_constraint(self.connection, MPD_OPERATOR_DEFAULT, MPD_TAG_ALBUM_ARTIST, album.artist)
-    mpd_search_add_tag_constraint(self.connection, MPD_OPERATOR_DEFAULT, MPD_TAG_TRACK, "1")
+    mpd_search_db_songs(connection, true)
+    mpd_search_add_tag_constraint(connection, MPD_OPERATOR_DEFAULT, MPD_TAG_ALBUM, album.title)
+    mpd_search_add_tag_constraint(connection, MPD_OPERATOR_DEFAULT, MPD_TAG_ALBUM_ARTIST, album.artist)
+    mpd_search_add_tag_constraint(connection, MPD_OPERATOR_DEFAULT, MPD_TAG_TRACK, "1")
 
     mpd_search_commit(self.connection)
 
