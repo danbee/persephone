@@ -41,9 +41,11 @@ class AlbumSongListViewController: UITableViewController {
 
     albumTitle.text = album.title
     albumMetadata.text = "\(album.artist) · \(album.date)"
-
+  }
+  
+  override func viewWillLayoutSubviews() {
     var layoutSize = UIView.layoutFittingExpandedSize
-    layoutSize.width = UIScreen.main.bounds.width
+    layoutSize.width = view.bounds.width
 
     let headerViewSize = albumTracksView.tableHeaderView?
       .systemLayoutSizeFitting(
@@ -111,6 +113,12 @@ class AlbumSongListViewController: UITableViewController {
         .scaleFactor(traitCollection.displayScale),
       ]
     )
+  }
+  
+  override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+    if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+      setAppearance()
+    }
   }
   
   func setAppearance() {

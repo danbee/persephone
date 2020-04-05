@@ -23,12 +23,4 @@ class AlbumDataSource: NSObject, UICollectionViewDataSource {
 
     return albumViewCell
   }
-//
-//  override func indexTitles(for collectionView: UICollectionView) -> [String]? {
-//    return ["#"]
-//  }
-//
-//  override func collectionView(_ collectionView: UICollectionView, indexPathForIndexTitle title: String, at index: Int) -> IndexPath {
-//    return IndexPath(index: 0)
-//  }
 }

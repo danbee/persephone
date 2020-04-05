@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Album View Controller-->
+        <!--Albums-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="AlbumViewController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
@@ -71,7 +71,7 @@
                             </collectionViewCell>
                         </cells>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="tsN-Dk-Jan"/>
+                    <navigationItem key="navigationItem" title="Albums" id="tsN-Dk-Jan"/>
                     <connections>
                         <outlet property="albumCollectionView" destination="u9f-Xg-Xs3" id="Gaj-EK-kIM"/>
                     </connections>
@@ -291,8 +291,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9Vi-iO-P5G" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Albums" image="square.grid.2x2.fill" catalog="system" id="neh-3P-aiC"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fhl-gx-pxj">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="fhl-gx-pxj">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

@@ -43,25 +43,13 @@ class AlbumItemCell: UICollectionViewCell {
         .processor(DownsamplingImageProcessor(size: .albumListCoverSize)),
         .scaleFactor(traitCollection.displayScale),
       ]
-    ) { result in
-      switch result {
-      case .success(let imageResult):
-        guard let imageData = imageResult.image.pngData()
-          else { return }
-        
-        let _ = RawImageDataProvider(
-          data: imageData,
-          cacheKey: album.hash
-        )
-        
-      case .failure(_):
-        break
-      }
-    }
+    )
   }
   
   override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-    setAppearance()
+    if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+      setAppearance()
+    }
   }
   
   func setAppearance() {

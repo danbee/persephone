@@ -31,9 +31,6 @@ class AlbumViewController: UICollectionViewController {
     }
 
     NotificationCenter.default.addObserver(self, selector: #selector(didConnect), name: .didConnect, object: nil)
-
-    title = "Albums"
-    navigationController?.navigationBar.prefersLargeTitles = true
   }
 
   @objc func didConnect() {
