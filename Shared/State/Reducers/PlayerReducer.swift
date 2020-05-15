@@ -51,6 +51,12 @@ func playerReducer(action: Action, state: PlayerState?) -> PlayerState {
   case let action as UpdateElapsedTimeAction:
     state.elapsedTimeMs = action.elapsedTimeMs
 
+    if let elapsedTimeMs = state.elapsedTimeMs,
+      let totalTime = state.totalTime,
+      elapsedTimeMs / 1000 > totalTime {
+      App.mpdClient.enqueueCommand(command: .fetchStatus)
+    }
+    
   default:
     break
   }
