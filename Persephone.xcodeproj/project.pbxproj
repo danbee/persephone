@@ -40,6 +40,12 @@
 		E42A4D5122E2167E001C6CAD /* MPDClient+Songs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42A4D5022E2167E001C6CAD /* MPDClient+Songs.swift */; };
 		E42A8F3B22176D6400A13ED9 /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = E42A8F3922176D6400A13ED9 /* LICENSE.md */; };
 		E42A8F3C22176D6400A13ED9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E42A8F3A22176D6400A13ED9 /* README.md */; };
+		E42B18E024538473000C8DFD /* MPDClient+Playlists.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42B18DF24538473000C8DFD /* MPDClient+Playlists.swift */; };
+		E42B18E124538473000C8DFD /* MPDClient+Playlists.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42B18DF24538473000C8DFD /* MPDClient+Playlists.swift */; };
+		E42B18E324539110000C8DFD /* PlaylistState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42B18E224539110000C8DFD /* PlaylistState.swift */; };
+		E42B18E424539110000C8DFD /* PlaylistState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42B18E224539110000C8DFD /* PlaylistState.swift */; };
+		E42B18E6245391F6000C8DFD /* PlaylistActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42B18E5245391F6000C8DFD /* PlaylistActions.swift */; };
+		E42B18E7245391F6000C8DFD /* PlaylistActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42B18E5245391F6000C8DFD /* PlaylistActions.swift */; };
 		E435E3E2221CD4E200184CFC /* NSFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = E435E3E1221CD4E200184CFC /* NSFont.swift */; };
 		E435E3E4221CD75D00184CFC /* NSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E435E3E3221CD75D00184CFC /* NSImage.swift */; };
 		E439109822640213002982E9 /* SongNotifierService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439109722640213002982E9 /* SongNotifierService.swift */; };
@@ -264,6 +270,7 @@
 		E4A642DA22090CBE00067D21 /* MPDStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A642D922090CBE00067D21 /* MPDStatus.swift */; };
 		E4A83BEF2221F8CF0098FED6 /* CoverArtPrefsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A83BEE2221F8CF0098FED6 /* CoverArtPrefsController.swift */; };
 		E4A83BF12221FAA00098FED6 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A83BF02221FAA00098FED6 /* PreferencesViewController.swift */; };
+		E4ABD9ED2442935700D7A8EF /* SavePlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4ABD9EB2442935700D7A8EF /* SavePlaylistViewController.swift */; };
 		E4B11B53226928F20075461B /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11B52226928F20075461B /* AppState.swift */; };
 		E4B11B61226A4C000075461B /* PlayerReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11B60226A4BFF0075461B /* PlayerReducer.swift */; };
 		E4B11B63226A4C510075461B /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B11B62226A4C510075461B /* AppReducer.swift */; };
@@ -289,6 +296,9 @@
 		E4D3BFA622B419C000C56F48 /* QueueViewController+NSOutlineViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D3BFA522B419C000C56F48 /* QueueViewController+NSOutlineViewDelegate.swift */; };
 		E4DA820623D6236200C1EE58 /* NSSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA820523D6236200C1EE58 /* NSSize.swift */; };
 		E4DCCFAE23E4DB5D009A8113 /* MPDClientWrapper.c in Sources */ = {isa = PBXBuildFile; fileRef = E4DCCFAD23E4DB5D009A8113 /* MPDClientWrapper.c */; };
+		E4DFF2F82454E9A4001A89DD /* PlaylistReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DFF2F72454E9A4001A89DD /* PlaylistReducer.swift */; };
+		E4DFF2FA2454ECDF001A89DD /* MPDPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DFF2F92454ECDF001A89DD /* MPDPlaylist.swift */; };
+		E4DFF2FC2454EED1001A89DD /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DFF2FB2454EED1001A89DD /* Playlist.swift */; };
 		E4E7A6AD22AAAF98006D566C /* AlbumDetailView+NSTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E7A6AC22AAAF98006D566C /* AlbumDetailView+NSTableViewDelegate.swift */; };
 		E4E8CC902204EC7F0024217A /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC8F2204EC7F0024217A /* Delegate.swift */; };
 		E4E8CC922204F4B80024217A /* QueueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8CC912204F4B80024217A /* QueueViewController.swift */; };
@@ -454,6 +464,9 @@
 		E42A4D5022E2167E001C6CAD /* MPDClient+Songs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MPDClient+Songs.swift"; sourceTree = "<group>"; };
 		E42A8F3922176D6400A13ED9 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		E42A8F3A22176D6400A13ED9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E42B18DF24538473000C8DFD /* MPDClient+Playlists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MPDClient+Playlists.swift"; sourceTree = "<group>"; };
+		E42B18E224539110000C8DFD /* PlaylistState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistState.swift; sourceTree = "<group>"; };
+		E42B18E5245391F6000C8DFD /* PlaylistActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistActions.swift; sourceTree = "<group>"; };
 		E435E3E1221CD4E200184CFC /* NSFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSFont.swift; sourceTree = "<group>"; };
 		E435E3E3221CD75D00184CFC /* NSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImage.swift; sourceTree = "<group>"; };
 		E439109722640213002982E9 /* SongNotifierService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongNotifierService.swift; sourceTree = "<group>"; };
@@ -608,6 +621,7 @@
 		E4A642D922090CBE00067D21 /* MPDStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDStatus.swift; sourceTree = "<group>"; };
 		E4A83BEE2221F8CF0098FED6 /* CoverArtPrefsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverArtPrefsController.swift; sourceTree = "<group>"; };
 		E4A83BF02221FAA00098FED6 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		E4ABD9EB2442935700D7A8EF /* SavePlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePlaylistViewController.swift; sourceTree = "<group>"; };
 		E4B11B52226928F20075461B /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		E4B11B60226A4BFF0075461B /* PlayerReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerReducer.swift; sourceTree = "<group>"; };
 		E4B11B62226A4C510075461B /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
@@ -635,6 +649,9 @@
 		E4DCCFAB23E4DB5D009A8113 /* Persephone-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Persephone-Bridging-Header.h"; sourceTree = "<group>"; };
 		E4DCCFAC23E4DB5D009A8113 /* MPDClientWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPDClientWrapper.h; sourceTree = "<group>"; };
 		E4DCCFAD23E4DB5D009A8113 /* MPDClientWrapper.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = MPDClientWrapper.c; sourceTree = "<group>"; };
+		E4DFF2F72454E9A4001A89DD /* PlaylistReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistReducer.swift; sourceTree = "<group>"; };
+		E4DFF2F92454ECDF001A89DD /* MPDPlaylist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDPlaylist.swift; sourceTree = "<group>"; };
+		E4DFF2FB2454EED1001A89DD /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		E4E7A6AC22AAAF98006D566C /* AlbumDetailView+NSTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlbumDetailView+NSTableViewDelegate.swift"; sourceTree = "<group>"; };
 		E4E8CC8F2204EC7F0024217A /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
 		E4E8CC912204F4B80024217A /* QueueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueViewController.swift; sourceTree = "<group>"; };
@@ -802,6 +819,7 @@
 				E41E5304223BFB0700173814 /* MPDClient+Error.swift */,
 				E41E5302223BF9C300173814 /* MPDClient+Idle.swift */,
 				E453825423FA347C007F6BFC /* MPDClient+Mixer.swift */,
+				E42B18DF24538473000C8DFD /* MPDClient+Playlists.swift */,
 				E41E5300223BF99300173814 /* MPDClient+Queue.swift */,
 				E42A4D5022E2167E001C6CAD /* MPDClient+Songs.swift */,
 				E41E5306223C019100173814 /* MPDClient+Status.swift */,
@@ -892,6 +910,8 @@
 		E442CCC42347D5B900004E0C /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E4ABD9EA2442912100D7A8EF /* Playlists */,
+				E453824D23F9F700007F6BFC /* VolumeControl */,
 				E442CCCB2347D77A00004E0C /* Browser */,
 				E4A83BEC2221F5DD0098FED6 /* Preferences */,
 				E442CCC62347D5E700004E0C /* Queue */,
@@ -1226,6 +1246,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		E4ABD9EA2442912100D7A8EF /* Playlists */ = {
+			isa = PBXGroup;
+			children = (
+				E4ABD9EB2442935700D7A8EF /* SavePlaylistViewController.swift */,
+			);
+			path = Playlists;
+			sourceTree = "<group>";
+		};
 		E4B11B5F226A4BED0075461B /* Reducers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1236,6 +1264,7 @@
 				E4B11B74226CC4D30075461B /* QueueReducer.swift */,
 				E4F2EFF124076B5E00198159 /* ServerReducer.swift */,
 				E440519D227BB0720090CD6F /* UIReducer.swift */,
+				E4DFF2F72454E9A4001A89DD /* PlaylistReducer.swift */,
 			);
 			path = Reducers;
 			sourceTree = "<group>";
@@ -1252,6 +1281,7 @@
 				E4B11B67226A4FA00075461B /* QueueState.swift */,
 				E4F2EFED24076A2700198159 /* ServerState.swift */,
 				E440519F227BB0AB0090CD6F /* UIState.swift */,
+				E42B18E224539110000C8DFD /* PlaylistState.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -1265,6 +1295,7 @@
 				E4B11BBF2275EE150075461B /* QueueActions.swift */,
 				E4F2EFEF24076B0900198159 /* ServerActions.swift */,
 				E440519B227BAF2E0090CD6F /* UIActions.swift */,
+				E42B18E5245391F6000C8DFD /* PlaylistActions.swift */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -1288,6 +1319,7 @@
 				E4E8CC9922075D370024217A /* MPDSong.swift */,
 				E4A642D922090CBE00067D21 /* MPDStatus.swift */,
 				E42A4D4E22E20D7D001C6CAD /* MPDTag.swift */,
+				E4DFF2F92454ECDF001A89DD /* MPDPlaylist.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1334,6 +1366,7 @@
 				E419E2862249B96600216A8C /* Song.swift */,
 				E47E2FDC2220A6D100F747E6 /* Time.swift */,
 				E4B11B72226A6C770075461B /* TrackTimer.swift */,
+				E4DFF2FB2454EED1001A89DD /* Playlist.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1710,6 +1743,7 @@
 				E48059EA2426D73600362CF3 /* coutput.c in Sources */,
 				E4B11B61226A4C000075461B /* PlayerReducer.swift in Sources */,
 				E4805A0E2426D73600362CF3 /* cmount.c in Sources */,
+				E42B18E6245391F6000C8DFD /* PlaylistActions.swift in Sources */,
 				E4FF71922276029000D4C412 /* PreferencesActions.swift in Sources */,
 				E489E39922B85D0400CA8CBD /* NSPasteboard.swift in Sources */,
 				E43AC1F122C68E6A001E483C /* NSPasteboardItem.swift in Sources */,
@@ -1719,6 +1753,8 @@
 				E48059CC2426D73600362CF3 /* mixer.c in Sources */,
 				E48059D22426D73600362CF3 /* partition.c in Sources */,
 				E47E2FDD2220A6D100F747E6 /* Time.swift in Sources */,
+				E4ABD9ED2442935700D7A8EF /* SavePlaylistViewController.swift in Sources */,
+				E4DFF2F82454E9A4001A89DD /* PlaylistReducer.swift in Sources */,
 				E48059E02426D73600362CF3 /* password.c in Sources */,
 				E48059EC2426D73600362CF3 /* stats.c in Sources */,
 				E419E2872249B96600216A8C /* Song.swift in Sources */,
@@ -1729,6 +1765,7 @@
 				E44051A0227BB0AB0090CD6F /* UIState.swift in Sources */,
 				E48059D62426D73600362CF3 /* ierror.c in Sources */,
 				E4FF718E2276010E00D4C412 /* PreferencesState.swift in Sources */,
+				E42B18E324539110000C8DFD /* PlaylistState.swift in Sources */,
 				E48059DE2426D73600362CF3 /* audio_format.c in Sources */,
 				E439109822640213002982E9 /* SongNotifierService.swift in Sources */,
 				E4B3DF6523D66A4400728F6B /* QueueSongCoverView.swift in Sources */,
@@ -1751,6 +1788,7 @@
 				E4805A062426D73600362CF3 /* error.c in Sources */,
 				E4805A122426D73600362CF3 /* rplaylist.c in Sources */,
 				E4805A202426D73600362CF3 /* parser.c in Sources */,
+				E42B18E024538473000C8DFD /* MPDClient+Playlists.swift in Sources */,
 				E4B5AE7E22F4C49600CCEC65 /* MPDServerDelegate.swift in Sources */,
 				E4805A2A2426D73600362CF3 /* message.c in Sources */,
 				E4B11BB8227538FA0075461B /* CurrentCoverArtView.swift in Sources */,
@@ -1765,12 +1803,14 @@
 				38BAC36B249CB1A7004BAEA4 /* AlbumDetailSongTitleView.swift in Sources */,
 				E4F2EFF024076B0900198159 /* ServerActions.swift in Sources */,
 				E408D3BE220E03EE0006D9BE /* RawRepresentable.swift in Sources */,
+				E4DFF2FA2454ECDF001A89DD /* MPDPlaylist.swift in Sources */,
 				E4B11B66226A4F830075461B /* PlayerState.swift in Sources */,
 				E4B11BBE2275EDAA0075461B /* PlayerActions.swift in Sources */,
 				E4FF71942276043A00D4C412 /* MPDServer.swift in Sources */,
 				E4805A282426D73600362CF3 /* player.c in Sources */,
 				E48059D02426D73600362CF3 /* send.c in Sources */,
 				E4E8CC922204F4B80024217A /* QueueViewController.swift in Sources */,
+				E4DFF2FC2454EED1001A89DD /* Playlist.swift in Sources */,
 				E440519C227BAF2E0090CD6F /* UIActions.swift in Sources */,
 				E48059F22426D73600362CF3 /* capabilities.c in Sources */,
 				E48059F82426D73600362CF3 /* rdirectory.c in Sources */,
@@ -1822,6 +1862,7 @@
 				E4805A0F2426D73600362CF3 /* cmount.c in Sources */,
 				E48059E32426D73600362CF3 /* mount.c in Sources */,
 				E480511424255BAF00362CF3 /* DraggedSong.swift in Sources */,
+				E42B18E124538473000C8DFD /* MPDClient+Playlists.swift in Sources */,
 				E48059CB2426D73600362CF3 /* list.c in Sources */,
 				E4805A212426D73600362CF3 /* parser.c in Sources */,
 				E48059EB2426D73600362CF3 /* coutput.c in Sources */,
@@ -1848,6 +1889,7 @@
 				E480513D24255E7200362CF3 /* PlayerState.swift in Sources */,
 				E480511D24255BD200362CF3 /* MPDClientWrapper.c in Sources */,
 				E480512924255BDB00362CF3 /* MPDClient+Status.swift in Sources */,
+				E42B18E424539110000C8DFD /* PlaylistState.swift in Sources */,
 				E48059FD2426D73600362CF3 /* neighbor.c in Sources */,
 				E4805A252426D73600362CF3 /* iso8601.c in Sources */,
 				E480512C24255BDF00362CF3 /* MPDCommand.swift in Sources */,
@@ -1907,6 +1949,7 @@
 				E480512224255BDB00362CF3 /* MPDClient+Connection.swift in Sources */,
 				E480511124255BA900362CF3 /* MachTime.swift in Sources */,
 				E4805A112426D73600362CF3 /* tag.c in Sources */,
+				E42B18E7245391F6000C8DFD /* PlaylistActions.swift in Sources */,
 				E4805A192426D73600362CF3 /* status.c in Sources */,
 				E48059EF2426D73600362CF3 /* socket.c in Sources */,
 				E480514B24255E7D00362CF3 /* PreferencesActions.swift in Sources */,

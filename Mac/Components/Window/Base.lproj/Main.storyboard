@@ -176,6 +176,20 @@
                                     </items>
                                 </menu>
                             </menuItem>
+                            <menuItem title="Playlists" id="WzS-gW-tqH">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Playlists" autoenablesItems="NO" identifier="playlistsMenu" id="v7W-VT-YsS">
+                                    <items>
+                                        <menuItem title="Save Playlist…" id="lL7-Nu-DRz">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <segue destination="3oS-GD-9H1" kind="modal" id="eUS-mx-Dph"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="cFk-06-bnH"/>
+                                    </items>
+                                </menu>
+                            </menuItem>
                             <menuItem title="Controls" id="hB8-hX-gD5">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Controls" autoenablesItems="NO" id="61K-cL-XWL">
@@ -277,7 +291,7 @@
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-183" y="-242"/>
+            <point key="canvasLocation" x="-275" y="-242"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -502,7 +516,7 @@
                 </windowController>
                 <customObject id="0sd-8B-etN" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="346" y="-242"/>
+            <point key="canvasLocation" x="349" y="-546"/>
         </scene>
         <!--General-->
         <scene sceneID="5er-B6-hoB">
@@ -906,7 +920,7 @@
                     </items>
                 </menu>
             </objects>
-            <point key="canvasLocation" x="824.5" y="745.5"/>
+            <point key="canvasLocation" x="824.5" y="766"/>
         </scene>
         <!--Album View Controller-->
         <scene sceneID="7Ua-Hj-zWt">
@@ -958,6 +972,108 @@
                 <customObject id="uex-Ws-5X4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1485" y="182"/>
+        </scene>
+        <!--Save Playlist-->
+        <scene sceneID="Aaj-nS-I3Z">
+            <objects>
+                <viewController title="Save Playlist" id="3oS-GD-9H1" customClass="SavePlaylistViewController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" misplaced="YES" id="dgg-SY-65p">
+                        <rect key="frame" x="0.0" y="0.0" width="286" height="93"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <gridView xPlacement="leading" yPlacement="bottom" rowAlignment="none" rowSpacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dtK-8L-o11">
+                                <rect key="frame" x="0.0" y="0.0" width="286" height="95"/>
+                                <rows>
+                                    <gridRow topPadding="20" id="ilS-gI-bD9"/>
+                                    <gridRow bottomPadding="17" id="dEZ-bX-GdR"/>
+                                </rows>
+                                <columns>
+                                    <gridColumn leadingPadding="20" id="NE8-vb-vlD"/>
+                                    <gridColumn trailingPadding="20" id="ES5-gL-nIM"/>
+                                </columns>
+                                <gridCells>
+                                    <gridCell row="ilS-gI-bD9" column="NE8-vb-vlD" xPlacement="trailing" yPlacement="center" id="r1d-Yn-TIF">
+                                        <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="LIQ-7r-gbX">
+                                            <rect key="frame" x="18" y="57" width="44" height="16"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Name:" id="7UN-bH-wIn">
+                                                <font key="font" usesAppearanceFont="YES"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </gridCell>
+                                    <gridCell row="ilS-gI-bD9" column="ES5-gL-nIM" yPlacement="center" id="oSk-cx-yku">
+                                        <textField key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vfb-1b-g2p">
+                                            <rect key="frame" x="66" y="54" width="200" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="200" id="UEE-eo-PUq"/>
+                                            </constraints>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="vhi-nK-mWd">
+                                                <font key="font" usesAppearanceFont="YES"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </gridCell>
+                                    <gridCell row="dEZ-bX-GdR" column="NE8-vb-vlD" id="bwK-5c-kB7"/>
+                                    <gridCell row="dEZ-bX-GdR" column="ES5-gL-nIM" xPlacement="trailing" id="iiE-dZ-nPw">
+                                        <stackView key="contentView" distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QAY-lb-fGF">
+                                            <rect key="frame" x="118" y="17" width="148" height="21"/>
+                                            <subviews>
+                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gG3-Cp-l12">
+                                                    <rect key="frame" x="-6" y="-7" width="82" height="32"/>
+                                                    <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="NW6-Xn-CWZ">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                        <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="cancelButtonAction:" target="3oS-GD-9H1" id="7f1-6J-VDQ"/>
+                                                    </connections>
+                                                </button>
+                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pUw-bS-at3" userLabel="Save">
+                                                    <rect key="frame" x="72" y="-7" width="82" height="32"/>
+                                                    <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="HPK-qZ-pkt">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="saveButtonAction:" target="3oS-GD-9H1" id="iRy-nu-VaK"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="pUw-bS-at3" firstAttribute="width" secondItem="gG3-Cp-l12" secondAttribute="width" id="OLN-VK-JsL"/>
+                                            </constraints>
+                                            <visibilityPriorities>
+                                                <integer value="1000"/>
+                                                <integer value="1000"/>
+                                            </visibilityPriorities>
+                                            <customSpacing>
+                                                <real value="3.4028234663852886e+38"/>
+                                                <real value="3.4028234663852886e+38"/>
+                                            </customSpacing>
+                                        </stackView>
+                                    </gridCell>
+                                </gridCells>
+                            </gridView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="dtK-8L-o11" secondAttribute="bottom" id="MuW-ZC-8WV"/>
+                            <constraint firstItem="dtK-8L-o11" firstAttribute="leading" secondItem="dgg-SY-65p" secondAttribute="leading" id="XHm-e2-NVy"/>
+                            <constraint firstItem="dtK-8L-o11" firstAttribute="top" secondItem="dgg-SY-65p" secondAttribute="top" id="hui-Vk-WXp"/>
+                            <constraint firstAttribute="trailing" secondItem="dtK-8L-o11" secondAttribute="trailing" id="oNB-WL-1Fm"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="playlistName" destination="vhi-nK-mWd" id="SF8-1x-eqS"/>
+                    </connections>
+                </viewController>
+                <customObject id="2co-Sp-RKj" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="349" y="-261"/>
         </scene>
     </scenes>
     <resources>

@@ -25,4 +25,6 @@ protocol MPDClientDelegate {
   func didLoadAlbums(mpdClient: MPDClient, albums: [MPDClient.MPDAlbum])
 
   func didLoadArtists(mpdClient: MPDClient, artists: [String])
+  
+  func didLoadPlaylists(mpdClient: MPDClient, playlists: [MPDClient.MPDPlaylist])
 }

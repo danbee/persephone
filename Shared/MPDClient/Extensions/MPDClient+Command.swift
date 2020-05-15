@@ -142,6 +142,20 @@ extension MPDClient {
           offset: offset,
           callback: callback
         )
+      
+      // Playlist commands
+      case .fetchPlaylists:
+        playlists()
+
+      case .saveQueueToPlaylist:
+        guard let name = userData["name"] as? String else { return }
+      
+        sendSaveQueueToPlaylist(name: name)
+      
+      case .loadQueueFromPlaylist:
+        guard let name = userData["name"] as? String else { return }
+      
+        sendLoadQueueFromPlaylist(name: name)
     }
     
   }
