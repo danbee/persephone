@@ -83,7 +83,7 @@ extension AlbumDetailView: NSTableViewDelegate {
       owner: self
       ) as! NSTableCellView
 
-    if song.artist != song.album.artist {
+    if song.artist != song.albumArtist {
         let string = NSMutableAttributedString()
         string.append(NSAttributedString(string: song.title))
         string.append(NSAttributedString(string: " – " + song.artist, attributes: [.foregroundColor: NSColor.secondaryLabelColor]))
