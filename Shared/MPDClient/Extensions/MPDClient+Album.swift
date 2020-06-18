@@ -73,7 +73,7 @@ extension MPDClient {
 
       let mpdAlbum = MPDAlbum(
         title: mpdSong.album.title,
-        artist: mpdSong.artist,
+        artist: mpdSong.album.artist,
         firstSong: mpdSong,
         date: mpdSong.date
       )

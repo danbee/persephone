@@ -36,17 +36,22 @@ extension MPDClient {
     var album: MPDAlbum {
       return MPDAlbum(
         title: getTag(.album),
-        artist: artist,
+        artist: albumArtist,
         date: date
       )
     }
 
     var artist: String {
-      if getTag(.albumArtist) != "" {
-        return getTag(.albumArtist)
-      } else {
-        return getTag(.artist)
-      }
+      return getTag(.artist)
+    }
+
+    var albumArtist: String {
+        let albumArtist = getTag(.albumArtist);
+        if albumArtist != "" {
+          return albumArtist
+        } else {
+          return artist
+        }
     }
 
     var date: String {
