@@ -16,12 +16,14 @@ class DraggedSongView: NSViewController {
   
   private let songTitle: String
   private let songArtist: String
+  private let songAlbumArtist: String
   private let songAlbum: String
   private let songUri: String
 
-  init(title: String, artist: String, album: String, uri: String) {
+  init(title: String, artist: String, albumArtist: String, album: String, uri: String) {
     songTitle = title
     songArtist = artist
+    songAlbumArtist = albumArtist
     songAlbum = album
     songUri = uri
 
@@ -60,7 +62,7 @@ class DraggedSongView: NSViewController {
   }
   
   func setCoverArt() {
-    let mpdAlbum = MPDClient.MPDAlbum(title: songAlbum, artist: songArtist)
+    let mpdAlbum = MPDClient.MPDAlbum(title: songAlbum, artist: songAlbumArtist)
 
     let provider = MPDAlbumArtImageDataProvider(
       songUri: songUri,
