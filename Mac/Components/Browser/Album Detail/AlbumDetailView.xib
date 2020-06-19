@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14868" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14868"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -59,7 +59,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="444" height="426"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="none" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="ehr-qh-87Q" customClass="AlbumDetailSongListView" customModule="Persephone" customModuleProvider="target">
+                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="none" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" usesAutomaticRowHeights="YES" viewBased="YES" id="ehr-qh-87Q" customClass="AlbumDetailSongListView" customModule="Persephone" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="444" height="426"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <size key="intercellSpacing" width="3" height="2"/>
@@ -140,26 +140,38 @@
                                         </textFieldCell>
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
-                                            <tableCellView identifier="songTitleCell" id="41U-5i-Oot">
-                                                <rect key="frame" x="44" y="1" width="353" height="17"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <tableCellView identifier="songTitleCell" translatesAutoresizingMaskIntoConstraints="NO" id="41U-5i-Oot" customClass="AlbumDetailSongTitleView" customModule="Persephone" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="353" height="31"/>
                                                 <subviews>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="R8t-bV-9LI">
-                                                        <rect key="frame" x="0.0" y="1" width="353" height="16"/>
+                                                        <rect key="frame" x="0.0" y="15" width="353" height="16"/>
                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" title="My Song Title" id="Sdi-jJ-EOM">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tQ2-xw-nh6">
+                                                        <rect key="frame" x="0.0" y="0.0" width="353" height="15"/>
+                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" title="Song Artist" id="1XN-kG-CWb">
+                                                            <font key="font" metaFont="system" size="12"/>
+                                                            <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="R8t-bV-9LI" firstAttribute="centerX" secondItem="41U-5i-Oot" secondAttribute="centerX" id="0Hz-cI-Y32"/>
-                                                    <constraint firstItem="R8t-bV-9LI" firstAttribute="centerY" secondItem="41U-5i-Oot" secondAttribute="centerY" id="7iv-Qw-o7d"/>
+                                                    <constraint firstItem="tQ2-xw-nh6" firstAttribute="top" secondItem="R8t-bV-9LI" secondAttribute="bottom" id="2zH-CJ-KKQ"/>
+                                                    <constraint firstItem="R8t-bV-9LI" firstAttribute="top" secondItem="41U-5i-Oot" secondAttribute="top" id="PZP-Xp-mjF"/>
                                                     <constraint firstItem="R8t-bV-9LI" firstAttribute="leading" secondItem="41U-5i-Oot" secondAttribute="leading" constant="2" id="UzY-kH-q4q"/>
+                                                    <constraint firstAttribute="bottom" secondItem="tQ2-xw-nh6" secondAttribute="bottom" id="VOZ-SI-v9C"/>
+                                                    <constraint firstItem="tQ2-xw-nh6" firstAttribute="leading" secondItem="41U-5i-Oot" secondAttribute="leading" constant="2" id="hZr-M7-4Ro"/>
+                                                    <constraint firstItem="tQ2-xw-nh6" firstAttribute="centerX" secondItem="41U-5i-Oot" secondAttribute="centerX" id="whd-Tb-KpE"/>
                                                 </constraints>
                                                 <connections>
-                                                    <outlet property="textField" destination="R8t-bV-9LI" id="b79-el-ZAY"/>
+                                                    <outlet property="songArtist" destination="tQ2-xw-nh6" id="5pJ-77-key"/>
+                                                    <outlet property="songTitle" destination="R8t-bV-9LI" id="9rC-ff-9B9"/>
                                                 </connections>
                                             </tableCellView>
                                         </prototypeCellViews>
