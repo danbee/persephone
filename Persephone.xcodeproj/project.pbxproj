@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38BAC36B249CB1A7004BAEA4 /* AlbumDetailSongTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BAC36A249CB1A6004BAEA4 /* AlbumDetailSongTitleView.swift */; };
 		E407861C2110CE6E006887B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E407861B2110CE6E006887B1 /* AppDelegate.swift */; };
 		E40786202110CE70006887B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E407861F2110CE70006887B1 /* Assets.xcassets */; };
 		E40786232110CE70006887B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E40786212110CE70006887B1 /* Main.storyboard */; };
@@ -368,6 +369,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		38BAC36A249CB1A6004BAEA4 /* AlbumDetailSongTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailSongTitleView.swift; sourceTree = "<group>"; };
 		E40786182110CE6E006887B1 /* Persephone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Persephone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E407861B2110CE6E006887B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E407861F2110CE70006887B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -933,6 +935,7 @@
 				E43B67A822909793007DCF55 /* AlbumDetailView.swift */,
 				E4E7A6AC22AAAF98006D566C /* AlbumDetailView+NSTableViewDelegate.swift */,
 				E43B67AC229194CD007DCF55 /* AlbumTracksDataSource.swift */,
+				38BAC36A249CB1A6004BAEA4 /* AlbumDetailSongTitleView.swift */,
 			);
 			path = "Album Detail";
 			sourceTree = "<group>";
@@ -1714,6 +1717,7 @@
 				E480510F2423BD7100362CF3 /* MachTime.swift in Sources */,
 				E47E2FD5222071FD00F747E6 /* AlbumViewItem.swift in Sources */,
 				E4805A142426D73600362CF3 /* response.c in Sources */,
+				38BAC36B249CB1A7004BAEA4 /* AlbumDetailSongTitleView.swift in Sources */,
 				E4F2EFF024076B0900198159 /* ServerActions.swift in Sources */,
 				E408D3BE220E03EE0006D9BE /* RawRepresentable.swift in Sources */,
 				E4B11B66226A4F830075461B /* PlayerState.swift in Sources */,
