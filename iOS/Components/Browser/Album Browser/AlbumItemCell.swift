@@ -15,7 +15,7 @@ class AlbumItemCell: UICollectionViewCell {
   override func didMoveToSuperview() {
     albumCoverView.layer.backgroundColor = UIColor.black.cgColor
     albumCoverView.layer.cornerRadius = 4
-    albumCoverView.layer.borderWidth = 0.5
+    albumCoverView.layer.borderWidth = 1 / traitCollection.displayScale
     albumCoverView.layer.masksToBounds = true
     setAppearance()
   }

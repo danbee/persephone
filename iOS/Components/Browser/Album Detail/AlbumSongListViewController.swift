@@ -24,7 +24,7 @@ class AlbumSongListViewController: UITableViewController {
     
     albumCoverView.layer.backgroundColor = UIColor.black.cgColor
     albumCoverView.layer.cornerRadius = 4
-    albumCoverView.layer.borderWidth = 0.5
+    albumCoverView.layer.borderWidth = 1 / traitCollection.displayScale
     albumCoverView.layer.masksToBounds = true
 
     playAlbumButton.layer.cornerRadius = 8
@@ -116,6 +116,8 @@ class AlbumSongListViewController: UITableViewController {
   }
   
   override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+    super.traitCollectionDidChange(previousTraitCollection)
+
     if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
       setAppearance()
     }

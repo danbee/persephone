@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		38BAC36B249CB1A7004BAEA4 /* AlbumDetailSongTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BAC36A249CB1A6004BAEA4 /* AlbumDetailSongTitleView.swift */; };
+		E403E63E246F4C3900200F58 /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E403E63C246F4C3900200F58 /* NowPlayingViewController.swift */; };
+		E403E63F246F4C3900200F58 /* NowPlayingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E403E63D246F4C3900200F58 /* NowPlayingViewController.xib */; };
 		E407861C2110CE6E006887B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E407861B2110CE6E006887B1 /* AppDelegate.swift */; };
 		E40786202110CE70006887B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E407861F2110CE70006887B1 /* Assets.xcassets */; };
 		E40786232110CE70006887B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E40786212110CE70006887B1 /* Main.storyboard */; };
@@ -320,6 +322,9 @@
 		E4F2EFEE24076A2700198159 /* ServerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F2EFED24076A2700198159 /* ServerState.swift */; };
 		E4F2EFF024076B0900198159 /* ServerActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F2EFEF24076B0900198159 /* ServerActions.swift */; };
 		E4F2EFF224076B5E00198159 /* ServerReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F2EFF124076B5E00198159 /* ServerReducer.swift */; };
+		E4F365D224942CC7006A8C4A /* NowPlayingTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F365D024942C6A006A8C4A /* NowPlayingTabBarController.swift */; };
+		E4F365D4249432C0006A8C4A /* NowPlayingTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F365D3249432C0006A8C4A /* NowPlayingTabBar.swift */; };
+		E4F365D6249C4CDC006A8C4A /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F365D5249C4CDC006A8C4A /* UIImage.swift */; };
 		E4F6B460221E119B00ACF42A /* QueueDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6B45F221E119B00ACF42A /* QueueDataSource.swift */; };
 		E4F6B463221E125900ACF42A /* QueueItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6B462221E125900ACF42A /* QueueItem.swift */; };
 		E4F6B467221E233200ACF42A /* AlbumDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6B466221E233200ACF42A /* AlbumDataSource.swift */; };
@@ -394,6 +399,8 @@
 
 /* Begin PBXFileReference section */
 		38BAC36A249CB1A6004BAEA4 /* AlbumDetailSongTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailSongTitleView.swift; sourceTree = "<group>"; };
+		E403E63C246F4C3900200F58 /* NowPlayingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
+		E403E63D246F4C3900200F58 /* NowPlayingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NowPlayingViewController.xib; sourceTree = "<group>"; };
 		E40786182110CE6E006887B1 /* Persephone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Persephone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E407861B2110CE6E006887B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E407861F2110CE70006887B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -683,6 +690,9 @@
 		E4F2EFED24076A2700198159 /* ServerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerState.swift; sourceTree = "<group>"; };
 		E4F2EFEF24076B0900198159 /* ServerActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerActions.swift; sourceTree = "<group>"; };
 		E4F2EFF124076B5E00198159 /* ServerReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerReducer.swift; sourceTree = "<group>"; };
+		E4F365D024942C6A006A8C4A /* NowPlayingTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingTabBarController.swift; sourceTree = "<group>"; };
+		E4F365D3249432C0006A8C4A /* NowPlayingTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingTabBar.swift; sourceTree = "<group>"; };
+		E4F365D5249C4CDC006A8C4A /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		E4F6B45F221E119B00ACF42A /* QueueDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueDataSource.swift; sourceTree = "<group>"; };
 		E4F6B462221E125900ACF42A /* QueueItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueItem.swift; sourceTree = "<group>"; };
 		E4F6B466221E233200ACF42A /* AlbumDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDataSource.swift; sourceTree = "<group>"; };
@@ -914,6 +924,7 @@
 		E41222062431425400473C1D /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E4D4FAE6246F4B1B00CD02AF /* Now Playing */,
 				E41222252431538700473C1D /* Shared */,
 				E41222072431425400473C1D /* Browser */,
 			);
@@ -954,6 +965,7 @@
 				E4928E0A2218D62A001D4BEA /* CGColor.swift */,
 				E41222272431539800473C1D /* CGSize.swift */,
 				E4C51F09243428B60093FB31 /* UIFont.swift */,
+				E4F365D5249C4CDC006A8C4A /* UIImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1418,6 +1430,17 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		E4D4FAE6246F4B1B00CD02AF /* Now Playing */ = {
+			isa = PBXGroup;
+			children = (
+				E403E63C246F4C3900200F58 /* NowPlayingViewController.swift */,
+				E403E63D246F4C3900200F58 /* NowPlayingViewController.xib */,
+				E4F365D024942C6A006A8C4A /* NowPlayingTabBarController.swift */,
+				E4F365D3249432C0006A8C4A /* NowPlayingTabBar.swift */,
+			);
+			path = "Now Playing";
+			sourceTree = "<group>";
+		};
 		E4E13C2C2350D8CB00092A6E /* Layouts */ = {
 			isa = PBXGroup;
 			children = (
@@ -1698,6 +1721,7 @@
 				E480590F2426D73600362CF3 /* configure.py in Resources */,
 				E48058292426D73500362CF3 /* version.h.in in Resources */,
 				E48059152426D73600362CF3 /* build.sh in Resources */,
+				E403E63F246F4C3900200F58 /* NowPlayingViewController.xib in Resources */,
 				E48059132426D73600362CF3 /* win32.txt in Resources */,
 				E48059C12426D73600362CF3 /* libmpdclient.vapi in Resources */,
 				E41222162431425400473C1D /* Assets.xcassets in Resources */,
@@ -1962,7 +1986,9 @@
 				E480512C24255BDF00362CF3 /* MPDCommand.swift in Sources */,
 				E48059F52426D73600362CF3 /* search.c in Sources */,
 				E4805A1F2426D73600362CF3 /* idle.c in Sources */,
+				E4F365D224942CC7006A8C4A /* NowPlayingTabBarController.swift in Sources */,
 				E41222182431425400473C1D /* AlbumItemCell.swift in Sources */,
+				E4F365D4249432C0006A8C4A /* NowPlayingTabBar.swift in Sources */,
 				E480511724255BAF00362CF3 /* MPDServer.swift in Sources */,
 				E48059C32426D73600362CF3 /* directory.c in Sources */,
 				E480514A24255E7D00362CF3 /* PlayerActions.swift in Sources */,
@@ -1982,9 +2008,11 @@
 				E4B3B3672432DF1B007E25D2 /* AlbumSongListViewController.swift in Sources */,
 				E480514524255E7700362CF3 /* PreferencesReducer.swift in Sources */,
 				E41222292431555100473C1D /* CGColor.swift in Sources */,
+				E4F365D6249C4CDC006A8C4A /* UIImage.swift in Sources */,
 				E480511F24255BDB00362CF3 /* MPDClient+Album.swift in Sources */,
 				E4805A0B2426D73600362CF3 /* sync.c in Sources */,
 				E4805A052426D73600362CF3 /* connection.c in Sources */,
+				E403E63E246F4C3900200F58 /* NowPlayingViewController.swift in Sources */,
 				E480512324255BDB00362CF3 /* MPDClient+Database.swift in Sources */,
 				E41222302432B0A300473C1D /* AlbumTracksDataSource.swift in Sources */,
 				E48059ED2426D73600362CF3 /* stats.c in Sources */,
