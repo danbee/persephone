@@ -25,14 +25,23 @@ class AlbumTracksDataSource: NSObject, NSTableViewDataSource {
   }
 
   var albumSongs: [AlbumSongItem] = []
+  var showSongArtist: Bool = false
 
   func setAlbumSongs(_ songs: [Song]) {
     var disc: String? = ""
+    var albumArtist: String?
 
+    showSongArtist = false
     songs.forEach { song in
       if song.disc != disc && song.disc != "0" {
         disc = song.disc
         albumSongs.append(AlbumSongItem(disc: song.disc))
+      }
+      if albumArtist == nil {
+        albumArtist = song.albumArtist
+      }
+      if song.artist != albumArtist {
+        showSongArtist = true
       }
 
       albumSongs.append(AlbumSongItem(song: song))

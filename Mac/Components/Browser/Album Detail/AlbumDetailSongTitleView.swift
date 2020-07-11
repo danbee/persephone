@@ -13,14 +13,17 @@ class AlbumDetailSongTitleView: NSTableCellView {
   @IBOutlet var songArtist: NSTextField!
   var collapseArtist: NSLayoutConstraint!
   
-  func setSong(_ song: Song) {
+  func setShowArtist(_ show: Bool) {
     if collapseArtist == nil {
        collapseArtist = songArtist?.heightAnchor.constraint(equalToConstant: 0.0)
     }
 
+    collapseArtist.isActive = !show
+  }
+
+  func setSong(_ song: Song) {
     songTitle?.stringValue = song.title
     songArtist?.stringValue = song.artist
-    collapseArtist.isActive = song.artist == song.albumArtist
   }
 }
 
