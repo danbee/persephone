@@ -82,7 +82,8 @@ extension AlbumDetailView: NSTableViewDelegate {
       withIdentifier: .songTitle,
       owner: self
       ) as! AlbumDetailSongTitleView
-    
+
+    cellView.setShowArtist(dataSource.showSongArtist)
     cellView.setSong(song)
 
     return cellView
