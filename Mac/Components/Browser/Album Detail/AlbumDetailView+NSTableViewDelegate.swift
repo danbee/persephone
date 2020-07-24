@@ -59,7 +59,7 @@ extension AlbumDetailView: NSTableViewDelegate {
     let cellView = tableView.makeView(
       withIdentifier: .discNumber,
       owner: self
-      ) as! NSTableCellView
+    ) as! NSTableCellView
 
     cellView.textField?.stringValue = "Disc \(disc)"
 
@@ -70,7 +70,7 @@ extension AlbumDetailView: NSTableViewDelegate {
     let cellView = tableView.makeView(
       withIdentifier: .trackNumber,
       owner: self
-      ) as! NSTableCellView
+    ) as! NSTableCellView
 
     cellView.textField?.stringValue = "\(song.trackNumber)."
 
@@ -81,7 +81,7 @@ extension AlbumDetailView: NSTableViewDelegate {
     let cellView = tableView.makeView(
       withIdentifier: .songTitle,
       owner: self
-      ) as! AlbumDetailSongTitleView
+    ) as! AlbumDetailSongTitleView
 
     cellView.setShowArtist(dataSource.showSongArtist)
     cellView.setSong(song)
@@ -93,7 +93,7 @@ extension AlbumDetailView: NSTableViewDelegate {
     let cellView = tableView.makeView(
       withIdentifier: .songDuration,
       owner: self
-      ) as! NSTableCellView
+    ) as! NSTableCellView
 
     cellView.textField?.font = .timerFont
     cellView.textField?.stringValue = song.duration.formattedTime
