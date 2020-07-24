@@ -11,14 +11,9 @@ import AppKit
 class AlbumDetailSongTitleView: NSTableCellView {
   @IBOutlet var songTitle: NSTextField!
   @IBOutlet var songArtist: NSTextField!
-  var collapseArtist: NSLayoutConstraint!
   
   func setShowArtist(_ show: Bool) {
-    if collapseArtist == nil {
-       collapseArtist = songArtist?.heightAnchor.constraint(equalToConstant: 0.0)
-    }
-
-    collapseArtist.isActive = !show
+    songArtist.isHidden = !show
   }
 
   func setSong(_ song: Song) {
