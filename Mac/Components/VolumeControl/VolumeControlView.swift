@@ -29,10 +29,12 @@ class VolumeControlView: NSViewController {
     if newVolume != currentVolume {
       App.mpdClient.setVolume(to: newVolume)
       currentVolume = newVolume
+        volumeLabel.stringValue = String(currentVolume)
     }
   }
   
   @IBOutlet var volumeSlider: NSSlider!
+    @IBOutlet var volumeLabel: NSTextField!
 }
   
 extension VolumeControlView: StoreSubscriber {
@@ -41,5 +43,6 @@ extension VolumeControlView: StoreSubscriber {
   func newState(state: StoreSubscriberStateType) {
     volumeSlider.integerValue = state.volume
     currentVolume = state.volume
+    volumeLabel.stringValue = String(state.volume)
   }
 }
