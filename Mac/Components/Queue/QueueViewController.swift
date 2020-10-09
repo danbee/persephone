@@ -44,7 +44,9 @@ class QueueViewController: NSViewController {
     case NSEvent.keyCodeBS:
       let queuePos = queueView.selectedRow
 
-      App.mpdClient.removeSong(at: queuePos)
+      if queuePos >= 0 {
+        App.mpdClient.removeSong(at: queuePos)
+      }
     default:
       nextResponder?.keyDown(with: event)
     }
