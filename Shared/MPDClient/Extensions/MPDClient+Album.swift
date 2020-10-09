@@ -59,9 +59,11 @@ extension MPDClient {
 
     mpd_search_db_songs(self.connection, false)
     if filter != "" {
+      let escapedFilter = filter.replacingOccurrences(of: "'", with: "\\'")
+
       mpd_search_add_expression(
         self.connection,
-        "(any contains '\(filter)')"
+        "(any contains '\(escapedFilter)')"
       )
     }
     mpd_search_add_tag_constraint(self.connection, MPD_OPERATOR_DEFAULT, MPD_TAG_TRACK, "1")
