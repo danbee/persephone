@@ -2073,7 +2073,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Shared/libmpdclient/output",
 				);
-				MARKETING_VERSION = "0.17.2-alpha";
+				MARKETING_VERSION = "0.17.3-alpha";
 				PRODUCT_BUNDLE_IDENTIFIER = me.danbarber.Persephone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2106,7 +2106,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Shared/libmpdclient/output",
 				);
-				MARKETING_VERSION = "0.17.2-alpha";
+				MARKETING_VERSION = "0.17.3-alpha";
 				PRODUCT_BUNDLE_IDENTIFIER = me.danbarber.Persephone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
