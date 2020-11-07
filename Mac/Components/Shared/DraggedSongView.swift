@@ -64,7 +64,7 @@ class DraggedSongView: NSViewController {
   func setCoverArt() {
     let mpdAlbum = MPDClient.MPDAlbum(title: songAlbum, artist: songAlbumArtist)
 
-    let provider = MPDAlbumArtImageDataProvider(
+    let provider = AlbumArtImageDataProvider(
       songUri: songUri,
       cacheKey: Album(mpdAlbum: mpdAlbum).hash
     )

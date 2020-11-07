@@ -20,4 +20,8 @@ struct UpdateFetchMissingArtworkFromInternet: Action {
   var fetchMissingArtworkFromInternet: Bool
 }
 
+struct UpdateCustomArtworkURLToggle: Action {
+  var useCustomArtworkURL: Bool
+}
+
 struct SavePreferences: Action {}

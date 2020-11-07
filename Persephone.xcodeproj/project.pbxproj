@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F2EBD8425570D49002CAB57 /* CustomURLAlbumArtImageDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2EBD8325570D49002CAB57 /* CustomURLAlbumArtImageDataProvider.swift */; };
 		38BAC36B249CB1A7004BAEA4 /* AlbumDetailSongTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BAC36A249CB1A6004BAEA4 /* AlbumDetailSongTitleView.swift */; };
 		E407861C2110CE6E006887B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E407861B2110CE6E006887B1 /* AppDelegate.swift */; };
 		E40786202110CE70006887B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E407861F2110CE70006887B1 /* Assets.xcassets */; };
@@ -369,6 +370,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2F2EBD8325570D49002CAB57 /* CustomURLAlbumArtImageDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomURLAlbumArtImageDataProvider.swift; sourceTree = "<group>"; };
 		38BAC36A249CB1A6004BAEA4 /* AlbumDetailSongTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailSongTitleView.swift; sourceTree = "<group>"; };
 		E40786182110CE6E006887B1 /* Persephone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Persephone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E407861B2110CE6E006887B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -1247,6 +1249,7 @@
 			isa = PBXGroup;
 			children = (
 				E4BB7F8E23E5E7BC00906E2F /* MPDAlbumArtImageDataProvider.swift */,
+				2F2EBD8325570D49002CAB57 /* CustomURLAlbumArtImageDataProvider.swift */,
 			);
 			path = ImageDataProviders;
 			sourceTree = "<group>";
@@ -1647,6 +1650,7 @@
 				E43AC1F822C7065A001E483C /* AlbumCoverButton.swift in Sources */,
 				E45962C62241A78500FC1A1E /* MPDCommand.swift in Sources */,
 				E408D3B9220DE98F0006D9BE /* NSUserInterfaceItemIdentifier.swift in Sources */,
+				2F2EBD8425570D49002CAB57 /* CustomURLAlbumArtImageDataProvider.swift in Sources */,
 				E48059C62426D73600362CF3 /* cplaylist.c in Sources */,
 				E4EB2379220F10B8008C70C0 /* MPDPair.swift in Sources */,
 				E489E3A422B9D31800CA8CBD /* DraggedSongView.swift in Sources */,

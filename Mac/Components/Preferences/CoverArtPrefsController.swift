@@ -37,6 +37,12 @@ class CoverArtPrefsController: NSViewController {
       )
     )
   }
+    
+  @IBAction func updateCustomArtworkURLToggle(_ sender: NSButton) {
+    App.store.dispatch(
+        UpdateCustomArtworkURLToggle(useCustomArtworkURL: sender.state == .on)
+    )
+  }
 
   @IBAction func clearAlbumArtCache(_ sender: NSButton) {
     KingfisherManager.shared.cache.clearDiskCache()
@@ -44,4 +50,6 @@ class CoverArtPrefsController: NSViewController {
   }
   
   @IBOutlet var fetchMissingArtworkFromInternet: NSButton!
+  @IBOutlet var customArtworkURLTextField: NSTextField!
+  @IBOutlet var customArtworkURLButton: NSButton!
 }

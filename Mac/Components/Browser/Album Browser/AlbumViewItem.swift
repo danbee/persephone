@@ -59,7 +59,7 @@ class AlbumViewItem: NSCollectionViewItem {
     guard let song = album.mpdAlbum.firstSong
       else { return }
 
-    let provider = MPDAlbumArtImageDataProvider(
+    let provider = AlbumArtImageDataProvider(
       songUri: song.uriString,
       cacheKey: album.hash
     )

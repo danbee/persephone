@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097.3"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -536,13 +536,15 @@
             <objects>
                 <viewController title="Cover Art" id="3C9-vU-zjZ" userLabel="Cover Art" customClass="CoverArtPrefsController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="PyK-v2-kus">
-                        <rect key="frame" x="0.0" y="0.0" width="427" height="95"/>
+                        <rect key="frame" x="0.0" y="0.0" width="427" height="158"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <gridView horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" xPlacement="leading" yPlacement="center" rowAlignment="none" rowSpacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="M8L-ne-ZhL">
-                                <rect key="frame" x="0.0" y="0.0" width="427" height="95"/>
+                                <rect key="frame" x="0.0" y="0.0" width="427" height="158"/>
                                 <rows>
                                     <gridRow topPadding="20" id="jo0-w7-CZu"/>
+                                    <gridRow id="AZA-jX-c6l"/>
+                                    <gridRow id="16Y-Re-bkN"/>
                                     <gridRow bottomPadding="26" id="g4x-Bc-qT7"/>
                                 </rows>
                                 <columns>
@@ -551,7 +553,7 @@
                                 <gridCells>
                                     <gridCell row="jo0-w7-CZu" column="y6E-R8-zfP" id="NAC-x2-Qyh">
                                         <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pRL-MG-1Be">
-                                            <rect key="frame" x="78" y="59" width="271" height="18"/>
+                                            <rect key="frame" x="78" y="122" width="271" height="18"/>
                                             <buttonCell key="cell" type="check" title="Fetch missing artwork from MusicBrainz" bezelStyle="regularSquare" imagePosition="left" enabled="NO" inset="2" id="LpD-Ew-HMd">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -560,6 +562,25 @@
                                                 <action selector="updateFetchMissingArtworkFromInternet:" target="3C9-vU-zjZ" id="I7x-9V-xJr"/>
                                             </connections>
                                         </button>
+                                    </gridCell>
+                                    <gridCell row="AZA-jX-c6l" column="y6E-R8-zfP" id="nIu-Aa-5ov">
+                                        <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iPP-w1-R8G">
+                                            <rect key="frame" x="78" y="94" width="271" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Fetch from URL:" bezelStyle="regularSquare" imagePosition="left" inset="2" id="jbS-Rs-0ED">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                        </button>
+                                    </gridCell>
+                                    <gridCell row="16Y-Re-bkN" column="y6E-R8-zfP" id="Kno-Fk-238">
+                                        <textField key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="T3H-Cf-Rh3">
+                                            <rect key="frame" x="80" y="61" width="267" height="21"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="https://a.base.url" drawsBackground="YES" id="RiO-X6-KZA">
+                                                <font key="font" usesAppearanceFont="YES"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
                                     </gridCell>
                                     <gridCell row="g4x-Bc-qT7" column="y6E-R8-zfP" id="LTx-vQ-fTR">
                                         <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mXh-kY-tMC">
@@ -584,12 +605,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="customArtworkURLButton" destination="iPP-w1-R8G" id="w5V-Pn-iNI"/>
+                        <outlet property="customArtworkURLTextField" destination="T3H-Cf-Rh3" id="Erb-cy-PSf"/>
                         <outlet property="fetchMissingArtworkFromInternet" destination="pRL-MG-1Be" id="Xcp-sb-iZm"/>
                     </connections>
                 </viewController>
                 <customObject id="KzD-E3-lpA" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1411" y="-420"/>
+            <point key="canvasLocation" x="1410.5" y="-421"/>
         </scene>
         <!--General-->
         <scene sceneID="xTC-Y5-Agk">

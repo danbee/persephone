@@ -29,7 +29,7 @@ class CurrentCoverArtView: NSImageView {
   }
 
   func setSongImage(_ song: Song) {
-    let provider = MPDAlbumArtImageDataProvider(
+    let provider = AlbumArtImageDataProvider(
       songUri: song.mpdSong.uriString,
       cacheKey: song.album.hash
     )

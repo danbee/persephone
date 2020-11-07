@@ -12,12 +12,12 @@ import Kingfisher
 
 struct CoverArtService {
   let song: Song
-  let provider: MPDAlbumArtImageDataProvider
+  let provider: ImageDataProvider
   
   init(song: Song) {
     self.song = song
 
-    provider = MPDAlbumArtImageDataProvider(
+    provider = AlbumArtImageDataProvider(
       songUri: song.mpdSong.uriString,
       cacheKey: song.album.hash
     )
