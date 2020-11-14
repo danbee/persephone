@@ -19,6 +19,12 @@ func preferencesReducer(action: Action, state: PreferencesState?) -> Preferences
 
   case let action as UpdateServerPort:
     state.mpdServer.port = action.port
+  
+  case let action as UpdateCustomArtworkURLToggle:
+    state.fetchArtworkFromCustomURL = action.useCustomArtworkURL
+    
+  case let action as UpdateCustomArtworkURL:
+    state.customArtworkURL = URL(string: action.customArtworkURL)
 
   case is SavePreferences:
     state.save()

@@ -32,3 +32,11 @@ public struct MPDAlbumArtImageDataProvider: ImageDataProvider {
     return songUri
   }
 }
+
+public func AlbumArtImageDataProvider(songUri: String, cacheKey: String) -> ImageDataProvider {
+    if App.store.state.preferencesState.fetchArtworkFromCustomURL, let url = App.store.state.preferencesState.customArtworkURL {
+        return CustomURLAlbumArtImageDataProvider(baseURL: url, songUri: songUri, cacheKey: cacheKey)
+    } else {
+        return MPDAlbumArtImageDataProvider(songUri: songUri, cacheKey: cacheKey)
+    }
+}

@@ -23,7 +23,7 @@ class UserNotificationsController {
       status.state == .playing
       else { return }
     
-    let provider = MPDAlbumArtImageDataProvider(
+    let provider = AlbumArtImageDataProvider(
       songUri: song.mpdSong.uriString,
       cacheKey: song.album.hash
     )

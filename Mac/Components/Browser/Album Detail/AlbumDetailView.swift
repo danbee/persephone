@@ -132,7 +132,7 @@ class AlbumDetailView: NSViewController {
   }
 
   func getBigCoverArt(song: Song, album: Album) {
-    let provider = MPDAlbumArtImageDataProvider(
+    let provider = AlbumArtImageDataProvider(
       songUri: song.mpdSong.uriString,
       cacheKey: album.hash
     )

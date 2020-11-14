@@ -15,6 +15,8 @@ struct PreferencesState: StateType, Equatable {
   var mpdServer: MPDServer
 
   var fetchMissingArtworkFromInternet: Bool
+  var fetchArtworkFromCustomURL: Bool
+  var customArtworkURL: URL?
 
   init() {
     self.mpdServer = MPDServer(
@@ -24,6 +26,8 @@ struct PreferencesState: StateType, Equatable {
     self.fetchMissingArtworkFromInternet = preferences.bool(
       forKey: "fetchMissingArtworkFromInternet"
     )
+    self.fetchArtworkFromCustomURL = preferences.bool(forKey: "fetchArtworkFromCustomURL")
+    self.customArtworkURL = preferences.url(forKey: "customArtworkURL")
   }
 
   func save() {
@@ -34,5 +38,7 @@ struct PreferencesState: StateType, Equatable {
       preferences.removeObject(forKey: "mpdPort")
     }
     preferences.set(fetchMissingArtworkFromInternet, forKey: "fetchMissingArtworkFromInternet")
+    preferences.set(fetchArtworkFromCustomURL, forKey: "fetchArtworkFromCustomURL")
+    preferences.set(customArtworkURL, forKey: "customArtworkURL")
   }
 }

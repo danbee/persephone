@@ -64,7 +64,7 @@ class QueueSongCoverView: NSTableCellView {
 
     isPlaying = queueItem.isPlaying
     
-    let provider = MPDAlbumArtImageDataProvider(
+    let provider = AlbumArtImageDataProvider(
       songUri: song.mpdSong.uriString,
       cacheKey: song.album.hash
     )

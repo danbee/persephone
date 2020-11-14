@@ -18,6 +18,16 @@ class CoverArtPrefsController: NSViewController {
     } else {
       fetchMissingArtworkFromInternet.state = .off
     }
+    
+    if App.store.state.preferencesState.fetchArtworkFromCustomURL {
+      customArtworkURLButton.state = .on
+    } else {
+      customArtworkURLButton.state = .off
+    }
+    
+    if let urlString = App.store.state.preferencesState.customArtworkURL?.absoluteString {
+        customArtworkURLTextField.stringValue = urlString
+    }
 
     preferredContentSize = NSMakeSize(view.frame.size.width, view.frame.size.height)
   }
@@ -37,6 +47,18 @@ class CoverArtPrefsController: NSViewController {
       )
     )
   }
+    
+  @IBAction func updateCustomArtworkURLToggle(_ sender: NSButton) {
+    App.store.dispatch(
+        UpdateCustomArtworkURLToggle(useCustomArtworkURL: sender.state == .on)
+    )
+  }
+    
+  @IBAction func updateCustomArtworkURL(_ sender: NSTextField) {
+    App.store.dispatch(
+        UpdateCustomArtworkURL(customArtworkURL: sender.stringValue)
+    )
+  }
 
   @IBAction func clearAlbumArtCache(_ sender: NSButton) {
     KingfisherManager.shared.cache.clearDiskCache()
@@ -44,4 +66,6 @@ class CoverArtPrefsController: NSViewController {
   }
   
   @IBOutlet var fetchMissingArtworkFromInternet: NSButton!
+  @IBOutlet var customArtworkURLTextField: NSTextField!
+  @IBOutlet var customArtworkURLButton: NSButton!
 }
