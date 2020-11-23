@@ -22,6 +22,9 @@ class AlbumViewItem: NSCollectionViewItem {
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    view.wantsLayer = true
+    view.layer?.masksToBounds = false
+
     albumCoverView.wantsLayer = true
     albumCoverView.layer?.backgroundColor = NSColor.black.cgColor
     albumCoverView.layer?.cornerRadius = 4
@@ -70,24 +73,25 @@ class AlbumViewItem: NSCollectionViewItem {
       options: [
         .processor(DownsamplingImageProcessor(size: .albumListCoverSize)),
         .scaleFactor(2),
-      ]
-    ) { result in
-      switch result {
-      case .success(let imageResult):
-        guard let imageData = imageResult.image.tiffRepresentation
+      ],
+      completionHandler: { result in
+        switch result {
+        case .success(let imageResult):
+          guard let imageData = imageResult.image.tiffRepresentation
           else { return }
-        
-        let rawProvider = RawImageDataProvider(
-          data: imageData,
-          cacheKey: album.hash
-        )
-        
-        self.cacheSmallCover(provider: rawProvider)
 
-      case .failure(_):
-        break
+          let rawProvider = RawImageDataProvider(
+            data: imageData,
+            cacheKey: album.hash
+          )
+
+          self.cacheSmallCover(provider: rawProvider)
+
+        case .failure(_):
+          break
+        }
       }
-    }
+    )
   }
   
   func cacheSmallCover(provider: ImageDataProvider) {

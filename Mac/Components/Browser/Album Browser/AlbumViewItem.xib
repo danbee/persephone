@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17506" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17506"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,17 +18,17 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView identifier="albumViewItem" id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="158" height="192"/>
+            <rect key="frame" x="0.0" y="0.0" width="128" height="170"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <box boxType="custom" borderType="none" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="oat-Vd-t1v">
-                    <rect key="frame" x="5" y="49" width="148" height="138"/>
+                    <rect key="frame" x="-5" y="37" width="138" height="138"/>
                     <view key="contentView" wantsLayer="YES" id="h1X-3X-S5v">
-                        <rect key="frame" x="0.0" y="0.0" width="148" height="138"/>
+                        <rect key="frame" x="0.0" y="0.0" width="138" height="138"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="juD-33-Glf" customClass="AlbumCoverButton" customModule="Persephone" customModuleProvider="target">
-                                <rect key="frame" x="5" y="5" width="138" height="128"/>
+                                <rect key="frame" x="5" y="5" width="128" height="128"/>
                                 <shadow key="shadow" blurRadius="4">
                                     <size key="offset" width="0.0" height="2"/>
                                     <color key="color" white="0.0" alpha="0.34603323063380281" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -50,18 +50,21 @@
                             <constraint firstAttribute="trailing" secondItem="juD-33-Glf" secondAttribute="trailing" constant="5" id="z1e-o3-Xt0"/>
                         </constraints>
                     </view>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="oat-Vd-t1v" secondAttribute="height" multiplier="1:1" id="TQP-Gh-ax2"/>
+                    </constraints>
                 </box>
                 <textField identifier="albumTitle" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KEh-NL-c2W">
-                    <rect key="frame" x="8" y="28" width="142" height="17"/>
-                    <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Label" id="pDs-0t-e1j">
+                    <rect key="frame" x="-2" y="17" width="132" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Title" id="pDs-0t-e1j">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <textField identifier="albumArtist" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5Uu-j1-qyT">
-                    <rect key="frame" x="8" y="10" width="142" height="16"/>
-                    <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Label" id="yZn-e9-zyP">
+                    <rect key="frame" x="-2" y="0.0" width="132" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Artist" id="yZn-e9-zyP">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -69,15 +72,15 @@
                 </textField>
             </subviews>
             <constraints>
+                <constraint firstItem="5Uu-j1-qyT" firstAttribute="top" secondItem="KEh-NL-c2W" secondAttribute="bottom" constant="1" id="1WX-jC-dQO"/>
                 <constraint firstItem="5Uu-j1-qyT" firstAttribute="trailing" secondItem="KEh-NL-c2W" secondAttribute="trailing" id="64z-uz-4nY"/>
-                <constraint firstAttribute="bottom" secondItem="KEh-NL-c2W" secondAttribute="bottom" constant="28" id="8Kg-1r-wNp"/>
-                <constraint firstAttribute="bottom" secondItem="oat-Vd-t1v" secondAttribute="bottom" constant="49" id="9be-hX-hie"/>
-                <constraint firstItem="oat-Vd-t1v" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="5" id="HYh-A2-m7g"/>
+                <constraint firstItem="oat-Vd-t1v" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="-5" id="HYh-A2-m7g"/>
                 <constraint firstItem="5Uu-j1-qyT" firstAttribute="leading" secondItem="KEh-NL-c2W" secondAttribute="leading" id="MUo-0i-fX9"/>
-                <constraint firstItem="oat-Vd-t1v" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="5" id="PHC-uH-EH6"/>
-                <constraint firstAttribute="bottom" secondItem="5Uu-j1-qyT" secondAttribute="bottom" constant="10" id="gci-4h-pDZ"/>
-                <constraint firstItem="KEh-NL-c2W" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="10" id="hG2-cb-UqL"/>
-                <constraint firstAttribute="trailing" secondItem="oat-Vd-t1v" secondAttribute="trailing" constant="5" id="nD3-RG-rfr"/>
+                <constraint firstItem="oat-Vd-t1v" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="-5" id="PHC-uH-EH6"/>
+                <constraint firstAttribute="bottom" secondItem="5Uu-j1-qyT" secondAttribute="bottom" id="gci-4h-pDZ"/>
+                <constraint firstItem="KEh-NL-c2W" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="hG2-cb-UqL"/>
+                <constraint firstAttribute="trailing" secondItem="oat-Vd-t1v" secondAttribute="trailing" constant="-5" id="nD3-RG-rfr"/>
+                <constraint firstItem="oat-Vd-t1v" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="-5" id="q6g-ZX-kjQ"/>
                 <constraint firstItem="KEh-NL-c2W" firstAttribute="top" secondItem="oat-Vd-t1v" secondAttribute="bottom" constant="4" id="rOI-E8-Odh"/>
                 <constraint firstItem="KEh-NL-c2W" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="ubc-MA-g7H"/>
             </constraints>

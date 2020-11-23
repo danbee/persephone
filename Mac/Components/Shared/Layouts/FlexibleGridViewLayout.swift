@@ -9,20 +9,20 @@
 import AppKit
 
 class FlexibleGridViewLayout: NSCollectionViewFlowLayout {
-  let maxItemWidth: CGFloat = 200
+  let maxItemWidth: CGFloat = 180
   var extraHeight: CGFloat = 0
   var scrollPosition: CGFloat = 0
 
   required init?(coder aDecoder: NSCoder) {
     super.init()
 
-    minimumLineSpacing = 0
-    minimumInteritemSpacing = 0
+    minimumLineSpacing = 20
+    minimumInteritemSpacing = 20
     sectionInset = NSEdgeInsets(
-      top: 10,
-      left: 30,
-      bottom: 50,
-      right: 30
+      top: 20,
+      left: 40,
+      bottom: 60,
+      right: 40
     )
   }
 
