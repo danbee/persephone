@@ -25,6 +25,10 @@ extension QueueViewController: NSOutlineViewDelegate {
       return nil
     }
   }
+    
+  func outlineView(_ outlineView: NSOutlineView, heightOfRowByItem item: Any) -> CGFloat {
+    return 40
+  }
 
   func outlineViewSelectionDidChange(_ notification: Notification) {
     let queueItem = dataSource.queue[queueView.selectedRow]

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17506"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -295,8 +295,8 @@
                                 <toolbarItem implicitItemIdentifier="2D01DD0F-DDD1-411E-9270-20E2B5B07FC2" label="Controls" paletteLabel="Controls" sizingBehavior="auto" id="p3r-ty-Pxf">
                                     <nil key="toolTip"/>
                                     <segmentedControl key="view" verticalHuggingPriority="750" id="Bbf-C6-1Gu">
-                                        <rect key="frame" x="0.0" y="14" width="153" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <rect key="frame" x="0.0" y="14" width="165" height="23"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedRounded" trackingMode="momentary" id="EBk-sD-nG7">
                                             <font key="font" metaFont="system"/>
                                             <segments>
@@ -357,10 +357,10 @@
                                     <nil key="toolTip"/>
                                     <progressIndicator key="view" identifier="databaseUpdatingIndicator" wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" id="LpV-iM-o6t">
                                         <rect key="frame" x="0.0" y="14" width="16" height="16"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                     </progressIndicator>
                                 </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="A07933B6-4770-4B28-856B-B98DB5C6EB55" label="" paletteLabel="Shuffle" image="shuffleButton" selectable="YES" id="gF4-mh-Nzd">
+                                <toolbarItem implicitItemIdentifier="A07933B6-4770-4B28-856B-B98DB5C6EB55" label="" paletteLabel="Shuffle" image="shuffleButton" id="gF4-mh-Nzd">
                                     <nil key="toolTip"/>
                                     <size key="minSize" width="42" height="24"/>
                                     <size key="maxSize" width="42" height="24"/>
@@ -396,7 +396,7 @@
                                     <nil key="toolTip"/>
                                     <searchField key="view" wantsLayer="YES" verticalHuggingPriority="750" textCompletion="NO" id="xfU-Xe-eno">
                                         <rect key="frame" x="0.0" y="14" width="96" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="F3N-3P-tS3">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -410,8 +410,8 @@
                                 <toolbarItem implicitItemIdentifier="01E8DA80-2BDE-49F9-B311-69876CF0AE8E" label="Volume" paletteLabel="Volume" image="speakerHigh" sizingBehavior="auto" id="cMg-Mj-j7q">
                                     <nil key="toolTip"/>
                                     <button key="view" verticalHuggingPriority="750" id="cfN-LI-Cab">
-                                        <rect key="frame" x="2" y="14" width="42" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <rect key="frame" x="7" y="14" width="33" height="23"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="speakerHigh" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bJh-X9-7q0">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -536,11 +536,11 @@
             <objects>
                 <viewController title="Cover Art" id="3C9-vU-zjZ" userLabel="Cover Art" customClass="CoverArtPrefsController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="PyK-v2-kus">
-                        <rect key="frame" x="0.0" y="0.0" width="427" height="95"/>
+                        <rect key="frame" x="0.0" y="0.0" width="433" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <gridView horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" xPlacement="leading" yPlacement="center" rowAlignment="none" rowSpacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="M8L-ne-ZhL">
-                                <rect key="frame" x="0.0" y="0.0" width="427" height="95"/>
+                                <rect key="frame" x="0.0" y="0.0" width="433" height="96"/>
                                 <rows>
                                     <gridRow topPadding="20" id="jo0-w7-CZu"/>
                                     <gridRow bottomPadding="26" id="g4x-Bc-qT7"/>
@@ -551,7 +551,7 @@
                                 <gridCells>
                                     <gridCell row="jo0-w7-CZu" column="y6E-R8-zfP" id="NAC-x2-Qyh">
                                         <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pRL-MG-1Be">
-                                            <rect key="frame" x="78" y="59" width="271" height="18"/>
+                                            <rect key="frame" x="78" y="59" width="275" height="18"/>
                                             <buttonCell key="cell" type="check" title="Fetch missing artwork from MusicBrainz" bezelStyle="regularSquare" imagePosition="left" enabled="NO" inset="2" id="LpD-Ew-HMd">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -563,7 +563,7 @@
                                     </gridCell>
                                     <gridCell row="g4x-Bc-qT7" column="y6E-R8-zfP" id="LTx-vQ-fTR">
                                         <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mXh-kY-tMC">
-                                            <rect key="frame" x="74" y="19" width="279" height="32"/>
+                                            <rect key="frame" x="73" y="19" width="287" height="32"/>
                                             <buttonCell key="cell" type="push" title="Clear album art cache..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="l81-SG-7mf">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -689,18 +689,18 @@
             <objects>
                 <viewController id="KIP-rq-4dM" customClass="QueueViewController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
                     <splitView key="view" dividerStyle="thin" id="84I-w3-Mxl">
-                        <rect key="frame" x="0.0" y="0.0" width="329" height="528"/>
+                        <rect key="frame" x="0.0" y="0.0" width="324" height="521"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
-                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="42" horizontalPageScroll="10" verticalLineScroll="42" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="S3o-nF-NN7">
-                                <rect key="frame" x="0.0" y="0.0" width="329" height="198"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                            <scrollView misplaced="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="17" horizontalPageScroll="10" verticalLineScroll="17" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="S3o-nF-NN7">
+                                <rect key="frame" x="0.0" y="0.0" width="324" height="211"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <clipView key="contentView" drawsBackground="NO" id="WI8-Pw-03L">
-                                    <rect key="frame" x="0.0" y="0.0" width="329" height="198"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="324" height="211"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowHeight="42" rowSizeStyle="automatic" viewBased="YES" indentationMarkerFollowsCell="NO" outlineTableColumn="0Co-uF-CCB" id="jEJ-jg-fll">
-                                            <rect key="frame" x="0.0" y="0.0" width="329" height="198"/>
+                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" indentationMarkerFollowsCell="NO" outlineTableColumn="0Co-uF-CCB" id="jEJ-jg-fll">
+                                            <rect key="frame" x="0.0" y="0.0" width="324" height="211"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="0.0"/>
                                             <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -718,12 +718,12 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView identifier="songCoverCell" id="5rR-Gz-AcP" userLabel="Song Cover View" customClass="QueueSongCoverView" customModule="Persephone" customModuleProvider="target">
-                                                            <rect key="frame" x="1" y="0.0" width="43" height="42"/>
+                                                        <tableCellView identifier="songCoverCell" misplaced="YES" id="5rR-Gz-AcP" userLabel="Song Cover View" customClass="QueueSongCoverView" customModule="Persephone" customModuleProvider="target">
+                                                            <rect key="frame" x="11" y="0.0" width="48" height="15"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <imageView identifier="songCoverView" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Yi-vi-Frs" userLabel="Song Cover View">
-                                                                    <rect key="frame" x="9" y="5" width="32" height="32"/>
+                                                                <imageView identifier="songCoverView" wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Yi-vi-Frs" userLabel="Song Cover View">
+                                                                    <rect key="frame" x="14" y="4" width="32" height="32"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="32" id="hhe-Vq-2aS"/>
                                                                         <constraint firstAttribute="height" constant="32" id="iz9-3T-uWZ"/>
@@ -731,12 +731,18 @@
                                                                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="defaultCoverArt" id="KfD-57-Whk"/>
                                                                     <color key="contentTintColor" name="quaternaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                                 </imageView>
-                                                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ceF-G3-pG5">
-                                                                    <rect key="frame" x="9" y="5" width="32" height="32"/>
+                                                                <imageView wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ceF-G3-pG5">
+                                                                    <rect key="frame" x="14" y="4" width="32" height="32"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="32" id="674-SH-mEv"/>
+                                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="D4H-VP-xaW"/>
+                                                                    </constraints>
                                                                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="a8D-O7-eZ5"/>
                                                                 </imageView>
                                                             </subviews>
                                                             <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="ceF-G3-pG5" secondAttribute="bottom" constant="4" id="2K4-5i-8Fb"/>
+                                                                <constraint firstItem="ceF-G3-pG5" firstAttribute="top" secondItem="5rR-Gz-AcP" secondAttribute="top" constant="4" id="73a-5Q-EIQ"/>
                                                                 <constraint firstItem="ceF-G3-pG5" firstAttribute="trailing" secondItem="7Yi-vi-Frs" secondAttribute="trailing" id="7xV-J1-YZK"/>
                                                                 <constraint firstItem="ceF-G3-pG5" firstAttribute="bottom" secondItem="7Yi-vi-Frs" secondAttribute="bottom" id="8qA-ho-KZI"/>
                                                                 <constraint firstItem="ceF-G3-pG5" firstAttribute="top" secondItem="7Yi-vi-Frs" secondAttribute="top" id="So1-Lk-ks3"/>
@@ -751,7 +757,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="songInfoColumn" width="219" minWidth="10" maxWidth="3.4028234663852886e+38" id="HP0-ty-PFY" userLabel="Song Info">
+                                                <tableColumn identifier="songInfoColumn" width="191" minWidth="10" maxWidth="3.4028234663852886e+38" id="HP0-ty-PFY" userLabel="Song Info">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -764,11 +770,11 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="songInfoCell" id="GuF-NF-B1t" userLabel="Song Info View" customClass="QueueSongInfoView" customModule="Persephone" customModuleProvider="target">
-                                                            <rect key="frame" x="47" y="0.0" width="219" height="42"/>
+                                                            <rect key="frame" x="62" y="0.0" width="191" height="0.0"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="tBe-Q9-3Rw" userLabel="Song Artist View">
-                                                                    <rect key="frame" x="1" y="8" width="225" height="15"/>
+                                                                    <rect key="frame" x="1" y="-34" width="197" height="15"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Song Artist" id="Ceb-ec-ydU">
                                                                         <font key="font" metaFont="cellTitle"/>
                                                                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -776,7 +782,7 @@
                                                                     </textFieldCell>
                                                                 </textField>
                                                                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="i0h-bn-auJ" userLabel="Song Title View">
-                                                                    <rect key="frame" x="1" y="23" width="217" height="16"/>
+                                                                    <rect key="frame" x="1" y="-19" width="189" height="16"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Song Title" id="ei8-1e-ErK">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -799,7 +805,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="songDurationColumn" width="58" minWidth="52" maxWidth="58" id="8O6-ox-kx2" userLabel="Duration">
+                                                <tableColumn identifier="songDurationColumn" width="52" minWidth="52" maxWidth="58" id="8O6-ox-kx2" userLabel="Duration">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -812,11 +818,11 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="songDurationCell" id="9Nz-Yf-SN1" userLabel="Song Duration View">
-                                                            <rect key="frame" x="269" y="0.0" width="58" height="42"/>
+                                                            <rect key="frame" x="256" y="0.0" width="56" height="0.0"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="ukg-c0-XVS">
-                                                                    <rect key="frame" x="11" y="13" width="41" height="16"/>
+                                                                    <rect key="frame" x="9" y="-8" width="41" height="16"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="right" title="88:88" id="JnJ-sF-vCP">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -850,7 +856,7 @@
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="500" id="zuT-k9-w8d"/>
                                 </constraints>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="7mx-v9-DSr">
-                                    <rect key="frame" x="0.0" y="182" width="329" height="16"/>
+                                    <rect key="frame" x="0.0" y="196" width="324" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="p5z-C0-FUJ">
@@ -858,12 +864,12 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <customView id="iUb-eV-Qws">
-                                <rect key="frame" x="0.0" y="199" width="329" height="329"/>
+                            <customView misplaced="YES" id="iUb-eV-Qws">
+                                <rect key="frame" x="0.0" y="212" width="324" height="309"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Dw3-M5-tWY" customClass="CurrentCoverArtView" customModule="Persephone" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="329" height="329"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="324" height="324"/>
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="defaultCoverArt" id="IoN-3N-TCb"/>
                                     </imageView>
                                 </subviews>
