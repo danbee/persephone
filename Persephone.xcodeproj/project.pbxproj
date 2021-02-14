@@ -720,6 +720,7 @@
 				E42A8F3A22176D6400A13ED9 /* README.md */,
 				E411C268241C02B2008B9682 /* Shared */,
 				E48054592426D4D900362CF3 /* Frameworks */,
+				E478E5C225D967E70046CE14 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -977,6 +978,17 @@
 				E453825123FA0186007F6BFC /* VolumeControlView.xib */,
 			);
 			path = VolumeControl;
+			sourceTree = "<group>";
+		};
+		E478E5C225D967E70046CE14 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				E4207C772576F7590089D21B /* NowPlayingViewController.swift */,
+				E403E63C246F4C3900200F58 /* NowPlayingBarViewController.swift */,
+				E4207C782576F75A0089D21B /* NowPlayingViewController.xib */,
+				E403E63D246F4C3900200F58 /* NowPlayingBarViewController.xib */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		E480510D2423BD6700362CF3 /* Lib */ = {
@@ -2103,7 +2115,7 @@
 					"$(PROJECT_DIR)/Shared/libmpdclient/output",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = "0.17.3-alpha";
+				MARKETING_VERSION = "0.18-alpha";
 				PRODUCT_BUNDLE_IDENTIFIER = me.danbarber.Persephone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2139,7 +2151,7 @@
 					"$(PROJECT_DIR)/Shared/libmpdclient/output",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = "0.17.3-alpha";
+				MARKETING_VERSION = "0.18-alpha";
 				PRODUCT_BUNDLE_IDENTIFIER = me.danbarber.Persephone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
