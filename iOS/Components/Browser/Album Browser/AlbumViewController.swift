@@ -34,6 +34,7 @@ class AlbumViewController: UICollectionViewController {
   }
 
   @objc func didConnect() {
+    print("Album view controller - Connected!")
     App.mpdClient.fetchAllAlbums()
   }
   

@@ -9,32 +9,22 @@
 import UIKit
 
 class NowPlayingTabBarController: UITabBarController {
-  private var barHeight: NSLayoutConstraint!
-  let nowPlayingViewController = NowPlayingViewController()
+  let nowPlayingViewController = NowPlayingBarViewController()
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    addChild(nowPlayingViewController)
     let subview = nowPlayingViewController.view!
-    tabBar.superview?.addSubview(subview)
-    tabBar.clipsToBounds = false
+    view.addSubview(subview)
     subview.translatesAutoresizingMaskIntoConstraints = false
-    barHeight = subview.heightAnchor.constraint(equalToConstant: 0)
+
     NSLayoutConstraint.activate([
       subview.leadingAnchor.constraint(equalTo: view.leadingAnchor),
       subview.trailingAnchor.constraint(equalTo: view.trailingAnchor),
       subview.topAnchor.constraint(equalTo: tabBar.topAnchor),
-      barHeight,
+      subview.heightAnchor.constraint(equalToConstant: NowPlayingTabBar.barHeight),
     ])
-    nowPlayingViewController.didMove(toParent: self)
-    
+
     additionalSafeAreaInsets.bottom = NowPlayingTabBar.barHeight
-  }
-  
-  override func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer) {
-    super.preferredContentSizeDidChange(forChildContentContainer: container)
-    
-    barHeight.constant = container.preferredContentSize.height
   }
 }

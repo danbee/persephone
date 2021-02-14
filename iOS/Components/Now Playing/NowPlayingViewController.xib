@@ -1,105 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NowPlayingViewController" customModule="Persephone" customModuleProvider="target">
             <connections>
-                <outlet property="albumCoverView" destination="6Cn-Qu-3ab" id="w0j-pd-zrj"/>
-                <outlet property="nextButton" destination="k9u-Hf-Cp0" id="bs9-R1-q5h"/>
-                <outlet property="playPauseButton" destination="aJD-nr-kHS" id="6sM-tz-FHK"/>
-                <outlet property="separatorHeight" destination="chi-7m-8Ds" id="Ex2-Wm-ygG"/>
-                <outlet property="songTitle" destination="4nQ-FU-7Ub" id="eGu-nR-CuK"/>
-                <outlet property="view" destination="fma-vB-sY1" id="5BF-fd-Kur"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" id="fma-vB-sY1">
-            <rect key="frame" x="0.0" y="0.0" width="335" height="64"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9j9-AN-ijy">
-                    <rect key="frame" x="0.0" y="0.0" width="335" height="63"/>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" minimumValueImage="speakerOff" maximumValueImage="speakerHigh" translatesAutoresizingMaskIntoConstraints="NO" id="69b-PX-D8O">
+                    <rect key="frame" x="30" y="694" width="315" height="31"/>
+                </slider>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" ambiguous="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="s9e-Zd-M6C">
+                    <rect key="frame" x="32" y="544" width="311" height="4"/>
+                </progressView>
+                <stackView opaque="NO" contentMode="center" fixedFrame="YES" distribution="equalCentering" alignment="center" spacing="87" translatesAutoresizingMaskIntoConstraints="NO" id="g2E-QV-g22">
+                    <rect key="frame" x="32" y="601" width="312" height="46"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultCoverArt" translatesAutoresizingMaskIntoConstraints="NO" id="6Cn-Qu-3ab">
-                            <rect key="frame" x="20" y="8" width="47" height="47"/>
-                            <constraints>
-                                <constraint firstAttribute="width" secondItem="6Cn-Qu-3ab" secondAttribute="height" multiplier="1:1" id="I6V-Kn-Cwa"/>
-                            </constraints>
-                        </imageView>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tik-7x-PaQ">
-                            <rect key="frame" x="75" y="8" width="0.0" height="47"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            <constraints>
-                                <constraint firstAttribute="width" id="DuG-NI-0Bp"/>
-                            </constraints>
-                        </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Not Playing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nQ-FU-7Ub">
-                            <rect key="frame" x="83" y="8" width="152" height="47"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <button opaque="NO" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJD-nr-kHS">
-                            <rect key="frame" x="243" y="8" width="32" height="47"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="32" id="4Un-9M-vOk"/>
-                            </constraints>
-                            <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                            <state key="normal" image="playButtonLarge">
-                                <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                            </state>
-                            <connections>
-                                <action selector="playPauseButtonAction:" destination="-1" eventType="touchUpInside" id="a3n-1h-p00"/>
-                            </connections>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ix3-hb-WwP" userLabel="Previous Button">
+                            <rect key="frame" x="0.0" y="0.0" width="46" height="46"/>
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <state key="normal" image="prevTrackButtonHugeiOS"/>
                         </button>
-                        <button opaque="NO" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k9u-Hf-Cp0">
-                            <rect key="frame" x="283" y="8" width="32" height="47"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="32" id="fy0-Z2-OSg"/>
-                            </constraints>
-                            <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                            <state key="normal" image="nextTrackButtonLarge">
-                                <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                            </state>
-                            <connections>
-                                <action selector="nextButtonAction:" destination="-1" eventType="touchUpInside" id="3Ke-PH-ud9"/>
-                            </connections>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4qp-Jh-zT7" userLabel="Play Button">
+                            <rect key="frame" x="133" y="0.0" width="46" height="46"/>
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <state key="normal" image="playButtonHugeiOS"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5SE-nt-QeW" userLabel="Next Button">
+                            <rect key="frame" x="266" y="0.0" width="46" height="46"/>
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <state key="normal" image="nextTrackButtonHugeiOS"/>
                         </button>
                     </subviews>
-                    <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="20" bottom="8" trailing="20"/>
-                    <viewLayoutGuide key="safeArea" id="Xfd-VS-LUl"/>
                 </stackView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2EO-qL-ast">
-                    <rect key="frame" x="0.0" y="63" width="335" height="1"/>
-                    <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="1" id="chi-7m-8Ds"/>
-                    </constraints>
-                </view>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="9j9-AN-ijy" firstAttribute="top" secondItem="fma-vB-sY1" secondAttribute="top" id="Bpq-6d-BwN"/>
-                <constraint firstItem="9j9-AN-ijy" firstAttribute="leading" secondItem="fma-vB-sY1" secondAttribute="leading" id="aG7-qp-jXe"/>
-                <constraint firstAttribute="trailing" secondItem="9j9-AN-ijy" secondAttribute="trailing" id="cCF-6v-1x0"/>
-                <constraint firstAttribute="trailing" secondItem="2EO-qL-ast" secondAttribute="trailing" id="dp6-XJ-FaI"/>
-                <constraint firstItem="2EO-qL-ast" firstAttribute="top" secondItem="9j9-AN-ijy" secondAttribute="bottom" id="k9V-5A-Xt0"/>
-                <constraint firstItem="2EO-qL-ast" firstAttribute="leading" secondItem="fma-vB-sY1" secondAttribute="leading" id="ueX-jc-IqH"/>
-                <constraint firstAttribute="bottom" secondItem="2EO-qL-ast" secondAttribute="bottom" id="zCc-Cc-PPh"/>
+                <constraint firstItem="s9e-Zd-M6C" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="OzT-yE-YIZ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="69b-PX-D8O" secondAttribute="bottom" constant="54" id="S4t-SJ-XGN"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="s9e-Zd-M6C" secondAttribute="trailing" constant="32" id="TmT-dF-PSV"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="69b-PX-D8O" secondAttribute="trailing" constant="32" id="b4J-ZE-ZiR"/>
+                <constraint firstItem="69b-PX-D8O" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="du2-8n-Nmm"/>
             </constraints>
-            <nil key="simulatedTopBarMetrics"/>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-512.31884057971024" y="-32.142857142857139"/>
+            <point key="canvasLocation" x="-376.80000000000001" y="73.152709359605907"/>
         </view>
     </objects>
     <resources>
-        <image name="defaultCoverArt" width="128" height="128"/>
-        <image name="nextTrackButtonLarge" width="28" height="28"/>
-        <image name="playButtonLarge" width="22" height="22"/>
+        <image name="nextTrackButtonHugeiOS" width="46" height="46"/>
+        <image name="playButtonHugeiOS" width="46" height="46"/>
+        <image name="prevTrackButtonHugeiOS" width="46" height="46"/>
+        <image name="speakerHigh" width="21" height="17"/>
+        <image name="speakerOff" width="21" height="17"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
