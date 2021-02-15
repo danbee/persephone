@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NowPlayingBarViewController" customModule="Persephone" customModuleProvider="target">
+            <connections>
+                <outlet property="albumCoverView" destination="6Cn-Qu-3ab" id="w0j-pd-zrj"/>
+                <outlet property="nextButton" destination="k9u-Hf-Cp0" id="bs9-R1-q5h"/>
+                <outlet property="playPauseButton" destination="aJD-nr-kHS" id="6sM-tz-FHK"/>
+                <outlet property="separatorHeight" destination="chi-7m-8Ds" id="Ex2-Wm-ygG"/>
+                <outlet property="songTitle" destination="4nQ-FU-7Ub" id="eGu-nR-CuK"/>
+                <outlet property="view" destination="fma-vB-sY1" id="5BF-fd-Kur"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" id="fma-vB-sY1">
+            <rect key="frame" x="0.0" y="0.0" width="335" height="64"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9j9-AN-ijy">
+                    <rect key="frame" x="0.0" y="0.0" width="335" height="63"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultCoverArt" translatesAutoresizingMaskIntoConstraints="NO" id="6Cn-Qu-3ab">
+                            <rect key="frame" x="20" y="8" width="47" height="47"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="6Cn-Qu-3ab" secondAttribute="height" multiplier="1:1" id="I6V-Kn-Cwa"/>
+                            </constraints>
+                        </imageView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tik-7x-PaQ">
+                            <rect key="frame" x="75" y="8" width="0.0" height="47"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" id="DuG-NI-0Bp"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Not Playing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nQ-FU-7Ub">
+                            <rect key="frame" x="83" y="8" width="152" height="47"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJD-nr-kHS" userLabel="PlayButton">
+                            <rect key="frame" x="243" y="8" width="32" height="47"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="32" id="4Un-9M-vOk"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="32" id="MMT-BK-4vu"/>
+                            </constraints>
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <state key="normal" image="playButtonLarge">
+                                <color key="titleColor" systemColor="labelColor"/>
+                            </state>
+                            <connections>
+                                <action selector="playPauseButtonAction:" destination="-1" eventType="touchUpInside" id="a3n-1h-p00"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k9u-Hf-Cp0" userLabel="NextButton">
+                            <rect key="frame" x="283" y="8" width="32" height="47"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="32" id="etc-kL-NdJ"/>
+                                <constraint firstAttribute="width" constant="32" id="fy0-Z2-OSg"/>
+                            </constraints>
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <state key="normal" image="nextTrackButtonLarge">
+                                <color key="titleColor" systemColor="labelColor"/>
+                            </state>
+                            <connections>
+                                <action selector="nextButtonAction:" destination="-1" eventType="touchUpInside" id="3Ke-PH-ud9"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="Xfd-VS-LUl"/>
+                    <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="20" bottom="8" trailing="20"/>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXQ-Mb-Jkv" userLabel="ExpandButton">
+                    <rect key="frame" x="20" y="8" width="215" height="47"/>
+                    <state key="normal">
+                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="expandNowPlaying:" destination="-1" eventType="touchUpInside" id="F2I-ho-gVx"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2EO-qL-ast">
+                    <rect key="frame" x="0.0" y="63" width="335" height="1"/>
+                    <color key="backgroundColor" systemColor="separatorColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="chi-7m-8Ds"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="uXQ-Mb-Jkv" firstAttribute="bottom" secondItem="6Cn-Qu-3ab" secondAttribute="bottom" id="9FW-TH-Tef"/>
+                <constraint firstItem="9j9-AN-ijy" firstAttribute="top" secondItem="fma-vB-sY1" secondAttribute="top" id="Bpq-6d-BwN"/>
+                <constraint firstItem="uXQ-Mb-Jkv" firstAttribute="trailing" secondItem="4nQ-FU-7Ub" secondAttribute="trailing" id="SI9-AZ-DKb"/>
+                <constraint firstItem="uXQ-Mb-Jkv" firstAttribute="leading" secondItem="6Cn-Qu-3ab" secondAttribute="leading" id="Wae-93-MpQ"/>
+                <constraint firstItem="9j9-AN-ijy" firstAttribute="leading" secondItem="fma-vB-sY1" secondAttribute="leading" id="aG7-qp-jXe"/>
+                <constraint firstAttribute="trailing" secondItem="9j9-AN-ijy" secondAttribute="trailing" id="cCF-6v-1x0"/>
+                <constraint firstAttribute="trailing" secondItem="2EO-qL-ast" secondAttribute="trailing" id="dp6-XJ-FaI"/>
+                <constraint firstItem="2EO-qL-ast" firstAttribute="top" secondItem="9j9-AN-ijy" secondAttribute="bottom" id="k9V-5A-Xt0"/>
+                <constraint firstItem="uXQ-Mb-Jkv" firstAttribute="top" secondItem="6Cn-Qu-3ab" secondAttribute="top" id="ps9-CX-XSk"/>
+                <constraint firstItem="2EO-qL-ast" firstAttribute="leading" secondItem="fma-vB-sY1" secondAttribute="leading" id="ueX-jc-IqH"/>
+                <constraint firstAttribute="bottom" secondItem="2EO-qL-ast" secondAttribute="bottom" id="zCc-Cc-PPh"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-512.31884057971024" y="-32.142857142857139"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="defaultCoverArt" width="128" height="128"/>
+        <image name="nextTrackButtonLarge" width="28" height="28"/>
+        <image name="playButtonLarge" width="22" height="22"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="separatorColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

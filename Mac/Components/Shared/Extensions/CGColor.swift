@@ -6,9 +6,9 @@
 //  Copyright © 2019 Dan Barber. All rights reserved.
 //
 
-import AppKit
+import CoreGraphics
 
 extension CGColor {
-  static let albumBorderColorLight = NSColor.black.withAlphaComponent(0.15).cgColor
-  static let albumBorderColorDark = NSColor.white.withAlphaComponent(0.15).cgColor
+  static let albumBorderColorLight = CGColor.black.copy(alpha: 0.15)
+  static let albumBorderColorDark = CGColor.white.copy(alpha: 0.15)
 }

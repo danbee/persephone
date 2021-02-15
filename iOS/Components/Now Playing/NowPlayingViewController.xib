@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait" appearance="dark"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NowPlayingViewController" customModule="Persephone" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" minimumValueImage="speakerOff" maximumValueImage="speakerHigh" translatesAutoresizingMaskIntoConstraints="NO" id="69b-PX-D8O">
+                    <rect key="frame" x="30" y="694" width="315" height="31"/>
+                </slider>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" ambiguous="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="s9e-Zd-M6C">
+                    <rect key="frame" x="32" y="544" width="311" height="4"/>
+                </progressView>
+                <stackView opaque="NO" contentMode="center" fixedFrame="YES" distribution="equalCentering" alignment="center" spacing="87" translatesAutoresizingMaskIntoConstraints="NO" id="g2E-QV-g22">
+                    <rect key="frame" x="32" y="601" width="312" height="46"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ix3-hb-WwP" userLabel="Previous Button">
+                            <rect key="frame" x="0.0" y="0.0" width="46" height="46"/>
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <state key="normal" image="prevTrackButtonHugeiOS"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4qp-Jh-zT7" userLabel="Play Button">
+                            <rect key="frame" x="133" y="0.0" width="46" height="46"/>
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <state key="normal" image="playButtonHugeiOS"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5SE-nt-QeW" userLabel="Next Button">
+                            <rect key="frame" x="266" y="0.0" width="46" height="46"/>
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <state key="normal" image="nextTrackButtonHugeiOS"/>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="s9e-Zd-M6C" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="OzT-yE-YIZ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="69b-PX-D8O" secondAttribute="bottom" constant="54" id="S4t-SJ-XGN"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="s9e-Zd-M6C" secondAttribute="trailing" constant="32" id="TmT-dF-PSV"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="69b-PX-D8O" secondAttribute="trailing" constant="32" id="b4J-ZE-ZiR"/>
+                <constraint firstItem="69b-PX-D8O" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="du2-8n-Nmm"/>
+            </constraints>
+            <point key="canvasLocation" x="-376.80000000000001" y="73.152709359605907"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="nextTrackButtonHugeiOS" width="46" height="46"/>
+        <image name="playButtonHugeiOS" width="46" height="46"/>
+        <image name="prevTrackButtonHugeiOS" width="46" height="46"/>
+        <image name="speakerHigh" width="21" height="17"/>
+        <image name="speakerOff" width="21" height="17"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

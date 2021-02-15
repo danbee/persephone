@@ -25,4 +25,8 @@ struct Time {
 
     return formatter.string(from: TimeInterval(timeInSeconds))!
   }
+  
+  var hours: Int { timeInSeconds / 3600 }
+  
+  var minutes: Int { timeInSeconds % 3600 / 60 }
 }

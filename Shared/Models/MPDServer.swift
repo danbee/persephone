@@ -7,12 +7,17 @@
 //
 
 struct MPDServer {
-  let hostDefault = "127.0.0.1"
+  #if os(macOS)
+  let hostDefault: String? = "127.0.0.1"
+  #else
+  let hostDefault: String? = nil
+  #endif
+
   let portDefault = 6600
 
   var host: String?
 
-  var hostOrDefault: String {
+  var hostOrDefault: String? {
     return host ?? hostDefault
   }
 
