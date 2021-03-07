@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     _ = App.mpdServerController
     
-    App.store.dispatch(UpdateServerHost(host: "192.168.4.31"))
+    App.store.dispatch(UpdateServerHost(host: "192.168.42.11"))
   }
 
   func sceneDidDisconnect(_ scene: UIScene) {
