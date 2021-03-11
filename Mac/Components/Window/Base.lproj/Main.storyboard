@@ -688,19 +688,19 @@
         <scene sceneID="QcX-dC-cTZ">
             <objects>
                 <viewController id="KIP-rq-4dM" customClass="QueueViewController" customModule="Persephone" customModuleProvider="target" sceneMemberID="viewController">
-                    <splitView key="view" dividerStyle="thin" id="84I-w3-Mxl">
-                        <rect key="frame" x="0.0" y="0.0" width="324" height="521"/>
+                    <splitView key="view" misplaced="YES" dividerStyle="thin" id="84I-w3-Mxl">
+                        <rect key="frame" x="0.0" y="0.0" width="324" height="523"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
-                            <scrollView misplaced="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="17" horizontalPageScroll="10" verticalLineScroll="17" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="S3o-nF-NN7">
-                                <rect key="frame" x="0.0" y="0.0" width="324" height="211"/>
+                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="42" horizontalPageScroll="10" verticalLineScroll="42" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="S3o-nF-NN7">
+                                <rect key="frame" x="0.0" y="0.0" width="324" height="196"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <clipView key="contentView" drawsBackground="NO" id="WI8-Pw-03L">
-                                    <rect key="frame" x="0.0" y="0.0" width="324" height="211"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="324" height="181"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" indentationMarkerFollowsCell="NO" outlineTableColumn="0Co-uF-CCB" id="jEJ-jg-fll">
-                                            <rect key="frame" x="0.0" y="0.0" width="324" height="211"/>
+                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowHeight="42" rowSizeStyle="automatic" viewBased="YES" indentationMarkerFollowsCell="NO" outlineTableColumn="0Co-uF-CCB" id="jEJ-jg-fll">
+                                            <rect key="frame" x="0.0" y="0.0" width="352" height="181"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="0.0"/>
                                             <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -718,12 +718,12 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView identifier="songCoverCell" misplaced="YES" id="5rR-Gz-AcP" userLabel="Song Cover View" customClass="QueueSongCoverView" customModule="Persephone" customModuleProvider="target">
-                                                            <rect key="frame" x="11" y="0.0" width="48" height="15"/>
+                                                        <tableCellView identifier="songCoverCell" id="5rR-Gz-AcP" userLabel="Song Cover View" customClass="QueueSongCoverView" customModule="Persephone" customModuleProvider="target">
+                                                            <rect key="frame" x="11" y="0.0" width="0.0" height="0.0"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <imageView identifier="songCoverView" wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Yi-vi-Frs" userLabel="Song Cover View">
-                                                                    <rect key="frame" x="14" y="4" width="32" height="32"/>
+                                                                    <rect key="frame" x="14" y="5" width="32" height="32"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="32" id="hhe-Vq-2aS"/>
                                                                         <constraint firstAttribute="height" constant="32" id="iz9-3T-uWZ"/>
@@ -732,11 +732,7 @@
                                                                     <color key="contentTintColor" name="quaternaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                                 </imageView>
                                                                 <imageView wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ceF-G3-pG5">
-                                                                    <rect key="frame" x="14" y="4" width="32" height="32"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="32" id="674-SH-mEv"/>
-                                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="D4H-VP-xaW"/>
-                                                                    </constraints>
+                                                                    <rect key="frame" x="14" y="5" width="32" height="32"/>
                                                                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="a8D-O7-eZ5"/>
                                                                 </imageView>
                                                             </subviews>
@@ -770,7 +766,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="songInfoCell" id="GuF-NF-B1t" userLabel="Song Info View" customClass="QueueSongInfoView" customModule="Persephone" customModuleProvider="target">
-                                                            <rect key="frame" x="62" y="0.0" width="191" height="0.0"/>
+                                                            <rect key="frame" x="62" y="0.0" width="171" height="0.0"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="tBe-Q9-3Rw" userLabel="Song Artist View">
@@ -818,11 +814,11 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="songDurationCell" id="9Nz-Yf-SN1" userLabel="Song Duration View">
-                                                            <rect key="frame" x="256" y="0.0" width="56" height="0.0"/>
+                                                            <rect key="frame" x="284" y="0.0" width="8" height="0.0"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="ukg-c0-XVS">
-                                                                    <rect key="frame" x="9" y="-8" width="41" height="16"/>
+                                                                    <rect key="frame" x="9" y="13" width="41" height="16"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="right" title="88:88" id="JnJ-sF-vCP">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -855,8 +851,8 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="Kqx-7n-cws"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="500" id="zuT-k9-w8d"/>
                                 </constraints>
-                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="7mx-v9-DSr">
-                                    <rect key="frame" x="0.0" y="196" width="324" height="15"/>
+                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="7mx-v9-DSr">
+                                    <rect key="frame" x="0.0" y="181" width="324" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="p5z-C0-FUJ">
@@ -865,11 +861,11 @@
                                 </scroller>
                             </scrollView>
                             <customView misplaced="YES" id="iUb-eV-Qws">
-                                <rect key="frame" x="0.0" y="212" width="324" height="309"/>
+                                <rect key="frame" x="0.0" y="197" width="324" height="326"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Dw3-M5-tWY" customClass="CurrentCoverArtView" customModule="Persephone" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="324" height="324"/>
+                                        <rect key="frame" x="0.0" y="-197" width="324" height="324"/>
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="defaultCoverArt" id="IoN-3N-TCb"/>
                                     </imageView>
                                 </subviews>
