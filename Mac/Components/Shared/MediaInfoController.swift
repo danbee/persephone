@@ -37,7 +37,8 @@ class MediaInfoController {
     ] as [String : Any]
       
     if let elapsedTime = App.store.state.playerState.elapsedTimeMs {
-        nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = NSNumber(value: elapsedTime / 1000)
+      nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] =
+        NSNumber(value: elapsedTime / 1000)
     }
       
     if #available(OSX 10.13.2, *) {
@@ -67,7 +68,6 @@ class MediaInfoController {
 extension MediaInfoController: StoreSubscriber {
   typealias StoreSubscriberStateType = Song?
     
-
   func newState(state: StoreSubscriberStateType) {
     guard let song = state else {return}
 

@@ -42,7 +42,6 @@ class AppDelegate: NSObject,
     _ = App.userNotificationsController
     _ = App.mediaInfoController
     _ = App.playerStateInfoController
-    
     _ = App.mpdServerController
   }
 
