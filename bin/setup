@@ -7,6 +7,7 @@ git apply --directory=libmpdclient/ libmpdclient.patch
 
 pushd libmpdclient
 
+meson setup --wipe output
 meson . output
 ninja -C output
 
