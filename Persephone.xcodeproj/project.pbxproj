@@ -307,6 +307,8 @@
 		E4FF7190227601B400D4C412 /* PreferencesReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF718F227601B400D4C412 /* PreferencesReducer.swift */; };
 		E4FF71922276029000D4C412 /* PreferencesActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF71912276029000D4C412 /* PreferencesActions.swift */; };
 		E4FF71942276043A00D4C412 /* MPDServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF71932276043A00D4C412 /* MPDServer.swift */; };
+		E72BF0CE2567F45E00419CB0 /* PlayerStateInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72BF0CD2567F45E00419CB0 /* PlayerStateInfoController.swift */; };
+		E7AF1B642565124D00057784 /* MediaInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AF1B632565124D00057784 /* MediaInfoController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -650,6 +652,8 @@
 		E4FF718F227601B400D4C412 /* PreferencesReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesReducer.swift; sourceTree = "<group>"; };
 		E4FF71912276029000D4C412 /* PreferencesActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesActions.swift; sourceTree = "<group>"; };
 		E4FF71932276043A00D4C412 /* MPDServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDServer.swift; sourceTree = "<group>"; };
+		E72BF0CD2567F45E00419CB0 /* PlayerStateInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStateInfoController.swift; sourceTree = "<group>"; };
+		E7AF1B632565124D00057784 /* MediaInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaInfoController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -958,6 +962,8 @@
 				E489E3A222B9D31800CA8CBD /* DraggedSongView.swift */,
 				E489E3A322B9D31800CA8CBD /* DraggedSongView.xib */,
 				E4B11BB52275374B0075461B /* UserNotificationsController.swift */,
+				E7AF1B632565124D00057784 /* MediaInfoController.swift */,
+				E72BF0CD2567F45E00419CB0 /* PlayerStateInfoController.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -1643,6 +1649,7 @@
 				E48059D82426D73600362CF3 /* database.c in Sources */,
 				E43AC1F522C6A4F4001E483C /* DraggedAlbum.swift in Sources */,
 				E40FE71B221B904300A4223F /* NSEvent.swift in Sources */,
+				E72BF0CE2567F45E00419CB0 /* PlayerStateInfoController.swift in Sources */,
 				E4B11BB62275374B0075461B /* UserNotificationsController.swift in Sources */,
 				E43AC1F622C6AD0B001E483C /* AlbumViewController+NSCollectionViewDelegate.swift in Sources */,
 				E4B11B68226A4FA00075461B /* QueueState.swift in Sources */,
@@ -1674,6 +1681,7 @@
 				E4805A0A2426D73600362CF3 /* sync.c in Sources */,
 				E4DA820623D6236200C1EE58 /* NSSize.swift in Sources */,
 				E408D3B6220DD8970006D9BE /* Notification.swift in Sources */,
+				E7AF1B642565124D00057784 /* MediaInfoController.swift in Sources */,
 				E48059E42426D73600362CF3 /* run.c in Sources */,
 				E4805A1A2426D73600362CF3 /* cmessage.c in Sources */,
 				E48059C42426D73600362CF3 /* replay_gain.c in Sources */,
