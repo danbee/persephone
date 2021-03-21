@@ -14,7 +14,7 @@ import Kingfisher
 class MediaInfoController {
   init() {
     App.store.subscribe(self) {
-      $0.select { $0.playerState.currentSong }
+      $0.select { $0.playerState }
     }
   }
 
@@ -66,10 +66,10 @@ class MediaInfoController {
 }
 
 extension MediaInfoController: StoreSubscriber {
-  typealias StoreSubscriberStateType = Song?
+  typealias StoreSubscriberStateType = PlayerState?
     
   func newState(state: StoreSubscriberStateType) {
-    guard let song = state else {return}
+    guard let song = state?.currentSong else { return }
 
     notifyTrack(song)
   }

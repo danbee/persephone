@@ -12,11 +12,13 @@ import MediaPlayer
 import Kingfisher
 
 class PlayerStateInfoController {
+  let commandCenter = MPRemoteCommandCenter.shared()
+  
   init() {
     App.store.subscribe(self) {
       $0.select { $0.playerState.state }
     }
-    let commandCenter = MPRemoteCommandCenter.shared()
+
     commandCenter.playCommand.addTarget {  _ in
       App.mpdClient.playPause()
       return .success
@@ -37,6 +39,13 @@ class PlayerStateInfoController {
     
     commandCenter.previousTrackCommand.addTarget { _ in
       App.mpdClient.prevTrack()
+      return .success
+    }
+    
+    commandCenter.changePlaybackPositionCommand.addTarget { event in
+      let changeEvent = event as! MPChangePlaybackPositionCommandEvent
+
+      App.mpdClient.seekCurrentSong(timeInSeconds: Float(changeEvent.positionTime))
       return .success
     }
   }
