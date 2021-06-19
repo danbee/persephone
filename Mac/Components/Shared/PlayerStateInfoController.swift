@@ -13,7 +13,7 @@ import Kingfisher
 
 class PlayerStateInfoController {
   let commandCenter = MPRemoteCommandCenter.shared()
-  
+
   init() {
     App.store.subscribe(self) {
       $0.select { $0.playerState.state }
@@ -36,12 +36,12 @@ class PlayerStateInfoController {
       App.mpdClient.nextTrack()
       return .success
     }
-    
+
     commandCenter.previousTrackCommand.addTarget { _ in
       App.mpdClient.prevTrack()
       return .success
     }
-    
+
     commandCenter.changePlaybackPositionCommand.addTarget { event in
       let changeEvent = event as! MPChangePlaybackPositionCommandEvent
 

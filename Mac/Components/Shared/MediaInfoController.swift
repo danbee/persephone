@@ -35,12 +35,12 @@ class MediaInfoController {
       MPNowPlayingInfoPropertyMediaType: NSNumber(value: MPNowPlayingInfoMediaType.audio.rawValue),
       MPNowPlayingInfoPropertyIsLiveStream: NSNumber(value: false),
     ] as [String : Any]
-      
+
     if let elapsedTime = App.store.state.playerState.elapsedTimeMs {
       nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] =
         NSNumber(value: elapsedTime / 1000)
     }
-      
+
     if #available(OSX 10.13.2, *) {
       _ = KingfisherManager.shared.retrieveImage(
         with: .provider(provider),
@@ -67,7 +67,7 @@ class MediaInfoController {
 
 extension MediaInfoController: StoreSubscriber {
   typealias StoreSubscriberStateType = PlayerState?
-    
+
   func newState(state: StoreSubscriberStateType) {
     guard let song = state?.currentSong else { return }
 
