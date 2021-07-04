@@ -28,6 +28,8 @@ class AppDelegate: NSObject,
   @IBOutlet weak var playSelectedSongMenuItem: NSMenuItem!
   @IBOutlet weak var playSelectedSongNextMenuItem: NSMenuItem!
   @IBOutlet weak var addSelectedSongToQueueMenuItem: NSMenuItem!
+  
+  @IBOutlet weak var savePlaylistMenuItem: NSMenuItem!
 
   func applicationDidFinishLaunching(_ aNotification: Notification) {
     mediaKeyTap = MediaKeyTap(delegate: self)
@@ -35,10 +37,12 @@ class AppDelegate: NSObject,
 
     App.store.subscribe(self) {
       $0.select {
-        ($0.serverState, $0.playerState, $0.uiState)
+        ($0.serverState, $0.playerState, $0.uiState, $0.playlistState)
       }
     }
-    
+
+    NotificationCenter.default.addObserver(self, selector: #selector(didConnect), name: .didConnect, object: nil)
+
     _ = App.userNotificationsController
     _ = App.mediaInfoController
     _ = App.playerStateInfoController
@@ -137,6 +141,27 @@ class AppDelegate: NSObject,
     connectMenuItem.isEnabled = !connected
     disconnectMenuItem.isEnabled = connected
   }
+  
+  func setPlaylists(state: PlaylistState) {
+    guard let playlistsMenuItem = NSApplication.shared.mainMenu?.item(withTitle: "Playlists")
+      else { return }
+    
+    playlistsMenuItem.submenu?.items.forEach { item in
+      if item.tag == 1 {
+        playlistsMenuItem.submenu?.removeItem(item)
+      }
+    }
+
+    state.playlists.forEach { playlist in
+      let playlistMenuItem = NSMenuItem(
+        title: playlist.path,
+        action: #selector(loadPlaylist),
+        keyEquivalent: ""
+      )
+      playlistMenuItem.tag = 1
+      playlistsMenuItem.submenu?.addItem(playlistMenuItem)
+    }
+  }
 
   func handle(mediaKey: MediaKey, event: KeyEvent) {
     switch mediaKey {
@@ -147,6 +172,17 @@ class AppDelegate: NSObject,
     case .previous, .rewind:
       App.mpdClient.prevTrack()
     }
+  }
+  
+  @objc func didConnect() {
+    App.mpdClient.fetchPlaylists()
+  }
+  
+  @objc func loadPlaylist(_ sender: NSMenuItem) {
+    let name = sender.title
+
+    App.mpdClient.clearQueue()
+    App.mpdClient.loadQueueFromPlaylist(name: name)
   }
 
   @IBAction func connectMenuAction(_ sender: NSMenuItem) {
@@ -222,7 +258,10 @@ class AppDelegate: NSObject,
 
 extension AppDelegate: StoreSubscriber {
   typealias StoreSubscriberStateType = (
-    serverState: ServerState, playerState: PlayerState, uiState: UIState
+    serverState: ServerState,
+    playerState: PlayerState,
+    uiState: UIState,
+    playlistState: PlaylistState
   )
 
   func newState(state: StoreSubscriberStateType) {
@@ -231,5 +270,6 @@ extension AppDelegate: StoreSubscriber {
     setSongMenuItemsState(selectedSong: state.uiState.selectedSong)
     setControlsMenuItemsState(state: state.playerState)
     setConnectMenuItemsState(connected: state.serverState.connected)
+    setPlaylists(state: state.playlistState)
   }
 }

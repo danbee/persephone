@@ -15,4 +15,5 @@ struct AppState: StateType {
   var albumListState = AlbumListState()
   var preferencesState = PreferencesState()
   var uiState = UIState()
+  var playlistState = PlaylistState()
 }

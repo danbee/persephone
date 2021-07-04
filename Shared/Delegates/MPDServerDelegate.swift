@@ -69,4 +69,10 @@ class MPDServerDelegate: MPDClientDelegate {
 
   func didLoadArtists(mpdClient: MPDClient, artists: [String]) {
   }
+  
+  func didLoadPlaylists(mpdClient: MPDClient, playlists: [MPDClient.MPDPlaylist]) {
+    DispatchQueue.main.async {
+      App.store.dispatch(UpdatePlaylistsAction(playlists: playlists))
+    }
+  }
 }
