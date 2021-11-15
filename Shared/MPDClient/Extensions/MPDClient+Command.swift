@@ -158,7 +158,7 @@ extension MPDClient {
 
     let commandOperation = BlockOperation() { [unowned self] in
       self.sendCommand(command: command, userData: userData)
-
+  
       if self.checkError() {
         self.idle(forceIdle)
       }

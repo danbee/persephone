@@ -12,50 +12,37 @@ import mpdclient
 extension MPDClient {
   func noIdle() {
     guard isConnected else { return }
-
-    do {
-      idleLock.lock()
-      defer { idleLock.unlock() }
-      if isIdle {
-        mpd_send_noidle(connection)
-        isIdle = false
-      }
+    
+    if isIdle {
+      mpd_send_noidle(connection)
     }
   }
 
   func idle(_ force: Bool = false) {
     guard isConnected else { return }
 
-    let shouldIdle: Bool
-  
-    do {
-      idleLock.lock()
-      defer { idleLock.unlock() }
-      shouldIdle = (!isIdle && commandQueue.operationCount == 1) || force
-      if shouldIdle {
-        mpd_send_idle(connection)
-        self.isIdle = true
-      }
-    }
-
+    let shouldIdle: Bool = (!isIdle && commandQueue.operationCount == 1) || force
+    
     if shouldIdle {
-      let result = mpd_recv_idle(connection, true)
-      handleIdleResult(result)
+      self.isIdle = true
+      mpd_send_idle(connection)
+      
+      let handleIdleOperation = BlockOperation() { [unowned self] in
+        self.handleIdleResult()
+      }
+      
+      handleIdleOperation.queuePriority = .high
+      commandQueue.addOperation(handleIdleOperation)
     }
   }
 
-  func handleIdleResult(_ result: mpd_idle) {
+  func handleIdleResult() {
+    let result = mpd_recv_idle(connection, true)
     let mpdIdle = MPDIdle(rawValue: result.rawValue)
-    let wasIdle: Bool
+    
+    isIdle = false
 
-    do {
-      idleLock.lock()
-      defer { idleLock.unlock() }
-      wasIdle = isIdle
-      isIdle = false
-    }
-  
-    if checkError() && wasIdle {
+    if checkError() {
       if mpdIdle.contains(.database) {
         self.fetchAllAlbums()
       }
