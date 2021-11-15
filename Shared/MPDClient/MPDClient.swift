@@ -21,8 +21,6 @@ class MPDClient {
   var queue: [MPDSong] = []
 
   let commandQueue = OperationQueue()
-  
-  let idleLock = NSLock()
 
   init(withDelegate delegate: MPDClientDelegate?) {
     commandQueue.maxConcurrentOperationCount = 1
