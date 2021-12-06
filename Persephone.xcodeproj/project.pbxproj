@@ -1300,19 +1300,6 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		E4D4FAE6246F4B1B00CD02AF /* Now Playing */ = {
-			isa = PBXGroup;
-			children = (
-				E403E63C246F4C3900200F58 /* NowPlayingBarViewController.swift */,
-				E403E63D246F4C3900200F58 /* NowPlayingBarViewController.xib */,
-				E4F365D024942C6A006A8C4A /* NowPlayingTabBarController.swift */,
-				E4F365D3249432C0006A8C4A /* NowPlayingTabBar.swift */,
-				E4207C772576F7590089D21B /* NowPlayingViewController.swift */,
-				E4207C782576F75A0089D21B /* NowPlayingViewController.xib */,
-			);
-			path = "Now Playing";
-			sourceTree = "<group>";
-		};
 		E4E13C2C2350D8CB00092A6E /* Layouts */ = {
 			isa = PBXGroup;
 			children = (
@@ -1585,8 +1572,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E41222132431425400473C1D /* LaunchScreen.storyboard in Resources */,
-				E41222142431425400473C1D /* Main.storyboard in Resources */,
 				E4207C7A2576F75A0089D21B /* NowPlayingViewController.xib in Resources */,
 				E48059112426D73600362CF3 /* win64.txt in Resources */,
 				E480590F2426D73600362CF3 /* configure.py in Resources */,
@@ -2123,7 +2108,7 @@
 					"$(PROJECT_DIR)/Shared/libmpdclient/output",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = "0.18-alpha";
+				MARKETING_VERSION = "0.18.1-alpha";
 				PRODUCT_BUNDLE_IDENTIFIER = me.danbarber.Persephone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2159,7 +2144,7 @@
 					"$(PROJECT_DIR)/Shared/libmpdclient/output",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = "0.18-alpha";
+				MARKETING_VERSION = "0.18.1-alpha";
 				PRODUCT_BUNDLE_IDENTIFIER = me.danbarber.Persephone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
