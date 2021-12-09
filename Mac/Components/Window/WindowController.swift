@@ -15,7 +15,6 @@ class WindowController: NSWindowController {
   }
 
   var state: MPDClient.MPDStatus.State?
-  var trackTimer: Timer?
 
   @IBOutlet var transportControls: NSSegmentedCell!
 
@@ -198,8 +197,6 @@ class WindowController: NSWindowController {
       else { return }
 
     switch event.type {
-    case .leftMouseDown:
-      trackTimer?.invalidate()
     case .leftMouseDragged:
       App.store.dispatch(
         UpdateElapsedTimeAction(elapsedTimeMs: UInt(sender.integerValue))
