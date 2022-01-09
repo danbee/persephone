@@ -53,5 +53,10 @@ extension MPDClient {
     
     // Song commands
     case fetchAlbumArt
+    
+    // Playlist commands
+    case fetchPlaylists
+    case saveQueueToPlaylist
+    case loadQueueFromPlaylist
   }
 }

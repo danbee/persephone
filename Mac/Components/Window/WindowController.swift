@@ -30,6 +30,7 @@ class WindowController: NSWindowController {
 
   @IBOutlet weak var searchQuery: NSSearchField!
   
+  @IBOutlet weak var savePlaylistMenuItem: NSMenuItem!
   override func windowDidLoad() {
     super.windowDidLoad()
     window?.titleVisibility = .hidden

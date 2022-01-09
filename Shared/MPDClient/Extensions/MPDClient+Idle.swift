@@ -46,6 +46,9 @@ extension MPDClient {
       if mpdIdle.contains(.database) {
         self.fetchAllAlbums()
       }
+      if mpdIdle.contains(.storedPlaylist) {
+        self.fetchPlaylists()
+      }
       if mpdIdle.contains(.queue) {
         self.fetchQueue()
         self.fetchStatus()
