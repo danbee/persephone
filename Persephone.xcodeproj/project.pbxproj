@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -134,16 +134,6 @@
 		E48051522425626300362CF3 /* MPDServerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4405191227644340090CD6F /* MPDServerController.swift */; };
 		E48058282426D73500362CF3 /* version.h.in in Resources */ = {isa = PBXBuildFile; fileRef = E48056D82426D73400362CF3 /* version.h.in */; };
 		E48058292426D73500362CF3 /* version.h.in in Resources */ = {isa = PBXBuildFile; fileRef = E48056D82426D73400362CF3 /* version.h.in */; };
-		E480590E2426D73600362CF3 /* configure.py in Resources */ = {isa = PBXBuildFile; fileRef = E48057752426D73400362CF3 /* configure.py */; };
-		E480590F2426D73600362CF3 /* configure.py in Resources */ = {isa = PBXBuildFile; fileRef = E48057752426D73400362CF3 /* configure.py */; };
-		E48059102426D73600362CF3 /* win64.txt in Resources */ = {isa = PBXBuildFile; fileRef = E48057772426D73400362CF3 /* win64.txt */; };
-		E48059112426D73600362CF3 /* win64.txt in Resources */ = {isa = PBXBuildFile; fileRef = E48057772426D73400362CF3 /* win64.txt */; };
-		E48059122426D73600362CF3 /* win32.txt in Resources */ = {isa = PBXBuildFile; fileRef = E48057782426D73400362CF3 /* win32.txt */; };
-		E48059132426D73600362CF3 /* win32.txt in Resources */ = {isa = PBXBuildFile; fileRef = E48057782426D73400362CF3 /* win32.txt */; };
-		E48059142426D73600362CF3 /* build.sh in Resources */ = {isa = PBXBuildFile; fileRef = E48057792426D73400362CF3 /* build.sh */; };
-		E48059152426D73600362CF3 /* build.sh in Resources */ = {isa = PBXBuildFile; fileRef = E48057792426D73400362CF3 /* build.sh */; };
-		E48059C02426D73600362CF3 /* libmpdclient.vapi in Resources */ = {isa = PBXBuildFile; fileRef = E48057D82426D73400362CF3 /* libmpdclient.vapi */; };
-		E48059C12426D73600362CF3 /* libmpdclient.vapi in Resources */ = {isa = PBXBuildFile; fileRef = E48057D82426D73400362CF3 /* libmpdclient.vapi */; };
 		E48059C22426D73600362CF3 /* directory.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057DA2426D73400362CF3 /* directory.c */; };
 		E48059C32426D73600362CF3 /* directory.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057DA2426D73400362CF3 /* directory.c */; };
 		E48059C42426D73600362CF3 /* replay_gain.c in Sources */ = {isa = PBXBuildFile; fileRef = E48057DB2426D73400362CF3 /* replay_gain.c */; };
@@ -526,11 +516,6 @@
 		E48056F02426D73400362CF3 /* capabilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = capabilities.h; sourceTree = "<group>"; };
 		E48056F12426D73400362CF3 /* queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = queue.h; sourceTree = "<group>"; };
 		E48056F22426D73400362CF3 /* playlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = playlist.h; sourceTree = "<group>"; };
-		E48057752426D73400362CF3 /* configure.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = configure.py; sourceTree = "<group>"; };
-		E48057772426D73400362CF3 /* win64.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = win64.txt; sourceTree = "<group>"; };
-		E48057782426D73400362CF3 /* win32.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = win32.txt; sourceTree = "<group>"; };
-		E48057792426D73400362CF3 /* build.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = build.sh; sourceTree = "<group>"; };
-		E48057D82426D73400362CF3 /* libmpdclient.vapi */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libmpdclient.vapi; sourceTree = "<group>"; };
 		E48057DA2426D73400362CF3 /* directory.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = directory.c; sourceTree = "<group>"; };
 		E48057DB2426D73400362CF3 /* replay_gain.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = replay_gain.c; sourceTree = "<group>"; };
 		E48057DC2426D73400362CF3 /* cplaylist.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cplaylist.c; sourceTree = "<group>"; };
@@ -1024,8 +1009,6 @@
 			isa = PBXGroup;
 			children = (
 				E48056CA2426D73300362CF3 /* include */,
-				E48057742426D73400362CF3 /* build */,
-				E48057D72426D73400362CF3 /* vapi */,
 				E48057D92426D73400362CF3 /* src */,
 			);
 			path = libmpdclient;
@@ -1083,33 +1066,6 @@
 				E48056D82426D73400362CF3 /* version.h.in */,
 			);
 			path = mpd;
-			sourceTree = "<group>";
-		};
-		E48057742426D73400362CF3 /* build */ = {
-			isa = PBXGroup;
-			children = (
-				E48057752426D73400362CF3 /* configure.py */,
-				E48057762426D73400362CF3 /* cross */,
-				E48057792426D73400362CF3 /* build.sh */,
-			);
-			path = build;
-			sourceTree = "<group>";
-		};
-		E48057762426D73400362CF3 /* cross */ = {
-			isa = PBXGroup;
-			children = (
-				E48057772426D73400362CF3 /* win64.txt */,
-				E48057782426D73400362CF3 /* win32.txt */,
-			);
-			path = cross;
-			sourceTree = "<group>";
-		};
-		E48057D72426D73400362CF3 /* vapi */ = {
-			isa = PBXGroup;
-			children = (
-				E48057D82426D73400362CF3 /* libmpdclient.vapi */,
-			);
-			path = vapi;
 			sourceTree = "<group>";
 		};
 		E48057D92426D73400362CF3 /* src */ = {
@@ -1298,19 +1254,6 @@
 				E4E8CC8F2204EC7F0024217A /* Delegate.swift */,
 			);
 			path = Protocols;
-			sourceTree = "<group>";
-		};
-		E4D4FAE6246F4B1B00CD02AF /* Now Playing */ = {
-			isa = PBXGroup;
-			children = (
-				E403E63C246F4C3900200F58 /* NowPlayingBarViewController.swift */,
-				E403E63D246F4C3900200F58 /* NowPlayingBarViewController.xib */,
-				E4F365D024942C6A006A8C4A /* NowPlayingTabBarController.swift */,
-				E4F365D3249432C0006A8C4A /* NowPlayingTabBar.swift */,
-				E4207C772576F7590089D21B /* NowPlayingViewController.swift */,
-				E4207C782576F75A0089D21B /* NowPlayingViewController.xib */,
-			);
-			path = "Now Playing";
 			sourceTree = "<group>";
 		};
 		E4E13C2C2350D8CB00092A6E /* Layouts */ = {
@@ -1548,8 +1491,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E48059C02426D73600362CF3 /* libmpdclient.vapi in Resources */,
-				E48059102426D73600362CF3 /* win64.txt in Resources */,
 				E45E4FDB22515D87004B537F /* Brewfile in Resources */,
 				E42A8F3B22176D6400A13ED9 /* LICENSE.md in Resources */,
 				E453825323FA0186007F6BFC /* VolumeControlView.xib in Resources */,
@@ -1559,11 +1500,8 @@
 				E489E3A522B9D31800CA8CBD /* DraggedSongView.xib in Resources */,
 				E40786202110CE70006887B1 /* Assets.xcassets in Resources */,
 				E42A8F3C22176D6400A13ED9 /* README.md in Resources */,
-				E480590E2426D73600362CF3 /* configure.py in Resources */,
-				E48059142426D73600362CF3 /* build.sh in Resources */,
 				E408D3CB220E341D0006D9BE /* AlbumViewItem.xib in Resources */,
 				E40786232110CE70006887B1 /* Main.storyboard in Resources */,
-				E48059122426D73600362CF3 /* win32.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1585,16 +1523,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E41222132431425400473C1D /* LaunchScreen.storyboard in Resources */,
-				E41222142431425400473C1D /* Main.storyboard in Resources */,
 				E4207C7A2576F75A0089D21B /* NowPlayingViewController.xib in Resources */,
-				E48059112426D73600362CF3 /* win64.txt in Resources */,
-				E480590F2426D73600362CF3 /* configure.py in Resources */,
 				E48058292426D73500362CF3 /* version.h.in in Resources */,
-				E48059152426D73600362CF3 /* build.sh in Resources */,
 				E403E63F246F4C3900200F58 /* NowPlayingBarViewController.xib in Resources */,
-				E48059132426D73600362CF3 /* win32.txt in Resources */,
-				E48059C12426D73600362CF3 /* libmpdclient.vapi in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2121,6 +2052,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Shared/libmpdclient/output",
+					"$(PROJECT_DIR)/libmpdclient/output",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = "0.18-alpha";
@@ -2157,6 +2089,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Shared/libmpdclient/output",
+					"$(PROJECT_DIR)/libmpdclient/output",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = "0.18-alpha";

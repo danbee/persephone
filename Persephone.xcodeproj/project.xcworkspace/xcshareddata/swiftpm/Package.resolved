@@ -1,79 +1,78 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "CryptoSwift",
-        "repositoryURL": "https://github.com/krzyzanowskim/CryptoSwift",
-        "state": {
-          "branch": null,
-          "revision": "4e31051c63cc0ddf10a25cf5318856c510cf77f4",
-          "version": "1.4.0"
-        }
-      },
-      {
-        "package": "Differ",
-        "repositoryURL": "https://github.com/tonyarnold/Differ",
-        "state": {
-          "branch": null,
-          "revision": "4c3eb4d76ad5c14075829397a5741b0badb08dce",
-          "version": "1.4.5"
-        }
-      },
-      {
-        "package": "PMKFoundation",
-        "repositoryURL": "https://github.com/PromiseKit/Foundation",
-        "state": {
-          "branch": null,
-          "revision": "985f17fa69ee0e5b7eb3ff9be87ffc4e05fc0927",
-          "version": "3.4.0"
-        }
-      },
-      {
-        "package": "Kingfisher",
-        "repositoryURL": "https://github.com/onevcat/Kingfisher.git",
-        "state": {
-          "branch": null,
-          "revision": "1a0c2df04b31ed7aa318354f3583faea24f006fc",
-          "version": "5.15.8"
-        }
-      },
-      {
-        "package": "MediaKeyTap",
-        "repositoryURL": "https://github.com/danbee/MediaKeyTap",
-        "state": {
-          "branch": "add-package-swift",
-          "revision": "b6b83b1a3e78d25ad9c86a55babce4f60caf6fa4",
-          "version": null
-        }
-      },
-      {
-        "package": "PromiseKit",
-        "repositoryURL": "https://github.com/mxcl/PromiseKit",
-        "state": {
-          "branch": null,
-          "revision": "f14f16cc2602afec1030e4f492100d6d43dca544",
-          "version": "6.13.1"
-        }
-      },
-      {
-        "package": "ReSwift",
-        "repositoryURL": "https://github.com/ReSwift/ReSwift",
-        "state": {
-          "branch": null,
-          "revision": "b92762b5aa85c5e94053d942fbd37124ee939e5b",
-          "version": "5.0.0"
-        }
-      },
-      {
-        "package": "SwiftyJSON",
-        "repositoryURL": "https://github.com/SwiftyJSON/SwiftyJSON",
-        "state": {
-          "branch": null,
-          "revision": "b3dcd7dbd0d488e1a7077cb33b00f2083e382f07",
-          "version": "5.0.1"
-        }
+  "originHash" : "c1b9ccd259df3ccde312215364ddd78efc86b121d809721412a8f03ef2452cf7",
+  "pins" : [
+    {
+      "identity" : "cryptoswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/krzyzanowskim/CryptoSwift",
+      "state" : {
+        "revision" : "4e31051c63cc0ddf10a25cf5318856c510cf77f4",
+        "version" : "1.4.0"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "differ",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/tonyarnold/Differ",
+      "state" : {
+        "revision" : "4c3eb4d76ad5c14075829397a5741b0badb08dce",
+        "version" : "1.4.5"
+      }
+    },
+    {
+      "identity" : "foundation",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/PromiseKit/Foundation",
+      "state" : {
+        "revision" : "985f17fa69ee0e5b7eb3ff9be87ffc4e05fc0927",
+        "version" : "3.4.0"
+      }
+    },
+    {
+      "identity" : "kingfisher",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/onevcat/Kingfisher.git",
+      "state" : {
+        "revision" : "1a0c2df04b31ed7aa318354f3583faea24f006fc",
+        "version" : "5.15.8"
+      }
+    },
+    {
+      "identity" : "mediakeytap",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/danbee/MediaKeyTap",
+      "state" : {
+        "branch" : "add-package-swift",
+        "revision" : "b6b83b1a3e78d25ad9c86a55babce4f60caf6fa4"
+      }
+    },
+    {
+      "identity" : "promisekit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mxcl/PromiseKit",
+      "state" : {
+        "revision" : "f14f16cc2602afec1030e4f492100d6d43dca544",
+        "version" : "6.13.1"
+      }
+    },
+    {
+      "identity" : "reswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ReSwift/ReSwift",
+      "state" : {
+        "revision" : "b92762b5aa85c5e94053d942fbd37124ee939e5b",
+        "version" : "5.0.0"
+      }
+    },
+    {
+      "identity" : "swiftyjson",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SwiftyJSON/SwiftyJSON",
+      "state" : {
+        "revision" : "af76cf3ef710b6ca5f8c05f3a31307d44a3c5828",
+        "version" : "5.0.2"
+      }
+    }
+  ],
+  "version" : 3
 }
